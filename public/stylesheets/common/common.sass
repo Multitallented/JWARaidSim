@@ -1,0 +1,17 @@
+@import variables
+
+body
+  font: $font-size-base $font-lucida-grande
+
+a
+  color: $olive-drab
+  transition: .5s
+
+  &:hover
+    color: lighten($olive-drab, 15%)
+    text-decoration: none
+
+.clearfix:after
+  content: ''
+  display: block
+  clear: both
