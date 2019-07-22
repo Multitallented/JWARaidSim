@@ -6,5 +6,15 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'ironfrontdown';
+  isHome = true;
+  isStore = false;
+  isAbout = false;
+  isGame = false;
+
+  setView(view) {
+    this.isHome = view === 'home';
+    this.isAbout = view === 'about';
+    this.isGame = view === 'game';
+    this.isStore = view === 'store';
+  }
 }

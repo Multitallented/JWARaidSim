@@ -2,21 +2,25 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { MainSidebarComponent } from './main-sidebar/main-sidebar.component';
-import { MainHeaderComponent } from './main-header/main-header.component';
 import { MainFooterComponent } from './main-footer/main-footer.component';
 import { AccountComponent } from './account/account.component';
+import { HomeModule } from "./home/home.module";
+import { AboutModule } from "./about/about.module";
+import { GameModule } from "./game/game.module";
+import { StoreModule } from "./store/store.module";
 
 @NgModule({
   declarations: [
     AppComponent,
-    MainSidebarComponent,
-    MainHeaderComponent,
     MainFooterComponent,
-    AccountComponent
+    AccountComponent,
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HomeModule,
+    AboutModule,
+    GameModule,
+    StoreModule
   ],
   providers: [],
   bootstrap: [AppComponent]
