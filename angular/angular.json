@@ -120,7 +120,7 @@
   "defaultProject": "ironfrontdown",
   "schematics": {
     "@schematics/angular:component": {
-      "stylesheet": "scss"
+      "stylesheet": "sass"
     }
   }
 }
