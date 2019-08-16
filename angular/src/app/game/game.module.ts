@@ -8,7 +8,8 @@ import { GameComponent } from "./game.component";
 @NgModule({
   declarations: [ArmyGroupListComponent, ArmyUnitDetailsComponent, GameComponent],
   exports: [
-    ArmyGroupListComponent
+    ArmyGroupListComponent,
+    GameComponent
   ],
   imports: [
     CommonModule

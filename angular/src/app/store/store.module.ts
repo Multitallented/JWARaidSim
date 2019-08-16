@@ -7,7 +7,10 @@ import { StoreComponent } from './store.component';
 
 
 @NgModule({
-  declarations: [ProductThumbnailComponent, ProductGridComponent, StoreComponent ],
+  declarations: [ProductThumbnailComponent, ProductGridComponent, StoreComponent],
+  exports: [
+    StoreComponent
+  ],
   imports: [
     CommonModule
   ]
