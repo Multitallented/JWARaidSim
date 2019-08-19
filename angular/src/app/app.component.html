@@ -1,10 +1,14 @@
 <div id="header">
   <div class="container">
-    <a id="logo" href="#" (click)="setView('home')">
-      <img class="logo" style="display: inline-block; width:100px; height: 100px; background: #666;" />
-      <h1>Iron Front Down</h1>
-    </a>
-    <app-account></app-account>
+    <div class="clearfix">
+      <a id="logo" href="#" (click)="setView('home')">
+        <img class="logo" style="display: inline-block; width:100px; height: 100px; background: #666;" />
+        <h1>Iron Front Down</h1>
+      </a>
+      <div class="right">
+        <app-account></app-account>
+      </div>
+    </div>
     <div class="menu">
       <a href="#" (click)="setView('game')">Game</a>
       <a href="#" (click)="setView('store')">Store</a>
