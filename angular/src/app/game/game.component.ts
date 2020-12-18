@@ -12,4 +12,7 @@ export class GameComponent implements OnInit {
   ngOnInit() {
   }
 
+  selectNation(nation:string) {
+
+  }
 }
