@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import _ from 'lodash';
+import * as germanWeapons from '../units/german/weapons.json';
+import * as germanGrenadiers from '../units/german/platoons/grenadier.json';
 
 class Squad {
   name: string;
@@ -20,11 +22,13 @@ class Platoon {
   name: string;
   options: number;
   editing: boolean;
+  standard: boolean;
   squads: Array<Squad> = [];
 
-  constructor(name, options) {
+  constructor(name: string, options: number, standard: boolean) {
     this.name = name;
     this.options = options;
+    this.standard = standard;
   }
 
   getPoints(): number {
@@ -53,8 +57,10 @@ class Platoon {
 })
 export class GameComponent implements OnInit {
 
-  constructor() { }
+  constructor() {
+  }
 
+  germans = {};
   nation: string;
   platoonOptions: Array<Platoon> = [];
   activeSquad: Squad;
@@ -83,16 +89,30 @@ export class GameComponent implements OnInit {
   }
 
   setGerman() {
-    let grenadierPlatoon = new Platoon('Grenadiers', 1);
-    grenadierPlatoon.squads.push(new Squad('Grenadier Command', false, 100));
-    grenadierPlatoon.squads.push(new Squad('Grenadier', true, 150));
-    grenadierPlatoon.squads.push(new Squad('Grenadier', true, 150));
-    grenadierPlatoon.squads.push(new Squad('Grenadier', false, 150));
-    this.platoonOptions.push(grenadierPlatoon);
+    this.loadPlatoon(germanGrenadiers)
   }
 
   setAmerican() {
 
+  }
+
+  loadPlatoon(platoonData: any) {
+    platoonData = platoonData.default;
+    console.log(platoonData)
+    let platoon = new Platoon(platoonData.name, platoonData.options, platoonData.standard);
+    for (let key in platoonData.squads) {
+      if (!key || !platoonData.squads.hasOwnProperty(key)) {
+        continue;
+      }
+      let squadData = platoonData.squads[key];
+      let min = 0;
+      for (let i = 0; i < squadData.max; i++) {
+        let squad = new Squad(key, squadData.min > min, squadData.points);
+        platoon.squads.push(squad);
+        min++;
+      }
+    }
+    this.platoonOptions.push(platoon);
   }
 
   getPoints(): number {
