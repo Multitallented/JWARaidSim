@@ -20,6 +20,20 @@ body
     display: block
     clear: both
 
+.row
+  margin-right: -15px
+  margin-left: -15px
+  overflow: hidden
+
+  .col
+    padding-left: 15px
+    padding-right: 15px
+    box-sizing: border-box
+    float: left
+
+.wdth-33
+  width: 33.3%
+
 a
   text-decoration: none
   color: $afrika-mustard
@@ -28,23 +42,37 @@ a
   &:hover
     text-decoration: underline
 .french
-  a
+  a, .faction-color
     color: $french-blue
+  .faction-bg
+    background-color: $french-blue
 .indian, .british
-  a
+  a, .faction-color
     color: $desert-sand
+  .faction-bg
+    background-color: $desert-sand
 .german
-  a
+  a, .faction-color
     color: $afrika-mustard
+  .faction-bg
+    background-color: $afrika-mustard
 .italian, .japanese
-  a
+  a, .faction-color
     color: $jungle-green
+  .faction-bg
+    background-color: $jungle-green
 .american
-  a
+  a, .faction-color
     color: $olive-drab
+  .faction-bg
+    background-color: $olive-drab
 .chinese
-  a
+  a, .faction-color
     color: $chinese-blue
+  .faction-bg
+    background-color: $chinese-blue
 .russian
-  a
+  a, .faction-color
     color: $russian-green
+  .faction-bg
+    background-color: $russian-green

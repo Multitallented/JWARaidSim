@@ -1,0 +1,57 @@
+{
+  "MP40": {
+    "range": 14,
+    "shots": 3
+  },
+  "MG34": {
+    "range": 250,
+    "shots": 3,
+    "damage": 1,
+    "special": [
+      "+4$shots$ when adjacent to a stationary assistant"
+    ]
+  },
+  "Kar98K": {
+    "range": 120,
+    "shots": 1
+  },
+  "G43": {
+    "range": 100,
+    "shots": 2
+  },
+  "StG44": {
+    "range": 50,
+    "shots": 3
+  },
+  "Panzerfaust": {
+    "range": 20,
+    "shots": 1,
+    "blast": 3,
+    "hit": 9,
+    "damage": 5,
+    "special": [
+      "Fires every other turn"
+    ]
+  },
+  "StG39 Grenades": {
+    "range": 5,
+    "shots": 1,
+    "blast": 3,
+    "hit": 6,
+    "damage": 5,
+    "specials": [
+      "Only hits vehicles in close combat",
+      "Indirect Fire"
+    ]
+  },
+  "Panzerschreck": {
+    "range": 30,
+    "shots": 1,
+    "blast": 3,
+    "hit": 9,
+    "damage": 5,
+    "specials": [
+      "Fires every other turn unless adjacent to an assistant"
+    ]
+  }
+}

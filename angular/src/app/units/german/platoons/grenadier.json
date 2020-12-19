@@ -1,0 +1,247 @@
+{
+  "name": "Grenadier",
+  "options": -1,
+  "standard": true,
+  "squads": {
+    "Grenadier Command": {
+      "points": 100,
+      "options": 1,
+      "max": 1,
+      "min": 0,
+      "hq": true,
+      "type": "infantry",
+      "move": 20,
+      "morale": 6,
+      "morale-frequency": 2,
+      "armor": 7,
+      "hp": 3,
+      "runner": 5,
+      "closeCombat": 0,
+      "characteristics": [
+        "None"
+      ],
+      "infantry": {
+        "Leader": {
+          "closeCombat": 3,
+          "models": 2,
+          "weapons": {
+            "MP40": 2
+          }
+        },
+        "Runners": {
+          "models": 2,
+          "weapons": {
+            "Kar98K": 2
+          }
+        },
+        "Infantry": {
+          "models": 1,
+          "weapons": {
+            "Panzerfaust": 1,
+            "Kar98K": 1
+          }
+        },
+        "All Infantry": {
+          "weapons": {
+            "StG39 Grenades": 1
+          }
+        },
+        "variants": [
+          {
+            "name": "(2 max per platoon) Opel Blitz truck",
+            "points": 30,
+            "require": {
+              "type": "squad",
+              "name": "Opel Blitz",
+              "max": 2,
+              "platoon": true
+            },
+            "add": {
+              "squad": {
+                "Opel Blitz": 1
+              }
+            }
+          },
+          {
+            "name": "(Opel Blitz required) Radio Operator",
+            "points": 10,
+            "require": {
+              "type": "squad",
+              "name": "Opel Blitz"
+            },
+            "remove": {
+              "runner": 5
+            },
+            "add": {
+              "radio": 4
+            }
+          }
+        ]
+      },
+      "lore": "I speak in the name of the entire German people when I assure the world that we all share the honest wish to eliminate the enmity that brings far more costs than any possible benefits... It would be a wonderful thing for all of humanity if both peoples would renounce force against each other forever. The German people are ready to make such a pledge.",
+      "quote": "Adolf Hitler - 14th October 1933"
+    },
+    "Panzerschreck Squad": {
+      "points": 60,
+      "max": 0,
+      "min": 0,
+      "type": "infantry",
+      "move": 20,
+      "morale": 6,
+      "morale-frequency": 1,
+      "armor": 7,
+      "hp": 3,
+      "shout": 5,
+      "closeCombat": 0,
+      "characteristics": [
+        "None"
+      ],
+      "infantry": {
+        "Infantry": {
+          "closeCombat": 1,
+          "models": 2,
+          "weapons": {
+            "Kar98K": 1,
+            "Panzerschreck": 1,
+            "StG39 Grenades": 1
+          }
+        }
+      },
+      "variants": [
+        {
+          "name": "swap Kar98K with G43",
+          "points": 10,
+          "remove": {
+            "infantry": {
+              "Infantry": {
+                "weapons": {
+                  "Kar98K": 1
+                }
+              }
+            }
+          },
+          "add": {
+            "infantry": {
+              "Infantry": {
+                "weapons": {
+                  "G43": 1
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "swap Kar98K with StG44",
+          "points": 20,
+          "remove": {
+            "infantry": {
+              "Infantry": {
+                "weapons": {
+                  "Kar98K": 1
+                }
+              }
+            }
+          },
+          "add": {
+            "infantry": {
+              "Infantry": {
+                "weapons": {
+                  "StG44": 1
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "Grenadiers": {
+      "points": 150,
+      "options": 1,
+      "max": 3,
+      "min": 2,
+      "type": "infantry",
+      "move": 20,
+      "morale": 7,
+      "morale-frequency": 3,
+      "armor": 7,
+      "hp": 3,
+      "shout": 5,
+      "closeCombat": 0,
+      "characteristics": [
+        "None"
+      ],
+      "infantry": {
+        "Leader": {
+          "closeCombat": 3,
+          "models": 2,
+          "weapons": {
+            "MP40": 2
+          }
+        },
+        "Infantry": {
+          "closeCombat": 1,
+          "models": 6,
+          "weapons": {
+            "MG34": 1,
+            "Kar98K": 6
+          }
+        },
+        "All Infantry": {
+          "weapons": {
+            "StG39 Grenades": 1
+          }
+        }
+      },
+      "lore": "Which would your men rather be, tired or dead?",
+      "quote": "Erwin Rommel",
+      "variants": [
+        {
+          "name": "(2 max per platoon) Opel Blitz truck",
+          "points": 30,
+          "require": {
+            "type": "squad",
+            "name": "Opel Blitz",
+            "max": 2,
+            "platoon": true
+          },
+          "add": {
+            "squad": {
+              "Opel Blitz": 1
+            }
+          }
+        },
+        {
+          "name": "Panzerfaust",
+          "points": 30,
+          "max": 2,
+          "add": {
+            "infantry": {
+              "weapons": {
+                "Panzerfaust": 1
+              }
+            }
+          }
+        },
+        {
+          "name": "form a Panzershreck Squad",
+          "points": 0,
+          "add": {
+            "remove": {
+              "infantry": {
+                "Infantry": {
+                  "models": 2,
+                  "weapons": {
+                    "Kar98K": 2
+                  }
+                }
+              }
+            },
+            "squad": {
+              "Panzerschreck Squad": 1
+            }
+          }
+        }
+      ]
+    }
+  }
+}

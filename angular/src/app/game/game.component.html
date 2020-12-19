@@ -1,34 +1,68 @@
 
-<div class="container">
+<div class="container {{nation}}">
+
+  <div class="right list-resources faction-bg">
+    {{getPoints()}} pts | {{getOptions()}} opts
+  </div>
 
   <div class="nation-select">
     <h3>Select Your Faction</h3>
-    <a href="#" class="ru" (click)="selectNation('ru');">
+    <a href="#" class="ru" (click)="selectNation('russian');">
       <img src="/assets/flags/ru.png" alt="Soviet Russia" />
     </a>
-    <a href="#" class="de" (click)="selectNation('de');">
+    <a href="#" class="de" (click)="selectNation('german');">
       <img src="/assets/flags/de.png" alt="Nazi Germany" />
     </a>
-    <a href="#" class="us" (click)="selectNation('us');">
+    <a href="#" class="us" (click)="selectNation('american');">
       <img src="/assets/flags/us.png" alt="United States" />
     </a>
-    <a href="#" class="ja" (click)="selectNation('ja');">
+    <a href="#" class="ja" (click)="selectNation('japanese');">
       <img src="/assets/flags/ja.png" alt="Imperial Japan" />
     </a>
-    <a href="#" class="zh" (click)="selectNation('zh');">
+    <a href="#" class="zh" (click)="selectNation('chinese');">
       <img src="/assets/flags/zh.png" alt="China" />
     </a>
-    <a href="#" class="it" (click)="selectNation('it');">
+    <a href="#" class="it" (click)="selectNation('italian');">
       <img src="/assets/flags/it.png" alt="Italy" />
     </a>
-    <a href="#" class="uk" (click)="selectNation('uk');">
+    <a href="#" class="uk" (click)="selectNation('british');">
       <img src="/assets/flags/uk.png" alt="British Commonwealth" />
     </a>
-    <a href="#" class="ina" (click)="selectNation('ina');">
+    <a href="#" class="ina" (click)="selectNation('indian');">
       <img src="/assets/flags/ina.png" alt="Indian National Army" />
     </a>
-    <a href="#" class="fr" (click)="selectNation('fr');">
+    <a href="#" class="fr" (click)="selectNation('french');">
       <img src="/assets/flags/fr.png" alt="France" />
     </a>
+  </div>
+
+  <div class="clearfix"></div>
+  <div class="row" *ngIf="nation">
+    <div class="col wdth-33">
+      <h3>Options</h3>
+      <div *ngFor="let platoonOption of platoonOptions">
+        <span class="name">{{platoonOption.name}}</span>
+        <a href="#" (click)="addPlatoon(platoonOption)">>></a>
+      </div>
+    </div>
+    <div class="col wdth-33">
+      <h3>Army</h3>
+      <div *ngFor="let platoon of armyList">
+        <span class="name">{{platoon.name}}</span>
+        <a href="#" class="platoon-edit" (click)="platoon.editing=!platoon.editing">Edit</a>
+        <a href="#" class="platoon-accordian">+</a>
+        <div *ngFor="let squad of platoon.squads">
+          <div *ngIf="platoon.editing || squad.included">
+            <a href="#" (click)="viewSquad(squad)">{{squad.name}}</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col wdth-33">
+      <h3>Unit</h3>
+      <div *ngIf="activeSquad">
+        {{activeSquad.name}} {{activeSquad.points}}
+      </div>
+    </div>
   </div>
 </div>
