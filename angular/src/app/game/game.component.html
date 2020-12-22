@@ -45,23 +45,63 @@
         <a href="#" (click)="addPlatoon(platoonOption)">>></a>
       </div>
     </div>
-    <div class="col wdth-33">
+    <div class="col wdth-33 chosen-platoons">
       <h3>Army</h3>
-      <div *ngFor="let platoon of armyList">
-        <span class="name">{{platoon.name}}</span>
-        <a href="#" class="platoon-edit" (click)="platoon.editing=!platoon.editing">Edit</a>
-        <a href="#" class="platoon-accordian">+</a>
-        <div *ngFor="let squad of platoon.squads">
-          <div *ngIf="platoon.editing || squad.included">
-            <a href="#" (click)="viewSquad(squad)">{{squad.name}}</a>
+      <div class="platoon" *ngFor="let platoon of armyList">
+        <ng-container *ngIf="armyList.length > 0 || platoon.standard">
+          <div class="platoon-info">
+            <span class="name">{{platoon.name}} {{platoon.getPoints()}}pts</span>
+            <a href="#" class="platoon-accordian right" (click)="platoon.expanded = !platoon.expanded">{{platoon.expanded ? '--' : '+'}}</a>
+            <a href="#" class="platoon-edit right" (click)="platoon.editing=!platoon.editing">{{platoon.editing ? 'Save' : 'Edit'}}</a>
           </div>
-        </div>
+          <div class="platoon-squads" [ngClass]="{'expanded': platoon.expanded}">
+            <div *ngFor="let squad of platoon.squads">
+              <div *ngIf="platoon.editing || squad.included">
+                <a href="#" (click)="viewSquad(squad, platoon)">{{squad.name}} {{squad.points}}pts</a>
+                <a href="#" class="right" (click)="squad.included = !squad.included">{{squad.included ? 'Remove' : 'Add'}}</a>
+              </div>
+            </div>
+          </div>
+        </ng-container>
       </div>
     </div>
     <div class="col wdth-33">
       <h3>Unit</h3>
       <div *ngIf="activeSquad">
-        {{activeSquad.name}} {{activeSquad.points}}
+        <div class="active-squad" [ngClass]="{'front': frontSide}">
+          <h2>{{activeSquad.name.split(' ')[0]}}
+            <span *ngIf="activeSquad.name.indexOf(' ') !== -1">{{activeSquad.name.substring(activeSquad.name.indexOf(' '), activeSquad.name.length)}}</span></h2>
+          <img class="card-icon" src="{{getCardIcon(activeSquad)}}" alt="Card Icon" />
+          <div class="card-container">
+            <ng-container *ngIf="frontSide">
+              <div class="main-image">
+                <img src="{{activeSquad.data.img}}" alt="{{activeSquad.name}}" />
+              </div>
+              <div class="points-bar">
+                <span *ngIf="activeSquad.data.hq" class="hq">HQ</span>
+                <span class="points">{{activeSquad.points}}pts </span>
+                <span class="options">{{activeSquad.data.options}}opts</span>
+              </div>
+              <div class="lore-container">
+                <div *ngFor="let variant of activeSquad.data.variants" class="variant" (click)="toggleVariant(variant)">
+                  <img class="unlock-icon" *ngIf="variant.selected" src="assets/common/unlock.png" alt="Unlocked" />
+                  <img class="lock-icon" *ngIf="!variant.selected" src="assets/common/lock.png" alt="Unlocked" />
+                  +{{variant.points}}pts {{replaceIcons(variant.name)}}
+                </div>
+                <div class="hr" *ngIf="activeSquad.data.lore"></div>
+                <p *ngIf="activeSquad.data.lore">
+                  {{activeSquad.data.lore}}
+                </p>
+                <p class="right" *ngIf="activeSquad.data.quote">
+                  {{activeSquad.data.quote}}
+                </p>
+              </div>
+            </ng-container>
+            <ng-container *ngIf="!frontSide">
+
+            </ng-container>
+          </div>
+        </div>
       </div>
     </div>
   </div>

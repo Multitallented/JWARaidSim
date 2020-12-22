@@ -38,3 +38,98 @@
   font-weight: bold
   padding: 5px 10px
   color: black
+
+.chosen-platoons
+  .platoon-edit
+    display: inline-block
+    padding-right: 10px
+
+  .platoon .platoon-squads > div > div
+    margin-left: 15px
+
+  .platoon-info, .platoon .platoon-squads > div > div
+    background-color: rgba(0, 0, 0, 0.4)
+    padding: 4px 8px
+    margin-bottom: 6px
+
+  .platoon-squads
+    transition: .5s all
+    max-height: 0px
+    overflow-y: hidden
+
+    &.expanded
+      max-height: 400px
+
+.active-squad
+  height: 555px
+  width: 400px
+  position: relative
+  font-family: 'nunito'
+  font-weight: bold
+  color: white
+  font-size: 16px
+
+  .card-container
+    padding: 0 16px 0 14px
+
+  h2
+    font-family: 'AGENCYB'
+    text-transform: uppercase
+    padding: 18px 0 0 18px
+    font-size: 32px
+    margin: 0
+
+    span
+      font-size: 20px
+
+  .card-icon
+    position: absolute
+    top: 15px
+    right: 15px
+
+  .main-image
+    padding: 16px 0 0 0
+    overflow: hidden
+    width: 370px
+    height: 228px
+    position: relative
+
+    img
+      max-width: 100%
+
+  .points-bar
+    background-color: rgba(0, 0, 0, 0.5)
+    padding: 4px 8px
+
+  .hq
+    float: right
+
+  .lore-container
+    padding: 10px
+
+    .variant
+      cursor: pointer
+
+      .lock-icon
+        width: 12px
+        margin-right: 4px
+        display: inline-block
+      .unlock-icon
+        width: 16px
+
+    .hr
+      margin: 10px auto
+      width: 200px
+      height: 2px
+      background-color: white
+
+    p
+      margin-top: 0
+      font-size: 14px
+
+.german
+  .active-squad
+    background: url("../../assets/germans/card-back.jpg") center center
+
+    &.front
+      background: url("../../assets/germans/card-front.jpg") center center
