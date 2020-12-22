@@ -84,6 +84,7 @@ export class GameComponent implements OnInit {
     this.activeSquad = null;
     this.activePlatoon = null;
     this.frontSide = true;
+    this.armyList = [];
     if (nation === 'german') {
       this.setGerman();
     } else if (nation === 'american') {
