@@ -58,7 +58,7 @@
             <div *ngFor="let squad of platoon.squads">
               <div *ngIf="platoon.editing || squad.included">
                 <a href="#" (click)="viewSquad(squad, platoon)">{{squad.name}} {{squad.points}}pts</a>
-                <a href="#" class="right" (click)="squad.included = !squad.included">{{squad.included ? 'Remove' : 'Add'}}</a>
+                <a href="#" class="right" *ngIf="!squad.required" (click)="squad.included = !squad.included">{{squad.included ? 'Remove' : 'Add'}}</a>
               </div>
             </div>
           </div>
@@ -80,7 +80,7 @@
               <div class="points-bar">
                 <span *ngIf="activeSquad.data.hq" class="hq">HQ</span>
                 <span class="points">{{activeSquad.points}}pts </span>
-                <span class="options">{{activeSquad.data.options}}opts</span>
+                <span *ngIf="activeSquad.data.options" class="options">{{activeSquad.data.options}}opts</span>
               </div>
               <div class="lore-container">
                 <div *ngFor="let variant of activeSquad.data.variants" class="variant" (click)="toggleVariant(variant)">

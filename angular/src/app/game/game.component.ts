@@ -9,6 +9,7 @@ class Squad {
   points: number;
   editing: boolean;
   data: any;
+  required: boolean = false;
 
   constructor(name: string, included: boolean, points: number) {
     this.name = name;
@@ -121,11 +122,16 @@ export class GameComponent implements OnInit {
       let min = 0;
       let squad = new Squad(key, squadData.min > min, squadData.points);
       squad.data = squadData;
+      if (squadData.max === 0) {
+        squad.required = true;
+      }
       this.squadMap[key] = squad;
       for (let i = 0; i < squadData.max; i++) {
         let newSquad = _.cloneDeep(squad);
         if (i >= squadData.min) {
           newSquad.included = false;
+        } else {
+          newSquad.required = true;
         }
         platoon.squads.push(newSquad);
         min++;
