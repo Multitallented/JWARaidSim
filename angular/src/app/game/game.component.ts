@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import _ from 'lodash';
-import * as germanWeapons from '../units/german/weapons.json';
-import * as germanGrenadiers from '../units/german/platoons/grenadier.json';
+import {ArmyListService} from "./army-list.service";
 
 class Squad {
   name: string;
@@ -61,8 +60,10 @@ class Platoon {
   styleUrls: ['./game.component.sass'],
 })
 export class GameComponent implements OnInit {
+  private armyListService: ArmyListService;
 
-  constructor() {
+  constructor(armyListService: ArmyListService) {
+    this.armyListService = armyListService;
   }
 
   nation: string;
@@ -71,6 +72,7 @@ export class GameComponent implements OnInit {
   activePlatoon: Platoon;
   frontSide: boolean = true;
   squadMap: any = {};
+  weaponMap: any = {};
 
   armyList: Array<Platoon> = [];
 
@@ -81,14 +83,14 @@ export class GameComponent implements OnInit {
     this.nation = nation;
     this.platoonOptions = new Array<Platoon>();
     this.squadMap = {};
+    this.weaponMap = this.armyListService.getWeapons(nation);
     this.activeSquad = null;
     this.activePlatoon = null;
     this.frontSide = true;
     this.armyList = [];
-    if (nation === 'german') {
-      this.setGerman();
-    } else if (nation === 'american') {
-      this.setAmerican();
+    let platoons = this.armyListService.getPlatoons(nation);
+    for (let platoon of platoons) {
+      this.loadPlatoon(platoon);
     }
   }
 
@@ -100,14 +102,6 @@ export class GameComponent implements OnInit {
   viewSquad(squad: Squad, platoon: Platoon) {
     this.activePlatoon = platoon;
     this.activeSquad = squad;
-  }
-
-  setGerman() {
-    this.loadPlatoon(germanGrenadiers)
-  }
-
-  setAmerican() {
-
   }
 
   loadPlatoon(platoonData: any) {
