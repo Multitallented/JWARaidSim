@@ -3,6 +3,7 @@
   "options": -1,
   "squads": {
     "Panzerschreck Squad": {
+      "img": "../../assets/germans/panzershreck.jpg",
       "points": 0,
       "max": 0,
       "min": 0,
@@ -38,6 +39,8 @@
           ]
         }
       ],
+      "lore": "Our segment of the picture consists only of tired and dirty soldiers who are alive and don't want to die; of long darkened convoys in the middle of the night; of shocked silent men wandering back down the hill from battle.",
+      "quote": "Ernie Pyle",
       "variants": [
         {
           "name": "swap Kar98K with G43",

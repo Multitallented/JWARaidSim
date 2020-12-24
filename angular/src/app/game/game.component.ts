@@ -3,6 +3,7 @@ import _ from 'lodash';
 import {ArmyListService} from "./army-list.service";
 import {Platoon} from "./models/platoon";
 import {Squad} from "./models/squad";
+import has = Reflect.has;
 
 @Component({
   selector: 'app-game',
@@ -143,14 +144,35 @@ export class GameComponent implements OnInit {
     return Math.max(0, returnValue);
   }
 
-  toggleVariant(variant: any) {
-    let unlocking = !variant.selected;
-    if (unlocking) {
-      this.unlockVariant(variant);
-    } else {
+  toggleVariant(variant: any, unlocking: boolean) {
+    let unlocks = variant.unlocks ? variant.unlocks : 0;
+    if (unlocking && ((unlocks === 0 && !variant.max) || unlocks < variant.max)) {
+      if (this.validateVariant(variant)) {
+        this.unlockVariant(variant);
+        if (!variant.unlocks) {
+          variant.unlocks = 1;
+        } else {
+          variant.unlocks++;
+        }
+      }
+
+    } else if (!unlocking && variant.unlocks > 0) {
       this.lockVariant(variant);
+      variant.unlocks--;
     }
-    variant.selected = !variant.selected;
+  }
+
+  private validateVariant(variant): boolean {
+    if (variant.add) {
+      if (variant.add.infantry) {
+        if (variant.add.infantry.weapons) {
+          if (!this.hasWeapons(variant.remove.infantry.weapons)) {
+            return false;
+          }
+        }
+      }
+    }
+    return true;
   }
 
   private lockVariant(variant: any) {
@@ -261,8 +283,26 @@ export class GameComponent implements OnInit {
       if (hasWeapon > -1) {
         this.activeSquad.data.infantry[weaponAdd.group].weapons[hasWeapon].qty += weaponAdd.qty;
       } else {
-        this.activeSquad.data.infantry[weaponAdd.group].weapons.push(weaponAdd);
+        this.activeSquad.data.infantry[weaponAdd.group].weapons.push(_.cloneDeep(weaponAdd));
       }
     }
+  }
+
+  private hasWeapons(weapons): boolean {
+    for (let weapon of weapons) {
+      let hasWeapon = false;
+      for (let squadWeapon of this.activeSquad.data.infantry[weapon.group].weapons) {
+        if (squadWeapon.name === weapon.name) {
+          if (weapon.qty <= squadWeapon.qty) {
+            hasWeapon = true;
+          }
+          break;
+        }
+      }
+      if (!hasWeapon) {
+        return false;
+      }
+    }
+    return true;
   }
 }
