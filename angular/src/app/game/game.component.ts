@@ -165,35 +165,21 @@ export class GameComponent implements OnInit {
       }
       if (variant.add.infantry) {
         if (variant.add.infantry.weapons) {
-          for (let weaponAdd of variant.add.infantry.weapons) {
-            let i = 0;
-            for (let weapon of this.activeSquad.data.infantry[weaponAdd.group].weapons) {
-              if (weapon.name === weaponAdd.name) {
-                break;
-              }
-              i++;
-            }
-            if (this.activeSquad.data.infantry[weaponAdd.group].weapons.length > 0 &&
-                this.activeSquad.data.infantry[weaponAdd.group].weapons.length > i) {
-              this.activeSquad.data.infantry[weaponAdd.group].weapons.splice(i, 1);
-            }
-          }
+          this.removeWeapons(variant.add.infantry.weapons);
         }
         if (variant.add.infantry.models) {
-          this.activeSquad.data.infantry[variant.add.infantry.models.group] += variant.add.infantry.models.qty;
+          this.activeSquad.data.infantry[variant.add.infantry.models.group].models += variant.add.infantry.models.qty;
         }
       }
     }
     if (variant.remove) {
       if (variant.remove.infantry) {
         if (variant.remove.infantry.models) {
-          this.activeSquad.data.infantry[variant.remove.infantry.models.group] += variant.remove.infantry.models.qty;
+          this.activeSquad.data.infantry[variant.remove.infantry.models.group].models += variant.remove.infantry.models.qty;
         }
       }
       if (variant.remove.infantry.weapons) {
-        for (let weaponRemove of variant.remove.infantry.weapons) {
-          this.activeSquad.data.infantry[weaponRemove.group].weapons.push(weaponRemove);
-        }
+        this.addWeapons(variant.remove.infantry.weapons);
       }
     }
     this.activeSquad.points -= variant.points;
@@ -214,35 +200,60 @@ export class GameComponent implements OnInit {
       }
       if (variant.add.infantry) {
         if (variant.add.infantry.weapons) {
-          for (let weaponAdd of variant.add.infantry.weapons) {
-            this.activeSquad.data.infantry[weaponAdd.group].weapons.push(weaponAdd);
-          }
+          this.addWeapons(variant.add.infantry.weapons);
         }
         if (variant.add.infantry.models) {
-          this.activeSquad.data.infantry[variant.add.infantry.models.group] += variant.add.infantry.models.qty;
+          this.activeSquad.data.infantry[variant.add.infantry.models.group].models += variant.add.infantry.models.qty;
         }
       }
     }
     if (variant.remove) {
       if (variant.remove.infantry) {
         if (variant.remove.infantry.models) {
-          this.activeSquad.data.infantry[variant.remove.infantry.models.group] -= variant.remove.infantry.models.qty;
+          this.activeSquad.data.infantry[variant.remove.infantry.models.group].models -= variant.remove.infantry.models.qty;
         }
       }
       if (variant.remove.infantry.weapons) {
-        for (let weaponRemove of variant.remove.infantry.weapons) {
-          let i = 0;
-          for (let weapon of this.activeSquad.data.infantry[weaponRemove.group].weapons) {
-            if (weapon.name === weaponRemove.name) {
-              break;
-            }
-            i++;
+        this.removeWeapons(variant.remove.infantry.weapons);
+      }
+    }
+  }
+
+  private removeWeapons(weaponsToRemove) {
+    for (let weaponRemove of weaponsToRemove) {
+      let i = 0;
+      for (let weapon of this.activeSquad.data.infantry[weaponRemove.group].weapons) {
+        if (weapon.name === weaponRemove.name) {
+          if (weapon.qty > weaponRemove.qty) {
+            weapon.qty -= weaponRemove.qty;
+            i = this.activeSquad.data.infantry[weaponRemove.group].weapons.length;
           }
-          if (this.activeSquad.data.infantry[weaponRemove.group].weapons.length > 0 &&
-            this.activeSquad.data.infantry[weaponRemove.group].weapons.length > i) {
-            this.activeSquad.data.infantry[weaponRemove.group].weapons.splice(i, 1);
-          }
+          break;
         }
+        i++;
+      }
+      if (this.activeSquad.data.infantry[weaponRemove.group].weapons.length > 0 &&
+        this.activeSquad.data.infantry[weaponRemove.group].weapons.length > i) {
+        this.activeSquad.data.infantry[weaponRemove.group].weapons.splice(i, 1);
+      }
+    }
+  }
+
+  private addWeapons(weaponsToAdd) {
+    for (let weaponAdd of weaponsToAdd) {
+      let hasWeapon = -1;
+      let i = 0;
+      for (let weapon of this.activeSquad.data.infantry[weaponAdd.group].weapons) {
+        if (weapon.name === weaponAdd.name) {
+          hasWeapon = i;
+          break;
+        }
+        i++;
+      }
+      if (hasWeapon > -1) {
+        this.activeSquad.data.infantry[weaponAdd.group].weapons[hasWeapon].qty += weaponAdd.qty;
+      } else {
+        this.activeSquad.data.infantry[weaponAdd.group].weapons.push(weaponAdd);
       }
     }
   }
