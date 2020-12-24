@@ -29,6 +29,15 @@ export class GameComponent implements OnInit {
   armyList: Array<Platoon> = [];
 
   ngOnInit() {
+    let hash = window.location.hash;
+    if (!hash || hash.length < 1 || hash.indexOf('/') < 0) {
+      return;
+    }
+    let navVars = hash.split('/');
+    if (navVars.length < 3) {
+      return;
+    }
+    this.selectNation(navVars[2]);
   }
 
   selectNation(nation:string) {
@@ -44,6 +53,7 @@ export class GameComponent implements OnInit {
     for (let platoon of platoons) {
       this.loadPlatoon(platoon);
     }
+    window.location.hash = '#/game/' + nation;
   }
 
   getPlatoonOptions(): Array<Platoon> {
