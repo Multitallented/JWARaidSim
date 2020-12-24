@@ -182,7 +182,8 @@
               "weapons": [
                 {
                   "name": "Panzerfaust",
-                  "qty": 1
+                  "qty": 1,
+                  "group": 1
                 }
               ]
             }
@@ -195,11 +196,15 @@
             "remove": {
               "infantry": {
                 "Infantry": {
-                  "models": 2,
+                  "models": {
+                    "group": 1,
+                    "qty": 2
+                  },
                   "weapons": [
                     {
                       "name": "Kar98K",
-                      "qty": 2
+                      "qty": 2,
+                      "group": 1
                     }
                   ]
                 }

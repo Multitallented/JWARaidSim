@@ -7,31 +7,31 @@
 
   <div class="nation-select">
     <h3>Select Your Faction</h3>
-    <a href="#" class="ru" (click)="selectNation('russian');">
+    <a class="ru" (click)="selectNation('russian');">
       <img src="/assets/flags/ru.png" alt="Soviet Russia" />
     </a>
-    <a href="#" class="de" (click)="selectNation('german');">
+    <a class="de" (click)="selectNation('german');">
       <img src="/assets/flags/de.png" alt="Nazi Germany" />
     </a>
-    <a href="#" class="us" (click)="selectNation('american');">
+    <a class="us" (click)="selectNation('american');">
       <img src="/assets/flags/us.png" alt="United States" />
     </a>
-    <a href="#" class="ja" (click)="selectNation('japanese');">
+    <a class="ja" (click)="selectNation('japanese');">
       <img src="/assets/flags/ja.png" alt="Imperial Japan" />
     </a>
-    <a href="#" class="zh" (click)="selectNation('chinese');">
+    <a class="zh" (click)="selectNation('chinese');">
       <img src="/assets/flags/zh.png" alt="China" />
     </a>
-    <a href="#" class="it" (click)="selectNation('italian');">
+    <a class="it" (click)="selectNation('italian');">
       <img src="/assets/flags/it.png" alt="Italy" />
     </a>
-    <a href="#" class="uk" (click)="selectNation('british');">
+    <a class="uk" (click)="selectNation('british');">
       <img src="/assets/flags/uk.png" alt="British Commonwealth" />
     </a>
-    <a href="#" class="ina" (click)="selectNation('indian');">
+    <a class="ina" (click)="selectNation('indian');">
       <img src="/assets/flags/ina.png" alt="Indian National Army" />
     </a>
-    <a href="#" class="fr" (click)="selectNation('french');">
+    <a class="fr" (click)="selectNation('french');">
       <img src="/assets/flags/fr.png" alt="France" />
     </a>
   </div>
@@ -42,7 +42,7 @@
       <h3>Options</h3>
       <div *ngFor="let platoonOption of getPlatoonOptions()">
         <span class="name">{{platoonOption.name}}</span>
-        <a href="#" (click)="addPlatoon(platoonOption)">>></a>
+        <a (click)="addPlatoon(platoonOption)">>></a>
       </div>
     </div>
     <div class="col wdth-33 chosen-platoons">
@@ -51,14 +51,14 @@
         <ng-container *ngIf="armyList.length > 0 || platoon.standard">
           <div class="platoon-info">
             <span class="name">{{platoon.name}} {{platoon.getPoints()}}pts</span>
-            <a href="#" class="platoon-accordian right" (click)="platoon.expanded = !platoon.expanded">{{platoon.expanded ? '--' : '+'}}</a>
-            <a href="#" class="platoon-edit right" (click)="platoon.editing=!platoon.editing">{{platoon.editing ? 'Save' : 'Edit'}}</a>
+            <a class="platoon-accordian right" (click)="platoon.expanded = !platoon.expanded">{{platoon.expanded ? '--' : '+'}}</a>
+            <a class="platoon-edit right" (click)="platoon.editing=!platoon.editing">{{platoon.editing ? 'Save' : 'Edit'}}</a>
           </div>
           <div class="platoon-squads" [ngClass]="{'expanded': platoon.expanded}">
             <div *ngFor="let squad of platoon.squads">
               <div *ngIf="platoon.editing || squad.included">
-                <a href="#" (click)="viewSquad(squad, platoon)">{{squad.name}} {{squad.points}}pts</a>
-                <a href="#" class="right" *ngIf="!squad.required" (click)="squad.included = !squad.included">{{squad.included ? 'Remove' : 'Add'}}</a>
+                <a (click)="viewSquad(squad, platoon)">{{squad.name}} {{squad.points}}pts</a>
+                <a class="right" *ngIf="!squad.required" (click)="squad.included = !squad.included">{{squad.included ? 'Remove' : 'Add'}}</a>
               </div>
             </div>
           </div>
@@ -66,7 +66,7 @@
       </div>
     </div>
     <div class="col wdth-33">
-      <h3>Unit <a href="#" class="right" (click)="frontSide = !frontSide">Flip Card</a></h3>
+      <h3>Unit <a class="right" (click)="frontSide = !frontSide">Flip Card</a></h3>
       <div *ngIf="activeSquad">
         <div class="active-squad" [ngClass]="{'front': frontSide}">
           <h2>{{activeSquad.name.split(' ')[0]}}
@@ -104,7 +104,7 @@
                   {{infantrySection.name}}
                 </h3>
                 <div *ngFor="let weapon of infantrySection.weapons">
-                  <ng-container *ngIf="weaponMap[weapon.name]">
+                  <div *ngIf="weaponMap[weapon.name]" class="weapon">
                     <div class="weapon-bar">
                       <div class="right">
                         <span class="range">
@@ -137,8 +137,8 @@
                       {{weapon.name}}
                     </div>
                     <div class="clearfix"></div>
-                    <div *ngFor="let special of weaponMap[weapon.name].special" [innerHTML]="replaceIcons(special)"></div>
-                  </ng-container>
+                    <div *ngFor="let special of weaponMap[weapon.name].special" class="weapon-special" [innerHTML]="replaceIcons(special)"></div>
+                  </div>
                 </div>
               </div>
               <div class="unit-stats">

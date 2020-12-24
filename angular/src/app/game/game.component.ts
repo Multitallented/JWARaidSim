@@ -138,41 +138,79 @@ export class GameComponent implements OnInit {
   toggleVariant(variant: any) {
     let unlocking = !variant.selected;
     if (unlocking) {
-      this.activeSquad.points += variant.points;
-      if (variant.add) {
-        if (variant.add.squad) {
-          for (let key in variant.add.squad) {
-            if (!key || !variant.add.squad.hasOwnProperty(key)) {
-              continue;
-            }
-            console.log(key);
-            let squad = _.cloneDeep(this.squadMap[key]);
-            squad.included = true;
-            this.activePlatoon.squads.push(squad);
-          }
-        }
-      }
+      this.unlockVariant(variant);
     } else {
-      if (variant.add) {
-        if (variant.add.squad) {
-          for (let key in variant.add.squad) {
-            if (!key) {
-              continue;
-            }
-            let i = 0;
-            for (i = 0; i < this.activePlatoon.squads.length; i++) {
-              if (this.activePlatoon.squads[i].name === key) {
-                break;
-              }
-            }
-            if (this.activePlatoon.squads.length > 0 && this.activePlatoon.squads.length > i) {
-              this.activePlatoon.squads.splice(i, 1);
-            }
-          }
-        }
-      }
-      this.activeSquad.points -= variant.points;
+      this.lockVariant(variant);
     }
     variant.selected = !variant.selected;
+  }
+
+  private lockVariant(variant: any) {
+    if (variant.add) {
+      if (variant.add.squad) {
+        for (let key in variant.add.squad) {
+          if (!key) {
+            continue;
+          }
+          let i = 0;
+          for (i = 0; i < this.activePlatoon.squads.length; i++) {
+            if (this.activePlatoon.squads[i].name === key) {
+              break;
+            }
+          }
+          if (this.activePlatoon.squads.length > 0 && this.activePlatoon.squads.length > i) {
+            this.activePlatoon.squads.splice(i, 1);
+          }
+        }
+      }
+      if (variant.add.infantry) {
+        if (variant.add.infantry.weapons) {
+          for (let weaponAdd of variant.add.infantry.weapons) {
+            let i = 0;
+            for (let weapon of this.activeSquad.data.infantry[weaponAdd.group].weapons) {
+              if (weapon.name === weaponAdd.name) {
+                break;
+              }
+              i++;
+            }
+            if (this.activeSquad.data.infantry[weaponAdd.group].weapons.length > 0 &&
+                this.activeSquad.data.infantry[weaponAdd.group].weapons.length > i) {
+              this.activeSquad.data.infantry[weaponAdd.group].weapons.splice(i, 1);
+            }
+          }
+        }
+        if (variant.add.infantry.models) {
+          this.activeSquad.data.infantry[variant.add.infantry.models.group] += variant.add.infantry.models.qty;
+        }
+      }
+    }
+    this.activeSquad.points -= variant.points;
+  }
+
+  private unlockVariant(variant: any) {
+    this.activeSquad.points += variant.points;
+    if (variant.add) {
+      if (variant.add.squad) {
+        for (let key in variant.add.squad) {
+          if (!key || !variant.add.squad.hasOwnProperty(key)) {
+            continue;
+          }
+          console.log(key);
+          let squad = _.cloneDeep(this.squadMap[key]);
+          squad.included = true;
+          this.activePlatoon.squads.push(squad);
+        }
+      }
+      if (variant.add.infantry) {
+        if (variant.add.infantry.weapons) {
+          for (let weaponAdd of variant.add.infantry.weapons) {
+            this.activeSquad.data.infantry[weaponAdd.group].weapons.push(weaponAdd);
+          }
+        }
+        if (variant.add.infantry.models) {
+          this.activeSquad.data.infantry[variant.add.infantry.models.group] += variant.add.infantry.models.qty;
+        }
+      }
+    }
   }
 }
