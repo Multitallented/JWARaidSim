@@ -141,7 +141,7 @@
             },
             {
               "name": "Kar98K",
-              "qty": 6
+              "qty": 5
             }
           ]
         },
@@ -193,25 +193,23 @@
           "name": "form a Panzershreck Squad",
           "points": 60,
           "add": {
-            "remove": {
-              "infantry": {
-                "Infantry": {
-                  "models": {
-                    "group": 1,
-                    "qty": 2
-                  },
-                  "weapons": [
-                    {
-                      "name": "Kar98K",
-                      "qty": 2,
-                      "group": 1
-                    }
-                  ]
-                }
-              }
-            },
             "squad": {
               "Panzerschreck Squad": 1
+            }
+          },
+          "remove": {
+            "infantry": {
+              "models": {
+                "group": 1,
+                "qty": 2
+              },
+              "weapons": [
+                {
+                  "name": "Kar98K",
+                  "qty": 2,
+                  "group": 1
+                }
+              ]
             }
           }
         }

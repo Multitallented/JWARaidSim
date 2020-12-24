@@ -184,6 +184,18 @@ export class GameComponent implements OnInit {
         }
       }
     }
+    if (variant.remove) {
+      if (variant.remove.infantry) {
+        if (variant.remove.infantry.models) {
+          this.activeSquad.data.infantry[variant.remove.infantry.models.group] += variant.remove.infantry.models.qty;
+        }
+      }
+      if (variant.remove.infantry.weapons) {
+        for (let weaponRemove of variant.remove.infantry.weapons) {
+          this.activeSquad.data.infantry[weaponRemove.group].weapons.push(weaponRemove);
+        }
+      }
+    }
     this.activeSquad.points -= variant.points;
   }
 
@@ -195,7 +207,6 @@ export class GameComponent implements OnInit {
           if (!key || !variant.add.squad.hasOwnProperty(key)) {
             continue;
           }
-          console.log(key);
           let squad = _.cloneDeep(this.squadMap[key]);
           squad.included = true;
           this.activePlatoon.squads.push(squad);
@@ -209,6 +220,28 @@ export class GameComponent implements OnInit {
         }
         if (variant.add.infantry.models) {
           this.activeSquad.data.infantry[variant.add.infantry.models.group] += variant.add.infantry.models.qty;
+        }
+      }
+    }
+    if (variant.remove) {
+      if (variant.remove.infantry) {
+        if (variant.remove.infantry.models) {
+          this.activeSquad.data.infantry[variant.remove.infantry.models.group] -= variant.remove.infantry.models.qty;
+        }
+      }
+      if (variant.remove.infantry.weapons) {
+        for (let weaponRemove of variant.remove.infantry.weapons) {
+          let i = 0;
+          for (let weapon of this.activeSquad.data.infantry[weaponRemove.group].weapons) {
+            if (weapon.name === weaponRemove.name) {
+              break;
+            }
+            i++;
+          }
+          if (this.activeSquad.data.infantry[weaponRemove.group].weapons.length > 0 &&
+            this.activeSquad.data.infantry[weaponRemove.group].weapons.length > i) {
+            this.activeSquad.data.infantry[weaponRemove.group].weapons.splice(i, 1);
+          }
         }
       }
     }

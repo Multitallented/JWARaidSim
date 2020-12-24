@@ -44,26 +44,24 @@
           "points": 10,
           "remove": {
             "infantry": {
-              "Infantry": {
-                "weapons": [
-                  {
-                    "name": "Kar98K",
-                    "qty": 1
-                  }
-                ]
-              }
+              "weapons": [
+                {
+                  "name": "Kar98K",
+                  "qty": 1,
+                  "group": 0
+                }
+              ]
             }
           },
           "add": {
             "infantry": {
-              "Infantry": {
-                "weapons": [
-                  {
-                    "name": "G43",
-                    "qty": 1
-                  }
-                ]
-              }
+              "weapons": [
+                {
+                  "name": "G43",
+                  "qty": 1,
+                  "group": 0
+                }
+              ]
             }
           }
         },
@@ -72,26 +70,24 @@
           "points": 20,
           "remove": {
             "infantry": {
-              "Infantry": {
-                "weapons": [
-                  {
-                    "name": "Kar98K",
-                    "qty": 1
-                  }
-                ]
-              }
+              "weapons": [
+                {
+                  "name": "Kar98K",
+                  "qty": 1,
+                  "group": 0
+                }
+              ]
             }
           },
           "add": {
             "infantry": {
-              "Infantry": {
-                "weapons": [
-                  {
-                    "name": "StG44",
-                    "qty": 1
-                  }
-                ]
-              }
+              "weapons": [
+                {
+                  "name": "StG44",
+                  "qty": 1,
+                  "group": 0
+                }
+              ]
             }
           }
         }
