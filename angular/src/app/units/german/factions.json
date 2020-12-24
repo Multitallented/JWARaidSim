@@ -1,0 +1,56 @@
+{
+  "factions": [
+    {
+      "name": "German Army",
+      "standardPlatoons": [
+        "Grenadiers",
+        "Volksgrenadiers"
+      ]
+    },
+    {
+      "name": "Panzergrenadiers",
+      "standardPlatoons": [
+        "Panzergrenadiers"
+      ],
+      "specials": [
+        "All units must take Panzergrenadier variants"
+      ]
+    },
+    {
+      "name": "Luftwaffe",
+      "standardPlatoons": [
+        "Fallschirmjäger"
+      ],
+      "specials": [
+        "All units must take Luftwaffe variants",
+        "Only one player can use an Airborne army. If multiple players want to use Airborne, then the player with fewer points spent on Paratroopers can’t deploy by air. Only onen player can control the skies during the battle."
+      ]
+    },
+    {
+      "name": "Schutzstaffel",
+      "standardPlatoons": [
+        "Grenadiers",
+        "Panzergrenadiers",
+        "Fallschirmjäger"
+      ],
+      "specials": [
+        "20% increase in point costs",
+        "+1 $closeCombat$ for all infantry",
+        "+1 $hitInfantry$ when cautious",
+        "+1 on all initiative tests",
+        "Each unit may retry one failed $morale$ morale test per round",
+        "All units must take Schutzstaffel variants",
+        "Only one player can use an Airborne army. If multiple players want to use Airborne, then the player with fewer points spent on Paratroopers can’t deploy by air. Only onen player can control the skies during the battle."
+      ],
+      "modifiers": {
+        "closeCombat": 1
+      },
+      "abilities": [
+        "+1 on all initiative tests",
+        "+1 $hitInfantry$ when cautious",
+        "Retry one failed $morale$ morale test per round"
+      ],
+      "pointModifier": 1.2
+    }
+  ]
+}

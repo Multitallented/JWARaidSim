@@ -3,13 +3,13 @@ import _ from 'lodash';
 import {ArmyListService} from "./army-list.service";
 import {Platoon} from "./models/platoon";
 import {Squad} from "./models/squad";
-import has = Reflect.has;
+import {Faction} from "./models/faction";
 
 @Component({
   selector: 'app-game',
   templateUrl: './game.component.html',
   styleUrls: ['./game.component.sass'],
-  providers: [Platoon, Squad]
+  providers: [Platoon, Squad, Faction]
 })
 export class GameComponent implements OnInit {
   private armyListService: ArmyListService;
@@ -25,6 +25,8 @@ export class GameComponent implements OnInit {
   frontSide: boolean = true;
   squadMap: any = {};
   weaponMap: any = {};
+  faction: string;
+  factionList: Array<Faction>;
 
   armyList: Array<Platoon> = [];
 
@@ -49,6 +51,7 @@ export class GameComponent implements OnInit {
     this.activePlatoon = null;
     this.frontSide = true;
     this.armyList = [];
+    this.factionList = this.armyListService.getFactions(nation);
     let platoons = this.armyListService.getPlatoons(nation);
     for (let platoon of platoons) {
       this.loadPlatoon(platoon);
@@ -258,6 +261,7 @@ export class GameComponent implements OnInit {
       }
     }
   }
+
 
   private removeWeapons(weaponsToRemove) {
     for (let weaponRemove of weaponsToRemove) {

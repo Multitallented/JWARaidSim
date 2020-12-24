@@ -37,12 +37,30 @@
   </div>
 
   <div class="clearfix"></div>
-  <div class="row" *ngIf="nation">
+  <div class="row" *ngIf="nation && !faction">
+    <div class="col wdth-33">
+      <h3>Factions</h3>
+      <div *ngFor="let currentFaction of factionList">
+        <a class="right" (click)="faction = currentFaction.name">Select</a>
+        <span class="name">{{currentFaction.name}}</span>
+      </div>
+    </div>
+    <div class="col wdth-33">
+      <h3>Faction Lore</h3>
+
+    </div>
+    <div class="col wdth-33">
+      <h3>Faction Rules</h3>
+
+    </div>
+  </div>
+
+  <div class="row" *ngIf="nation && faction">
     <div class="col wdth-33">
       <h3>Options</h3>
       <div *ngFor="let platoonOption of getPlatoonOptions()">
+        <a class="right" (click)="addPlatoon(platoonOption)">>></a>
         <span class="name">{{platoonOption.name}}</span>
-        <a (click)="addPlatoon(platoonOption)">>></a>
       </div>
     </div>
     <div class="col wdth-33 chosen-platoons">
@@ -66,7 +84,7 @@
       </div>
     </div>
     <div class="col wdth-33">
-      <h3>Unit <a class="right" (click)="frontSide = !frontSide">Flip Card</a></h3>
+      <h3>Unit <a *ngIf="activeSquad" class="right" (click)="frontSide = !frontSide">Flip Card</a></h3>
       <div *ngIf="activeSquad">
         <div class="active-squad" [ngClass]="{'front': frontSide}">
           <h2>{{activeSquad.name.split(' ')[0]}}
