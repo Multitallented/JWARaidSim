@@ -109,27 +109,27 @@
                       <div class="right">
                         <span class="range">
                           <img src="assets/common/range.png" alt="Range" />
-                          <span>{{weaponMap[weapon.name].range}}</span>
+                          <span>{{getValue(weapon.name + ":range", weaponMap[weapon.name].range)}}</span>
                         </span>
                         <span class="shots">
                           <img src="assets/common/shots.png" alt="Shots" />
-                          <span>{{weaponMap[weapon.name].shots}}</span>
+                          <span>{{getValue(weapon.name + ":shots", weaponMap[weapon.name].shots)}}</span>
                         </span>
                         <span *ngIf="weaponMap[weapon.name].blast" class="blast">
                           <img src="assets/common/blast.png" alt="Blast" />
-                          <span>{{weaponMap[weapon.name].blast}}</span>
+                          <span>{{getValue(weapon.name + ":blast", weaponMap[weapon.name].blast)}}</span>
                         </span>
                         <span *ngIf="weaponMap[weapon.name].hitVehicle" class="hit-vehicle">
                           <img src="assets/common/hit-armor.png" alt="Hit Vehicle" />
-                          <span>{{weaponMap[weapon.name].hitVehicle}}</span>
+                          <span>{{getValue(weapon.name + ":hitVehicle", weaponMap[weapon.name].hitVehicle)}}</span>
                         </span>
                         <span *ngIf="weaponMap[weapon.name].hitInfantry" class="hit-infantry">
                           <img src="assets/common/hit-infantry.png" alt="Hit Infantry" />
-                          <span>{{weaponMap[weapon.name].hitInfantry}}</span>
+                          <span>{{getValue(weapon.name + ":hitInfantry", weaponMap[weapon.name].hitInfantry)}}</span>
                         </span>
                         <span *ngIf="weaponMap[weapon.name].damage" class="damage">
                           <img src="assets/common/damage.png" alt="Damage" />
-                          <span>{{weaponMap[weapon.name].damage}}</span>
+                          <span>{{getValue(weapon.name + ":damage", weaponMap[weapon.name].damage)}}</span>
                         </span>
 
                       </div>
@@ -144,39 +144,40 @@
               <div class="unit-stats">
                 <div class="move stat">
                   <img src="assets/common/move.png" alt="Movement" />
-                  <span>{{activeSquad.data.move}}cm</span>
+                  <span>{{getValue("move", activeSquad.data.move)}}cm</span>
                 </div>
                 <div class="defense stat">
                   <img *ngIf="activeSquad.data.type === 'infantry'" src="assets/common/infantry-defense.png" alt="Defense" />
                   <img *ngIf="activeSquad.data.type !== 'infantry'" src="assets/common/vehicle-defense.png" alt="Defense" />
-                  <span>{{activeSquad.data.armor}}</span>
+                  <span>{{getValue("defense", activeSquad.data.armor)}}</span>
                 </div>
                 <div class="comms stat">
                   <ng-container *ngIf="activeSquad.data.shout" >
                     <img src="assets/common/shout.png" alt="Shout" />
-                    <span>{{activeSquad.data.shout}}</span>
+                    <span>{{getValue("comms", activeSquad.data.shout)}}</span>
                   </ng-container>
                   <ng-container *ngIf="activeSquad.data.runner">
                     <img  src="assets/common/runner.png" alt="Runner" />
-                    <span>{{activeSquad.data.runner}}</span>
+                    <span>{{getValue("comms", activeSquad.data.runner)}}</span>
                   </ng-container>
                   <ng-container *ngIf="activeSquad.data.radio">
                     <img src="assets/common/radio.png" alt="Radio" />
-                    <span>{{activeSquad.data.radio}}</span>
+                    <span>{{getValue("comms", activeSquad.data.radio)}}</span>
                   </ng-container>
                 </div>
 
                 <div class="morale stat">
                   <img src="assets/common/morale.png" alt="Morale" />
-                  <span>{{activeSquad.data.morale}} / {{activeSquad.data.moraleFrequency}}</span>
+                  <span>{{getValue("morale", activeSquad.data.morale)}} /
+                    {{getValue("moraleFrequency", activeSquad.data.moraleFrequency)}}</span>
                 </div>
                 <div class="hp stat">
                   <img src="assets/common/hp.png" alt="Hit Points" />
-                  <span>{{activeSquad.data.hp}}</span>
+                  <span>{{getValue("hp", activeSquad.data.hp)}}</span>
                 </div>
                 <div class="close-combat stat">
                   <img src="assets/common/close-combat.png" alt="Close Combat" />
-                  <span>{{activeSquad.data.closeCombat}}</span>
+                  <span>{{getValue("closeCombat", activeSquad.data.closeCombat)}}</span>
                 </div>
 
                 <div class="characteristics">

@@ -135,6 +135,14 @@ export class GameComponent implements OnInit {
     return input;
   }
 
+  getValue(key, baseValue): number {
+    let returnValue = baseValue;
+    if (this.activeSquad.modifiers[key]) {
+      returnValue += this.activeSquad.modifiers[key];
+    }
+    return Math.max(0, returnValue);
+  }
+
   toggleVariant(variant: any) {
     let unlocking = !variant.selected;
     if (unlocking) {

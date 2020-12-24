@@ -8,6 +8,7 @@ export class Squad {
   editing: boolean;
   data: any;
   required: boolean = false;
+  modifiers = {};
 
   constructor(name: string, included: boolean, points: number) {
     this.name = name;
