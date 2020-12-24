@@ -27,7 +27,7 @@
     "range": 20,
     "shots": 1,
     "blast": 3,
-    "hit": 9,
+    "hitVehicle": 9,
     "damage": 5,
     "special": [
       "Fires every other turn"
@@ -37,7 +37,7 @@
     "range": 5,
     "shots": 1,
     "blast": 3,
-    "hit": 6,
+    "hitVehicle": 6,
     "damage": 5,
     "specials": [
       "Only hits vehicles in close combat",
@@ -48,7 +48,7 @@
     "range": 30,
     "shots": 1,
     "blast": 3,
-    "hit": 9,
+    "hitVehicle": 9,
     "damage": 5,
     "specials": [
       "Fires every other turn unless adjacent to an assistant"

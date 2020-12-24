@@ -13,7 +13,7 @@
       "type": "infantry",
       "move": 20,
       "morale": 6,
-      "morale-frequency": 2,
+      "moraleFrequency": 2,
       "armor": 7,
       "hp": 3,
       "runner": 5,
@@ -21,33 +21,52 @@
       "characteristics": [
         "None"
       ],
-      "infantry": {
-        "Leader": {
+      "infantry": [
+        {
+          "name": "Leader",
           "closeCombat": 3,
           "models": 2,
-          "weapons": {
-            "MP40": 2
-          }
+          "weapons": [
+            {
+              "name": "MP40",
+              "qty": 2
+            }
+          ]
         },
-        "Runners": {
+        {
+          "name": "Runners",
           "models": 2,
-          "weapons": {
-            "Kar98K": 2
-          }
+          "weapons": [
+            {
+              "name": "Kar98K",
+              "qty": 2
+            }
+          ]
         },
-        "Infantry": {
+        {
+          "name": "Infantry",
           "models": 1,
-          "weapons": {
-            "Panzerfaust": 1,
-            "Kar98K": 1
-          }
+          "weapons": [
+            {
+              "name": "Panzerfaust",
+              "qty": 1
+            },
+            {
+              "name": "Kar98K",
+              "qty": 1
+            }
+          ]
         },
-        "All Infantry": {
-          "weapons": {
-            "StG39 Grenades": 1
-          }
+        {
+          "name": "All Infantry",
+          "weapons": [
+            {
+              "name": "StG39 Grenades",
+              "qty": 1
+            }
+          ]
         }
-      },
+      ],
       "variants": [
         {
           "name": "(2 max per platoon) Opel Blitz truck",
@@ -82,79 +101,6 @@
       "lore": "I speak in the name of the entire German people when I assure the world that we all share the honest wish to eliminate the enmity that brings far more costs than any possible benefits... It would be a wonderful thing for all of humanity if both peoples would renounce force against each other forever. The German people are ready to make such a pledge.",
       "quote": "Adolf Hitler - 14th October 1933"
     },
-    "Panzerschreck Squad": {
-      "points": 0,
-      "max": 0,
-      "min": 0,
-      "type": "infantry",
-      "move": 20,
-      "morale": 6,
-      "morale-frequency": 1,
-      "armor": 7,
-      "hp": 3,
-      "shout": 5,
-      "closeCombat": 0,
-      "characteristics": [
-        "None"
-      ],
-      "infantry": {
-        "Infantry": {
-          "closeCombat": 1,
-          "models": 2,
-          "weapons": {
-            "Kar98K": 1,
-            "Panzerschreck": 1,
-            "StG39 Grenades": 1
-          }
-        }
-      },
-      "variants": [
-        {
-          "name": "swap Kar98K with G43",
-          "points": 10,
-          "remove": {
-            "infantry": {
-              "Infantry": {
-                "weapons": {
-                  "Kar98K": 1
-                }
-              }
-            }
-          },
-          "add": {
-            "infantry": {
-              "Infantry": {
-                "weapons": {
-                  "G43": 1
-                }
-              }
-            }
-          }
-        },
-        {
-          "name": "swap Kar98K with StG44",
-          "points": 20,
-          "remove": {
-            "infantry": {
-              "Infantry": {
-                "weapons": {
-                  "Kar98K": 1
-                }
-              }
-            }
-          },
-          "add": {
-            "infantry": {
-              "Infantry": {
-                "weapons": {
-                  "StG44": 1
-                }
-              }
-            }
-          }
-        }
-      ]
-    },
     "Grenadiers": {
       "img": "../../assets/germans/grenadier.jpg",
       "points": 150,
@@ -164,7 +110,7 @@
       "type": "infantry",
       "move": 20,
       "morale": 7,
-      "morale-frequency": 3,
+      "moraleFrequency": 3,
       "armor": 7,
       "hp": 3,
       "shout": 5,
@@ -172,28 +118,43 @@
       "characteristics": [
         "None"
       ],
-      "infantry": {
-        "Leader": {
+      "infantry": [
+        {
+          "name": "Leader",
           "closeCombat": 3,
           "models": 2,
-          "weapons": {
-            "MP40": 2
-          }
+          "weapons": [
+            {
+              "name": "MP40",
+              "qty": 2
+            }
+          ]
         },
-        "Infantry": {
+        {
+          "name": "Infantry",
           "closeCombat": 1,
           "models": 6,
-          "weapons": {
-            "MG34": 1,
-            "Kar98K": 6
-          }
+          "weapons": [
+            {
+              "name": "MG34",
+              "qty": 1
+            },
+            {
+              "name": "Kar98K",
+              "qty": 6
+            }
+          ]
         },
-        "All Infantry": {
-          "weapons": {
-            "StG39 Grenades": 1
-          }
+        {
+          "name": "All Infantry",
+          "weapons": [
+            {
+              "name": "StG39 Grenades",
+              "qty": 1
+            }
+          ]
         }
-      },
+      ],
       "lore": "Which would your men rather be, tired or dead?",
       "quote": "Erwin Rommel",
       "variants": [
@@ -218,9 +179,12 @@
           "max": 2,
           "add": {
             "infantry": {
-              "weapons": {
-                "Panzerfaust": 1
-              }
+              "weapons": [
+                {
+                  "name": "Panzerfaust",
+                  "qty": 1
+                }
+              ]
             }
           }
         },
@@ -232,9 +196,12 @@
               "infantry": {
                 "Infantry": {
                   "models": 2,
-                  "weapons": {
-                    "Kar98K": 2
-                  }
+                  "weapons": [
+                    {
+                      "name": "Kar98K",
+                      "qty": 2
+                    }
+                  ]
                 }
               }
             },

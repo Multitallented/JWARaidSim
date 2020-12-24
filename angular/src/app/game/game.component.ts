@@ -1,63 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import _ from 'lodash';
 import {ArmyListService} from "./army-list.service";
-
-class Squad {
-  name: string;
-  included: boolean;
-  points: number;
-  editing: boolean;
-  data: any;
-  required: boolean = false;
-
-  constructor(name: string, included: boolean, points: number) {
-    this.name = name;
-    this.included = included;
-    this.points = points;
-  }
-}
-
-class Platoon {
-  name: string;
-  editing: boolean;
-  standard: boolean;
-  expanded: boolean = true;
-  squads: Array<Squad> = [];
-  data: any;
-
-  constructor(name: string, standard: boolean) {
-    this.name = name;
-    this.standard = standard;
-  }
-
-  getPoints(): number {
-    let pointTotal = 0;
-    for (let squad of this.squads) {
-      if (squad.included) {
-        pointTotal += squad.points;
-      }
-    }
-    return pointTotal;
-  }
-
-  getOptions(): number {
-    let totalOptions = 0;
-    if (this.data.options) {
-      totalOptions -= this.data.options;
-    }
-    for (let squad of this.squads) {
-      if (squad.included && squad.data.options) {
-        totalOptions += squad.data.options;
-      }
-    }
-    return totalOptions;
-  }
-}
+import {Platoon} from "./models/platoon";
+import {Squad} from "./models/squad";
 
 @Component({
   selector: 'app-game',
   templateUrl: './game.component.html',
   styleUrls: ['./game.component.sass'],
+  providers: [Platoon, Squad]
 })
 export class GameComponent implements OnInit {
   private armyListService: ArmyListService;
@@ -94,6 +45,16 @@ export class GameComponent implements OnInit {
     }
   }
 
+  getPlatoonOptions(): Array<Platoon> {
+    let returnPlatoons = new Array<Platoon>();
+    for (let platoon of this.platoonOptions) {
+      if (platoon.data.options > -1 && (this.armyList.length > 0 || platoon.data.standard)) {
+        returnPlatoons.push(platoon);
+      }
+    }
+    return returnPlatoons;
+  }
+
   addPlatoon(platoon: Platoon) {
     // TODO validate options
     this.armyList.push(_.cloneDeep(platoon));
@@ -106,7 +67,6 @@ export class GameComponent implements OnInit {
 
   loadPlatoon(platoonData: any) {
     platoonData = platoonData.default;
-    console.log(platoonData)
     let platoon = new Platoon(platoonData.name, platoonData.standard);
     platoon.data = platoonData;
     for (let key in platoonData.squads) {

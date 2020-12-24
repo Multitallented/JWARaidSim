@@ -40,7 +40,7 @@
   <div class="row" *ngIf="nation">
     <div class="col wdth-33">
       <h3>Options</h3>
-      <div *ngFor="let platoonOption of platoonOptions">
+      <div *ngFor="let platoonOption of getPlatoonOptions()">
         <span class="name">{{platoonOption.name}}</span>
         <a href="#" (click)="addPlatoon(platoonOption)">>></a>
       </div>
@@ -66,14 +66,14 @@
       </div>
     </div>
     <div class="col wdth-33">
-      <h3>Unit</h3>
+      <h3>Unit <a href="#" class="right" (click)="frontSide = !frontSide">Flip Card</a></h3>
       <div *ngIf="activeSquad">
         <div class="active-squad" [ngClass]="{'front': frontSide}">
           <h2>{{activeSquad.name.split(' ')[0]}}
             <span *ngIf="activeSquad.name.indexOf(' ') !== -1">{{activeSquad.name.substring(activeSquad.name.indexOf(' '), activeSquad.name.length)}}</span></h2>
           <img class="card-icon" src="{{getCardIcon(activeSquad)}}" alt="Card Icon" />
           <div class="card-container">
-            <ng-container *ngIf="frontSide">
+            <div *ngIf="frontSide" class="card-front">
               <div class="main-image">
                 <img src="{{activeSquad.data.img}}" alt="{{activeSquad.name}}" />
               </div>
@@ -86,7 +86,7 @@
                 <div *ngFor="let variant of activeSquad.data.variants" class="variant" (click)="toggleVariant(variant)">
                   <img class="unlock-icon" *ngIf="variant.selected" src="assets/common/unlock.png" alt="Unlocked" />
                   <img class="lock-icon" *ngIf="!variant.selected" src="assets/common/lock.png" alt="Unlocked" />
-                  +{{variant.points}}pts {{replaceIcons(variant.name)}}
+                  +{{variant.points}}pts <span [innerHTML]="replaceIcons(variant.name)"></span>
                 </div>
                 <div class="hr" *ngIf="activeSquad.data.lore"></div>
                 <p *ngIf="activeSquad.data.lore">
@@ -96,10 +96,95 @@
                   {{activeSquad.data.quote}}
                 </p>
               </div>
-            </ng-container>
-            <ng-container *ngIf="!frontSide">
+            </div>
+            <div *ngIf="!frontSide" class="card-back">
+              <div class="infantry-group" *ngFor="let infantrySection of activeSquad.data.infantry">
+                <h3>
+                  <span *ngIf="infantrySection.models > 1">{{infantrySection.models}}x </span>
+                  {{infantrySection.name}}
+                </h3>
+                <div *ngFor="let weapon of infantrySection.weapons">
+                  <ng-container *ngIf="weaponMap[weapon.name]">
+                    <div class="weapon-bar">
+                      <div class="right">
+                        <span class="range">
+                          <img src="assets/common/range.png" alt="Range" />
+                          <span>{{weaponMap[weapon.name].range}}</span>
+                        </span>
+                        <span class="shots">
+                          <img src="assets/common/shots.png" alt="Shots" />
+                          <span>{{weaponMap[weapon.name].shots}}</span>
+                        </span>
+                        <span *ngIf="weaponMap[weapon.name].blast" class="blast">
+                          <img src="assets/common/blast.png" alt="Blast" />
+                          <span>{{weaponMap[weapon.name].blast}}</span>
+                        </span>
+                        <span *ngIf="weaponMap[weapon.name].hitVehicle" class="hit-vehicle">
+                          <img src="assets/common/hit-armor.png" alt="Hit Vehicle" />
+                          <span>{{weaponMap[weapon.name].hitVehicle}}</span>
+                        </span>
+                        <span *ngIf="weaponMap[weapon.name].hitInfantry" class="hit-infantry">
+                          <img src="assets/common/hit-infantry.png" alt="Hit Infantry" />
+                          <span>{{weaponMap[weapon.name].hitInfantry}}</span>
+                        </span>
+                        <span *ngIf="weaponMap[weapon.name].damage" class="damage">
+                          <img src="assets/common/damage.png" alt="Damage" />
+                          <span>{{weaponMap[weapon.name].damage}}</span>
+                        </span>
 
-            </ng-container>
+                      </div>
+                      <span *ngIf="weapon.qty > 1">{{weapon.qty}}x </span>
+                      {{weapon.name}}
+                    </div>
+                    <div class="clearfix"></div>
+                    <div *ngFor="let special of weaponMap[weapon.name].special" [innerHTML]="replaceIcons(special)"></div>
+                  </ng-container>
+                </div>
+              </div>
+              <div class="unit-stats">
+                <div class="move stat">
+                  <img src="assets/common/move.png" alt="Movement" />
+                  <span>{{activeSquad.data.move}}cm</span>
+                </div>
+                <div class="defense stat">
+                  <img *ngIf="activeSquad.data.type === 'infantry'" src="assets/common/infantry-defense.png" alt="Defense" />
+                  <img *ngIf="activeSquad.data.type !== 'infantry'" src="assets/common/vehicle-defense.png" alt="Defense" />
+                  <span>{{activeSquad.data.armor}}</span>
+                </div>
+                <div class="comms stat">
+                  <ng-container *ngIf="activeSquad.data.shout" >
+                    <img src="assets/common/shout.png" alt="Shout" />
+                    <span>{{activeSquad.data.shout}}</span>
+                  </ng-container>
+                  <ng-container *ngIf="activeSquad.data.runner">
+                    <img  src="assets/common/runner.png" alt="Runner" />
+                    <span>{{activeSquad.data.runner}}</span>
+                  </ng-container>
+                  <ng-container *ngIf="activeSquad.data.radio">
+                    <img src="assets/common/radio.png" alt="Radio" />
+                    <span>{{activeSquad.data.radio}}</span>
+                  </ng-container>
+                </div>
+
+                <div class="morale stat">
+                  <img src="assets/common/morale.png" alt="Morale" />
+                  <span>{{activeSquad.data.morale}} / {{activeSquad.data.moraleFrequency}}</span>
+                </div>
+                <div class="hp stat">
+                  <img src="assets/common/hp.png" alt="Hit Points" />
+                  <span>{{activeSquad.data.hp}}</span>
+                </div>
+                <div class="close-combat stat">
+                  <img src="assets/common/close-combat.png" alt="Close Combat" />
+                  <span>{{activeSquad.data.closeCombat}}</span>
+                </div>
+
+                <div class="characteristics">
+                  <h3>CHARACTERISTICS</h3>
+                  <p>{{activeSquad.data.characteristics}}</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
