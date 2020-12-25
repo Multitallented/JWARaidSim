@@ -69,20 +69,30 @@
   color: white
   font-size: 16px
 
+  &.front .card-container
+    overflow: visible
+    max-height: none
+
   .card-container
-    padding: 16px 14px 0 15px
+    padding: 0 0 0 15px
+    margin-top: 16px
+    overflow: auto
+    max-height: 380px
 
   .card-front
     padding-right: 2px
+    max-width: 370px
 
   .card-back
     padding-bottom: 5px
+    max-width: 370px
 
     .weapon
       padding-bottom: 5px
 
       .weapon-special
         padding: 5px 0 0 10px
+        font-family: 'nunito'
 
     h3
       padding: 0 0 5px 10px
@@ -186,6 +196,9 @@
     background-color: rgba(0, 0, 0, 0.5)
     padding: 4px 8px
 
+    .faction-nations
+      text-transform: uppercase
+
   .hq
     float: right
 
@@ -203,10 +216,8 @@
         width: 16px
 
     .hr
-      margin: 10px auto
-      width: 200px
-      height: 2px
-      background-color: white
+      margin-top: 10px
+      margin-bottom: 10px
 
     p
       margin-top: 0

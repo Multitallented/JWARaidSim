@@ -2,7 +2,7 @@
 <div class="container {{nation}}">
 
   <div class="right list-resources faction-bg">
-    {{getPoints()}} pts | {{getOptions()}} opts
+    {{getPoints() + getFactionPoints()}} pts | {{getOptions()}} opts
   </div>
 
   <div class="nation-select">
@@ -37,190 +37,246 @@
   </div>
 
   <div class="clearfix"></div>
-  <div class="row" *ngIf="nation && !faction">
+
+  <div class="row">
     <div class="col wdth-33">
-      <h3>Factions</h3>
-      <div *ngFor="let currentFaction of factionList">
-        <a class="right" (click)="faction = currentFaction.name">Select</a>
-        <span class="name">{{currentFaction.name}}</span>
+      <div *ngIf="!faction">
+        <h3>Factions</h3>
+        <div *ngFor="let currentFaction of factionList">
+          <a class="right" (click)="selectFaction(currentFaction)">Select</a>
+          <a class="right" (click)="selectedFaction = currentFaction">Preview</a>
+          <span class="name">{{currentFaction.name}}</span>
+        </div>
       </div>
-    </div>
-    <div class="col wdth-33">
-      <h3>Faction Lore</h3>
-
-    </div>
-    <div class="col wdth-33">
-      <h3>Faction Rules</h3>
-
-    </div>
-  </div>
-
-  <div class="row" *ngIf="nation && faction">
-    <div class="col wdth-33">
-      <h3>Options</h3>
-      <div *ngFor="let platoonOption of getPlatoonOptions()">
-        <a class="right" (click)="addPlatoon(platoonOption)">>></a>
-        <span class="name">{{platoonOption.name}}</span>
+      <div *ngIf="nation && faction">
+        <h3>Options</h3>
+        <div *ngFor="let platoonOption of getPlatoonOptions()">
+          <a class="right" (click)="addPlatoon(platoonOption)">>></a>
+          <span class="name">{{platoonOption.name}}</span>
+        </div>
       </div>
     </div>
     <div class="col wdth-33 chosen-platoons">
-      <h3>Army</h3>
-      <div class="platoon" *ngFor="let platoon of armyList">
-        <ng-container *ngIf="armyList.length > 0 || platoon.standard">
-          <div class="platoon-info">
-            <span class="name">{{platoon.name}} {{platoon.getPoints()}}pts</span>
-            <a class="platoon-accordian right" (click)="platoon.expanded = !platoon.expanded">{{platoon.expanded ? '--' : '+'}}</a>
-            <a class="platoon-edit right" (click)="platoon.editing=!platoon.editing">{{platoon.editing ? 'Save' : 'Edit'}}</a>
-          </div>
-          <div class="platoon-squads" [ngClass]="{'expanded': platoon.expanded}">
-            <div *ngFor="let squad of platoon.squads">
-              <div *ngIf="platoon.editing || squad.included">
-                <a (click)="viewSquad(squad, platoon)">{{squad.name}} {{squad.points}}pts</a>
-                <a class="right" *ngIf="!squad.required" (click)="squad.included = !squad.included">{{squad.included ? 'Remove' : 'Add'}}</a>
-              </div>
+      <div *ngIf="selectedFaction && !faction" class="active-squad front">
+        <h2>{{selectedFaction.name.split(' ')[0]}}
+          <span *ngIf="selectedFaction.name.indexOf(' ') !== -1">{{selectedFaction.name.substring(selectedFaction.name.indexOf(' '), selectedFaction.name.length)}}</span></h2>
+        <img class="card-icon" src="{{getCardIcon('infantry')}}" alt="Card Icon" />
+        <div class="card-container">
+          <div class="card-front">
+            <div class="main-image">
+              <img src="{{selectedFaction.img}}" alt="{{selectedFaction.name}}" />
+            </div>
+            <div class="points-bar">
+              <span *ngIf="selectedFaction.pointModifier && selectedFaction.pointModifier !== 1" class="points right">
+                {{selectedFaction.getRoundedPoints()}}%pts
+              </span>
+              <h3 class="faction-nations">{{selectedFaction.getNations()}}</h3>
+              <span class="points">Allies: {{selectedFaction.getAllies()}}</span>
+            </div>
+            <div class="lore-container">
+              <p [innerHTML]="selectedFaction.lore"></p>
             </div>
           </div>
-        </ng-container>
+        </div>
+      </div>
+      <div *ngIf="nation && faction">
+        <h3>Army</h3>
+        <div class="platoon">
+          <div class="platoon-info">
+            <span class="name">Faction
+              <a (click)="selectedFaction = faction; activeSquad = null">{{faction.name}}</a> {{getFactionPoints()}}pts</span>
+          </div>
+        </div>
+        <div class="platoon" *ngFor="let platoon of armyList">
+          <ng-container *ngIf="armyList.length > 0 || platoon.standard">
+            <div class="platoon-info">
+              <span class="name">{{platoon.name}} {{platoon.getPoints()}}pts</span>
+              <a class="platoon-accordian right" (click)="platoon.expanded = !platoon.expanded">{{platoon.expanded ? '--' : '+'}}</a>
+              <a class="platoon-edit right" (click)="platoon.editing=!platoon.editing">{{platoon.editing ? 'Save' : 'Edit'}}</a>
+            </div>
+            <div class="platoon-squads" [ngClass]="{'expanded': platoon.expanded}">
+              <div *ngFor="let squad of platoon.squads">
+                <div *ngIf="platoon.editing || squad.included">
+                  <a (click)="viewSquad(squad, platoon)">{{squad.name}} {{squad.points}}pts</a>
+                  <a class="right" *ngIf="!squad.required" (click)="squad.included = !squad.included">{{squad.included ? 'Remove' : 'Add'}}</a>
+                </div>
+              </div>
+            </div>
+          </ng-container>
+        </div>
       </div>
     </div>
     <div class="col wdth-33">
-      <h3>Unit <a *ngIf="activeSquad" class="right" (click)="frontSide = !frontSide">Flip Card</a></h3>
-      <div *ngIf="activeSquad">
-        <div class="active-squad" [ngClass]="{'front': frontSide}">
-          <h2>{{activeSquad.name.split(' ')[0]}}
-            <span *ngIf="activeSquad.name.indexOf(' ') !== -1">{{activeSquad.name.substring(activeSquad.name.indexOf(' '), activeSquad.name.length)}}</span></h2>
-          <img class="card-icon" src="{{getCardIcon(activeSquad)}}" alt="Card Icon" />
-          <div class="card-container">
-            <div *ngIf="frontSide" class="card-front">
-              <div class="main-image">
-                <img src="{{activeSquad.data.img}}" alt="{{activeSquad.name}}" />
-              </div>
-              <div class="points-bar">
-                <span *ngIf="activeSquad.data.hq" class="hq">HQ</span>
-                <span class="points">{{activeSquad.points}}pts </span>
-                <span *ngIf="activeSquad.data.options" class="options">{{activeSquad.data.options}}opts</span>
-              </div>
-              <div class="lore-container">
-                <div *ngFor="let variant of activeSquad.data.variants" class="variant" (click)="toggleVariant(variant, true)" (contextmenu)="toggleVariant(variant, false); $event.preventDefault()">
-                  <img class="unlock-icon" *ngIf="variant.unlocks > 0" src="assets/common/unlock.png" alt="Unlocked" />
-                  <img class="lock-icon" *ngIf="!variant.unlocks" src="assets/common/lock.png" alt="Unlocked" />
-                  <ng-container *ngIf="variant.max > 1">
-                    <img class="unlock-icon" *ngIf="variant.unlocks > 1" src="assets/common/unlock.png" alt="Unlocked" />
-                    <img class="lock-icon" *ngIf="!variant.unlocks || variant.unlocks < 2" src="assets/common/lock.png" alt="Unlocked" />
-                  </ng-container>
-                  <ng-container *ngIf="variant.max > 2">
-                    <img class="unlock-icon" *ngIf="variant.unlocks > 2" src="assets/common/unlock.png" alt="Unlocked" />
-                    <img class="lock-icon" *ngIf="!variant.unlocks || variant.unlocks < 3" src="assets/common/lock.png" alt="Unlocked" />
-                  </ng-container>
-                  <ng-container *ngIf="variant.max > 3">
-                    <img class="unlock-icon" *ngIf="variant.unlocks > 3" src="assets/common/unlock.png" alt="Unlocked" />
-                    <img class="lock-icon" *ngIf="!variant.unlocks || variant.unlocks < 4" src="assets/common/lock.png" alt="Unlocked" />
-                  </ng-container>
-                  <ng-container *ngIf="variant.max > 4">
-                    <img class="unlock-icon" *ngIf="variant.unlocks > 4" src="assets/common/unlock.png" alt="Unlocked" />
-                    <img class="lock-icon" *ngIf="!variant.unlocks || variant.unlocks < 5" src="assets/common/lock.png" alt="Unlocked" />
-                  </ng-container>
-                  <ng-container *ngIf="variant.max > 5">
-                    <img class="unlock-icon" *ngIf="variant.unlocks > 5" src="assets/common/unlock.png" alt="Unlocked" />
-                    <img class="lock-icon" *ngIf="!variant.unlocks || variant.unlocks < 6" src="assets/common/lock.png" alt="Unlocked" />
-                  </ng-container>
-                  +{{variant.points}}pts <span [innerHTML]="replaceIcons(variant.name)"></span>
+      <div *ngIf="selectedFaction" class="active-squad">
+        <h2>{{selectedFaction.name.split(' ')[0]}}
+          <span *ngIf="selectedFaction.name.indexOf(' ') !== -1">{{selectedFaction.name.substring(selectedFaction.name.indexOf(' '), selectedFaction.name.length)}}</span></h2>
+        <img class="card-icon" src="{{getCardIcon('infantry')}}" alt="Card Icon" />
+        <div class="card-container">
+          <div class="card-back">
+            <div class="infantry-group">
+              <h3>{{selectedFaction.name}} Platoons</h3>
+              <div class="weapon" *ngFor="let platoon of selectedFaction.standardPlatoons">
+                <div class="weapon-bar">
+                  <div class="center-vertical">
+                    <img src="assets/common/morale.png" alt="Standard Platoon" />
+                    <span> {{platoon}}</span>
+                  </div>
                 </div>
-                <div class="hr" *ngIf="activeSquad.data.lore"></div>
-                <p *ngIf="activeSquad.data.lore">
-                  {{activeSquad.data.lore}}
-                </p>
-                <p class="right" *ngIf="activeSquad.data.quote">
-                  {{activeSquad.data.quote}}
-                </p>
+              </div>
+              <h3>Special Rules</h3>
+              <div class="weapon">
+                <div *ngFor="let special of selectedFaction.specials" class="weapon-special" [innerHTML]="replaceIcons(special)"></div>
               </div>
             </div>
-            <div *ngIf="!frontSide" class="card-back">
-              <div class="infantry-group" *ngFor="let infantrySection of activeSquad.data.infantry">
-                <h3>
-                  <span *ngIf="infantrySection.models > 1">{{infantrySection.models}}x </span>
-                  {{infantrySection.name}}
-                </h3>
-                <div *ngFor="let weapon of infantrySection.weapons">
-                  <div *ngIf="weaponMap[weapon.name]" class="weapon">
-                    <div class="weapon-bar">
-                      <div class="right">
+          </div>
+        </div>
+      </div>
+      <div *ngIf="nation && faction && !selectedFaction">
+        <h3>Unit <a *ngIf="activeSquad" class="right" (click)="frontSide = !frontSide">Flip Card</a></h3>
+        <div *ngIf="activeSquad">
+          <div class="active-squad" [ngClass]="{'front': frontSide}">
+            <h2>{{activeSquad.name.split(' ')[0]}}
+              <span *ngIf="activeSquad.name.indexOf(' ') !== -1">{{activeSquad.name.substring(activeSquad.name.indexOf(' '), activeSquad.name.length)}}</span></h2>
+            <img class="card-icon" src="{{getCardIcon(activeSquad.data.type)}}" alt="Card Icon" />
+            <div class="card-container">
+              <div *ngIf="frontSide" class="card-front">
+                <div class="main-image">
+                  <img src="{{activeSquad.data.img}}" alt="{{activeSquad.name}}" />
+                </div>
+                <div class="points-bar">
+                  <span *ngIf="activeSquad.data.hq" class="hq">HQ</span>
+                  <span class="points">{{activeSquad.points}}pts </span>
+                  <span *ngIf="activeSquad.data.options" class="options">{{activeSquad.data.options}}opts</span>
+                </div>
+                <div class="lore-container">
+                  <div *ngFor="let variant of activeSquad.data.variants" class="variant" (click)="toggleVariant(variant, true)" (contextmenu)="toggleVariant(variant, false); $event.preventDefault()">
+                    <img class="unlock-icon" *ngIf="variant.unlocks > 0" src="assets/common/unlock.png" alt="Unlocked" />
+                    <img class="lock-icon" *ngIf="!variant.unlocks" src="assets/common/lock.png" alt="Unlocked" />
+                    <ng-container *ngIf="variant.max > 1">
+                      <img class="unlock-icon" *ngIf="variant.unlocks > 1" src="assets/common/unlock.png" alt="Unlocked" />
+                      <img class="lock-icon" *ngIf="!variant.unlocks || variant.unlocks < 2" src="assets/common/lock.png" alt="Unlocked" />
+                    </ng-container>
+                    <ng-container *ngIf="variant.max > 2">
+                      <img class="unlock-icon" *ngIf="variant.unlocks > 2" src="assets/common/unlock.png" alt="Unlocked" />
+                      <img class="lock-icon" *ngIf="!variant.unlocks || variant.unlocks < 3" src="assets/common/lock.png" alt="Unlocked" />
+                    </ng-container>
+                    <ng-container *ngIf="variant.max > 3">
+                      <img class="unlock-icon" *ngIf="variant.unlocks > 3" src="assets/common/unlock.png" alt="Unlocked" />
+                      <img class="lock-icon" *ngIf="!variant.unlocks || variant.unlocks < 4" src="assets/common/lock.png" alt="Unlocked" />
+                    </ng-container>
+                    <ng-container *ngIf="variant.max > 4">
+                      <img class="unlock-icon" *ngIf="variant.unlocks > 4" src="assets/common/unlock.png" alt="Unlocked" />
+                      <img class="lock-icon" *ngIf="!variant.unlocks || variant.unlocks < 5" src="assets/common/lock.png" alt="Unlocked" />
+                    </ng-container>
+                    <ng-container *ngIf="variant.max > 5">
+                      <img class="unlock-icon" *ngIf="variant.unlocks > 5" src="assets/common/unlock.png" alt="Unlocked" />
+                      <img class="lock-icon" *ngIf="!variant.unlocks || variant.unlocks < 6" src="assets/common/lock.png" alt="Unlocked" />
+                    </ng-container>
+                    +{{variant.points}}pts <span [innerHTML]="replaceIcons(variant.name)"></span>
+                  </div>
+                  <div class="hr" *ngIf="activeSquad.data.lore"></div>
+                  <p *ngIf="activeSquad.data.lore">
+                    {{activeSquad.data.lore}}
+                  </p>
+                  <p class="right" *ngIf="activeSquad.data.quote">
+                    {{activeSquad.data.quote}}
+                  </p>
+                </div>
+              </div>
+              <div *ngIf="!frontSide" class="card-back">
+                <div class="infantry-group" *ngFor="let infantrySection of activeSquad.data.infantry">
+                  <h3>
+                    <span *ngIf="infantrySection.models > 1">{{infantrySection.models}}x </span>
+                    {{infantrySection.name}}
+                  </h3>
+                  <div *ngFor="let weapon of infantrySection.weapons">
+                    <div *ngIf="weaponMap[weapon.name]" class="weapon">
+                      <div class="weapon-bar">
+                        <div class="right">
                         <span class="range">
                           <img src="assets/common/range.png" alt="Range" />
                           <span>{{getValue(weapon.name + ":range", weaponMap[weapon.name].range)}}</span>
                         </span>
-                        <span *ngIf="!weaponMap[weapon.name].blast" class="shots">
+                          <span *ngIf="!weaponMap[weapon.name].blast" class="shots">
                           <img src="assets/common/shots.png" alt="Shots" />
                           <span>{{getValue(weapon.name + ":shots", weaponMap[weapon.name].shots)}}</span>
                         </span>
-                        <span *ngIf="weaponMap[weapon.name].blast" class="blast">
+                          <span *ngIf="weaponMap[weapon.name].blast" class="blast">
                           <img src="assets/common/blast.png" alt="Blast" />
                           <span>{{getValue(weapon.name + ":blast", weaponMap[weapon.name].blast)}}</span>
                         </span>
-                        <span *ngIf="weaponMap[weapon.name].hitVehicle" class="hit-vehicle">
+                          <span *ngIf="weaponMap[weapon.name].hitVehicle" class="hit-vehicle">
                           <img src="assets/common/hit-armor.png" alt="Hit Vehicle" />
                           <span>{{getValue(weapon.name + ":hitVehicle", weaponMap[weapon.name].hitVehicle)}}</span>
                         </span>
-                        <span *ngIf="weaponMap[weapon.name].hitInfantry" class="hit-infantry">
+                          <span *ngIf="weaponMap[weapon.name].hitInfantry" class="hit-infantry">
                           <img src="assets/common/hit-infantry.png" alt="Hit Infantry" />
                           <span>{{getValue(weapon.name + ":hitInfantry", weaponMap[weapon.name].hitInfantry)}}</span>
                         </span>
-                        <span *ngIf="weaponMap[weapon.name].damage" class="damage">
+                          <span *ngIf="weaponMap[weapon.name].damage" class="damage">
                           <img src="assets/common/damage.png" alt="Damage" />
                           <span>{{getValue(weapon.name + ":damage", weaponMap[weapon.name].damage)}}</span>
                         </span>
 
+                        </div>
+                        <span *ngIf="weapon.qty > 1">{{weapon.qty}}x </span>
+                        {{weapon.name}}
                       </div>
-                      <span *ngIf="weapon.qty > 1">{{weapon.qty}}x </span>
-                      {{weapon.name}}
+                      <div class="clearfix"></div>
+                      <div *ngFor="let special of weaponMap[weapon.name].special" class="weapon-special" [innerHTML]="replaceIcons(special)"></div>
                     </div>
-                    <div class="clearfix"></div>
-                    <div *ngFor="let special of weaponMap[weapon.name].special" class="weapon-special" [innerHTML]="replaceIcons(special)"></div>
                   </div>
                 </div>
-              </div>
-              <div class="unit-stats">
-                <div class="move stat">
-                  <img src="assets/common/move.png" alt="Movement" />
-                  <span>{{getValue("move", activeSquad.data.move)}}cm</span>
+                <div *ngIf="(activeSquad.data.abilities && activeSquad.data.abilities.length) || (faction.abilities && faction.abilities.length)" class="infantry-group">
+                  <div class="hr"></div>
+                  <div class="weapon">
+                    <div *ngFor="let squadAbility of activeSquad.data.abilities" class="weapon-special" [innerHTML]="replaceIcons(squadAbility)"></div>
+                    <div *ngFor="let factionAbility of faction.abilities" class="weapon-special" [innerHTML]="replaceIcons(factionAbility)"></div>
+                  </div>
                 </div>
-                <div class="defense stat">
-                  <img *ngIf="activeSquad.data.type === 'infantry'" src="assets/common/infantry-defense.png" alt="Defense" />
-                  <img *ngIf="activeSquad.data.type !== 'infantry'" src="assets/common/vehicle-defense.png" alt="Defense" />
-                  <span>{{getValue("defense", activeSquad.data.armor)}}</span>
-                </div>
-                <div class="comms stat">
-                  <ng-container *ngIf="activeSquad.data.shout" >
-                    <img src="assets/common/shout.png" alt="Shout" />
-                    <span>{{getValue("comms", activeSquad.data.shout)}}</span>
-                  </ng-container>
-                  <ng-container *ngIf="activeSquad.data.runner">
-                    <img  src="assets/common/runner.png" alt="Runner" />
-                    <span>{{getValue("comms", activeSquad.data.runner)}}</span>
-                  </ng-container>
-                  <ng-container *ngIf="activeSquad.data.radio">
-                    <img src="assets/common/radio.png" alt="Radio" />
-                    <span>{{getValue("comms", activeSquad.data.radio)}}</span>
-                  </ng-container>
-                </div>
+                <div class="unit-stats">
+                  <div class="move stat">
+                    <img src="assets/common/move.png" alt="Movement" />
+                    <span>{{getValue("move", activeSquad.data.move)}}cm</span>
+                  </div>
+                  <div class="defense stat">
+                    <img *ngIf="activeSquad.data.type === 'infantry'" src="assets/common/infantry-defense.png" alt="Defense" />
+                    <img *ngIf="activeSquad.data.type !== 'infantry'" src="assets/common/vehicle-defense.png" alt="Defense" />
+                    <span>{{getValue("defense", activeSquad.data.armor)}}</span>
+                  </div>
+                  <div class="comms stat">
+                    <ng-container *ngIf="activeSquad.data.shout" >
+                      <img src="assets/common/shout.png" alt="Shout" />
+                      <span>{{getValue("comms", activeSquad.data.shout)}}</span>
+                    </ng-container>
+                    <ng-container *ngIf="activeSquad.data.runner">
+                      <img  src="assets/common/runner.png" alt="Runner" />
+                      <span>{{getValue("comms", activeSquad.data.runner)}}</span>
+                    </ng-container>
+                    <ng-container *ngIf="activeSquad.data.radio">
+                      <img src="assets/common/radio.png" alt="Radio" />
+                      <span>{{getValue("comms", activeSquad.data.radio)}}</span>
+                    </ng-container>
+                  </div>
 
-                <div class="morale stat">
-                  <img src="assets/common/morale.png" alt="Morale" />
-                  <span>{{getValue("morale", activeSquad.data.morale)}} /
-                    {{getValue("moraleFrequency", activeSquad.data.moraleFrequency)}}</span>
-                </div>
-                <div class="hp stat">
-                  <img src="assets/common/hp.png" alt="Hit Points" />
-                  <span>{{getValue("hp", activeSquad.data.hp)}}</span>
-                </div>
-                <div class="close-combat stat">
-                  <img src="assets/common/close-combat.png" alt="Close Combat" />
-                  <span>{{getValue("closeCombat", activeSquad.data.closeCombat)}}</span>
-                </div>
+                  <div class="morale stat">
+                    <img src="assets/common/morale.png" alt="Morale" />
+                    <span>{{getValue("morale", activeSquad.data.morale)}} /
+                      {{getValue("moraleFrequency", activeSquad.data.moraleFrequency)}}</span>
+                  </div>
+                  <div class="hp stat">
+                    <img src="assets/common/hp.png" alt="Hit Points" />
+                    <span>{{getValue("hp", activeSquad.data.hp)}}</span>
+                  </div>
+                  <div class="close-combat stat">
+                    <img src="assets/common/close-combat.png" alt="Close Combat" />
+                    <span>{{getValue("closeCombat", activeSquad.data.closeCombat)}}</span>
+                  </div>
 
-                <div class="characteristics">
-                  <h3>CHARACTERISTICS</h3>
-                  <p>{{activeSquad.data.characteristics}}</p>
+                  <div class="characteristics">
+                    <h3>CHARACTERISTICS</h3>
+                    <p>{{activeSquad.data.characteristics}}</p>
+                  </div>
                 </div>
               </div>
             </div>

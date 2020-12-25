@@ -25,7 +25,8 @@ export class GameComponent implements OnInit {
   frontSide: boolean = true;
   squadMap: any = {};
   weaponMap: any = {};
-  faction: string;
+  faction: Faction;
+  selectedFaction: Faction;
   factionList: Array<Faction>;
 
   armyList: Array<Platoon> = [];
@@ -51,12 +52,24 @@ export class GameComponent implements OnInit {
     this.activePlatoon = null;
     this.frontSide = true;
     this.armyList = [];
+    this.faction = null;
+    this.selectedFaction = null;
     this.factionList = this.armyListService.getFactions(nation);
     let platoons = this.armyListService.getPlatoons(nation);
     for (let platoon of platoons) {
       this.loadPlatoon(platoon);
     }
-    window.location.hash = '#/game/' + nation;
+    if (this.factionList.length < 1) {
+      window.location.hash = '#/game/' + nation;
+    } else if (this.factionList.length < 2) {
+      this.faction = this.factionList[0];
+      window.location.hash = '#/game/' + nation + "/" + this.faction.name.toLowerCase().replace(' ', '_');
+    }
+  }
+
+  selectFaction(faction) {
+    this.faction = faction;
+    this.selectedFaction = null;
   }
 
   getPlatoonOptions(): Array<Platoon> {
@@ -77,6 +90,7 @@ export class GameComponent implements OnInit {
   viewSquad(squad: Squad, platoon: Platoon) {
     this.activePlatoon = platoon;
     this.activeSquad = squad;
+    this.selectedFaction = null;
   }
 
   loadPlatoon(platoonData: any) {
@@ -130,11 +144,11 @@ export class GameComponent implements OnInit {
     return totalOptions;
   }
 
-  getCardIcon(fromSquad: Squad): string {
+  getCardIcon(type: string): string {
     switch (this.nation) {
       default:
       case 'german':
-        return fromSquad.data.type === 'infantry' ?
+        return type === 'infantry' ?
           '../../assets/germans/helmet.png' : '../../assets/germans/pz4.png';
     }
   }
@@ -144,15 +158,23 @@ export class GameComponent implements OnInit {
         'hit-armor', 'hit-infantry', 'hp', 'infantry-defense', 'knife',
         'morale', 'move', 'radio', 'range', 'runner', 'shout', 'turret', 'vehicle-defense'];
     for (let icon of commonIcons) {
-      input = input.replace('$' + icon + '$', '<img src="assets/common/' + icon + '.png" alt="' + icon + '" />');
+      input = input.replace('$' + icon + '$', '<img class="stat-icon" src="assets/common/' + icon + '.png" alt="' + icon + '" />');
     }
     return input;
+  }
+
+  getFactionPoints(): number {
+    let points = this.getPoints();
+    return Math.round(points - (points / this.faction.pointModifier));
   }
 
   getValue(key, baseValue): number {
     let returnValue = baseValue;
     if (this.activeSquad.modifiers[key]) {
       returnValue += this.activeSquad.modifiers[key];
+    }
+    if (this.faction.modifiers[key]) {
+      returnValue += this.faction.modifiers[key];
     }
     return Math.max(0, returnValue);
   }

@@ -39,7 +39,7 @@
     "blast": 3,
     "hitVehicle": 6,
     "damage": 5,
-    "specials": [
+    "special": [
       "Only hits vehicles in close combat",
       "Indirect Fire"
     ]
@@ -50,7 +50,7 @@
     "blast": 3,
     "hitVehicle": 9,
     "damage": 5,
-    "specials": [
+    "special": [
       "Fires every other turn unless adjacent to an assistant"
     ]
   }

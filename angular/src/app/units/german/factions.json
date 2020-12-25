@@ -5,26 +5,50 @@
       "standardPlatoons": [
         "Grenadiers",
         "Volksgrenadiers"
-      ]
+      ],
+      "nations": [
+        "German"
+      ],
+      "allies": [
+        "Italians"
+      ],
+      "img": "../../assets/germans/german-army.jpg",
+      "lore": "The German Army used concepts pioneered during World War I like combining ground and air assets into combined arms forces. Coupled with operational and tactical methods such as encirclements and \"battle of annihilation\", the German military managed quick victories in the two initial years of World War II, a new style of warfare described as Blitzkrieg (lightning war) for its speed and destructive power."
     },
     {
       "name": "Panzergrenadiers",
       "standardPlatoons": [
         "Panzergrenadiers"
       ],
+      "nations": [
+        "German"
+      ],
+      "allies": [
+        "Italians"
+      ],
+      "img": "../../assets/germans/panzergrendadiers.jpg",
       "specials": [
         "All units must take Panzergrenadier variants"
-      ]
+      ],
+      "lore": "Panzergrenadiers evolved via upgrades from ordinary infantry divisions--repeatedly augmented to build up the size of an elite regiment or battalion. <br><br>The Panzergrenadier divisions were organized as combined arms formations, usually with six battalions of truck-mounted infantry organized into either two or three regiments, a battalion of tanks, and an ordinary division's complement of artillery, reconnaissance units, combat engineers, anti-tank and anti-aircraft artillery, and so forth."
     },
     {
       "name": "Luftwaffe",
       "standardPlatoons": [
         "Fallschirmjäger"
       ],
+      "nations": [
+        "German"
+      ],
+      "allies": [
+        "Italians"
+      ],
+      "img": "../../assets/germans/luftwaffe.jpg",
       "specials": [
         "All units must take Luftwaffe variants",
         "Only one player can use an Airborne army. If multiple players want to use Airborne, then the player with fewer points spent on Paratroopers can’t deploy by air. Only onen player can control the skies during the battle."
-      ]
+      ],
+      "lore": "Göring became personally committed to the creation of  Germany's airborne arm in the 1930s. Volunteers would form a core Fallschirmschützen Bataillon (\"parachute soldiers battalion\"). Germany's parachute arm was  officially inaugurated on 29 January 1936. NCOs, officers, and other ranks of the Luftwaffe were required to successfully complete six jumps in order to receive the Luftwaffe Parachutist's Badge."
     },
     {
       "name": "Schutzstaffel",
@@ -33,10 +57,17 @@
         "Panzergrenadiers",
         "Fallschirmjäger"
       ],
+      "nations": [
+        "Germans"
+      ],
+      "allies": [
+        "Italians"
+      ],
+      "img": "../../assets/germans/waffen-ss.jpg",
       "specials": [
         "20% increase in point costs",
-        "+1 $closeCombat$ for all infantry",
-        "+1 $hitInfantry$ when cautious",
+        "+1 $close-combat$ for all infantry",
+        "+1 $hit-infantry$ when cautious",
         "+1 on all initiative tests",
         "Each unit may retry one failed $morale$ morale test per round",
         "All units must take Schutzstaffel variants",
@@ -47,10 +78,11 @@
       },
       "abilities": [
         "+1 on all initiative tests",
-        "+1 $hitInfantry$ when cautious",
+        "+1 $hit-infantry$ when cautious",
         "Retry one failed $morale$ morale test per round"
       ],
-      "pointModifier": 1.2
+      "pointModifier": 1.2,
+      "lore": "The Waffen-SS grew from three regiments to over 38 divisions during World War II, and served alongside the regular army, uniformed police and other security units. At the post-war Nuremberg trials, the Waffen-SS was judged to be a criminal organisation due to its connection to the Nazi Party and direct involvement in numerous war crimes and crimes against humanity. Former Waffen-SS members, with the exception of conscripts, who comprised about one third of the membership, were denied many of the rights afforded to military veterans."
     }
   ]
 }

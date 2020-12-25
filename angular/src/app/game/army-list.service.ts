@@ -49,7 +49,8 @@ export class ArmyListService {
   private getFactionList(factionsData): Array<Faction> {
     let returnFactions = [];
     for (let factionData of factionsData.default.factions) {
-      let faction = new Faction(factionData.name, factionData.standardPlatoons);
+      let faction = new Faction(factionData.name, factionData.standardPlatoons, factionData.img,
+          factionData.lore);
       if (factionData.specials) {
         faction.specials = factionData.specials;
       }
@@ -61,6 +62,12 @@ export class ArmyListService {
       }
       if (factionData.pointModifier) {
         faction.pointModifier = factionData.pointModifier;
+      }
+      if (factionData.nations) {
+        faction.nations = factionData.nations;
+      }
+      if (factionData.allies) {
+        faction.allies = factionData.allies;
       }
       returnFactions.push(faction);
     }
