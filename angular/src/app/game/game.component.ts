@@ -218,12 +218,12 @@ export class GameComponent implements OnInit {
             numberOfSquads++;
           }
         }
-        console.log(numberOfSquads);
-        if (numberOfSquads < 1 && variant.require.type.max < 1) {
+        console.log(numberOfSquads + ":" + variant.require.max);
+        if (numberOfSquads < 1 && variant.require.max < 1) {
           console.log("failed require");
           return false;
         }
-        if (variant.require.type.max && variant.require.type.max <= numberOfSquads) {
+        if (variant.require.max > 0 && variant.require.max <= numberOfSquads) {
           console.log("failed require max " + variant.require.type.max);
           return false;
         }
@@ -265,14 +265,17 @@ export class GameComponent implements OnInit {
         }
       }
     }
+    if (variant.comms) {
+      delete this.activeSquad.data[variant.comms.type];
+    }
     if (variant.remove) {
       if (variant.remove.infantry) {
         if (variant.remove.infantry.models) {
           this.activeSquad.data.infantry[variant.remove.infantry.models.group].models += variant.remove.infantry.models.qty;
         }
-      }
-      if (variant.remove.infantry.weapons) {
-        this.addWeapons(variant.remove.infantry.weapons);
+        if (variant.remove.infantry.weapons) {
+          this.addWeapons(variant.remove.infantry.weapons);
+        }
       }
     }
     this.activeSquad.points -= variant.points;
@@ -307,14 +310,17 @@ export class GameComponent implements OnInit {
         }
       }
     }
+    if (variant.comms) {
+      this.activeSquad.data[variant.comms.type] = variant.comms.value;
+    }
     if (variant.remove) {
       if (variant.remove.infantry) {
         if (variant.remove.infantry.models) {
           this.activeSquad.data.infantry[variant.remove.infantry.models.group].models -= variant.remove.infantry.models.qty;
         }
-      }
-      if (variant.remove.infantry.weapons) {
-        this.removeWeapons(variant.remove.infantry.weapons);
+        if (variant.remove.infantry.weapons) {
+          this.removeWeapons(variant.remove.infantry.weapons);
+        }
       }
     }
   }

@@ -90,11 +90,9 @@
             "type": "squad",
             "name": "Opel Blitz"
           },
-          "remove": {
-            "runner": 5
-          },
-          "add": {
-            "radio": 4
+          "comms": {
+            "type": "radio",
+            "value": 4
           }
         }
       ],

@@ -7,7 +7,10 @@
       "points": 0,
       "max": 0,
       "min": 0,
-      "type": "vehicle",
+      "type": "car",
+      "crew": [
+        "Driver"
+      ],
       "move": "89",
       "morale": 6,
       "moraleFrequency": 1,

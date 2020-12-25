@@ -107,7 +107,7 @@
       </div>
     </div>
     <div class="col wdth-33">
-      <div *ngIf="selectedFaction" class="active-squad">
+      <div *ngIf="selectedFaction" class="active-squad faction-back">
         <h2>{{selectedFaction.name.split(' ')[0]}}
           <span *ngIf="selectedFaction.name.indexOf(' ') !== -1">{{selectedFaction.name.substring(selectedFaction.name.indexOf(' '), selectedFaction.name.length)}}</span></h2>
         <img class="card-icon" src="{{getCardIcon('infantry')}}" alt="Card Icon" />
@@ -185,38 +185,46 @@
               </div>
               <div *ngIf="!frontSide" class="card-back">
                 <div class="infantry-group" *ngFor="let infantrySection of activeSquad.data.infantry">
-                  <h3>
-                    <span *ngIf="infantrySection.models > 1">{{infantrySection.models}}x </span>
-                    {{infantrySection.name}}
-                  </h3>
+                  <div class="model-checkboxes">
+                    <ng-container *ngIf="infantrySection.models">
+                      <ng-container *ngFor="let i of [].constructor(infantrySection.models); let index = index">
+                        <div class="clearfix" *ngIf="index % 3 === 0 && index !== 0"></div>
+                        <img class="checkbox right" (click)="activeSquad.cycleCheckbox(infantrySection.name + ':' + index)" src="{{activeSquad.getCheckboxSrc(infantrySection.name + ':' + index)}}" alt="Checkbox" />
+                      </ng-container>
+                    </ng-container>
+                    <h3>
+                      <span *ngIf="infantrySection.models > 1">{{infantrySection.models}}x </span>
+                      {{infantrySection.name}}
+                    </h3>
+                  </div>
                   <div *ngFor="let weapon of infantrySection.weapons">
                     <div *ngIf="weaponMap[weapon.name]" class="weapon">
                       <div class="weapon-bar">
                         <div class="right">
-                        <span class="range">
-                          <img src="assets/common/range.png" alt="Range" />
-                          <span>{{getValue(weapon.name + ":range", weaponMap[weapon.name].range)}}</span>
-                        </span>
-                          <span *ngIf="!weaponMap[weapon.name].blast" class="shots">
-                          <img src="assets/common/shots.png" alt="Shots" />
-                          <span>{{getValue(weapon.name + ":shots", weaponMap[weapon.name].shots)}}</span>
-                        </span>
-                          <span *ngIf="weaponMap[weapon.name].blast" class="blast">
-                          <img src="assets/common/blast.png" alt="Blast" />
-                          <span>{{getValue(weapon.name + ":blast", weaponMap[weapon.name].blast)}}</span>
-                        </span>
-                          <span *ngIf="weaponMap[weapon.name].hitVehicle" class="hit-vehicle">
-                          <img src="assets/common/hit-armor.png" alt="Hit Vehicle" />
-                          <span>{{getValue(weapon.name + ":hitVehicle", weaponMap[weapon.name].hitVehicle)}}</span>
-                        </span>
-                          <span *ngIf="weaponMap[weapon.name].hitInfantry" class="hit-infantry">
-                          <img src="assets/common/hit-infantry.png" alt="Hit Infantry" />
-                          <span>{{getValue(weapon.name + ":hitInfantry", weaponMap[weapon.name].hitInfantry)}}</span>
-                        </span>
-                          <span *ngIf="weaponMap[weapon.name].damage" class="damage">
-                          <img src="assets/common/damage.png" alt="Damage" />
-                          <span>{{getValue(weapon.name + ":damage", weaponMap[weapon.name].damage)}}</span>
-                        </span>
+                          <span class="range">
+                            <img src="assets/common/range.png" alt="Range" />
+                            <span>{{getValue(weapon.name + ":range", weaponMap[weapon.name].range)}}</span>
+                          </span>
+                            <span *ngIf="!weaponMap[weapon.name].blast" class="shots">
+                            <img src="assets/common/shots.png" alt="Shots" />
+                            <span>{{getValue(weapon.name + ":shots", weaponMap[weapon.name].shots)}}</span>
+                          </span>
+                            <span *ngIf="weaponMap[weapon.name].blast" class="blast">
+                            <img src="assets/common/blast.png" alt="Blast" />
+                            <span>{{getValue(weapon.name + ":blast", weaponMap[weapon.name].blast)}}</span>
+                          </span>
+                            <span *ngIf="weaponMap[weapon.name].hitVehicle" class="hit-vehicle">
+                            <img src="assets/common/hit-armor.png" alt="Hit Vehicle" />
+                            <span>{{getValue(weapon.name + ":hitVehicle", weaponMap[weapon.name].hitVehicle)}}</span>
+                          </span>
+                            <span *ngIf="weaponMap[weapon.name].hitInfantry" class="hit-infantry">
+                            <img src="assets/common/hit-infantry.png" alt="Hit Infantry" />
+                            <span>{{getValue(weapon.name + ":hitInfantry", weaponMap[weapon.name].hitInfantry)}}</span>
+                          </span>
+                            <span *ngIf="weaponMap[weapon.name].damage" class="damage">
+                            <img src="assets/common/damage.png" alt="Damage" />
+                            <span>{{getValue(weapon.name + ":damage", weaponMap[weapon.name].damage)}}</span>
+                          </span>
 
                         </div>
                         <span *ngIf="weapon.qty > 1">{{weapon.qty}}x </span>
@@ -224,6 +232,33 @@
                       </div>
                       <div class="clearfix"></div>
                       <div *ngFor="let special of weaponMap[weapon.name].special" class="weapon-special" [innerHTML]="replaceIcons(special)"></div>
+                    </div>
+                  </div>
+                </div>
+                <div *ngIf="activeSquad.data.type === 'car' || activeSquad.data.type === 'tank'" class="infantry-group">
+                  <h3 *ngIf="!activeSquad.hasChassis()">Chassis</h3>
+                  <div class="weapon">
+                    <div class="weapon-bar">
+                      <div class="right">
+                        <span *ngIf="!activeSquad.data.bulletproof">
+                          <img class="left checkbox" (click)="activeSquad.tracked = !activeSquad.tracked" src="{{activeSquad.tracked ? 'assets/common/killed.png' : 'assets/common/checkbox.png'}}" alt="Checkbox" />
+                          <span class="left">½ Speed</span>
+                        </span>
+                        <img class="left checkbox" (click)="activeSquad.immobile = !activeSquad.immobile" src="{{activeSquad.immobile ? 'assets/common/killed.png' : 'assets/common/checkbox.png'}}" alt="Checkbox" />
+                        <span class="left">Immobilized</span>
+                      </div>
+                      {{activeSquad.data.type === 'car' ? 'Wheels' : 'Tracks'}}
+                    </div>
+                  </div>
+                  <h3>
+                    <span *ngIf="activeSquad.data.crew && activeSquad.data.crew.length > 1">{{activeSquad.data.crew.length}}x </span>Crew
+                  </h3>
+                  <div *ngFor="let crew of activeSquad.data.crew" class="weapon">
+                    <div class="weapon-bar">
+                      <div class="center-vertical">
+                        <img class="checkbox" (click)="activeSquad.cycleCheckbox(crew)" src="{{activeSquad.getCheckboxSrc(crew)}}" alt="Checkbox" />
+                        <span>&nbsp;{{crew}}</span>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -245,11 +280,11 @@
                     <span>{{getValue("defense", activeSquad.data.armor)}}</span>
                   </div>
                   <div class="comms stat">
-                    <ng-container *ngIf="activeSquad.data.shout" >
+                    <ng-container *ngIf="!activeSquad.data.runner && !activePlatoon.data.radio" >
                       <img src="assets/common/shout.png" alt="Shout" />
                       <span>{{getValue("comms", activeSquad.data.shout)}}</span>
                     </ng-container>
-                    <ng-container *ngIf="activeSquad.data.runner">
+                    <ng-container *ngIf="!activeSquad.data.radio && activeSquad.data.runner">
                       <img  src="assets/common/runner.png" alt="Runner" />
                       <span>{{getValue("comms", activeSquad.data.runner)}}</span>
                     </ng-container>
@@ -275,7 +310,7 @@
 
                   <div class="characteristics">
                     <h3>CHARACTERISTICS</h3>
-                    <p>{{activeSquad.data.characteristics}}</p>
+                    <p>{{activeSquad.getCharacteristics()}}</p>
                   </div>
                 </div>
               </div>
