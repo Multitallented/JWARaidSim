@@ -11,6 +11,14 @@
       "+4 $shots$ when adjacent to a stationary assistant"
     ]
   },
+  "MG42": {
+    "range": 350,
+    "shots": 4,
+    "damage": 1,
+    "special": [
+      "+4 $shots$ when adjacent to a stationary assistant"
+    ]
+  },
   "Kar98K": {
     "range": 120,
     "shots": 1

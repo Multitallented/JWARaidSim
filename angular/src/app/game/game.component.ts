@@ -211,6 +211,12 @@ export class GameComponent implements OnInit {
   }
 
   private lockVariant(variant: any) {
+    if (variant.modifiers) {
+      for (let key of Object.keys(variant.modifiers)) {
+        // TODO make this additive
+        delete this.activeSquad.modifiers[key];
+      }
+    }
     if (variant.add) {
       if (variant.add.squad) {
         for (let key in variant.add.squad) {
@@ -252,6 +258,12 @@ export class GameComponent implements OnInit {
 
   private unlockVariant(variant: any) {
     this.activeSquad.points += variant.points;
+    if (variant.modifiers) {
+      for (let key of Object.keys(variant.modifiers)) {
+        // TODO make this additive
+        this.activeSquad.modifiers[key] = variant.modifiers[key];
+      }
+    }
     if (variant.add) {
       if (variant.add.squad) {
         for (let key in variant.add.squad) {

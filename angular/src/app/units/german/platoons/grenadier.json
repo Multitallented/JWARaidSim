@@ -244,6 +244,39 @@
           }
         },
         {
+          "name": "replace MG34 with MG42",
+          "points": 10,
+          "remove": {
+            "infantry": {
+              "weapons": [
+                {
+                  "name": "MG34",
+                  "qty": 1,
+                  "group": 1
+                }
+              ]
+            }
+          },
+          "add": {
+            "infantry": {
+              "weapons": [
+                {
+                  "name": "MG42",
+                  "qty": 1,
+                  "group": 1
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "+1 $hit-armor$ for grenades",
+          "points": 20,
+          "modifiers": {
+            "StG39 Grenades:hitVehicle": 1
+          }
+        },
+        {
           "name": "form a Panzershreck Squad",
           "points": 60,
           "add": {
