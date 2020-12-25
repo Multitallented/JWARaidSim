@@ -2,6 +2,27 @@
   "name": "Variants",
   "options": -1,
   "squads": {
+    "Opel Blitz": {
+      "img": "../../assets/germans/opel-blitz.jpg",
+      "points": 0,
+      "max": 0,
+      "min": 0,
+      "type": "vehicle",
+      "move": "89",
+      "morale": 6,
+      "moraleFrequency": 1,
+      "armor": 7,
+      "hp": 0,
+      "shout": 5,
+      "closeCombat": 0,
+      "characteristics": [
+        "Transport 13",
+        "Roofless"
+      ],
+      "infantry": [],
+      "lore": "In the build up to Kursk, two battalions equipped with the new Panther tanks, which were plagued by technical problems, suffered from engine fires and mechanical breakdowns before reaching the battlefield. By 7 July, the division had only 80 of its 300 tanks still fit for combat. After the Kursk offensive was cancelled, the division was transferred back to Army Group Center, and resumed its role as a mobile reserve.",
+      "variants": []
+    },
     "Panzerschreck Squad": {
       "img": "../../assets/germans/panzershreck.jpg",
       "points": 0,

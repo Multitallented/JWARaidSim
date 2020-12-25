@@ -164,8 +164,7 @@
           "require": {
             "type": "squad",
             "name": "Opel Blitz",
-            "max": 2,
-            "platoon": true
+            "max": 2
           },
           "add": {
             "squad": {

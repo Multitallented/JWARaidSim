@@ -165,6 +165,9 @@ export class GameComponent implements OnInit {
 
   getFactionPoints(): number {
     let points = this.getPoints();
+    if (this.faction == null) {
+      return points;
+    }
     return Math.round(points - (points / this.faction.pointModifier));
   }
 
@@ -198,12 +201,31 @@ export class GameComponent implements OnInit {
   }
 
   private validateVariant(variant): boolean {
-    if (variant.add) {
-      if (variant.add.infantry) {
-        if (variant.add.infantry.weapons) {
+    if (variant.remove) {
+      if (variant.remove.infantry) {
+        if (variant.remove.infantry.weapons) {
           if (!this.hasWeapons(variant.remove.infantry.weapons)) {
             return false;
           }
+        }
+      }
+    }
+    if (variant.require) {
+      if (variant.require.type === 'squad') {
+        let numberOfSquads = 0;
+        for (let squad of this.activePlatoon.squads) {
+          if (squad.name === variant.require.name) {
+            numberOfSquads++;
+          }
+        }
+        console.log(numberOfSquads);
+        if (numberOfSquads < 1 && variant.require.type.max < 1) {
+          console.log("failed require");
+          return false;
+        }
+        if (variant.require.type.max && variant.require.type.max <= numberOfSquads) {
+          console.log("failed require max " + variant.require.type.max);
+          return false;
         }
       }
     }
@@ -257,6 +279,7 @@ export class GameComponent implements OnInit {
   }
 
   private unlockVariant(variant: any) {
+    console.log("variant: " + variant.name);
     this.activeSquad.points += variant.points;
     if (variant.modifiers) {
       for (let key of Object.keys(variant.modifiers)) {
