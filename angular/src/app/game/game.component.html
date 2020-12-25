@@ -188,7 +188,7 @@
                   <div class="model-checkboxes">
                     <ng-container *ngIf="infantrySection.models">
                       <ng-container *ngFor="let i of [].constructor(infantrySection.models); let index = index">
-                        <div class="clearfix" *ngIf="index % 3 === 0 && index !== 0"></div>
+                        <div class="clearfix" *ngIf="infantrySection.models > 9 && index % (infantrySection.models / 2) === 0 && index !== 0"></div>
                         <img class="checkbox right" (click)="activeSquad.cycleCheckbox(infantrySection.name + ':' + index)" src="{{activeSquad.getCheckboxSrc(infantrySection.name + ':' + index)}}" alt="Checkbox" />
                       </ng-container>
                     </ng-container>
