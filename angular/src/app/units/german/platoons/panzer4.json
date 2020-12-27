@@ -1,3 +1,67 @@
 {
-  "name": "Panzer 4 Column"
+  "name": "Panzer 4 Column",
+  "options": 2,
+  "squads": {
+    "Panzer 4": {
+      "img": "",
+      "points": 777,
+      "max": 4,
+      "min": 1,
+      "type": "tank",
+      "move": 34,
+      "morale": 7,
+      "moraleFrequency": 1,
+      "armor": 14,
+      "hp": 1,
+      "radio": 4,
+      "closeCombat": 0,
+      "characteristics": [
+        "None"
+      ],
+      "infantry": [
+        {
+          "name": "Turret",
+          "weapons": [
+            {
+              "name": "75mm AP",
+              "qty": 1,
+              "altAmmo": true,
+              "turret": 0
+            },
+            {
+              "name": "75mm HE",
+              "qty": 1,
+              "altAmmo": true,
+              "turret": 0
+            },
+            {
+              "name": "75mm Smoke",
+              "qty": 1,
+              "turret": 0
+            },
+            {
+              "name": "MG42",
+              "qty": 1,
+              "turret": 0,
+              "shots": 7,
+              "special": []
+            },
+            {
+              "name": "MG34",
+              "qty": 1,
+              "turret": 360,
+              "special": []
+            }
+          ]
+        }
+      ],
+      "variants": [],
+      "crew": [
+        "Driver",
+        "Gunner/Commander",
+        "Radio/MG",
+        "Assistant"
+      ]
+    }
+  }
 }

@@ -2,6 +2,10 @@
   "name": "Grenadier Platoon",
   "options": 1,
   "standard": true,
+  "factions": [
+    "German Army",
+    "Schutzstaffel"
+  ],
   "squads": {
     "Grenadier Command": {
       "img": "../../assets/germans/grenadier-command.jpg",

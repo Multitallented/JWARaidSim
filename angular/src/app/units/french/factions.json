@@ -1,0 +1,18 @@
+{
+  "factions": [
+    {
+      "name": "French Army",
+      "standardPlatoons": [
+        "Infantry Platoon"
+      ],
+      "nations": [
+        "French"
+      ],
+      "allies": [
+        "British"
+      ],
+      "img": "",
+      "lore": ""
+    }
+  ]
+}

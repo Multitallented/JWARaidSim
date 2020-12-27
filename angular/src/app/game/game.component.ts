@@ -76,7 +76,9 @@ export class GameComponent implements OnInit {
     let returnPlatoons = new Array<Platoon>();
     for (let platoon of this.platoonOptions) {
       if (platoon.data.options > -1 && (this.armyList.length > 0 || platoon.data.standard)) {
-        returnPlatoons.push(platoon);
+        if (!platoon.data.factions || platoon.data.factions.indexOf(this.faction.name) !== -1) {
+          returnPlatoons.push(platoon);
+        }
       }
     }
     return returnPlatoons;
@@ -105,6 +107,9 @@ export class GameComponent implements OnInit {
       let min = 0;
       let squad = new Squad(key, squadData.min > min, squadData.points);
       squad.data = squadData;
+      if (squadData.modifiers) {
+        squad.modifiers = _.cloneDeep(squadData.modifiers);
+      }
       if (squadData.max === 0) {
         squad.required = true;
       }
@@ -182,6 +187,18 @@ export class GameComponent implements OnInit {
     return Math.max(0, returnValue);
   }
 
+  getSpecials(key, baseValue): Array<string> {
+    let returnValue = [];
+    for (let line of baseValue) {
+      if (!line || (this.activeSquad.modifiers[key] &&
+          this.activeSquad.modifiers[key].indexOf(line) !== -1)) {
+        continue;
+      }
+      returnValue.push(line);
+    }
+    return returnValue;
+  }
+
   toggleVariant(variant: any, unlocking: boolean) {
     let unlocks = variant.unlocks ? variant.unlocks : 0;
     if (unlocking && ((unlocks === 0 && !variant.max) || unlocks < variant.max)) {
@@ -218,13 +235,10 @@ export class GameComponent implements OnInit {
             numberOfSquads++;
           }
         }
-        console.log(numberOfSquads + ":" + variant.require.max);
         if (numberOfSquads < 1 && variant.require.max < 1) {
-          console.log("failed require");
           return false;
         }
         if (variant.require.max > 0 && variant.require.max <= numberOfSquads) {
-          console.log("failed require max " + variant.require.type.max);
           return false;
         }
       }
@@ -235,8 +249,12 @@ export class GameComponent implements OnInit {
   private lockVariant(variant: any) {
     if (variant.modifiers) {
       for (let key of Object.keys(variant.modifiers)) {
-        // TODO make this additive
-        delete this.activeSquad.modifiers[key];
+        let modifierAmt = variant.modifiers[key];
+        if (this.activeSquad.modifiers[key] && this.activeSquad.modifiers[key] - modifierAmt === 0) {
+          delete this.activeSquad.modifiers[key];
+        } else if (this.activeSquad.modifiers[key] > modifierAmt) {
+          this.activeSquad.modifiers[key] = this.activeSquad.modifiers[key] - modifierAmt;
+        }
       }
     }
     if (variant.add) {
@@ -282,12 +300,14 @@ export class GameComponent implements OnInit {
   }
 
   private unlockVariant(variant: any) {
-    console.log("variant: " + variant.name);
     this.activeSquad.points += variant.points;
     if (variant.modifiers) {
       for (let key of Object.keys(variant.modifiers)) {
-        // TODO make this additive
-        this.activeSquad.modifiers[key] = variant.modifiers[key];
+        if (this.activeSquad.modifiers[key]) {
+          this.activeSquad.modifiers[key] += variant.modifiers[key];
+        } else {
+          this.activeSquad.modifiers[key] = variant.modifiers[key];
+        }
       }
     }
     if (variant.add) {

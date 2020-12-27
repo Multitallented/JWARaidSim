@@ -61,5 +61,27 @@
     "special": [
       "Fires every other turn unless adjacent to an assistant"
     ]
+  },
+  "75mm AP": {
+    "range": 500,
+    "shots": 1,
+    "hitVehicle": 7,
+    "damage": 5,
+    "damageable": true
+  },
+  "75mm HE": {
+    "range": 750,
+    "shots": 1,
+    "blast": 5,
+    "hitVehicle": 4,
+    "damage": 5,
+    "damageable": true
+  },
+  "75mm Smoke": {
+    "range": 750,
+    "shots": 1,
+    "blast": 5,
+    "damageable": true
   }
+
 }

@@ -1,0 +1,38 @@
+{
+  "name": "Infantry Platoon",
+  "options": 1,
+  "standard": true,
+  "squads": {
+    "Infantry Squad": {
+      "img": "",
+      "points": 150,
+      "max": 3,
+      "min": 2,
+      "type": "infantry",
+      "move": 20,
+      "morale": 6,
+      "moraleFrequency": 2,
+      "armor": 7,
+      "hp": 3,
+      "shout": 5,
+      "closeCombat": 0,
+      "characteristics": [
+        "None"
+      ],
+      "infantry": [
+        {
+          "name": "Leader",
+          "models": 1,
+          "weapons": []
+        },
+        {
+          "name": "Infantry",
+          "models": 9,
+          "weapons": []
+        }
+      ],
+      "lore": "",
+      "quote": ""
+    }
+  }
+}
