@@ -39,6 +39,43 @@
   padding: 5px 10px
   color: black
 
+.container
+  height: 100%
+
+.main-row.row
+  > .col
+    margin-top: 30px
+
+
+  > .col:nth-child(1)
+    width: calc(100% - 860px)
+    min-width: 240px
+    min-height: 600px
+    max-width: 430px
+
+    @media screen and (max-width: 1100px)
+      width: calc(100% - 430px)
+
+  > .col:nth-child(2)
+    width: 430px
+
+  > .col:nth-child(3)
+    width: 430px
+
+.platoon-option
+  color: $black
+  margin-bottom: 5px
+
+  > .right .center-vertical
+    height: 22px
+
+  > .name
+    padding: 2px 5px
+    display: inline-block
+
+  .bttn
+    margin-left: 5px
+
 .chosen-platoons
   .platoon-edit
     display: inline-block
@@ -46,6 +83,11 @@
 
   .platoon .platoon-squads > div > div
     margin-left: 15px
+
+  .platoon-info
+    box-sizing: border-box
+    border-width: 0 0 0 3px
+    border-style: solid
 
   .platoon-info, .platoon .platoon-squads > div > div
     background-color: rgba(0, 0, 0, 0.4)
@@ -121,7 +163,7 @@
       .blast > img
         margin-top: -2px
 
-      .right > span
+      .right > span, .right > .center-vertical > span
         display: table
         float: left
         padding-left: 5px

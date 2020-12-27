@@ -38,6 +38,9 @@ body
 .wdth-33
   width: 33.3%
 
+.wdth-50
+  width: 50%
+
 .hr
   margin: 0 auto
   width: 200px
@@ -60,39 +63,66 @@ a
   color: $afrika-mustard
   cursor: pointer
 
+  &.bttn
+    display: inline-block
+    background-color: rgba(0, 0, 0, 0.6)
+    border: 1px solid $black !important
+    padding-left: 5px
+    padding-right: 5px
+    transition: .5s all
+
+    &:hover
+      text-decoration: none
+      background-color: rgba(0, 0, 0, 0.8)
+      color: $off-white
+
   &:hover
     text-decoration: underline
 .french
+  .faction-border
+    border-color: $french-blue
   a, .faction-color
     color: $french-blue
   .faction-bg
     background-color: $french-blue
 .indian, .british
+  .faction-border
+    border-color: $desert-sand
   a, .faction-color
     color: $desert-sand
   .faction-bg
     background-color: $desert-sand
 .german
+  .faction-border
+    border-color: $afrika-mustard
   a, .faction-color
     color: $afrika-mustard
   .faction-bg
     background-color: $afrika-mustard
 .italian, .japanese
+  .faction-border
+    border-color: $jungle-green
   a, .faction-color
     color: $jungle-green
   .faction-bg
     background-color: $jungle-green
 .american
+  .faction-border
+    border-color: $olive-drab
   a, .faction-color
     color: $olive-drab
   .faction-bg
     background-color: $olive-drab
 .chinese
+  .faction-border
+    border-color: $chinese-blue
   a, .faction-color
     color: $chinese-blue
   .faction-bg
     background-color: $chinese-blue
 .russian
+  .faction-border
+    border-color: $russian-green
   a, .faction-color
     color: $russian-green
   .faction-bg

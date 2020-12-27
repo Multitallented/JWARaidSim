@@ -38,25 +38,39 @@
 
   <div class="clearfix"></div>
 
-  <div class="row">
-    <div class="col wdth-33">
+  <div class="main-row row">
+    <div class="col">
       <div *ngIf="!faction">
         <h3>Factions</h3>
-        <div *ngFor="let currentFaction of factionList">
-          <a class="right" (click)="selectFaction(currentFaction)">Select</a>
-          <a class="right" (click)="selectedFaction = currentFaction">Preview</a>
+        <div class="platoon-option faction-bg" *ngFor="let currentFaction of factionList">
+          <div class="right">
+            <div class="center-vertical">
+              <div>
+                <a class="bttn" (click)="selectedFaction = currentFaction">Preview</a>
+              </div>
+              <div>
+                <a class="bttn" (click)="selectFaction(currentFaction)">></a>
+              </div>
+            </div>
+          </div>
           <span class="name">{{currentFaction.name}}</span>
         </div>
       </div>
       <div *ngIf="nation && faction">
         <h3>Options</h3>
-        <div *ngFor="let platoonOption of getPlatoonOptions()">
-          <a class="right" (click)="addPlatoon(platoonOption)">>></a>
+        <div class="platoon-option faction-bg" *ngFor="let platoonOption of getPlatoonOptions()">
+          <div class="right">
+            <div class="center-vertical">
+              <div>
+                <a class="bttn" (click)="addPlatoon(platoonOption)">></a>
+              </div>
+            </div>
+          </div>
           <span class="name">{{platoonOption.name}}</span>
         </div>
       </div>
     </div>
-    <div class="col wdth-33 chosen-platoons">
+    <div class="col chosen-platoons">
       <div *ngIf="selectedFaction && !faction" class="active-squad front">
         <h2>{{selectedFaction.name.split(' ')[0]}}
           <span *ngIf="selectedFaction.name.indexOf(' ') !== -1">{{selectedFaction.name.substring(selectedFaction.name.indexOf(' '), selectedFaction.name.length)}}</span></h2>
@@ -82,14 +96,14 @@
       <div *ngIf="nation && faction">
         <h3>Army</h3>
         <div class="platoon">
-          <div class="platoon-info">
+          <div class="platoon-info faction-border">
             <span class="name">Faction
               <a (click)="selectedFaction = faction; activeSquad = null">{{faction.name}}</a> {{getFactionPoints()}}pts</span>
           </div>
         </div>
         <div class="platoon" *ngFor="let platoon of armyList">
           <ng-container *ngIf="armyList.length > 0 || platoon.standard">
-            <div class="platoon-info">
+            <div class="platoon-info faction-border">
               <span class="name">{{platoon.name}} {{platoon.getPoints()}}pts</span>
               <a class="platoon-accordian right" (click)="platoon.expanded = !platoon.expanded">{{platoon.expanded ? '--' : '+'}}</a>
               <a class="platoon-edit right" (click)="platoon.editing=!platoon.editing">{{platoon.editing ? 'Save' : 'Edit'}}</a>
@@ -106,7 +120,7 @@
         </div>
       </div>
     </div>
-    <div class="col wdth-33">
+    <div class="col">
       <div *ngIf="selectedFaction" class="active-squad faction-back">
         <h2>{{selectedFaction.name.split(' ')[0]}}
           <span *ngIf="selectedFaction.name.indexOf(' ') !== -1">{{selectedFaction.name.substring(selectedFaction.name.indexOf(' '), selectedFaction.name.length)}}</span></h2>
@@ -132,7 +146,7 @@
         </div>
       </div>
       <div *ngIf="nation && faction && !selectedFaction">
-        <h3>Unit <a *ngIf="activeSquad" class="right" (click)="frontSide = !frontSide">Flip Card</a></h3>
+        <h3>Unit <a *ngIf="activeSquad" class="right bttn" (click)="frontSide = !frontSide">Flip Card</a></h3>
         <div *ngIf="activeSquad">
           <div class="active-squad" [ngClass]="{'front': frontSide}">
             <h2>{{activeSquad.name.split(' ')[0]}}
@@ -272,12 +286,55 @@
                   <h3>
                     <span *ngIf="activeSquad.data.crew && activeSquad.data.crew.length > 1">{{activeSquad.data.crew.length}}x </span>Crew
                   </h3>
-                  <div *ngFor="let crew of activeSquad.data.crew" class="weapon">
-                    <div class="weapon-bar">
-                      <div class="center-vertical">
-                        <img class="checkbox" (click)="activeSquad.cycleCheckbox(crew)" src="{{activeSquad.getCheckboxSrc(crew)}}" alt="Checkbox" />
-                        <span>&nbsp;{{crew}}</span>
+                  <div class="row">
+                    <div *ngFor="let crew of activeSquad.data.crew" class="weapon col wdth-50">
+                      <div class="weapon-bar">
+                        <div class="center-vertical">
+                          <img class="checkbox" (click)="activeSquad.cycleCheckbox(crew)" src="{{activeSquad.getCheckboxSrc(crew)}}" alt="Checkbox" />
+                          <span>&nbsp;{{crew}}</span>
+                        </div>
                       </div>
+                    </div>
+                  </div>
+
+                  <div *ngFor="let weapon of activeSquad.data.crewWeapon" class="weapon">
+                    <div class="weapon-bar">
+                      <div class="right">
+                        <div class="center-vertical">
+                          <span class="range">
+                            <img src="assets/common/range.png" alt="Range" />
+                            <span *ngIf="weapon.hasOwnProperty('range')">{{getValue(weapon.name + ":range", weapon.range)}}</span>
+                            <span *ngIf="!weapon.hasOwnProperty('range')">{{getValue(weapon.name + ":range", weaponMap[weapon.name].range)}}</span>
+                          </span>
+                          <span *ngIf="!weaponMap[weapon.name].blast" class="shots">
+                            <img src="assets/common/shots.png" alt="Shots" />
+                            <span *ngIf="weapon.hasOwnProperty('shots')">{{getValue(weapon.name + ":shots", weapon.shots)}}</span>
+                            <span *ngIf="!weapon.hasOwnProperty('shots')">{{getValue(weapon.name + ":shots", weaponMap[weapon.name].shots)}}</span>
+                          </span>
+                          <span *ngIf="weaponMap[weapon.name].blast" class="blast">
+                            <img src="assets/common/blast.png" alt="Blast" />
+                            <span *ngIf="weapon.hasOwnProperty('blast')">{{getValue(weapon.name + ":blast", weapon.blast)}}</span>
+                            <span *ngIf="!weapon.hasOwnProperty('blast')">{{getValue(weapon.name + ":blast", weaponMap[weapon.name].blast)}}</span>
+                          </span>
+                          <span *ngIf="weaponMap[weapon.name].hitVehicle" class="hit-vehicle">
+                            <img src="assets/common/hit-armor.png" alt="Hit Vehicle" />
+                            <span *ngIf="weapon.hasOwnProperty('hitVehicle')">{{getValue(weapon.name + ":hitVehicle", weapon.hitVehicle)}}</span>
+                            <span *ngIf="!weapon.hasOwnProperty('hitVehicle')">{{getValue(weapon.name + ":hitVehicle", weaponMap[weapon.name].hitVehicle)}}</span>
+                          </span>
+                          <span *ngIf="weaponMap[weapon.name].hitInfantry" class="hit-infantry">
+                            <img src="assets/common/hit-infantry.png" alt="Hit Infantry" />
+                            <span *ngIf="weapon.hasOwnProperty('hitInfantry')">{{getValue(weapon.name + ":hitInfantry", weapon.hitInfantry)}}</span>
+                            <span *ngIf="!weapon.hasOwnProperty('hitInfantry')">{{getValue(weapon.name + ":hitInfantry", weaponMap[weapon.name].hitInfantry)}}</span>
+                          </span>
+                          <span *ngIf="weaponMap[weapon.name].damage" class="damage">
+                            <img src="assets/common/damage.png" alt="Damage" />
+                            <span *ngIf="weapon.hasOwnProperty('damage')">{{getValue(weapon.name + ":damage", weapon.damage)}}</span>
+                            <span *ngIf="!weapon.hasOwnProperty('damage')">{{getValue(weapon.name + ":damage", weaponMap[weapon.name].damage)}}</span>
+                          </span>
+                        </div>
+                      </div>
+                      <span *ngIf="weapon.qty > 1">{{weapon.qty}}x </span>
+                      {{weapon.name}}
                     </div>
                   </div>
                 </div>

@@ -53,6 +53,17 @@
               "special": []
             }
           ]
+        },
+        {
+          "name": "Chassis",
+          "weapons": [
+            {
+              "name": "MG34",
+              "qty": 1,
+              "angle": 45,
+              "special": []
+            }
+          ]
         }
       ],
       "variants": [],
@@ -61,6 +72,12 @@
         "Gunner/Commander",
         "Radio/MG",
         "Assistant"
+      ],
+      "crewWeapon": [
+        {
+          "name": "MP40",
+          "qty": 4
+        }
       ]
     }
   }
