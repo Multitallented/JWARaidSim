@@ -189,12 +189,22 @@ export class GameComponent implements OnInit {
 
   getSpecials(key, baseValue): Array<string> {
     let returnValue = [];
+    let dontAdd = [];
     for (let line of baseValue) {
       if (!line || (this.activeSquad.modifiers[key] &&
           this.activeSquad.modifiers[key].indexOf(line) !== -1)) {
+        dontAdd.push(line);
         continue;
       }
       returnValue.push(line);
+    }
+    if (this.activeSquad.modifiers[key]) {
+      for (let newLine of this.activeSquad.modifiers[key]) {
+        if (!newLine || dontAdd.indexOf(newLine) !== -1) {
+          continue;
+        }
+        returnValue.push(newLine);
+      }
     }
     return returnValue;
   }

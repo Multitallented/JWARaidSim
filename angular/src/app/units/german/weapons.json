@@ -52,6 +52,17 @@
       "Indirect Fire"
     ]
   },
+  "Handgranate43": {
+    "range": 5,
+    "shots": 1,
+    "blast": 3,
+    "hitVehicle": 7,
+    "damage": 5,
+    "special": [
+      "Only hits vehicles in close combat",
+      "Indirect Fire"
+    ]
+  },
   "Panzerschreck": {
     "range": 30,
     "shots": 1,

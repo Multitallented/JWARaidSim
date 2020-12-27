@@ -1,0 +1,420 @@
+{
+  "name": "Volksgrenadier Platoon",
+  "options": 1,
+  "standard": true,
+  "factions": [
+    "German Army"
+  ],
+  "squads": {
+    "Volksgrenadier Command": {
+      "img": "",
+      "points": 60,
+      "options": 1,
+      "max": 1,
+      "min": 0,
+      "hq": true,
+      "type": "infantry",
+      "move": 20,
+      "morale": 5,
+      "moraleFrequency": 2,
+      "armor": 7,
+      "hp": 3,
+      "runner": 5,
+      "closeCombat": 0,
+      "characteristics": [
+        "Militia"
+      ],
+      "infantry": [
+        {
+          "name": "Leader",
+          "closeCombat": 1,
+          "models": 1,
+          "weapons": [
+            {
+              "name": "MP40",
+              "qty": 1
+            }
+          ]
+        },
+        {
+          "name": "Runner",
+          "models": 2,
+          "weapons": [
+            {
+              "name": "MP40",
+              "qty": 2
+            }
+          ]
+        },
+        {
+          "name": "Infantry",
+          "models": 2,
+          "weapons": [
+            {
+              "name": "MP40",
+              "qty": 2
+            },
+            {
+              "name": "Panzerfaust",
+              "qty": 1
+            }
+          ]
+        },
+        {
+          "name": "All Infantry",
+          "weapons": [
+            {
+              "name": "StG39 Grenades",
+              "qty": 1
+            }
+          ]
+        }
+      ],
+      "variants": [
+        {
+          "name": "Leader replaces MP40 with StG44",
+          "points": 20,
+          "add": {
+            "infantry": {
+              "weapons": [
+                {
+                  "name": "StG44",
+                  "qty": 1,
+                  "group": 0
+                }
+              ]
+            }
+          },
+          "remove": {
+            "infantry": {
+              "weapons": [
+                {
+                  "name": "MP40",
+                  "qty": 1,
+                  "group": 0
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "replace MP40 with StG44",
+          "max": 2,
+          "points": 20,
+          "add": {
+            "infantry": {
+              "weapons": [
+                {
+                  "name": "StG44",
+                  "qty": 1,
+                  "group": 1
+                }
+              ]
+            }
+          },
+          "remove": {
+            "infantry": {
+              "weapons": [
+                {
+                  "name": "MP40",
+                  "qty": 1,
+                  "group": 1
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Handgranate43",
+          "points": 20,
+          "max": 2,
+          "add": {
+            "infantry": {
+              "weapons": [
+                {
+                  "name": "Handgranate43",
+                  "qty": 1,
+                  "group": 2
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Panzerfaust",
+          "points": 30,
+          "add": {
+            "infantry": {
+              "weapons": [
+                {
+                  "name": "Panzerfaust",
+                  "qty": 1,
+                  "group": 2
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Bicycles +10 $move$",
+          "points": 20,
+          "modifiers": {
+            "move": 10
+          }
+        }
+      ]
+    },
+    "Volksgrenadiers": {
+      "img": "",
+      "points": 80,
+      "options": 1,
+      "max": 2,
+      "min": 2,
+      "type": "infantry",
+      "move": 20,
+      "morale": 5,
+      "moraleFrequency": 3,
+      "armor": 7,
+      "hp": 3,
+      "shout": 5,
+      "closeCombat": 0,
+      "characteristics": [
+        "Militia"
+      ],
+      "infantry": [
+        {
+          "name": "Leader",
+          "closeCombat": 2,
+          "models": 2,
+          "weapons": [
+            {
+              "name": "MP40",
+              "qty": 2
+            }
+          ]
+        },
+        {
+          "name": "Infantry",
+          "models": 7,
+          "weapons": [
+            {
+              "name": "MP40",
+              "qty": 7
+            },
+            {
+              "name": "Panzerfaust",
+              "qty": 1
+            }
+          ]
+        },
+        {
+          "name": "All Infantry",
+          "weapons": [
+            {
+              "name": "StG39 Grenades",
+              "qty": 1
+            }
+          ]
+        }
+      ],
+      "variants": [
+        {
+          "name": "replace MP40 with StG44",
+          "max": 3,
+          "points": 20,
+          "add": {
+            "infantry": {
+              "weapons": [
+                {
+                  "name": "StG44",
+                  "qty": 1,
+                  "group": 1
+                }
+              ]
+            }
+          },
+          "remove": {
+            "infantry": {
+              "weapons": [
+                {
+                  "name": "MP40",
+                  "qty": 1,
+                  "group": 1
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Handgranate43",
+          "points": 20,
+          "max": 2,
+          "add": {
+            "infantry": {
+              "weapons": [
+                {
+                  "name": "Handgranate43",
+                  "qty": 1,
+                  "group": 1
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Panzerfaust",
+          "points": 30,
+          "add": {
+            "infantry": {
+              "weapons": [
+                {
+                  "name": "Panzerfaust",
+                  "qty": 1,
+                  "group": 1
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Bicycles +10 $move$",
+          "points": 20,
+          "modifiers": {
+            "move": 10
+          }
+        }
+      ]
+    },
+    "Volksgrenadier Rifles": {
+      "img": "",
+      "points": 110,
+      "options": 1,
+      "max": 1,
+      "min": 0,
+      "type": "infantry",
+      "move": 20,
+      "morale": 5,
+      "moraleFrequency": 3,
+      "armor": 7,
+      "hp": 3,
+      "shout": 5,
+      "closeCombat": 0,
+      "characteristics": [
+        "Militia"
+      ],
+      "infantry": [
+        {
+          "name": "Leader",
+          "closeCombat": 2,
+          "models": 2,
+          "weapons": [
+            {
+              "name": "MP40",
+              "qty": 2
+            }
+          ]
+        },
+        {
+          "name": "Infantry",
+          "models": 7,
+          "closeCombat": 1,
+          "weapons": [
+            {
+              "name": "Kar98K",
+              "qty": 6
+            },
+            {
+              "name": "MG34",
+              "qty": 1
+            }
+          ]
+        },
+        {
+          "name": "All Infantry",
+          "weapons": [
+            {
+              "name": "StG39 Grenades",
+              "qty": 1
+            }
+          ]
+        }
+      ],
+      "variants": [
+        {
+          "name": "replace MP40 with StG44",
+          "max": 2,
+          "points": 20,
+          "add": {
+            "infantry": {
+              "weapons": [
+                {
+                  "name": "StG44",
+                  "qty": 1,
+                  "group": 0
+                }
+              ]
+            }
+          },
+          "remove": {
+            "infantry": {
+              "weapons": [
+                {
+                  "name": "MP40",
+                  "qty": 1,
+                  "group": 0
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Handgranate43",
+          "points": 20,
+          "max": 2,
+          "add": {
+            "infantry": {
+              "weapons": [
+                {
+                  "name": "Handgranate43",
+                  "qty": 1,
+                  "group": 1
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Panzerfaust",
+          "points": 30,
+          "add": {
+            "infantry": {
+              "weapons": [
+                {
+                  "name": "Panzerfaust",
+                  "qty": 1,
+                  "group": 1
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "MG34 gets +3 $shots$ when stationary",
+          "points": 30,
+          "modifiers": {
+            "MG34:special": [
+              "+3 $shots$ when stationary"
+            ]
+          }
+        },
+        {
+          "name": "Bicycles +10 $move$",
+          "points": 20,
+          "modifiers": {
+            "move": 10
+          }
+        }
+      ]
+    }
+  }
+}
