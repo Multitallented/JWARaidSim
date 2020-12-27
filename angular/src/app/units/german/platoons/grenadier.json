@@ -22,9 +22,7 @@
       "hp": 3,
       "runner": 5,
       "closeCombat": 0,
-      "characteristics": [
-        "None"
-      ],
+      "characteristics": [],
       "infantry": [
         {
           "name": "Leader",
@@ -117,9 +115,7 @@
       "hp": 3,
       "shout": 5,
       "closeCombat": 0,
-      "characteristics": [
-        "None"
-      ],
+      "characteristics": [],
       "infantry": [
         {
           "name": "Leader",

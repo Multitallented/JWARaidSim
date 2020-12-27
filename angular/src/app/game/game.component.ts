@@ -168,6 +168,17 @@ export class GameComponent implements OnInit {
     return input;
   }
 
+  dupePlatoon(platoon: Platoon) {
+    this.armyList.push(_.cloneDeep(platoon));
+  }
+
+  removePlatoon(platoon: Platoon) {
+    let index = this.armyList.indexOf(platoon);
+    if (index !== -1) {
+      this.armyList.splice(index, 1);
+    }
+  }
+
   getFactionPoints(): number {
     let points = this.getPoints();
     if (this.faction == null) {
@@ -292,6 +303,13 @@ export class GameComponent implements OnInit {
           this.activeSquad.data.infantry[variant.add.infantry.models.group].models += variant.add.infantry.models.qty;
         }
       }
+      if (variant.add.abilities && this.activeSquad.data.abilities) {
+        for (let ability of variant.add.abilities) {
+          if (ability && this.activeSquad.data.abilities.indexOf(ability) !== -1) {
+            this.activeSquad.data.abilities.splice(this.activeSquad.data.abilities.indexOf(ability), 1);
+          }
+        }
+      }
     }
     if (variant.comms) {
       delete this.activeSquad.data[variant.comms.type];
@@ -337,6 +355,16 @@ export class GameComponent implements OnInit {
         }
         if (variant.add.infantry.models) {
           this.activeSquad.data.infantry[variant.add.infantry.models.group].models += variant.add.infantry.models.qty;
+        }
+      }
+      if (variant.add.abilities) {
+        if (!this.activeSquad.data.abilities) {
+          this.activeSquad.data.abilities = [];
+        }
+        for (let ability of variant.add.abilities) {
+          if (ability) {
+            this.activeSquad.data.abilities.push(ability);
+          }
         }
       }
     }

@@ -105,8 +105,10 @@
           <ng-container *ngIf="armyList.length > 0 || platoon.standard">
             <div class="platoon-info faction-border">
               <span class="name">{{platoon.name}} {{platoon.getPoints()}}pts</span>
-              <a class="platoon-accordian right" (click)="platoon.expanded = !platoon.expanded">{{platoon.expanded ? '--' : '+'}}</a>
-              <a class="platoon-edit right" (click)="platoon.editing=!platoon.editing">{{platoon.editing ? 'Save' : 'Edit'}}</a>
+              <a *ngIf="!platoon.editing" class="platoon-accordian right" (click)="platoon.expanded = !platoon.expanded">{{platoon.expanded ? '--' : '+'}}</a>
+              <a class="platoon-edit right" (click)="platoon.editing=!platoon.editing; platoon.expanded = true">{{platoon.editing ? 'Save' : 'Edit'}}</a>
+              <a class="platoon-duplicate right" (click)="dupePlatoon(platoon)">Dupe</a>
+              <a class="platoon-remove right" (click)="removePlatoon(platoon)">Remove</a>
             </div>
             <div class="platoon-squads" [ngClass]="{'expanded': platoon.expanded}">
               <div *ngFor="let squad of platoon.squads">
@@ -342,6 +344,9 @@
                   <div class="hr"></div>
                   <div class="weapon">
                     <div *ngFor="let squadAbility of activeSquad.data.abilities" class="weapon-special" [innerHTML]="replaceIcons(squadAbility)"></div>
+                    <div *ngIf="activeSquad.modifiers['abilities']">
+                      <div *ngFor="let squadAbility of activeSquad.modifiers['abilities']" class="weapon-special" [innerHTML]="replaceIcons(squadAbility)"></div>
+                    </div>
                     <div *ngFor="let factionAbility of faction.abilities" class="weapon-special" [innerHTML]="replaceIcons(factionAbility)"></div>
                   </div>
                 </div>

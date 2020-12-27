@@ -4,7 +4,7 @@
   "squads": {
     "Panzer 4": {
       "img": "",
-      "points": 777,
+      "points": 810,
       "max": 4,
       "min": 1,
       "type": "tank",
@@ -15,9 +15,7 @@
       "hp": 1,
       "radio": 4,
       "closeCombat": 0,
-      "characteristics": [
-        "None"
-      ],
+      "characteristics": [],
       "infantry": [
         {
           "name": "Turret",
@@ -40,16 +38,9 @@
               "turret": 0
             },
             {
-              "name": "MG42",
-              "qty": 1,
-              "turret": 0,
-              "shots": 7,
-              "special": []
-            },
-            {
               "name": "MG34",
               "qty": 1,
-              "turret": 360,
+              "turret": 0,
               "special": []
             }
           ]
@@ -61,22 +52,87 @@
               "name": "MG34",
               "qty": 1,
               "angle": 45,
+              "shots": 7,
               "special": []
             }
           ]
         }
       ],
-      "variants": [],
       "crew": [
-        "Driver",
-        "Gunner/Commander",
+        "Commander",
         "Radio/MG",
-        "Assistant"
+        "Gunner",
+        "Assistant",
+        "Driver"
       ],
       "crewWeapon": [
         {
           "name": "MP40",
-          "qty": 4
+          "qty": 5
+        }
+      ],
+      "variants": [
+        {
+          "name": "Long-range radio",
+          "points": 30,
+          "comms": {
+            "type": "radio",
+            "value": 5
+          }
+        },
+        {
+          "name": "Ambush Camo",
+          "points": 30,
+          "modifiers": {
+            "characteristics": [
+              "Ambush Camo"
+            ]
+          }
+        },
+        {
+          "name": "Anti-Aircraft MG34",
+          "points": 70,
+          "add": {
+            "infantry": {
+              "weapons": [
+                {
+                  "name": "MG34 AA",
+                  "qty": 1,
+                  "group": 0
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "+3 $hp$ against 0 $hit-armor$ weapons",
+          "points": 30,
+          "add": {
+            "abilities": [
+              "+3 $hp$ against 0 $hit-armor$ weapons"
+            ]
+          }
+        },
+        {
+          "name": "+1 $hp$ hardened armor",
+          "points": 30,
+          "modifiers": {
+            "hp": 1
+          }
+        },
+        {
+          "name": "+1 $vehicle-defense$ medium armor",
+          "points": 100,
+          "modifiers": {
+            "defense": 1
+          }
+        },
+        {
+          "name": "+1 $hit-armor$ improved 75mm shells",
+          "points": 150,
+          "modifiers": {
+            "75mm AP:hitVehicle": 1
+          }
         }
       ]
     }

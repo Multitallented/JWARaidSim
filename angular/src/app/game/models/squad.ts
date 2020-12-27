@@ -49,6 +49,15 @@ export class Squad {
       returnString += characteristic;
       i++;
     }
+    if (this.modifiers['characteristics']) {
+      for (let characteristic of this.modifiers['characteristics']) {
+        if (i !== 0) {
+          returnString += ", ";
+        }
+        returnString += characteristic;
+        i++;
+      }
+    }
     if (i === 0) {
       return "None";
     }
