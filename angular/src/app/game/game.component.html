@@ -191,7 +191,7 @@
                     +{{variant.points}}pts <span [innerHTML]="replaceIcons(variant.name)"></span>
                   </div>
                   <div class="hr" *ngIf="activeSquad.data.lore"></div>
-                  <p *ngIf="activeSquad.data.lore">
+                  <p class="quote" *ngIf="activeSquad.data.lore">
                     {{activeSquad.data.lore}}
                   </p>
                   <p class="right" *ngIf="activeSquad.data.quote">
