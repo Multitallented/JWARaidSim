@@ -1,7 +1,7 @@
 
 <div class="container {{nation}}">
 
-  <div class="right list-resources faction-bg">
+  <div *ngIf="faction && nation" class="right list-resources faction-bg">
     {{getPoints() + getFactionPoints()}} pts | {{getOptions()}} opts
   </div>
 

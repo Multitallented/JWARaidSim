@@ -1,12 +1,13 @@
 {
   "name": "Panzer 4 Column",
-  "options": 2,
+  "options": 0,
   "squads": {
     "Panzer 4": {
       "img": "",
       "points": 810,
       "max": 4,
       "min": 1,
+      "options": -2,
       "type": "tank",
       "move": 34,
       "morale": 7,
