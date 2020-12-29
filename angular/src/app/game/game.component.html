@@ -208,10 +208,20 @@
                         <img class="checkbox right" (click)="activeSquad.cycleCheckbox(infantrySection.name + ':' + index)" src="{{activeSquad.getCheckboxSrc(infantrySection.name + ':' + index)}}" alt="Checkbox" />
                       </ng-container>
                     </ng-container>
+                    <ng-container *ngIf="infantrySection.closeCombat">
+                      <ng-container *ngFor="let i of [].constructor(getValue(infantrySection.name + ':closeCombat', infantrySection.closeCombat)); let index = index">
+                        <img class="right knife" src="assets/common/knife.png" alt="Close Combat" />
+                      </ng-container>
+                    </ng-container>
                     <h3>
                       <span *ngIf="infantrySection.models > 1">{{infantrySection.models}}x </span>
                       {{infantrySection.name}}
                     </h3>
+                  </div>
+                  <div *ngIf="infantrySection.weapons.length < 1">
+                    <div class="weapon">
+                      <div class="weapon-bar">None</div>
+                    </div>
                   </div>
                   <div *ngFor="let weapon of infantrySection.weapons">
                     <div *ngIf="weaponMap[weapon.name]" class="weapon" [ngClass]="{'alt-ammo': weapon.altAmmo}">
