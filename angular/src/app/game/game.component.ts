@@ -263,6 +263,18 @@ export class GameComponent implements OnInit {
           return false;
         }
       }
+      if (variant.require.type === 'variant') {
+        let hasUnlock = false;
+        for (let cVariant of this.activeSquad.data.variants) {
+          if (cVariant.name === variant.require.name && cVariant.unlocks > 0) {
+            hasUnlock = true;
+            break;
+          }
+        }
+        if (!hasUnlock) {
+          return false;
+        }
+      }
     }
     return true;
   }

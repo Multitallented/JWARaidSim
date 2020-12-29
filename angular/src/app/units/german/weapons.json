@@ -97,8 +97,12 @@
   "75mm Smoke": {
     "range": 750,
     "shots": 1,
-    "blast": 5,
+    "blast": 8,
     "damageable": true
+  },
+  "Smoke Launchers": {
+    "range": 0,
+    "shots": 1,
+    "blast": 8
   }
-
 }
