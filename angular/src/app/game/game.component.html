@@ -274,10 +274,10 @@
                         {{weapon.name}}
                       </div>
                       <div class="clearfix"></div>
-                      <div *ngIf="weapon.hasOwnProperty('special')">
+                      <div *ngIf="!weapon.altAmmo && weaponMap[weapon.name].altAmmo && weapon.hasOwnProperty('special')">
                         <div *ngFor="let special of getSpecials(weapon.name + ':special', weapon.special)" class="weapon-special" [innerHTML]="replaceIcons(special)"></div>
                       </div>
-                      <div *ngIf="!weapon.hasOwnProperty('special') && weaponMap[weapon.name].hasOwnProperty('special')">
+                      <div *ngIf="!weapon.altAmmo && !weaponMap[weapon.name].altAmmo && !weapon.hasOwnProperty('special') && weaponMap[weapon.name].hasOwnProperty('special')">
                         <div *ngFor="let special of getSpecials(weapon.name + ':special', weaponMap[weapon.name].special)" class="weapon-special" [innerHTML]="replaceIcons(special)"></div>
                       </div>
                     </div>

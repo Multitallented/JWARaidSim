@@ -353,6 +353,16 @@ export class GameComponent implements OnInit {
         }
       }
     }
+    if (variant.remove) {
+      if (variant.remove.infantry) {
+        if (variant.remove.infantry.models) {
+          this.activeSquad.data.infantry[variant.remove.infantry.models.group].models -= variant.remove.infantry.models.qty;
+        }
+        if (variant.remove.infantry.weapons) {
+          this.removeWeapons(variant.remove.infantry.weapons);
+        }
+      }
+    }
     if (variant.add) {
       if (variant.add.squad) {
         for (let key in variant.add.squad) {
@@ -385,16 +395,6 @@ export class GameComponent implements OnInit {
     }
     if (variant.comms) {
       this.activeSquad.data[variant.comms.type] = variant.comms.value;
-    }
-    if (variant.remove) {
-      if (variant.remove.infantry) {
-        if (variant.remove.infantry.models) {
-          this.activeSquad.data.infantry[variant.remove.infantry.models.group].models -= variant.remove.infantry.models.qty;
-        }
-        if (variant.remove.infantry.weapons) {
-          this.removeWeapons(variant.remove.infantry.weapons);
-        }
-      }
     }
   }
 

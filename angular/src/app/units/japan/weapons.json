@@ -13,5 +13,27 @@
       "Only hits vehicles in close combat",
       "Indirect Fire"
     ]
+  },
+  "Type 89 50mm \"Knee Mortar\"": {
+    "range": 74,
+    "shots": 1,
+    "blast": 5,
+    "special": [
+      "Fires every other turn unless adjacent to an assistant",
+      "Can't fire while inside buildings or woods",
+      "Can't fire while moving",
+      "Indirect Fire"
+    ]
+  },
+  "Type 89 \"Knee Mortar\" Smoke": {
+    "range": 74,
+    "shots": 1,
+    "blast": 8,
+    "special": [
+      "Fires every other turn unless adjacent to an assistant",
+      "Can't fire while inside buildings or woods",
+      "Can't fire while moving",
+      "Indirect Fire"
+    ]
   }
 }
