@@ -171,14 +171,14 @@
           }
         },
         {
-          "name": "MGs get +3 $shots$ when stationary",
+          "name": "MGs get +3 $shots$ and can't move while shooting",
           "points": 40,
           "modifiers": {
             "MG34:special": [
-              "+3 $shots$ when stationary"
+              "+3 $shots$ and can't move while shooting"
             ],
             "MG42:special": [
-              "+3 $shots$ when stationary"
+              "+3 $shots$ and can't move while shooting"
             ]
           }
         },

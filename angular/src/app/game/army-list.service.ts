@@ -13,6 +13,7 @@ import * as frenchInfantry from '../units/french/platoons/infantry-platoon.json'
 
 import * as japaneseWeapons from '../units/japan/weapons.json';
 import * as japaneseFactions from '../units/japan/factions.json';
+import * as japaneseRiflePlatoon from '../units/japan/platoons/rifle-platoon.json';
 import {Faction} from "./models/faction";
 
 @Injectable({
@@ -64,6 +65,7 @@ export class ArmyListService {
 
   private getJapanesePlatoons(): Array<any> {
     let platoonsDataArray = [];
+    platoonsDataArray.push(japaneseRiflePlatoon);
     return platoonsDataArray;
   }
 

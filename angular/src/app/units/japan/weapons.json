@@ -1,3 +1,17 @@
 {
-
+  "Type 99 Arisaka": {
+    "range": 110,
+    "shots": 1
+  },
+  "Type 97 Grenades": {
+    "range": 5,
+    "shots": 1,
+    "blast": 3,
+    "hitVehicle": 6,
+    "damage": 5,
+    "special": [
+      "Only hits vehicles in close combat",
+      "Indirect Fire"
+    ]
+  }
 }
