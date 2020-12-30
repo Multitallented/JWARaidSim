@@ -1,0 +1,123 @@
+{
+  "name": "Ha-Go Platoon",
+  "options": 2,
+  "squads": {
+    "Ha-Go Type 95": {
+      "img": "../../assets/japan/ha-go.jpg",
+      "points": 330,
+      "max": 5,
+      "min": 1,
+      "type": "tank",
+      "move": 35,
+      "armor": 14,
+      "morale": 7,
+      "moraleFrequency": 1,
+      "hp": 1,
+      "closeCombat": 1,
+      "shout": 5,
+      "characteristics": [
+        "Transport 6"
+      ],
+      "infantry": [
+        {
+          "name": "Turret",
+          "weapons": [
+            {
+              "name": "Type 97 37mm AP",
+              "qty": 1,
+              "altAmmo": true
+            },
+            {
+              "name": "Type 97 37mm HE",
+              "qty": 1
+            },
+            {
+              "name": "Type 91 MG",
+              "qty": 1,
+              "shots": 5
+            }
+          ]
+        },
+        {
+          "name": "Chassis",
+          "weapons": [
+            {
+              "name": "Type 91 MG",
+              "qty": 1,
+              "shots": 3
+            }
+          ]
+        }
+      ],
+      "crew": [
+        "Leader/Gunner/MG",
+        "MG",
+        "Driver"
+      ],
+      "lore": "The tank was considered one of the best of its type in 1935. As with most armies in the 1930s the tank, and the light tank in particular, were used primarily to support infantry or serve as cavalry reconnaissance and to a lesser extent, as raiding vehicles.",
+      "abilities": [
+        "-2 on all driving tests"
+      ],
+      "variants": [
+        {
+          "name": "+2 on all driving tests",
+          "points": 20,
+          "add": {
+            "abilities": [
+              "-2 on all driving tests"
+            ]
+          }
+        },
+        {
+          "name": "+5 $move$",
+          "points": 20,
+          "modifiers": {
+            "move": 5
+          }
+        },
+        {
+          "name": "replace Type 91 MGs with Type 97 MGs",
+          "points": 40,
+          "add": {
+            "infantry": {
+              "weapons": [
+                {
+                  "name": "Type 97 MG",
+                  "qty": 1,
+                  "group": 0,
+                  "shots": 8,
+                  "special": []
+                },
+                {
+                  "name": "Type 97 MG",
+                  "qty": 1,
+                  "group": 1,
+                  "shots": 5,
+                  "special": []
+                }
+              ]
+            }
+          },
+          "remove": {
+            "infantry": {
+              "weapons": [
+                {
+                  "name": "Type 91 MG",
+                  "qty": 1,
+                  "group": 0,
+                  "shots": 5
+                },
+                {
+                  "name": "Type 91 MG",
+                  "qty": 1,
+                  "group": 1,
+                  "shots": 3
+                }
+              ]
+            }
+          }
+        }
+      ]
+    }
+  }
+}

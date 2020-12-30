@@ -35,5 +35,42 @@
       "Can't fire while moving",
       "Indirect Fire"
     ]
+  },
+  "Type 3 75mm AP": {
+    "range": 300,
+    "shots": 1,
+    "hitVehicle": 7,
+    "damage": 7
+  },
+  "Type 3 75mm HE": {
+    "range": 500,
+    "shots": 1,
+    "blast": 5,
+    "hitVehicle": 4,
+    "damage": 5
+  },
+  "Type 91 MG": {
+    "range": 200,
+    "shots": 3,
+    "damage": 1
+  },
+  "Type 97 MG": {
+    "range": 250,
+    "shots": 2,
+    "damage": 1,
+    "special": [
+      "+3 $shots$ when adjacent to a stationary assistant"
+    ]
+  },
+  "Type 97 37mm AP": {
+    "range": 100,
+    "shots": 1,
+    "hitVehicle": 4,
+    "damage": 3
+  },
+  "Type 97 37mm HE": {
+    "range": 150,
+    "shots": 1,
+    "blast": 3
   }
 }

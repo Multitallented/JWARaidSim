@@ -14,6 +14,8 @@ import * as frenchInfantry from '../units/french/platoons/infantry-platoon.json'
 import * as japaneseWeapons from '../units/japan/weapons.json';
 import * as japaneseFactions from '../units/japan/factions.json';
 import * as japaneseRiflePlatoon from '../units/japan/platoons/rifle-platoon.json';
+import * as japaneseChiNu from '../units/japan/platoons/chi-nu.json';
+import * as japaneseHaGo from '../units/japan/platoons/ha-go.json';
 import {Faction} from "./models/faction";
 
 @Injectable({
@@ -66,6 +68,8 @@ export class ArmyListService {
   private getJapanesePlatoons(): Array<any> {
     let platoonsDataArray = [];
     platoonsDataArray.push(japaneseRiflePlatoon);
+    platoonsDataArray.push(japaneseChiNu);
+    platoonsDataArray.push(japaneseHaGo);
     return platoonsDataArray;
   }
 

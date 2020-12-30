@@ -318,12 +318,8 @@ export class GameComponent implements OnInit {
           this.activeSquad.data.infantry[variant.add.infantry.models.group].models += variant.add.infantry.models.qty;
         }
       }
-      if (variant.add.abilities && this.activeSquad.data.abilities) {
-        for (let ability of variant.add.abilities) {
-          if (ability && this.activeSquad.data.abilities.indexOf(ability) !== -1) {
-            this.activeSquad.data.abilities.splice(this.activeSquad.data.abilities.indexOf(ability), 1);
-          }
-        }
+      if (variant.add.abilities) {
+        this.toggleAbilities(variant.add.abilities);
       }
     }
     if (variant.comms) {
@@ -383,18 +379,28 @@ export class GameComponent implements OnInit {
         }
       }
       if (variant.add.abilities) {
-        if (!this.activeSquad.data.abilities) {
-          this.activeSquad.data.abilities = [];
-        }
-        for (let ability of variant.add.abilities) {
-          if (ability) {
-            this.activeSquad.data.abilities.push(ability);
-          }
-        }
+        this.toggleAbilities(variant.add.abilities);
       }
     }
     if (variant.comms) {
       this.activeSquad.data[variant.comms.type] = variant.comms.value;
+    }
+  }
+
+  private toggleAbilities(abilities) {
+    if (!this.activeSquad.data.abilities) {
+      this.activeSquad.data.abilities = [];
+    }
+    for (let ability of abilities) {
+      if (!ability) {
+        continue;
+      }
+      let abilityIndex = this.activeSquad.data.abilities.indexOf(ability);
+      if (abilityIndex === -1) {
+        this.activeSquad.data.abilities.push(ability);
+      } else {
+        this.activeSquad.data.abilities.splice(abilityIndex, 1);
+      }
     }
   }
 
