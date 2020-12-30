@@ -83,26 +83,25 @@
     "range": 500,
     "shots": 1,
     "hitVehicle": 7,
-    "damage": 5,
-    "damageable": true
+    "damage": 5
   },
   "75mm HE": {
     "range": 750,
     "shots": 1,
     "blast": 5,
     "hitVehicle": 4,
-    "damage": 5,
-    "damageable": true
+    "damage": 5
   },
   "75mm Smoke": {
     "range": 750,
     "shots": 1,
     "blast": 8,
-    "damageable": true
+    "damage": 0
   },
   "Smoke Launchers": {
     "range": 0,
     "shots": 1,
-    "blast": 8
+    "blast": 8,
+    "damage": 0
   }
 }

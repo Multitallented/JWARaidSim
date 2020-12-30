@@ -29,6 +29,7 @@
     "range": 74,
     "shots": 1,
     "blast": 8,
+    "damage": 0,
     "special": [
       "Fires every other turn unless adjacent to an assistant",
       "Can't fire while inside buildings or woods",

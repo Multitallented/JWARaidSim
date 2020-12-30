@@ -146,7 +146,9 @@
             "infantry": {
               "weapons": [
                 {
-                  "name": "Smoke Launchers"
+                  "name": "Smoke Launchers",
+                  "qty": 1,
+                  "group": 0
                 }
               ]
             }
@@ -167,7 +169,7 @@
         }
       ]
     },
-    "Panzer4 SDKFZ 161 ": {
+    "Panzer4 Sdkfz 161 ": {
       "img": "../../assets/germans/panzer4.jpg",
       "points": 810,
       "max": 4,
@@ -310,7 +312,9 @@
             "infantry": {
               "weapons": [
                 {
-                  "name": "Smoke Launchers"
+                  "name": "Smoke Launchers",
+                  "qty": 1,
+                  "group": 0
                 }
               ]
             }
