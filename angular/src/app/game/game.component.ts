@@ -158,6 +158,9 @@ export class GameComponent implements OnInit {
 
   getCardIcon(type: string): string {
     switch (this.nation) {
+      case 'american':
+        return type === 'infantry' ?
+          '../../assets/american/a-helmet.png' : '../../assets/american/a-tank.png';
       case 'japanese':
         return type === 'infantry' ?
           '../../assets/japan/helmet.png' : '../../assets/japan/tank.png';

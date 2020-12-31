@@ -17,6 +17,11 @@ import * as japaneseFactions from '../units/japan/factions.json';
 import * as japaneseRiflePlatoon from '../units/japan/platoons/rifle-platoon.json';
 import * as japaneseChiNu from '../units/japan/platoons/chi-nu.json';
 import * as japaneseHaGo from '../units/japan/platoons/ha-go.json';
+
+import * as americanWeapons from '../units/american/weapons.json';
+import * as americanFactions from '../units/american/factions.json';
+import * as americanInfantry from '../units/american/platoons/infantry.json';
+
 import {Faction} from "./models/faction";
 
 @Injectable({
@@ -36,6 +41,9 @@ export class ArmyListService {
     } else if (nation === 'japanese') {
       // @ts-ignore
       return japaneseWeapons.default;
+    } else if (nation === 'american') {
+      // @ts-ignore
+      return americanWeapons.default;
     }
     return germanWeapons;
   }
@@ -47,6 +55,8 @@ export class ArmyListService {
       return this.getFrenchPlatoons();
     } else if (nation === 'japanese') {
       return this.getJapanesePlatoons();
+    } else if (nation === 'american') {
+      return this.getAmericanPlatoons();
     }
     return this.getGermanPlatoons();
   }
@@ -55,6 +65,12 @@ export class ArmyListService {
     let platoonDataArray = [];
     platoonDataArray.push(frenchInfantry);
     return platoonDataArray;
+  }
+
+  private getAmericanPlatoons(): Array<any> {
+    let platoonsDataArray = [];
+    platoonsDataArray.push(americanInfantry);
+    return platoonsDataArray;
   }
 
   private getGermanPlatoons(): Array<any> {
@@ -82,6 +98,8 @@ export class ArmyListService {
       return this.getFactionList(frenchFactions);
     } else if (nation === 'japanese') {
       return this.getFactionList(japaneseFactions);
+    } else if (nation === 'american') {
+      return this.getFactionList(americanFactions);
     }
     return this.getFactionList(germanFactions);
   }
