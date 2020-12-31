@@ -312,6 +312,7 @@
         {
           "name": "replace GrW36 50mm with GrW34 81mm",
           "points": 50,
+          "wholePlatoon": true,
           "add": {
             "infantry": {
               "weapons": [
@@ -351,6 +352,7 @@
         {
           "name": "replace GrW36 50mm with GrW42 120mm and gain Off-Table",
           "points": 180,
+          "wholePlatoon": true,
           "add": {
             "infantry": {
               "weapons": [

@@ -233,18 +233,46 @@ export class GameComponent implements OnInit {
   toggleVariant(variant: any, unlocking: boolean, squad, platoon) {
     let unlocks = variant.unlocks ? variant.unlocks : 0;
     if (unlocking && ((unlocks === 0 && !variant.max) || unlocks < variant.max)) {
-      if (this.validateVariant(variant, squad, platoon)) {
-        this.unlockVariant(variant, squad, platoon);
-        if (!variant.unlocks) {
-          variant.unlocks = 1;
-        } else {
-          variant.unlocks++;
+      if (variant.wholePlatoon) {
+        for (let cSquad of platoon.squads) {
+          for (let cVariant of cSquad.data.variants) {
+            if (cVariant.name === variant.name) {
+              if (this.validateVariant(cVariant, cSquad, platoon)) {
+                this.unlockVariant(cVariant, cSquad, platoon);
+                if (!variant.unlocks) {
+                  variant.unlocks = 1;
+                } else {
+                  variant.unlocks++;
+                }
+              }
+            }
+          }
+        }
+      } else {
+        if (this.validateVariant(variant, squad, platoon)) {
+          this.unlockVariant(variant, squad, platoon);
+          if (!variant.unlocks) {
+            variant.unlocks = 1;
+          } else {
+            variant.unlocks++;
+          }
         }
       }
 
     } else if (!unlocking && variant.unlocks > 0) {
-      this.lockVariant(variant, squad, platoon);
-      variant.unlocks--;
+      if (variant.wholePlatoon) {
+        for (let cSquad of platoon.squads) {
+          for (let cVariant of cSquad.data.variants) {
+            if (cVariant.name === variant.name) {
+              this.lockVariant(cVariant, cSquad, platoon);
+              cVariant.unlocks--;
+            }
+          }
+        }
+      } else {
+        this.lockVariant(variant, squad, platoon);
+        variant.unlocks--;
+      }
     }
   }
 
