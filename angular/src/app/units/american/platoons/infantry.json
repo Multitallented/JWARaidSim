@@ -1,3 +1,311 @@
 {
-
+  "name": "Infantry Platoon",
+  "options": 1,
+  "factions": [
+    "United States Army"
+  ],
+  "standard": true,
+  "squads": {
+    "Infantry Command": {
+      "img": "../../assets/american/infantry-command.jpg",
+      "points": 120,
+      "options": 1,
+      "max": 1,
+      "min": 0,
+      "hq": true,
+      "type": "infantry",
+      "move": 20,
+      "morale": 6,
+      "moraleFrequency": 2,
+      "armor": 7,
+      "hp": 3,
+      "runner": 5,
+      "closeCombat": 0,
+      "characteristics": [],
+      "infantry": [
+        {
+          "name": "Leader",
+          "closeCombat": 4,
+          "models": 3,
+          "weapons": [
+            {
+              "name": "M1 Carbine",
+              "qty": 3
+            }
+          ]
+        },
+        {
+          "name": "Runner",
+          "models": 2,
+          "weapons": [
+            {
+              "name": "M1 Garand",
+              "qty": 2
+            }
+          ]
+        },
+        {
+          "name": "All Infantry",
+          "weapons": [
+            {
+              "name": "Mk II Pineapple Grenades"
+            }
+          ]
+        }
+      ],
+      "lore": "Your task will not be an easy one. Your enemy is well-trained, well-equipped and battle-hardened. He will fight savagely",
+      "quote": "General Dwight D. Eisenhower",
+      "variants": [
+        {
+          "name": "Radio",
+          "points": 10,
+          "comms": {
+            "type": "radio",
+            "value": 4
+          }
+        },
+        {
+          "name": "replace M1 Carbine with Thompson",
+          "points": 0,
+          "max": 3,
+          "add": {
+            "infantry": {
+              "weapons": [
+                {
+                  "name": "Thompson",
+                  "qty": 1,
+                  "group": 0
+                }
+              ]
+            }
+          },
+          "remove": {
+            "infantry": {
+              "weapons": [
+                {
+                  "name": "M1 Carbine",
+                  "qty": 1,
+                  "group": 0
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "replace M1 Carbine with M3A1 Grease Gun",
+          "points": -10,
+          "max": 3,
+          "add": {
+            "infantry": {
+              "weapons": [
+                {
+                  "name": "M3A1 Grease Gun",
+                  "qty": 1,
+                  "group": 0
+                }
+              ]
+            }
+          },
+          "remove": {
+            "infantry": {
+              "weapons": [
+                {
+                  "name": "M1 Carbine",
+                  "qty": 1,
+                  "group": 0
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "+1 $hit-armor$ with grenades",
+          "points": 30,
+          "modifiers": {
+            "Mk II Pineapple Grenades:hitVehicle": 1
+          }
+        }
+      ]
+    },
+    "Infantry Squad": {
+      "img": "../../assets/american/infantry-squad.jpg",
+      "points": 260,
+      "max": 3,
+      "min": 2,
+      "type": "infantry",
+      "move": 20,
+      "morale": 6,
+      "moraleFrequency": 3,
+      "armor": 7,
+      "hp": 3,
+      "shout": 5,
+      "closeCombat": 0,
+      "characteristics": [],
+      "infantry": [
+        {
+          "name": "Leader",
+          "models": 2,
+          "closeCombat": 2,
+          "weapons": [
+            {
+              "name": "M1 Carbine",
+              "qty": 2
+            }
+          ]
+        },
+        {
+          "name": "Infantry",
+          "models": 10,
+          "closeCombat": 1,
+          "weapons": [
+            {
+              "name": "M1 Garand",
+              "qty": 9
+            },
+            {
+              "name": "BAR M1918A2",
+              "qty": 1
+            }
+          ]
+        },
+        {
+          "name": "All Infantry",
+          "weapons": [
+            {
+              "name": "Mk II Pineapple Grenades"
+            }
+          ]
+        }
+      ],
+      "lore": "Force is the only language they understand, like bullies.",
+      "quote": "Franklin D. Roosevelt",
+      "variants": [
+        {
+          "name": "form a Bazooka Squad",
+          "points": 50,
+          "add": {
+            "squad": {
+              "Bazooka Squad": 1
+            }
+          },
+          "remove": {
+            "infantry": {
+              "models": {
+                "qty": 2,
+                "group": 1
+              },
+              "weapons": [
+                {
+                  "name": "M1 Garand",
+                  "qty": 2,
+                  "group": 1
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "form a Sniper Squad",
+          "points": 80,
+          "add": {
+            "squad": {
+              "Sniper Squad": 1
+            }
+          },
+          "remove": {
+            "infantry": {
+              "models": {
+                "qty": 1,
+                "group": 1
+              },
+              "weapons": [
+                {
+                  "name": "M1 Garand",
+                  "qty": 1,
+                  "group": 1
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "replace M1 Carbine with Thompson",
+          "points": 0,
+          "max": 2,
+          "add": {
+            "infantry": {
+              "weapons": [
+                {
+                  "name": "Thompson",
+                  "qty": 1,
+                  "group": 0
+                }
+              ]
+            }
+          },
+          "remove": {
+            "infantry": {
+              "weapons": [
+                {
+                  "name": "M1 Carbine",
+                  "qty": 1,
+                  "group": 0
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "replace M1 Carbine with M3A1 Grease Gun",
+          "points": -10,
+          "max": 2,
+          "add": {
+            "infantry": {
+              "weapons": [
+                {
+                  "name": "M3A1 Grease Gun",
+                  "qty": 1,
+                  "group": 0
+                }
+              ]
+            }
+          },
+          "remove": {
+            "infantry": {
+              "weapons": [
+                {
+                  "name": "M1 Carbine",
+                  "qty": 1,
+                  "group": 0
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "(2 per platoon) 2.5 Ton Truck",
+          "points": 30,
+          "add": {
+            "squad": {
+              "2.5 Ton Truck": 1
+            }
+          },
+          "require": {
+            "squad": {
+              "type": "squad",
+              "name": "2.5 Ton Truck",
+              "max": 1
+            }
+          }
+        },
+        {
+          "name": "+1 $hit-armor$ with grenades",
+          "points": 30,
+          "modifiers": {
+            "Mk II Pineapple Grenades:hitVehicle": 1
+          }
+        }
+      ]
+    }
+  }
 }
