@@ -242,8 +242,12 @@
                           </span>
                           <span class="range">
                             <img src="assets/common/range.png" alt="Range" />
-                            <span *ngIf="weapon.hasOwnProperty('range')">{{getValue(weapon.name + ":range", weapon.range)}}</span>
-                            <span *ngIf="!weapon.hasOwnProperty('range')">{{getValue(weapon.name + ":range", weaponMap[weapon.name].range)}}</span>
+                            <span *ngIf="weapon.hasOwnProperty('range')">{{getValue(weapon.name + ":range", weapon.range)}}
+                              <span *ngIf="weapon.hasOwnProperty('minRange')">- {{weapon.minRange}}</span>
+                            </span>
+                            <span *ngIf="!weapon.hasOwnProperty('range')">{{getValue(weapon.name + ":range", weaponMap[weapon.name].range)}}
+                              <span *ngIf="!weapon.hasOwnProperty('minRange') && weaponMap[weapon.name].hasOwnProperty('minRange')">- {{weaponMap[weapon.name].minRange}}</span>
+                            </span>
                           </span>
                           <span *ngIf="!weaponMap[weapon.name].blast" class="shots">
                             <img src="assets/common/shots.png" alt="Shots" />
@@ -265,7 +269,7 @@
                             <span *ngIf="weapon.hasOwnProperty('hitInfantry')">{{getValue(weapon.name + ":hitInfantry", weapon.hitInfantry)}}</span>
                             <span *ngIf="!weapon.hasOwnProperty('hitInfantry')">{{getValue(weapon.name + ":hitInfantry", weaponMap[weapon.name].hitInfantry)}}</span>
                           </span>
-                          <span *ngIf="weaponMap[weapon.name].damage" class="damage">
+                          <span *ngIf="weapon.hasOwnProperty('damage') || weaponMap[weapon.name].hasOwnProperty('damage')" class="damage">
                             <img src="assets/common/damage.png" alt="Damage" />
                             <span *ngIf="weapon.hasOwnProperty('damage')">{{getValue(weapon.name + ":damage", weapon.damage)}}</span>
                             <span *ngIf="!weapon.hasOwnProperty('damage')">{{getValue(weapon.name + ":damage", weaponMap[weapon.name].damage)}}</span>

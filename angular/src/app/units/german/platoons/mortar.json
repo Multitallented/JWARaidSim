@@ -215,6 +215,182 @@
               "qty": 1
             }
           ]
+        },
+        {
+          "name": "All Infantry",
+          "weapons": [
+            {
+              "name": "StG39 Grenades"
+            }
+          ]
+        }
+      ],
+      "variants": [
+        {
+          "name": "Radio",
+          "points": 10,
+          "comms": {
+            "type": "radio",
+            "value": 4
+          }
+        },
+        {
+          "name": "replace Kar98K with G43",
+          "points": 10,
+          "max": 2,
+          "add": {
+            "infantry": {
+              "weapons": [
+                {
+                  "name": "G43",
+                  "qty": 1,
+                  "group": 1
+                }
+              ]
+            }
+          },
+          "remove": {
+            "infantry": {
+              "weapons": [
+                {
+                  "name": "Kar98K",
+                  "group": 1,
+                  "qty": 1
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "replace Kar98K with StG44",
+          "points": 20,
+          "max": 2,
+          "add": {
+            "infantry": {
+              "weapons": [
+                {
+                  "name": "StG44",
+                  "qty": 1,
+                  "group": 1
+                }
+              ]
+            }
+          },
+          "remove": {
+            "infantry": {
+              "weapons": [
+                {
+                  "name": "Kar98K",
+                  "group": 1,
+                  "qty": 1
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Opel Blitz truck",
+          "points": 30,
+          "add": {
+            "squad": {
+              "Opel Blitz": 1
+            }
+          }
+        },
+        {
+          "name": "+1 $morale$ +1 $close-combat$",
+          "points": 30,
+          "factions": [
+            "Luftwaffe"
+          ],
+          "required": true,
+          "modifiers": {
+            "morale": 1,
+            "closeCombat": 1
+          }
+        },
+        {
+          "name": "replace GrW36 50mm with GrW34 81mm",
+          "points": 50,
+          "add": {
+            "infantry": {
+              "weapons": [
+                {
+                  "name": "GrW34 81mm",
+                  "qty": 1,
+                  "group": 1,
+                  "altAmmo": true
+                },
+                {
+                  "name": "Smoke Mortar",
+                  "qty": 1,
+                  "group": 1,
+                  "range": 200
+                }
+              ]
+            }
+          },
+          "remove": {
+            "infantry": {
+              "weapons": [
+                {
+                  "name": "GrW36 50mm",
+                  "qty": 1,
+                  "group": 1,
+                  "altAmmo": true
+                },
+                {
+                  "name": "Smoke Mortar",
+                  "qty": 1,
+                  "group": 1
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "replace GrW36 50mm with GrW42 120mm and gain Off-Table",
+          "points": 180,
+          "add": {
+            "infantry": {
+              "weapons": [
+                {
+                  "name": "GrW42 120mm",
+                  "qty": 1,
+                  "group": 1,
+                  "altAmmo": true
+                },
+                {
+                  "name": "Smoke Mortar",
+                  "qty": 1,
+                  "group": 1,
+                  "range": 800
+                }
+              ]
+            }
+          },
+          "remove": {
+            "infantry": {
+              "weapons": [
+                {
+                  "name": "GrW36 50mm",
+                  "qty": 1,
+                  "group": 1,
+                  "altAmmo": true
+                },
+                {
+                  "name": "Smoke Mortar",
+                  "qty": 1,
+                  "group": 1
+                }
+              ]
+            }
+          },
+          "modifiers": {
+            "characteristics": [
+              "Off-Table"
+            ]
+          }
         }
       ]
     }

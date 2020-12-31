@@ -293,7 +293,9 @@ export class GameComponent implements OnInit {
     if (variant.modifiers) {
       for (let key of Object.keys(variant.modifiers)) {
         let modifierAmt = variant.modifiers[key];
-        if (squad.modifiers[key] && squad.modifiers[key] - modifierAmt === 0) {
+        if (!(squad.modifiers[key] instanceof Number)) {
+          delete squad.modifiers[key];
+        } else if (squad.modifiers[key] && squad.modifiers[key] - modifierAmt === 0) {
           delete squad.modifiers[key];
         } else if (squad.modifiers[key] > modifierAmt) {
           squad.modifiers[key] = squad.modifiers[key] - modifierAmt;

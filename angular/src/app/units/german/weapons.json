@@ -103,5 +103,57 @@
     "shots": 1,
     "blast": 8,
     "damage": 0
+  },
+  "GrW36 50mm": {
+    "range": 70,
+    "minRange": 25,
+    "shots": 1,
+    "blast": 5,
+    "special": [
+      "Fires every other turn unless adjacent to an assistant",
+      "Can't fire while inside buildings or woods",
+      "Can't fire while moving",
+      "Indirect fire"
+    ]
+  },
+  "GrW34 81mm": {
+    "range": 200,
+    "minRange": 50,
+    "shots": 1,
+    "blast": 5,
+    "hitVehicle": 4,
+    "damage": 6,
+    "special": [
+      "Fires every other turn unless adjacent to an assistant",
+      "Can't fire while inside buildings or woods",
+      "Can't fire while moving",
+      "Indirect fire"
+    ]
+  },
+  "GrW42 120mm": {
+    "range": 800,
+    "minRange": 100,
+    "shots": 1,
+    "blast": 8,
+    "hitVehicle": 7,
+    "damage": 7,
+    "special": [
+      "Fires every other turn unless adjacent to an assistant",
+      "Can't fire while inside buildings or woods",
+      "Can't fire while moving",
+      "Indirect fire"
+    ]
+  },
+  "Smoke Mortar": {
+    "range": 70,
+    "shots": 1,
+    "blast": 8,
+    "damage": 0,
+    "special": [
+      "Fires every other turn unless adjacent to an assistant",
+      "Can't fire while inside buildings or woods",
+      "Can't fire while moving",
+      "Indirect fire"
+    ]
   }
 }
