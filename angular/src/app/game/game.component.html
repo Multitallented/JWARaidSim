@@ -171,28 +171,28 @@
                   <div *ngIf="activeSquad.data.variants">
                     <div *ngFor="let variant of getVariants(activeSquad)" class="variant" (click)="toggleVariant(variant, true, activeSquad, activePlatoon)" (contextmenu)="toggleVariant(variant, false, activeSquad, activePlatoon); $event.preventDefault()">
                       <img class="unlock-icon" *ngIf="variant.unlocks > 0" src="assets/common/unlock.png" alt="Unlocked" />
-                      <img class="lock-icon" *ngIf="!variant.unlocks" src="assets/common/lock.png" alt="Unlocked" />
+                      <img class="lock-icon" *ngIf="!variant.unlocks" src="assets/common/lock.png" alt="Locked" />
                       <ng-container *ngIf="variant.max > 1">
                         <img class="unlock-icon" *ngIf="variant.unlocks > 1" src="assets/common/unlock.png" alt="Unlocked" />
-                        <img class="lock-icon" *ngIf="!variant.unlocks || variant.unlocks < 2" src="assets/common/lock.png" alt="Unlocked" />
+                        <img class="lock-icon" *ngIf="!variant.unlocks || variant.unlocks < 2" src="assets/common/lock.png" alt="Locked" />
                       </ng-container>
                       <ng-container *ngIf="variant.max > 2">
                         <img class="unlock-icon" *ngIf="variant.unlocks > 2" src="assets/common/unlock.png" alt="Unlocked" />
-                        <img class="lock-icon" *ngIf="!variant.unlocks || variant.unlocks < 3" src="assets/common/lock.png" alt="Unlocked" />
+                        <img class="lock-icon" *ngIf="!variant.unlocks || variant.unlocks < 3" src="assets/common/lock.png" alt="Locked" />
                       </ng-container>
                       <ng-container *ngIf="variant.max > 3">
                         <img class="unlock-icon" *ngIf="variant.unlocks > 3" src="assets/common/unlock.png" alt="Unlocked" />
-                        <img class="lock-icon" *ngIf="!variant.unlocks || variant.unlocks < 4" src="assets/common/lock.png" alt="Unlocked" />
+                        <img class="lock-icon" *ngIf="!variant.unlocks || variant.unlocks < 4" src="assets/common/lock.png" alt="Locked" />
                       </ng-container>
                       <ng-container *ngIf="variant.max > 4">
                         <img class="unlock-icon" *ngIf="variant.unlocks > 4" src="assets/common/unlock.png" alt="Unlocked" />
-                        <img class="lock-icon" *ngIf="!variant.unlocks || variant.unlocks < 5" src="assets/common/lock.png" alt="Unlocked" />
+                        <img class="lock-icon" *ngIf="!variant.unlocks || variant.unlocks < 5" src="assets/common/lock.png" alt="Locked" />
                       </ng-container>
                       <ng-container *ngIf="variant.max > 5">
                         <img class="unlock-icon" *ngIf="variant.unlocks > 5" src="assets/common/unlock.png" alt="Unlocked" />
-                        <img class="lock-icon" *ngIf="!variant.unlocks || variant.unlocks < 6" src="assets/common/lock.png" alt="Unlocked" />
+                        <img class="lock-icon" *ngIf="!variant.unlocks || variant.unlocks < 6" src="assets/common/lock.png" alt="Locked" />
                       </ng-container>
-                      +{{variant.points}}pts <span [innerHTML]="replaceIcons(variant.name)"></span>
+                      <span *ngIf="variant.points > -1">+</span>{{variant.points}}pts <span [innerHTML]="replaceIcons(variant.name)"></span>
                     </div>
                   </div>
                   <div class="hr" *ngIf="activeSquad.data.lore"></div>
