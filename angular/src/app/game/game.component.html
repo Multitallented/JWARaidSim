@@ -6,7 +6,7 @@
   </div>
 
   <div class="nation-select">
-    <h3>Select Your Organization</h3>
+    <h3>Select Your Nation</h3>
     <a class="ru" (click)="selectNation('russian');">
       <img src="/assets/flags/ru.png" alt="Soviet Russia" />
     </a>
@@ -169,7 +169,7 @@
                     No variants available
                   </div>
                   <div *ngIf="activeSquad.data.variants">
-                    <div *ngFor="let variant of activeSquad.data.variants" class="variant" (click)="toggleVariant(variant, true)" (contextmenu)="toggleVariant(variant, false); $event.preventDefault()">
+                    <div *ngFor="let variant of getVariants(activeSquad)" class="variant" (click)="toggleVariant(variant, true, activeSquad, activePlatoon)" (contextmenu)="toggleVariant(variant, false, activeSquad, activePlatoon); $event.preventDefault()">
                       <img class="unlock-icon" *ngIf="variant.unlocks > 0" src="assets/common/unlock.png" alt="Unlocked" />
                       <img class="lock-icon" *ngIf="!variant.unlocks" src="assets/common/lock.png" alt="Unlocked" />
                       <ng-container *ngIf="variant.max > 1">
@@ -210,7 +210,7 @@
                     <ng-container *ngIf="infantrySection.models">
                       <ng-container *ngFor="let i of [].constructor(infantrySection.models); let index = index">
                         <div class="clearfix" *ngIf="infantrySection.models > 9 && index % (infantrySection.models / 2) === 0 && index !== 0"></div>
-                        <img class="checkbox right" (click)="activeSquad.cycleCheckbox(infantrySection.name + ':' + index)" src="{{activeSquad.getCheckboxSrc(infantrySection.name + ':' + index)}}" alt="Checkbox" />
+                        <img class="checkbox right" (contextmenu)="activeSquad.pinCheckbox(infantrySection.name + ':' + index); $event.preventDefault()" (click)="activeSquad.cycleCheckbox(infantrySection.name + ':' + index)" src="{{activeSquad.getCheckboxSrc(infantrySection.name + ':' + index)}}" alt="Checkbox" />
                       </ng-container>
                     </ng-container>
                     <ng-container *ngIf="infantrySection.closeCombat">

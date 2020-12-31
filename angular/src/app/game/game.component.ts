@@ -85,8 +85,15 @@ export class GameComponent implements OnInit {
   }
 
   addPlatoon(platoon: Platoon) {
-    // TODO validate options
-    this.armyList.push(_.cloneDeep(platoon));
+    let newPlatoon = _.cloneDeep(platoon);
+    for (let squad of newPlatoon.squads) {
+      for (let variant of this.getVariants(squad)) {
+        if (variant.required) {
+          this.unlockVariant(variant, squad, newPlatoon);
+        }
+      }
+    }
+    this.armyList.push(newPlatoon);
   }
 
   viewSquad(squad: Squad, platoon: Platoon) {
@@ -223,11 +230,11 @@ export class GameComponent implements OnInit {
     return returnValue;
   }
 
-  toggleVariant(variant: any, unlocking: boolean) {
+  toggleVariant(variant: any, unlocking: boolean, squad, platoon) {
     let unlocks = variant.unlocks ? variant.unlocks : 0;
     if (unlocking && ((unlocks === 0 && !variant.max) || unlocks < variant.max)) {
-      if (this.validateVariant(variant)) {
-        this.unlockVariant(variant);
+      if (this.validateVariant(variant, squad, platoon)) {
+        this.unlockVariant(variant, squad, platoon);
         if (!variant.unlocks) {
           variant.unlocks = 1;
         } else {
@@ -236,16 +243,16 @@ export class GameComponent implements OnInit {
       }
 
     } else if (!unlocking && variant.unlocks > 0) {
-      this.lockVariant(variant);
+      this.lockVariant(variant, squad, platoon);
       variant.unlocks--;
     }
   }
 
-  private validateVariant(variant): boolean {
+  private validateVariant(variant, squad, platoon): boolean {
     if (variant.remove) {
       if (variant.remove.infantry) {
         if (variant.remove.infantry.weapons) {
-          if (!this.hasWeapons(variant.remove.infantry.weapons)) {
+          if (!this.hasWeapons(variant.remove.infantry.weapons, squad, platoon)) {
             return false;
           }
         }
@@ -254,8 +261,8 @@ export class GameComponent implements OnInit {
     if (variant.require) {
       if (variant.require.type === 'squad') {
         let numberOfSquads = 0;
-        for (let squad of this.activePlatoon.squads) {
-          if (squad.name === variant.require.name) {
+        for (let currentSquad of platoon.squads) {
+          if (currentSquad.name === variant.require.name) {
             numberOfSquads++;
           }
         }
@@ -268,7 +275,7 @@ export class GameComponent implements OnInit {
       }
       if (variant.require.type === 'variant') {
         let hasUnlock = false;
-        for (let cVariant of this.activeSquad.data.variants) {
+        for (let cVariant of squad.data.variants) {
           if (cVariant.name === variant.require.name && cVariant.unlocks > 0) {
             hasUnlock = true;
             break;
@@ -282,14 +289,14 @@ export class GameComponent implements OnInit {
     return true;
   }
 
-  private lockVariant(variant: any) {
+  private lockVariant(variant: any, squad, platoon) {
     if (variant.modifiers) {
       for (let key of Object.keys(variant.modifiers)) {
         let modifierAmt = variant.modifiers[key];
-        if (this.activeSquad.modifiers[key] && this.activeSquad.modifiers[key] - modifierAmt === 0) {
-          delete this.activeSquad.modifiers[key];
-        } else if (this.activeSquad.modifiers[key] > modifierAmt) {
-          this.activeSquad.modifiers[key] = this.activeSquad.modifiers[key] - modifierAmt;
+        if (squad.modifiers[key] && squad.modifiers[key] - modifierAmt === 0) {
+          delete squad.modifiers[key];
+        } else if (squad.modifiers[key] > modifierAmt) {
+          squad.modifiers[key] = squad.modifiers[key] - modifierAmt;
         }
       }
     }
@@ -300,62 +307,62 @@ export class GameComponent implements OnInit {
             continue;
           }
           let i = 0;
-          for (i = 0; i < this.activePlatoon.squads.length; i++) {
-            if (this.activePlatoon.squads[i].name === key) {
+          for (i = 0; i < platoon.squads.length; i++) {
+            if (platoon.squads[i].name === key) {
               break;
             }
           }
-          if (this.activePlatoon.squads.length > 0 && this.activePlatoon.squads.length > i) {
-            this.activePlatoon.squads.splice(i, 1);
+          if (platoon.squads.length > 0 && platoon.squads.length > i) {
+            platoon.squads.splice(i, 1);
           }
         }
       }
       if (variant.add.infantry) {
         if (variant.add.infantry.weapons) {
-          this.removeWeapons(variant.add.infantry.weapons);
+          this.removeWeapons(variant.add.infantry.weapons, squad, platoon);
         }
         if (variant.add.infantry.models) {
-          this.activeSquad.data.infantry[variant.add.infantry.models.group].models += variant.add.infantry.models.qty;
+          squad.data.infantry[variant.add.infantry.models.group].models += variant.add.infantry.models.qty;
         }
       }
       if (variant.add.abilities) {
-        this.toggleAbilities(variant.add.abilities);
+        this.toggleAbilities(variant.add.abilities, squad, platoon);
       }
     }
     if (variant.comms) {
-      delete this.activeSquad.data[variant.comms.type];
+      delete squad.data[variant.comms.type];
     }
     if (variant.remove) {
       if (variant.remove.infantry) {
         if (variant.remove.infantry.models) {
-          this.activeSquad.data.infantry[variant.remove.infantry.models.group].models += variant.remove.infantry.models.qty;
+          squad.data.infantry[variant.remove.infantry.models.group].models += variant.remove.infantry.models.qty;
         }
         if (variant.remove.infantry.weapons) {
-          this.addWeapons(variant.remove.infantry.weapons);
+          this.addWeapons(variant.remove.infantry.weapons, squad, platoon);
         }
       }
     }
-    this.activeSquad.points -= variant.points;
+    squad.points -= variant.points;
   }
 
-  private unlockVariant(variant: any) {
-    this.activeSquad.points += variant.points;
+  private unlockVariant(variant: any, squad: Squad, platoon: Platoon) {
+    squad.points += variant.points;
     if (variant.modifiers) {
       for (let key of Object.keys(variant.modifiers)) {
         if (this.activeSquad.modifiers[key]) {
-          this.activeSquad.modifiers[key] += variant.modifiers[key];
+          squad.modifiers[key] += variant.modifiers[key];
         } else {
-          this.activeSquad.modifiers[key] = variant.modifiers[key];
+          squad.modifiers[key] = variant.modifiers[key];
         }
       }
     }
     if (variant.remove) {
       if (variant.remove.infantry) {
         if (variant.remove.infantry.models) {
-          this.activeSquad.data.infantry[variant.remove.infantry.models.group].models -= variant.remove.infantry.models.qty;
+          squad.data.infantry[variant.remove.infantry.models.group].models -= variant.remove.infantry.models.qty;
         }
         if (variant.remove.infantry.weapons) {
-          this.removeWeapons(variant.remove.infantry.weapons);
+          this.removeWeapons(variant.remove.infantry.weapons, squad, platoon);
         }
       }
     }
@@ -365,71 +372,83 @@ export class GameComponent implements OnInit {
           if (!key || !variant.add.squad.hasOwnProperty(key)) {
             continue;
           }
-          let squad = _.cloneDeep(this.squadMap[key]);
-          squad.included = true;
-          this.activePlatoon.squads.push(squad);
+          let newSquad = _.cloneDeep(this.squadMap[key]);
+          newSquad.included = true;
+          platoon.squads.push(newSquad);
         }
       }
       if (variant.add.infantry) {
         if (variant.add.infantry.weapons) {
-          this.addWeapons(variant.add.infantry.weapons);
+          this.addWeapons(variant.add.infantry.weapons, squad, platoon);
         }
         if (variant.add.infantry.models) {
-          this.activeSquad.data.infantry[variant.add.infantry.models.group].models += variant.add.infantry.models.qty;
+          squad.data.infantry[variant.add.infantry.models.group].models += variant.add.infantry.models.qty;
         }
       }
       if (variant.add.abilities) {
-        this.toggleAbilities(variant.add.abilities);
+        this.toggleAbilities(variant.add.abilities, squad, platoon);
       }
     }
     if (variant.comms) {
-      this.activeSquad.data[variant.comms.type] = variant.comms.value;
+      squad.data[variant.comms.type] = variant.comms.value;
     }
   }
 
-  private toggleAbilities(abilities) {
-    if (!this.activeSquad.data.abilities) {
-      this.activeSquad.data.abilities = [];
+  private toggleAbilities(abilities, squad: Squad, platoon: Platoon) {
+    if (!squad.data.abilities) {
+      squad.data.abilities = [];
     }
     for (let ability of abilities) {
       if (!ability) {
         continue;
       }
-      let abilityIndex = this.activeSquad.data.abilities.indexOf(ability);
+      let abilityIndex = squad.data.abilities.indexOf(ability);
       if (abilityIndex === -1) {
-        this.activeSquad.data.abilities.push(ability);
+        squad.data.abilities.push(ability);
       } else {
-        this.activeSquad.data.abilities.splice(abilityIndex, 1);
+        squad.data.abilities.splice(abilityIndex, 1);
       }
     }
   }
 
+  getVariants(squad: Squad) {
+    let returnVariants = [];
+    if (!squad.data.variants) {
+      return returnVariants;
+    }
+    for (let variant of squad.data.variants) {
+      if (!variant.factions || variant.factions.indexOf(this.faction.name) !== -1) {
+        returnVariants.push(variant);
+      }
+    }
+    return returnVariants;
+  }
 
-  private removeWeapons(weaponsToRemove) {
+  private removeWeapons(weaponsToRemove, squad: Squad, platoon: Platoon) {
     for (let weaponRemove of weaponsToRemove) {
       let i = 0;
-      for (let weapon of this.activeSquad.data.infantry[weaponRemove.group].weapons) {
+      for (let weapon of squad.data.infantry[weaponRemove.group].weapons) {
         if (weapon.name === weaponRemove.name) {
           if (weapon.qty > weaponRemove.qty) {
             weapon.qty -= weaponRemove.qty;
-            i = this.activeSquad.data.infantry[weaponRemove.group].weapons.length;
+            i = squad.data.infantry[weaponRemove.group].weapons.length;
           }
           break;
         }
         i++;
       }
-      if (this.activeSquad.data.infantry[weaponRemove.group].weapons.length > 0 &&
-        this.activeSquad.data.infantry[weaponRemove.group].weapons.length > i) {
-        this.activeSquad.data.infantry[weaponRemove.group].weapons.splice(i, 1);
+      if (squad.data.infantry[weaponRemove.group].weapons.length > 0 &&
+        squad.data.infantry[weaponRemove.group].weapons.length > i) {
+        squad.data.infantry[weaponRemove.group].weapons.splice(i, 1);
       }
     }
   }
 
-  private addWeapons(weaponsToAdd) {
+  private addWeapons(weaponsToAdd, squad: Squad, platoon: Platoon) {
     for (let weaponAdd of weaponsToAdd) {
       let hasWeapon = -1;
       let i = 0;
-      for (let weapon of this.activeSquad.data.infantry[weaponAdd.group].weapons) {
+      for (let weapon of squad.data.infantry[weaponAdd.group].weapons) {
         if (weapon.name === weaponAdd.name) {
           hasWeapon = i;
           break;
@@ -437,17 +456,17 @@ export class GameComponent implements OnInit {
         i++;
       }
       if (hasWeapon > -1) {
-        this.activeSquad.data.infantry[weaponAdd.group].weapons[hasWeapon].qty += weaponAdd.qty;
+        squad.data.infantry[weaponAdd.group].weapons[hasWeapon].qty += weaponAdd.qty;
       } else {
-        this.activeSquad.data.infantry[weaponAdd.group].weapons.push(_.cloneDeep(weaponAdd));
+        squad.data.infantry[weaponAdd.group].weapons.push(_.cloneDeep(weaponAdd));
       }
     }
   }
 
-  private hasWeapons(weapons): boolean {
+  private hasWeapons(weapons, squad: Squad, platoon: Platoon): boolean {
     for (let weapon of weapons) {
       let hasWeapon = false;
-      for (let squadWeapon of this.activeSquad.data.infantry[weapon.group].weapons) {
+      for (let squadWeapon of squad.data.infantry[weapon.group].weapons) {
         if (squadWeapon.name === weapon.name) {
           if (weapon.qty <= squadWeapon.qty) {
             hasWeapon = true;

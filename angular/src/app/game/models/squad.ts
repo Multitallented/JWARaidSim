@@ -29,6 +29,14 @@ export class Squad {
     }
   }
 
+  pinCheckbox(name: string) {
+    if (!this.checkboxes[name] || this.checkboxes[name] !== 'assets/common/pinned-checkbox.png') {
+      this.checkboxes[name] = 'assets/common/pinned-checkbox.png';
+    } else {
+      this.checkboxes[name] = 'assets/common/checkbox.png';
+    }
+  }
+
   cycleCheckboxBinary(name: string) {
     if (!this.checkboxes[name] || this.checkboxes[name] === 'assets/common/checkbox.png') {
       this.checkboxes[name] = 'assets/common/killed.png';

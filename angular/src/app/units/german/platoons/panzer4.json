@@ -27,24 +27,20 @@
             {
               "name": "75mm AP",
               "qty": 1,
-              "altAmmo": true,
-              "turret": 0
+              "altAmmo": true
             },
             {
               "name": "75mm HE",
               "qty": 1,
-              "altAmmo": true,
-              "turret": 0
+              "altAmmo": true
             },
             {
               "name": "75mm Smoke",
-              "qty": 1,
-              "turret": 0
+              "qty": 1
             },
             {
               "name": "MG34",
               "qty": 1,
-              "turret": 0,
               "shots": 7,
               "special": []
             }
@@ -193,24 +189,20 @@
             {
               "name": "75mm AP",
               "qty": 1,
-              "altAmmo": true,
-              "turret": 0
+              "altAmmo": true
             },
             {
               "name": "75mm HE",
               "qty": 1,
-              "altAmmo": true,
-              "turret": 0
+              "altAmmo": true
             },
             {
               "name": "75mm Smoke",
-              "qty": 1,
-              "turret": 0
+              "qty": 1
             },
             {
               "name": "MG34",
               "qty": 1,
-              "turret": 0,
               "shots": 7,
               "special": []
             }

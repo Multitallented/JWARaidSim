@@ -8,7 +8,7 @@
   ],
   "squads": {
     "Mortar Command": {
-      "img": "../../assets/german/mortar-command.jpg",
+      "img": "../../assets/germans/mortar-command.jpg",
       "points": 70,
       "max": 1,
       "min": 0,
@@ -36,7 +36,7 @@
         },
         {
           "name": "Runner",
-          "models": 1,
+          "models": 2,
           "weapons": [
             {
               "name": "Kar98K",
@@ -136,7 +136,7 @@
           }
         },
         {
-          "name": "+1 $morale$ +1 $closeCombat$",
+          "name": "+1 $morale$ +1 $close-combat$",
           "points": 30,
           "factions": [
             "Luftwaffe"
@@ -150,6 +150,9 @@
         {
           "name": "Kettenkrad Sdkfz 2",
           "points": 20,
+          "factions": [
+            "Luftwaffe"
+          ],
           "add": {
             "squad": {
               "Kettenkrad Sdkfz 2": 1
@@ -168,7 +171,7 @@
       ]
     },
     "Mortar Squad": {
-      "img": "",
+      "img": "../../assets/germans/mortar.jpg",
       "points": 100,
       "max": 6,
       "min": 1,
