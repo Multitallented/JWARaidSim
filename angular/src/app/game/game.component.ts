@@ -102,13 +102,13 @@ export class GameComponent implements OnInit {
 
   addPlatoon(platoon: Platoon) {
     let newPlatoon = _.cloneDeep(platoon);
-    for (let squad of newPlatoon.squads) {
+    newPlatoon.squads.forEach(squad => {
       for (let variant of this.getVariants(squad)) {
         if (variant.required) {
           this.unlockVariant(variant, squad, newPlatoon);
         }
       }
-    }
+    })
     this.armyList.push(newPlatoon);
   }
 
@@ -139,12 +139,14 @@ export class GameComponent implements OnInit {
       this.squadMap[key] = squad;
       for (let i = 0; i < squadData.max; i++) {
         let newSquad = _.cloneDeep(squad);
+        platoon.squads.push(newSquad);
         if (i >= squadData.min) {
           newSquad.included = false;
         } else {
+          newSquad.included = true;
           newSquad.required = true;
+          this.addSquad(platoon, newSquad);
         }
-        platoon.squads.push(newSquad);
         min++;
       }
     }
@@ -211,6 +213,43 @@ export class GameComponent implements OnInit {
     }
   }
 
+  addSquad(platoon, squad) {
+    squad.included = true;
+    if (squad.data.alsoAdd) {
+      for (let squadName of squad.data.alsoAdd) {
+        if (!squadName) {
+          continue;
+        }
+        let newSquad = _.cloneDeep(this.squadMap[squadName]);
+        newSquad.included = true;
+        platoon.squads.push(newSquad);
+      }
+    }
+  }
+
+  removeSquad(platoon, squad) {
+    squad.included = false;
+    if (squad.data.alsoAdd) {
+      for (let squadName of squad.data.alsoAdd) {
+        if (!squadName) {
+          continue;
+        }
+        let i = 0;
+        let squadFound = false;
+        for (let cSquad of platoon.squads) {
+          if (cSquad.name === squadName) {
+            squadFound = true;
+            break;
+          }
+          i++;
+        }
+        if (squadFound) {
+          platoon.squads.splice(i, 1);
+        }
+      }
+    }
+  }
+
   getFactionPoints(): number {
     let points = this.getPoints();
     if (this.faction == null) {
@@ -257,14 +296,17 @@ export class GameComponent implements OnInit {
     if (unlocking && ((unlocks === 0 && !variant.max) || unlocks < variant.max)) {
       if (variant.wholePlatoon) {
         for (let cSquad of platoon.squads) {
+          if (!cSquad.data.variants || !cSquad.included) {
+            continue;
+          }
           for (let cVariant of cSquad.data.variants) {
             if (cVariant.name === variant.name) {
               if (this.validateVariant(cVariant, cSquad, platoon)) {
                 this.unlockVariant(cVariant, cSquad, platoon);
                 if (!variant.unlocks) {
-                  variant.unlocks = 1;
+                  cVariant.unlocks = 1;
                 } else {
-                  variant.unlocks++;
+                  cVariant.unlocks++;
                 }
               }
             }
@@ -284,10 +326,17 @@ export class GameComponent implements OnInit {
     } else if (!unlocking && variant.unlocks > 0) {
       if (variant.wholePlatoon) {
         for (let cSquad of platoon.squads) {
+          if (!cSquad.data.variants || !cSquad.included) {
+            continue;
+          }
           for (let cVariant of cSquad.data.variants) {
             if (cVariant.name === variant.name) {
               this.lockVariant(cVariant, cSquad, platoon);
-              cVariant.unlocks--;
+              if (cVariant.unlocks) {
+                cVariant.unlocks--;
+              } else {
+                cVariant.unlocks = 0;
+              }
             }
           }
         }
@@ -303,6 +352,27 @@ export class GameComponent implements OnInit {
       if (variant.remove.infantry) {
         if (variant.remove.infantry.weapons) {
           if (!this.hasWeapons(variant.remove.infantry.weapons, squad, platoon)) {
+            return false;
+          }
+        }
+      }
+      if (variant.remove.squad) {
+        for (let key of Object.keys(variant.remove.squad)) {
+          if (!key) {
+            continue;
+          }
+          let squadFound = false;
+          let foundCount = 0;
+          for (let cSquad of platoon.squads) {
+            if (cSquad.name === key) {
+              foundCount++;
+              if (foundCount >= variant.remove.squad[key]) {
+                squadFound = true;
+                break;
+              }
+            }
+          }
+          if (!squadFound) {
             return false;
           }
         }
@@ -393,6 +463,19 @@ export class GameComponent implements OnInit {
           this.addWeapons(variant.remove.infantry.weapons, squad, platoon);
         }
       }
+      if (variant.remove.squad) {
+        for (let key of Object.keys(variant.remove.squad)) {
+          if (!key) {
+            continue;
+          }
+          let removeCount = variant.remove.squad[key];
+          for (let i = 0; i < removeCount; i++) {
+            let newSquad = _.cloneDeep(this.squadMap[key]);
+            newSquad.included = true;
+            platoon.squads.push(newSquad);
+          }
+        }
+      }
     }
     squad.points -= variant.points;
   }
@@ -415,6 +498,31 @@ export class GameComponent implements OnInit {
         }
         if (variant.remove.infantry.weapons) {
           this.removeWeapons(variant.remove.infantry.weapons, squad, platoon);
+        }
+      }
+      if (variant.remove.squad) {
+        for (let key of Object.keys(variant.remove.squad)) {
+          if (!key) {
+            continue;
+          }
+          let removeCount = variant.remove.squad[key];
+          do {
+            let i = 0;
+            let foundSquad = false;
+            for (let cSquad of platoon.squads) {
+              if (cSquad.name === key) {
+                foundSquad = true;
+                break;
+              }
+              i++;
+            }
+            if (!foundSquad) {
+              break;
+            } else {
+              platoon.squads.splice(i, 1);
+              removeCount--;
+            }
+          } while (removeCount > 0);
         }
       }
     }

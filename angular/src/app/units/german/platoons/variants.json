@@ -121,10 +121,87 @@
       ]
     },
     "Kettenkrad Sdkfz 2": {
-
+      "img": "../../assets/germans/kettenkrad.jpg",
+      "points": 0,
+      "max": 0,
+      "min": 0,
+      "type": "tank",
+      "move": 54,
+      "morale": 6,
+      "moraleFrequency": 1,
+      "armor": 12,
+      "hp": 0,
+      "shout": 5,
+      "closeCombat": 0,
+      "abilities": [
+        "-1 to spot this vehicle"
+      ],
+      "characteristics": [
+        "Transport 3",
+        "Roofless"
+      ],
+      "crew": [
+        "Driver"
+      ]
     },
     "Kubelwagon": {
-
+      "img": "../../assets/germans/kubelwagen.jpg",
+      "points": 0,
+      "max": 0,
+      "min": 0,
+      "type": "car",
+      "move": 90,
+      "morale": 6,
+      "moraleFrequency": 1,
+      "armor": 11,
+      "hp": -1,
+      "radio": 5,
+      "closeCombat": 0,
+      "abilities": [
+        "-1 to spot this vehicle"
+      ],
+      "characteristics": [
+        "Transport 2",
+        "Roofless"
+      ],
+      "crew": [
+        "Driver",
+        "Radio"
+      ]
+    },
+    "Half-track Sdkfz 251/1": {
+      "img": "../../assets/germans/half-track-sdkfz-251-1.jpg",
+      "points": 0,
+      "max": 0,
+      "min": 0,
+      "type": "tank",
+      "move": 40,
+      "morale": 6,
+      "moraleFrequency": 1,
+      "armor": 13,
+      "hp": 0,
+      "radio": 4,
+      "closeCombat": 0,
+      "characteristics": [
+        "Transport 12",
+        "Roofless"
+      ],
+      "crew": [
+        "Driver/Radio",
+        "MG"
+      ],
+      "infantry": [
+        {
+          "name": "Chassis",
+          "weapons": [
+            {
+              "name": "MG34",
+              "qty": 1,
+              "angle": 135
+            }
+          ]
+        }
+      ]
     }
   }
 }

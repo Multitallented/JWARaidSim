@@ -114,7 +114,7 @@
               <div *ngFor="let squad of platoon.squads">
                 <div *ngIf="platoon.editing || squad.included">
                   <a (click)="viewSquad(squad, platoon)">{{squad.name}} {{squad.points}}pts</a>
-                  <a class="right" *ngIf="!squad.required && platoon.editing" (click)="squad.included = !squad.included">{{squad.included ? 'Remove' : 'Add'}}</a>
+                  <a class="right" *ngIf="!squad.required && platoon.editing" (click)="!squad.included ? addSquad(platoon, squad) : removeSquad(platoon, squad)">{{squad.included ? 'Remove' : 'Add'}}</a>
                 </div>
               </div>
             </div>
@@ -209,7 +209,7 @@
                   <div class="model-checkboxes">
                     <ng-container *ngIf="infantrySection.models">
                       <ng-container *ngFor="let i of [].constructor(infantrySection.models); let index = index">
-                        <div class="clearfix" *ngIf="infantrySection.models > 9 && index % (infantrySection.models / 2) === 0 && index !== 0"></div>
+                        <div class="clearfix" *ngIf="(infantrySection.models > 9 || (infantrySection.models > 7 && infantrySection.closeCombat > 1)) && index % (infantrySection.models / 2) < 1 && index !== 0"></div>
                         <img class="checkbox right" (contextmenu)="activeSquad.pinCheckbox(infantrySection.name + ':' + index); $event.preventDefault()" (click)="activeSquad.cycleCheckbox(infantrySection.name + ':' + index)" src="{{activeSquad.getCheckboxSrc(infantrySection.name + ':' + index)}}" alt="Checkbox" />
                       </ng-container>
                     </ng-container>

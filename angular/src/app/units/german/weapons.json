@@ -155,5 +155,16 @@
       "Can't fire while moving",
       "Indirect fire"
     ]
+  },
+  "37mm AP": {
+    "range": 100,
+    "shots": 1,
+    "hitVehicle": 4,
+    "damage": 3
+  },
+  "37mm HE": {
+    "range": 150,
+    "shots": 1,
+    "blast": 3
   }
 }

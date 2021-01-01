@@ -7,7 +7,7 @@
   "standard": true,
   "squads": {
     "Panzergrenadier Command": {
-      "img": "",
+      "img": "../../assets/germans/panzergrenadier-command.jpg",
       "points": 300,
       "options": 1,
       "max": 1,
@@ -108,6 +108,282 @@
         {
           "name": "remove Half-track Sdkfz 251/1",
           "points": -150,
+          "wholePlatoon": true,
+          "remove": {
+            "squad": {
+              "Half-track Sdkfz 251/1": 1
+            },
+            "infantry": {
+              "models": {
+                "qty": 1,
+                "group": 1
+              },
+              "weapons": [
+                {
+                  "name": "Kar98K",
+                  "qty": 1,
+                  "group": 1
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "Half-track Sdkfz 251/10": {
+      "img": "../../assets/germans/sdkfz-250-10.jpg",
+      "points": 330,
+      "options": 1,
+      "max": 1,
+      "min": 0,
+      "hq": true,
+      "type": "tank",
+      "move": 40,
+      "morale": 7,
+      "moraleFrequency": 1,
+      "armor": 13,
+      "hp": 0,
+      "radio": 4,
+      "closeCombat": 0,
+      "characteristics": [
+        "Roofless",
+        "Assault"
+      ],
+      "infantry": [
+        {
+          "name": "Chassis",
+          "weapons": [
+            {
+              "name": "37mm AP",
+              "qty": 1,
+              "altAmmo": true,
+              "angle": 45
+            },
+            {
+              "name": "37mm HE",
+              "qty": 1,
+              "angle": 45
+            }
+          ]
+        }
+      ],
+      "crew": [
+        "Commander",
+        "Gunner",
+        "Assistant",
+        "Driver/Radio"
+      ],
+      "crewWeapon": [
+        {
+          "name": "MP40",
+          "qty": 4
+        }
+      ],
+      "lore": "Issued to platoon leaders as a fire support vehicle. Early versions used the whole top half of a Pak 36 with full gunshield, but later ausf. C & D used a much smaller half-size gunshield so that the vehicle didn't advertise its firepower, so it looked more like a regular 251/1."
+    },
+    "Panzergrenadier Squad": {
+      "img": "../../assets/germans/panzergrenadier-squad.jpg",
+      "points": 430,
+      "options": 1,
+      "max": 3,
+      "min": 2,
+      "type": "infantry",
+      "alsoAdd": [
+        "Half-track Sdkfz 251/1"
+      ],
+      "move": 20,
+      "morale": 7,
+      "moraleFrequency": 4,
+      "armor": 7,
+      "hp": 3,
+      "shout": 5,
+      "closeCombat": 0,
+      "characteristics": [],
+      "infantry": [
+        {
+          "name": "Leader",
+          "closeCombat": 2,
+          "models": 2,
+          "weapons": [
+            {
+              "name": "MP40",
+              "qty": 2
+            }
+          ]
+        },
+        {
+          "name": "Infantry",
+          "closeCombat": 2,
+          "models": 9,
+          "weapons": [
+            {
+              "name": "Kar98K",
+              "qty": 7
+            },
+            {
+              "name": "MG34",
+              "qty": 2
+            },
+            {
+              "name": "Panzerfaust",
+              "qty": 1
+            }
+          ]
+        },
+        {
+          "name": "All Infantry",
+          "weapons": [
+            {
+              "name": "StG39 Grenades"
+            }
+          ]
+        }
+      ],
+      "variants": [
+        {
+          "name": "form a Panzershreck Squad",
+          "points": 60,
+          "add": {
+            "squad": {
+              "Panzerschreck Squad": 1
+            }
+          },
+          "remove": {
+            "infantry": {
+              "models": {
+                "group": 1,
+                "qty": 2
+              },
+              "weapons": [
+                {
+                  "name": "Kar98K",
+                  "qty": 2,
+                  "group": 1
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Panzerfaust",
+          "points": 30,
+          "add": {
+            "infantry": {
+              "weapons": [
+                {
+                  "name": "Panzerfaust",
+                  "qty": 1,
+                  "group": 1
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "replace Kar98K with G43",
+          "max": 5,
+          "points": 10,
+          "add": {
+            "infantry": {
+              "weapons": [
+                {
+                  "name": "G43",
+                  "qty": 1,
+                  "group": 1
+                }
+              ]
+            }
+          },
+          "remove": {
+            "infantry": {
+              "weapons": [
+                {
+                  "name": "Kar98K",
+                  "qty": 1,
+                  "group": 1
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "replace Kar98K with StG44",
+          "max": 5,
+          "points": 20,
+          "add": {
+            "infantry": {
+              "weapons": [
+                {
+                  "name": "StG44",
+                  "qty": 1,
+                  "group": 1
+                }
+              ]
+            }
+          },
+          "remove": {
+            "infantry": {
+              "weapons": [
+                {
+                  "name": "Kar98K",
+                  "qty": 1,
+                  "group": 1
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "replace MG34 with MG42",
+          "points": 5,
+          "wholePlatoon": true,
+          "remove": {
+            "infantry": {
+              "weapons": [
+                {
+                  "name": "MG34",
+                  "qty": 1,
+                  "group": 1
+                }
+              ]
+            }
+          },
+          "add": {
+            "infantry": {
+              "weapons": [
+                {
+                  "name": "MG42",
+                  "qty": 1,
+                  "group": 1
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "MGs get +3 $shots$ and can't move while shooting",
+          "points": 40,
+          "modifiers": {
+            "MG34:special": [
+              "+3 $shots$ and can't move while shooting"
+            ],
+            "MG42:special": [
+              "+3 $shots$ and can't move while shooting"
+            ]
+          }
+        },
+        {
+          "name": "+1 $hit-armor$ for anti-tank weapons",
+          "points": 30,
+          "modifiers": {
+            "StG39 Grenades:hitVehicle": 1,
+            "Panzerfaust:hitVehicle": 1
+          }
+        },
+        {
+          "name": "remove Half-track Sdkfz 251/1",
+          "points": -150,
+          "wholePlatoon": true,
           "remove": {
             "squad": {
               "Half-track Sdkfz 251/1": 1
