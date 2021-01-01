@@ -62,7 +62,7 @@ export class GameComponent implements OnInit {
     if (this.factionList.length < 1) {
       window.location.hash = '#/game/' + nation;
     } else if (this.factionList.length < 2) {
-      this.faction = this.factionList[0];
+      this.selectFaction(this.factionList[0]);
       window.location.hash = '#/game/' + nation + "/" + this.faction.name.toLowerCase().replace(' ', '_');
     }
   }
@@ -70,6 +70,10 @@ export class GameComponent implements OnInit {
   selectFaction(faction) {
     this.faction = faction;
     this.selectedFaction = null;
+    let platoonOptions = this.getPlatoonOptions();
+    if (platoonOptions.length === 1) {
+      this.addPlatoon(platoonOptions[0]);
+    }
   }
 
   getPlatoonOptions(): Array<Platoon> {
