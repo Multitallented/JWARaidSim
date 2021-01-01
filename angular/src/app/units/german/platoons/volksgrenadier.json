@@ -283,7 +283,9 @@
             "move": 10
           }
         }
-      ]
+      ],
+      "lore": "Which would your men rather be, tired or dead?",
+      "quote": "Erwin Rommel"
     },
     "Volksgrenadier Rifles": {
       "img": "../../assets/germans/volksgrenadier-rifles.jpg",

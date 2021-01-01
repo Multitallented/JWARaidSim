@@ -41,6 +41,17 @@ export class GameComponent implements OnInit {
       return;
     }
     this.selectNation(navVars[2]);
+    if (navVars.length < 4) {
+      return;
+    }
+    let factionName = navVars[3].split('_').join(' ');
+    for (let cFaction of this.factionList) {
+      if (cFaction.name.toLowerCase() === factionName) {
+        this.selectFaction(cFaction);
+        break;
+      }
+    }
+
   }
 
   selectNation(nation:string) {
@@ -63,7 +74,7 @@ export class GameComponent implements OnInit {
       window.location.hash = '#/game/' + nation;
     } else if (this.factionList.length < 2) {
       this.selectFaction(this.factionList[0]);
-      window.location.hash = '#/game/' + nation + "/" + this.faction.name.toLowerCase().replace(' ', '_');
+      window.location.hash = '#/game/' + nation + "/" + this.faction.name.toLowerCase().split(' ').join('_');
     }
   }
 
@@ -74,6 +85,7 @@ export class GameComponent implements OnInit {
     if (platoonOptions.length === 1) {
       this.addPlatoon(platoonOptions[0]);
     }
+    window.location.hash = '#/game/' + this.nation + "/" + this.faction.name.toLowerCase().split(' ').join('_');
   }
 
   getPlatoonOptions(): Array<Platoon> {

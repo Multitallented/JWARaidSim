@@ -1,0 +1,133 @@
+{
+  "name": "Panzergrenadier Platoon",
+  "options": 1,
+  "factions": [
+    "Panzergrenadiers"
+  ],
+  "standard": true,
+  "squads": {
+    "Panzergrenadier Command": {
+      "img": "",
+      "points": 300,
+      "options": 1,
+      "max": 1,
+      "min": 0,
+      "hq": true,
+      "type": "infantry",
+      "alsoAdd": [
+        "Half-track Sdkfz 251/1"
+      ],
+      "move": 20,
+      "morale": 7,
+      "moraleFrequency": 3,
+      "armor": 7,
+      "hp": 3,
+      "runner": 5,
+      "closeCombat": 0,
+      "characteristics": [],
+      "infantry": [
+        {
+          "name": "Leader",
+          "models": 2,
+          "closeCombat": 3,
+          "weapons": [
+            {
+              "name": "MP40",
+              "qty": 2
+            }
+          ]
+        },
+        {
+          "name": "Runner",
+          "models": 2,
+          "weapons": [
+            {
+              "name": "Kar98K",
+              "qty": 2
+            }
+          ]
+        },
+        {
+          "name": "Infantry",
+          "models": 1,
+          "closeCombat": 1,
+          "weapons": [
+            {
+              "name": "Panzerschreck",
+              "qty": 1
+            }
+          ]
+        },
+        {
+          "name": "All Infantry",
+          "weapons": [
+            {
+              "name": "StG39 Grenades"
+            }
+          ]
+        }
+      ],
+      "variants": [
+        {
+          "name": "replace Half-track Sdkfz 251/1 with Opel Blitz",
+          "points": -120,
+          "add": {
+            "squad": {
+              "Opel Blitz": 1
+            }
+          },
+          "remove": {
+            "squad": {
+              "Half-track Sdkfz 251/1": 1
+            }
+          }
+        },
+        {
+          "name": "(Opel Blitz required) Radio",
+          "points": 10,
+          "require": {
+            "type": "variant",
+            "name": "replace Half-track Sdkfz 251/1 with Opel Blitz"
+          },
+          "comms": {
+            "type": "radio",
+            "value": 4
+          }
+        },
+        {
+          "name": "(Radio required) Long range radio",
+          "points": 10,
+          "require": {
+            "type": "variant",
+            "name": "(Opel Blitz required) Radio"
+          },
+          "modifiers": {
+            "comms": 1
+          }
+        },
+        {
+          "name": "remove Half-track Sdkfz 251/1",
+          "points": -150,
+          "remove": {
+            "squad": {
+              "Half-track Sdkfz 251/1": 1
+            },
+            "infantry": {
+              "models": {
+                "qty": 1,
+                "group": 1
+              },
+              "weapons": [
+                {
+                  "name": "Kar98K",
+                  "qty": 1,
+                  "group": 1
+                }
+              ]
+            }
+          }
+        }
+      ]
+    }
+  }
+}
