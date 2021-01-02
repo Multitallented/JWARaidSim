@@ -27,9 +27,7 @@
         "Italians"
       ],
       "img": "../../assets/germans/panzergrendadiers.jpg",
-      "specials": [
-        "All units must take Panzergrenadier variants"
-      ],
+      "specials": [],
       "lore": "Panzergrenadiers evolved via upgrades from ordinary infantry divisions--repeatedly augmented to build up the size of an elite regiment or battalion. <br><br>The Panzergrenadier divisions were organized as combined arms formations, usually with six battalions of truck-mounted infantry organized into either two or three regiments, a battalion of tanks, and an ordinary division's complement of artillery, reconnaissance units, combat engineers, anti-tank and anti-aircraft artillery, and so forth."
     },
     {
@@ -45,7 +43,6 @@
       ],
       "img": "../../assets/germans/luftwaffe.jpg",
       "specials": [
-        "All units must take Luftwaffe variants",
         "Only one player can use an Airborne army. If multiple players want to use Airborne, then the player with fewer points spent on Paratroopers can’t deploy by air. Only onen player can control the skies during the battle."
       ],
       "lore": "Göring became personally committed to the creation of  Germany's airborne arm in the 1930s. Volunteers would form a core Fallschirmschützen Bataillon (\"parachute soldiers battalion\"). Germany's parachute arm was  officially inaugurated on 29 January 1936. NCOs, officers, and other ranks of the Luftwaffe were required to successfully complete six jumps in order to receive the Luftwaffe Parachutist's Badge."
@@ -70,7 +67,6 @@
         "+1 $hit-infantry$ when cautious",
         "+1 on all initiative tests",
         "Each unit may retry one failed $morale$ morale test per round",
-        "All units must take Schutzstaffel variants",
         "Only one player can use an Airborne army. If multiple players want to use Airborne, then the player with fewer points spent on Paratroopers can’t deploy by air. Only onen player can control the skies during the battle."
       ],
       "modifiers": {

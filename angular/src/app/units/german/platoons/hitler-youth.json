@@ -1,0 +1,12 @@
+{
+  "name": "Hitler Youth Volksturm Column",
+  "options": 1,
+  "factions": [
+    "Schutzstaffel"
+  ],
+  "squads": {
+    "Volksturm Squad": {
+      "img": ""
+    }
+  }
+}
