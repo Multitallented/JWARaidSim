@@ -394,15 +394,32 @@ export class GameComponent implements OnInit {
         }
       }
       if (variant.require.type === 'variant') {
-        let hasUnlock = false;
-        for (let cVariant of squad.data.variants) {
-          if (cVariant.name === variant.require.name && cVariant.unlocks > 0) {
-            hasUnlock = true;
-            break;
+        if (variant.require.max) {
+          let numberOfVariants = 0;
+          for (let cSquad of platoon.squads) {
+            if (cSquad.data.variants) {
+              for (let cVariant of cSquad.data.variants) {
+                if (cVariant.name === variant.require.name && cVariant.unlocks) {
+                  numberOfVariants++;
+                }
+              }
+            }
           }
-        }
-        if (!hasUnlock) {
-          return false;
+          console.log(numberOfVariants);
+          if (numberOfVariants > variant.require.max) {
+            return false;
+          }
+        } else {
+          let hasUnlock = false;
+          for (let cVariant of squad.data.variants) {
+            if (cVariant.name === variant.require.name && cVariant.unlocks > 0) {
+              hasUnlock = true;
+              break;
+            }
+          }
+          if (!hasUnlock) {
+            return false;
+          }
         }
       }
     }

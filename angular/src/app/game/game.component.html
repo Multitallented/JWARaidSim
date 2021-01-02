@@ -232,13 +232,15 @@
                     <div *ngIf="weaponMap[weapon.name]" class="weapon" [ngClass]="{'alt-ammo': weapon.altAmmo}">
                       <div class="weapon-bar">
                         <div class="right">
-                          <span class="turret" *ngIf="weapon.hasOwnProperty('turret') && !weapon.hasOwnProperty('angle')">
+                          <span class="turret" *ngIf="(weapon.hasOwnProperty('turret') || weaponMap[weapon.name].hasOwnProperty('turret')) && !weapon.hasOwnProperty('angle') && !weaponMap[weapon.name].hasOwnProperty('angle')">
                             <img src="assets/common/turret.png" alt="Turret" />
-                            <span>{{getValue(weapon.name + ":turret", weapon.turret)}}</span>
+                            <span *ngIf="weapon.hasOwnProperty('turret')">{{getValue(weapon.name + ":turret", weapon.turret)}}</span>
+                            <span *ngIf="weaponMap[weapon.name].hasOwnProperty('angle') && !weapon.hasOwnProperty('turret')">{{getValue(weapon.name + ":turret", weaponMap[weapon.name].turret)}}</span>
                           </span>
-                          <span class="angle" *ngIf="weapon.hasOwnProperty('angle') && !weapon.hasOwnProperty('turret')">
+                          <span class="angle" *ngIf="(weapon.hasOwnProperty('angle') || weaponMap[weapon.name].hasOwnProperty('angle')) && !weapon.hasOwnProperty('turret') && !weaponMap[weapon.name].hasOwnProperty('turret')">
                             <img src="assets/common/angle.png" alt="Angle" />
-                            <span>{{getValue(weapon.name + ":angle", weapon.angle)}}</span>
+                            <span *ngIf="weapon.hasOwnProperty('angle')">{{getValue(weapon.name + ":angle", weapon.angle)}}</span>
+                            <span *ngIf="weaponMap[weapon.name].hasOwnProperty('angle') && !weapon.hasOwnProperty('angle')">{{getValue(weapon.name + ":angle", weaponMap[weapon.name].angle)}}</span>
                           </span>
                           <span class="range">
                             <img src="assets/common/range.png" alt="Range" />
