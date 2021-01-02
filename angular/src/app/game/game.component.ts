@@ -122,6 +122,9 @@ export class GameComponent implements OnInit {
     platoonData = platoonData.default;
     let platoon = new Platoon(platoonData.name, platoonData.standard);
     platoon.data = platoonData;
+    if (platoonData.max) {
+      platoon.max = platoonData.max;
+    }
     for (let key in platoonData.squads) {
       if (!key || !platoonData.squads.hasOwnProperty(key)) {
         continue;
@@ -495,6 +498,16 @@ export class GameComponent implements OnInit {
       }
     }
     squad.points -= variant.points;
+  }
+
+  getPlatoonCount(platoonName: string): number {
+    let count = 0;
+    for (let platoon of this.armyList) {
+      if (platoon.name === platoonName) {
+        count++;
+      }
+    }
+    return count;
   }
 
   private unlockVariant(variant: any, squad: Squad, platoon: Platoon) {

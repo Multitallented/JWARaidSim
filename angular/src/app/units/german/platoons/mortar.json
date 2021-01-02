@@ -1,6 +1,7 @@
 {
   "name": "Mortar Platoon",
   "options": 2,
+  "max": 1,
   "factions": [
     "Heer Regular Army",
     "Luftwaffe",

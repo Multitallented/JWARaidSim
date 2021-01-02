@@ -9,6 +9,7 @@ export class Platoon {
   expanded: boolean = true;
   squads: Array<Squad> = [];
   data: any;
+  max: number;
 
   constructor(name: string, standard: boolean) {
     this.name = name;

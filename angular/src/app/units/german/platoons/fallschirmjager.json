@@ -3,7 +3,8 @@
   "options": 1,
   "standard": true,
   "factions": [
-    "Luftwaffe"
+    "Luftwaffe",
+    "Schutzstaffel"
   ],
   "squads": {
     "Fallschirmjager Command": {
