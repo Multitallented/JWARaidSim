@@ -91,13 +91,38 @@ export class GameComponent implements OnInit {
   getPlatoonOptions(): Array<Platoon> {
     let returnPlatoons = new Array<Platoon>();
     for (let platoon of this.platoonOptions) {
-      if (platoon.data.options > -1 && (this.armyList.length > 0 || platoon.data.standard)) {
+      if (platoon.data.options > -1 && (this.armyList.length > 0 || platoon.data.standard) &&
+          !this.isAtMax(platoon) && (this.armyList.length < 1 || this.getOptions() >= this.getMinOptions(platoon))) {
         if (!platoon.data.factions || platoon.data.factions.indexOf(this.faction.name) !== -1) {
           returnPlatoons.push(platoon);
         }
       }
     }
     return returnPlatoons;
+  }
+
+  getMinOptions(platoon: Platoon): number {
+    let options = platoon.data.options;
+    for (let squad of platoon.squads) {
+      if (squad.data.options && squad.included) {
+        options -= squad.data.options;
+      }
+    }
+    return options;
+  }
+
+  isAtMax(platoon: Platoon): boolean {
+    let max = platoon.max;
+    if (!max) {
+      return false;
+    }
+    let count = 0;
+    for (let cPlatoon of this.armyList) {
+      if (platoon.name === cPlatoon.name) {
+        count++;
+      }
+    }
+    return count >= max;
   }
 
   addPlatoon(platoon: Platoon) {
