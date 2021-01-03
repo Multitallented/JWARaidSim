@@ -1,5 +1,9 @@
-<div class="container">
-  <div class="main-row row {{nation}}">
+<div class="container {{nation}}">
+  <div class="right list-resources faction-bg">
+    {{getPoints() + getFactionPoints()}} pts | {{getOptions()}} opts
+  </div>
+
+  <div class="main-row row">
     <div class="col">
       <div *ngIf="!faction">
         <h3>Organizations</h3>
