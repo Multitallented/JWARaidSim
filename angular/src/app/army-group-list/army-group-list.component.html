@@ -226,12 +226,12 @@
                             <span *ngIf="weapon.hasOwnProperty('blast')">{{getValue(weapon.name + ":blast", weapon.blast)}}</span>
                             <span *ngIf="!weapon.hasOwnProperty('blast')">{{getValue(weapon.name + ":blast", weaponMap[weapon.name].blast)}}</span>
                           </span>
-                          <span *ngIf="weaponMap[weapon.name].hitVehicle" class="hit-vehicle">
+                          <span *ngIf="weaponMap[weapon.name].hasOwnProperty('hitVehicle')  || weapon.hasOwnProperty('hitVehicle')" class="hit-vehicle">
                             <img src="../../assets/common/hit-armor.png" alt="Hit Vehicle" />
                             <span *ngIf="weapon.hasOwnProperty('hitVehicle')">{{getValue(weapon.name + ":hitVehicle", weapon.hitVehicle)}}</span>
                             <span *ngIf="!weapon.hasOwnProperty('hitVehicle')">{{getValue(weapon.name + ":hitVehicle", weaponMap[weapon.name].hitVehicle)}}</span>
                           </span>
-                          <span *ngIf="weaponMap[weapon.name].hitInfantry" class="hit-infantry">
+                          <span *ngIf="weaponMap[weapon.name].hasOwnProperty('hitInfantry') || weapon.hasOwnProperty('hitInfantry')" class="hit-infantry">
                             <img src="../../assets/common/hit-infantry.png" alt="Hit Infantry" />
                             <span *ngIf="weapon.hasOwnProperty('hitInfantry')">{{getValue(weapon.name + ":hitInfantry", weapon.hitInfantry)}}</span>
                             <span *ngIf="!weapon.hasOwnProperty('hitInfantry')">{{getValue(weapon.name + ":hitInfantry", weaponMap[weapon.name].hitInfantry)}}</span>

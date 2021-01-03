@@ -299,7 +299,7 @@ export class ArmyGroupListComponent implements OnInit {
     if (this.faction.modifiers[key]) {
       returnValue += this.faction.modifiers[key];
     }
-    return Math.max(0, returnValue);
+    return returnValue;
   }
 
   getSpecials(key, baseValue): Array<string> {
