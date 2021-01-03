@@ -6,7 +6,7 @@
   ],
   "squads": {
     "Volksturm Hitler Youth Squad": {
-      "img": "",
+      "img": "../../assets/germans/hy-volksturm.jpg",
       "points": 200,
       "max": 9,
       "min": 2,

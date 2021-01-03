@@ -408,8 +408,7 @@ export class GameComponent implements OnInit {
               }
             }
           }
-          console.log(numberOfVariants);
-          if (numberOfVariants > variant.require.max) {
+          if (numberOfVariants >= variant.require.max) {
             return false;
           }
         } else {

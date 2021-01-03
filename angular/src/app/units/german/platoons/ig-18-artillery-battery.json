@@ -8,7 +8,7 @@
   ],
   "squads": {
     "Artillery IG 18 Obs Post": {
-      "img": "",
+      "img": "../../assets/germans/ig18-obs.jpg",
       "points": 60,
       "max": 1,
       "min": 0,
@@ -25,6 +25,8 @@
       "infantry": [
         {
           "name": "Leader",
+          "models": 2,
+          "closeCombat": 2,
           "weapons": [
             {
               "name": "MP40",
@@ -38,7 +40,7 @@
       ]
     },
     "Artillery IG 18 Kubelwagen": {
-      "img": "",
+      "img": "../../assets/germans/kubelwagen.jpg",
       "points": 100,
       "hq": true,
       "min": 0,
@@ -88,7 +90,7 @@
       ]
     },
     "Howitzer IG 18": {
-      "img": "",
+      "img": "../../assets/germans/ig18-howitzer.jpg",
       "points": 140,
       "max": 6,
       "min": 1,
@@ -138,22 +140,22 @@
             }
           ]
         }
-      ]
-    },
-    "variants": [
-      {
-        "name": "Radio",
-        "points": 10,
-        "comms": {
-          "type": "radio",
-          "value": 4
-        },
-        "require": {
-          "type": "variant",
+      ],
+      "variants": [
+        {
           "name": "Radio",
-          "max": 1
+          "points": 10,
+          "comms": {
+            "type": "radio",
+            "value": 4
+          },
+          "require": {
+            "type": "variant",
+            "name": "Radio",
+            "max": 1
+          }
         }
-      }
-    ]
+      ]
+    }
   }
 }

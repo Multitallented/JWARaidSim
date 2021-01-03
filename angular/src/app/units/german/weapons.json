@@ -192,5 +192,16 @@
     "special": [
       "Vehicles explode on 10"
     ]
+  },
+  "IG18 75mm": {
+    "range": 1000,
+    "minRange": 200,
+    "shots": 1,
+    "blast": 5,
+    "hitVehicle": 5,
+    "damage": 5,
+    "special": [
+      "Indirect Fire"
+    ]
   }
 }
