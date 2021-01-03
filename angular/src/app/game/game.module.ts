@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ArmyGroupListComponent } from './army-group-list/army-group-list.component';
+import { ArmyGroupListComponent } from '../army-group-list/army-group-list.component';
 import { ArmyUnitDetailsComponent } from './army-unit-details/army-unit-details.component';
 import { GameComponent } from "./game.component";
 
@@ -13,6 +13,7 @@ import { GameComponent } from "./game.component";
   ],
   imports: [
     CommonModule
-  ]
+  ],
+  entryComponents: [ArmyGroupListComponent]
 })
 export class GameModule { }

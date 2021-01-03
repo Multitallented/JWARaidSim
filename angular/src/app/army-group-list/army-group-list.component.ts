@@ -1,29 +1,26 @@
-import {Component, Inject, OnInit, ViewContainerRef} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import _ from 'lodash';
-import {Platoon} from "./models/platoon";
-import {Squad} from "./models/squad";
-import {Faction} from "./models/faction";
-import {ArmyGroupListComponent} from "../army-group-list/army-group-list.component";
-import {ArmyListFactoryService} from "./army-list-factory.service";
+import {ArmyListService} from "./army-list.service";
+import {Platoon} from "../game/models/platoon";
+import {Squad} from "../game/models/squad";
+import {Faction} from "../game/models/faction";
 
 @Component({
-  selector: 'app-game',
-  templateUrl: './game.component.html',
-  styleUrls: ['./game.component.sass'],
-  providers: [Platoon, Squad, Faction, ArmyGroupListComponent]
+  selector: 'app-army-group-list',
+  templateUrl: './army-group-list.component.html',
+  styleUrls: ['./army-group-list.component.sass'],
+  providers: [Platoon, Squad, Faction]
 })
-export class GameComponent implements OnInit {
-  private readonly armyListService: ArmyListFactoryService;
+export class ArmyGroupListComponent implements OnInit {
 
-  constructor(@Inject(ArmyListFactoryService) armyListService: ArmyListFactoryService,
-              @Inject(ViewContainerRef) viewContainerRef: ViewContainerRef) {
+  private armyListService: ArmyListService;
+
+  constructor(armyListService: ArmyListService) {
     this.armyListService = armyListService;
-    this.armyListService.setRootViewContainerRef(viewContainerRef);
   }
 
-  lists: Array<ArmyGroupListComponent> = [];
+  @Input("nation") public nation: string;
 
-  nation: string;
   platoonOptions: Array<Platoon> = [];
   activeSquad: Squad;
   activePlatoon: Platoon;
@@ -37,33 +34,32 @@ export class GameComponent implements OnInit {
   armyList: Array<Platoon> = [];
 
   ngOnInit() {
-    let hash = window.location.hash;
-    if (!hash || hash.length < 1 || hash.indexOf('/') < 0) {
-      return;
+    if (this.nation) {
+      this.selectNation(this.nation);
     }
-    let navVars = hash.split('/');
-    if (navVars.length < 3) {
-      return;
-    }
-    this.nation = navVars[2];
-    this.lists.push(this.armyListService.addDynamicComponent(this.nation));
   }
 
   selectNation(nation:string) {
     this.nation = nation;
-    this.faction = null;
-    this.selectedFaction = null;
     this.platoonOptions = new Array<Platoon>();
     this.squadMap = {};
+    this.weaponMap = this.armyListService.getWeapons(nation);
     this.activeSquad = null;
     this.activePlatoon = null;
     this.frontSide = true;
     this.armyList = [];
     this.faction = null;
     this.selectedFaction = null;
-    this.lists.push(this.armyListService.addDynamicComponent(this.nation));
+    this.factionList = this.armyListService.getFactions(nation);
+    let platoons = this.armyListService.getPlatoons(nation);
+    for (let platoon of platoons) {
+      this.loadPlatoon(platoon);
+    }
     if (this.factionList.length < 1) {
       window.location.hash = '#/game/' + nation;
+    } else if (this.factionList.length < 2) {
+      this.selectFaction(this.factionList[0]);
+      window.location.hash = '#/game/' + nation + "/" + this.faction.name.toLowerCase().split(' ').join('_');
     }
   }
 
@@ -81,7 +77,7 @@ export class GameComponent implements OnInit {
     let returnPlatoons = new Array<Platoon>();
     for (let platoon of this.platoonOptions) {
       if (platoon.data.options > -1 && (this.armyList.length > 0 || platoon.data.standard) &&
-          !this.isAtMax(platoon) && (this.armyList.length < 1 || this.getOptions() >= this.getMinOptions(platoon))) {
+        !this.isAtMax(platoon) && (this.armyList.length < 1 || this.getOptions() >= this.getMinOptions(platoon))) {
         if (!platoon.data.factions || platoon.data.factions.indexOf(this.faction.name) !== -1) {
           returnPlatoons.push(platoon);
         }
@@ -192,8 +188,8 @@ export class GameComponent implements OnInit {
 
   getPoints(): number {
     let totalPoints = 0;
-    for (let armyList of this.lists) {
-      totalPoints += armyList.getPoints();
+    for (let platoon of this.armyList) {
+      totalPoints += platoon.getPoints();
     }
     return totalPoints;
   }
@@ -231,8 +227,8 @@ export class GameComponent implements OnInit {
 
   replaceIcons(input:string): string {
     let commonIcons = [ 'angle', 'blast', 'shots', 'close-combat', 'damage',
-        'hit-armor', 'hit-infantry', 'hp', 'infantry-defense', 'knife',
-        'morale', 'move', 'radio', 'range', 'runner', 'shout', 'turret', 'vehicle-defense'];
+      'hit-armor', 'hit-infantry', 'hp', 'infantry-defense', 'knife',
+      'morale', 'move', 'radio', 'range', 'runner', 'shout', 'turret', 'vehicle-defense'];
     for (let icon of commonIcons) {
       input = input.replace('$' + icon + '$', '<img class="stat-icon" src="assets/common/' + icon + '.png" alt="' + icon + '" />');
     }
@@ -311,7 +307,7 @@ export class GameComponent implements OnInit {
     let dontAdd = [];
     for (let line of baseValue) {
       if (!line || (this.activeSquad.modifiers[key] &&
-          this.activeSquad.modifiers[key].indexOf(line) !== -1)) {
+        this.activeSquad.modifiers[key].indexOf(line) !== -1)) {
         dontAdd.push(line);
         continue;
       }

@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 
 import * as germanWeapons from '../units/german/weapons.json';
 import * as germanFactions from '../units/german/factions.json';
@@ -26,14 +26,15 @@ import * as americanWeapons from '../units/american/weapons.json';
 import * as americanFactions from '../units/american/factions.json';
 import * as americanInfantry from '../units/american/platoons/infantry.json';
 
-import {Faction} from "./models/faction";
+import {Faction} from "../game/models/faction";
 
 @Injectable({
   providedIn: 'root'
 })
 export class ArmyListService {
 
-  constructor() { }
+  constructor() {
+  }
 
   getWeapons(nation: string) {
     if (nation === 'german') {
