@@ -32,7 +32,6 @@ export class GameComponent implements OnInit {
   faction: Faction;
   selectedFaction: Faction;
   factionList: Array<Faction> = [];
-
   armyList: Array<Platoon> = [];
 
   ngOnInit() {
@@ -46,6 +45,24 @@ export class GameComponent implements OnInit {
     }
     this.nation = navVars[2];
     this.lists.push(this.armyListService.addDynamicComponent(this.nation));
+  }
+
+  reset() {
+    this.lists = [];
+    this.armyListService.reset();
+  }
+
+  isAllied(cNation: string): boolean {
+    if (this.lists.length < 1) {
+      return true;
+    }
+    for (let list of this.lists) {
+      if (!list.faction || ((!list.faction.allies || list.faction.allies.indexOf(cNation) === -1) &&
+          list.nation.toUpperCase() !== cNation.toUpperCase())) {
+        return false;
+      }
+    }
+    return true;
   }
 
   selectNation(nation:string) {

@@ -4,35 +4,35 @@
   <div class="right list-resources faction-bg">
     {{getPoints()}} pts
   </div>
-  <a (click)="lists = []" class="bttn right reset-button">Reset</a>
+  <a (click)="reset()" class="bttn right reset-button">Reset</a>
 
   <div class="nation-select">
     <h3>Select Your Nation</h3>
-    <a class="ru" (click)="selectNation('russian');">
+    <a *ngIf="isAllied('Russian')" class="ru" (click)="selectNation('russian');">
       <img src="/assets/flags/ru.png" alt="Soviet Russia" />
     </a>
-    <a class="de" (click)="selectNation('german');">
+    <a *ngIf="isAllied('German')" class="de" (click)="selectNation('german');">
       <img src="/assets/flags/de.png" alt="Nazi Germany" />
     </a>
-    <a class="us" (click)="selectNation('american');">
+    <a *ngIf="isAllied('American')" class="us" (click)="selectNation('american');">
       <img src="/assets/flags/us.png" alt="United States" />
     </a>
-    <a class="ja" (click)="selectNation('japanese');">
+    <a *ngIf="isAllied('Japanese')" class="ja" (click)="selectNation('japanese');">
       <img src="/assets/flags/ja.png" alt="Imperial Japan" />
     </a>
-    <a class="zh" (click)="selectNation('chinese');">
+    <a *ngIf="isAllied('Chinese')" class="zh" (click)="selectNation('chinese');">
       <img src="/assets/flags/zh.png" alt="China" />
     </a>
-    <a class="ina" (click)="selectNation('indian');">
+    <a *ngIf="isAllied('Indian')" class="ina" (click)="selectNation('indian');">
       <img src="/assets/flags/ina.png" alt="Indian National Army" />
     </a>
-    <a class="uk" (click)="selectNation('british');">
+    <a *ngIf="isAllied('British')" class="uk" (click)="selectNation('british');">
       <img src="/assets/flags/uk.png" alt="British Commonwealth" />
     </a>
-    <a class="it" (click)="selectNation('italian');">
+    <a *ngIf="isAllied('Italian')" class="it" (click)="selectNation('italian');">
       <img src="/assets/flags/it.png" alt="Italy" />
     </a>
-    <a class="fr" (click)="selectNation('french');">
+    <a *ngIf="isAllied('French')" class="fr" (click)="selectNation('french');">
       <img src="/assets/flags/fr.png" alt="France" />
     </a>
   </div>

@@ -1,4 +1,4 @@
-import {ComponentFactoryResolver, Inject, Injectable} from '@angular/core';
+import {ComponentFactoryResolver, Inject, Injectable, ViewContainerRef} from '@angular/core';
 import {ArmyGroupListComponent} from "../army-group-list/army-group-list.component";
 
 @Injectable({
@@ -7,7 +7,9 @@ import {ArmyGroupListComponent} from "../army-group-list/army-group-list.compone
 export class ArmyListFactoryService {
 
   private factoryResolver: ComponentFactoryResolver;
-  private rootViewContainer: any;
+  private rootViewContainer: ViewContainerRef;
+
+  lists = [];
 
   constructor(@Inject(ComponentFactoryResolver) factoryResolver) {
     this.factoryResolver = factoryResolver;
@@ -20,8 +22,16 @@ export class ArmyListFactoryService {
   addDynamicComponent(nation: string): ArmyGroupListComponent {
     const factory = this.factoryResolver.resolveComponentFactory(ArmyGroupListComponent);
     const component = factory.create(this.rootViewContainer.parentInjector);
+    this.lists.push(this.rootViewContainer.length);
     this.rootViewContainer.insert(component.hostView);
     component.instance.selectNation(nation);
     return component.instance;
+  }
+
+  reset() {
+    for (let i = this.lists.length - 1;  i > -1; i--) {
+      this.rootViewContainer.remove(i);
+    }
+    this.lists = [];
   }
 }
