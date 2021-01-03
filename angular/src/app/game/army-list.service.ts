@@ -9,6 +9,7 @@ import * as germanVariants from '../units/german/platoons/variants.json';
 import * as germanMortar from '../units/german/platoons/mortar.json';
 import * as germanPanzergrenadiers from '../units/german/platoons/panzergrenadiers.json';
 import * as germanFallschirmjager from '../units/german/platoons/fallschirmjager.json';
+import * as germanHitlerYouth from '../units/german/platoons/hitler-youth.json';
 
 import * as frenchFactions from '../units/french/factions.json';
 import * as frenchWeapons from '../units/french/weapons.json';
@@ -77,13 +78,14 @@ export class ArmyListService {
 
   private getGermanPlatoons(): Array<any> {
     let platoonDataArray = [];
-    platoonDataArray.push(germanGrenadiers);
-    platoonDataArray.push(germanVolksgrenadiers);
-    platoonDataArray.push(germanPanzer4);
-    platoonDataArray.push(germanMortar);
     platoonDataArray.push(germanVariants);
+    platoonDataArray.push(germanGrenadiers);
     platoonDataArray.push(germanPanzergrenadiers);
     platoonDataArray.push(germanFallschirmjager);
+    platoonDataArray.push(germanVolksgrenadiers);
+    platoonDataArray.push(germanPanzer4);
+    platoonDataArray.push(germanHitlerYouth);
+    platoonDataArray.push(germanMortar);
     return platoonDataArray;
   }
 
