@@ -203,5 +203,16 @@
     "special": [
       "Indirect Fire"
     ]
+  },
+  "leFH18 105mm": {
+    "range": 1000,
+    "minRange": 200,
+    "shots": 1,
+    "blast": 8,
+    "hitVehicle": 7,
+    "damage": 5,
+    "special": [
+      "Indirect Fire"
+    ]
   }
 }

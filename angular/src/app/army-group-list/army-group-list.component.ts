@@ -103,7 +103,8 @@ export class ArmyGroupListComponent implements OnInit {
     }
     let count = 0;
     for (let cPlatoon of this.armyList) {
-      if (platoon.name === cPlatoon.name) {
+      if (platoon.name === cPlatoon.name || (platoon.data.group && cPlatoon.data.group &&
+          platoon.data.group === cPlatoon.data.group)) {
         count++;
       }
     }
