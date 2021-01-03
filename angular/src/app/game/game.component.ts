@@ -125,6 +125,26 @@ export class GameComponent implements OnInit {
     if (platoonData.max) {
       platoon.max = platoonData.max;
     }
+    for (let key in platoonData.squadLinks) {
+      if (!key || !platoonData.squadLinks.hasOwnProperty(key)) {
+        continue;
+      }
+      let squadData = platoonData.squadLinks[key];
+      let squad = _.cloneDeep(this.squadMap[key]);
+      squad = _.merge(squadData, squad);
+
+      for (let i = 0; i < squadData.max; i++) {
+        let newSquad = _.cloneDeep(squad);
+        platoon.squads.push(newSquad);
+        if (i >= squadData.min) {
+          newSquad.included = false;
+        } else {
+          newSquad.included = true;
+          newSquad.required = true;
+          this.addSquad(platoon, newSquad);
+        }
+      }
+    }
     for (let key in platoonData.squads) {
       if (!key || !platoonData.squads.hasOwnProperty(key)) {
         continue;
