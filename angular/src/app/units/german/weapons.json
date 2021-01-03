@@ -166,5 +166,31 @@
     "range": 150,
     "shots": 1,
     "blast": 3
+  },
+  "Fg42": {
+    "range": 50,
+    "shots": 3
+  },
+  "Satchel Charges": {
+    "range": 0,
+    "shots": 1,
+    "blast": 10,
+    "hitVehicle": 6,
+    "damage": 5,
+    "special": [
+      "Must be placed and detonated in separate turns",
+      "Removes terrain on 2+",
+      "Removes fortifications on 7+"
+    ]
+  },
+  "Flamethrower": {
+    "range": 0,
+    "shots": 1,
+    "blast": 12,
+    "angle": 12,
+    "hitInfantry": 3,
+    "special": [
+      "Vehicles explode on 10"
+    ]
   }
 }

@@ -1,0 +1,531 @@
+{
+  "name": "Fallschirmjager Platoon",
+  "options": 1,
+  "standard": true,
+  "factions": [
+    "Luftwaffe",
+    "Schutzstaffel"
+  ],
+  "squads": {
+    "Fallschirmjager Command": {
+      "img": "../../assets/germans/fallschirmjager-command.jpg",
+      "options": 1,
+      "points": 150,
+      "max": 1,
+      "min": 0,
+      "hq": true,
+      "type": "infantry",
+      "move": 20,
+      "morale": 7,
+      "moraleFrequency": 3,
+      "armor": 7,
+      "hp": 3,
+      "runner": 5,
+      "closeCombat": 1,
+      "characteristics": [
+        "Airborne"
+      ],
+      "infantry": [
+        {
+          "name": "Leader",
+          "closeCombat": 2,
+          "models": 2,
+          "weapons": [
+            {
+              "name": "MP40",
+              "qty": 2
+            }
+          ]
+        },
+        {
+          "name": "Runner",
+          "models": 2,
+          "weapons": [
+            {
+              "name": "Kar98K",
+              "qty": 2
+            }
+          ]
+        },
+        {
+          "name": "Infantry",
+          "models": 3,
+          "weapons": [
+            {
+              "name": "Kar98K",
+              "qty": 3
+            },
+            {
+              "name": "Panzerfaust",
+              "qty": 1
+            }
+          ]
+        },
+        {
+          "name": "All Infantry",
+          "weapons": [
+            {
+              "name": "StG39 Grenades"
+            }
+          ]
+        }
+      ],
+      "variants": [
+        {
+          "name": "+1 $hit-armor$ for all anti-tank weapons",
+          "points": 30
+        },
+        {
+          "name": "radio operator",
+          "points": 3,
+          "add": {
+            "infantry": {
+              "models": {
+                "qty": 2,
+                "group": 2
+              },
+              "weapons": [
+                {
+                  "name": "Kar98K",
+                  "qty": 1
+                },
+                {
+                  "name": "MP40",
+                  "qty": 1
+                }
+              ]
+            }
+          },
+          "comms": {
+            "type": "radio",
+            "value": 4
+          }
+        }
+      ],
+      "lore": "The Fallschirmjäger were specifically deployed to the east of Leningrad on the River Neva to confront a Red Army effort to relieve the city. In October 1941, the German paratroopers were involved in heavy fighting against the Soviets and were successful in holding off Soviet attacks."
+    },
+    "Fallschirmjager Squad": {
+      "img": "../../assets/germans/fallschirmjager-squad.jpg",
+      "points": 210,
+      "options": 1,
+      "max": 3,
+      "min": 2,
+      "type": "infantry",
+      "move": 20,
+      "morale": 7,
+      "moraleFrequency": 3,
+      "armor": 7,
+      "hp": 3,
+      "shout": 5,
+      "closeCombat": 1,
+      "characteristics": [
+        "Airborne"
+      ],
+      "infantry": [
+        {
+          "name": "Leader",
+          "models": 2,
+          "closeCombat": 2,
+          "weapons": [
+            {
+              "name": "MP40",
+              "qty": 2
+            }
+          ]
+        },
+        {
+          "name": "Infantry",
+          "models": 10,
+          "weapons": [
+            {
+              "name": "Kar98K",
+              "qty": 9
+            },
+            {
+              "name": "MG34",
+              "qty": 1
+            }
+          ]
+        },
+        {
+          "name": "All Infantry",
+          "weapons": [
+            {
+              "name": "StG39 Grenades"
+            }
+          ]
+        }
+      ],
+      "variants": [
+        {
+          "name": "replace Kar98K with Fg42",
+          "max": 6,
+          "points": 20,
+          "add": {
+            "infantry": {
+              "weapons": [
+                {
+                  "name": "Fg42",
+                  "qty": 1,
+                  "group": 1
+                }
+              ]
+            }
+          },
+          "remove": {
+            "infantry": {
+              "weapons": [
+                {
+                  "name": "Kar98K",
+                  "qty": 1,
+                  "group": 1
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "replace Kar98K with G43",
+          "max": 5,
+          "points": 10,
+          "add": {
+            "infantry": {
+              "weapons": [
+                {
+                  "name": "G43",
+                  "qty": 1,
+                  "group": 1
+                }
+              ]
+            }
+          },
+          "remove": {
+            "infantry": {
+              "weapons": [
+                {
+                  "name": "Kar98K",
+                  "qty": 1,
+                  "group": 1
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "replace Kar98K with MG34",
+          "points": 60,
+          "add": {
+            "infantry": {
+              "weapons": [
+                {
+                  "name": "MG34",
+                  "qty": 1,
+                  "group": 1
+                }
+              ]
+            }
+          },
+          "remove": {
+            "infantry": {
+              "weapons": [
+                {
+                  "name": "Kar98K",
+                  "qty": 1,
+                  "group": 1
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "replace MG34 with MG42",
+          "max": 2,
+          "points": 10,
+          "add": {
+            "infantry": {
+              "weapons": [
+                {
+                  "name": "MG42",
+                  "qty": 1,
+                  "group": 1
+                }
+              ]
+            }
+          },
+          "remove": {
+            "infantry": {
+              "weapons": [
+                {
+                  "name": "MG34",
+                  "qty": 1,
+                  "group": 1
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "replace Kar98K with Flamethrower",
+          "points": 50,
+          "require": {
+            "type": "variant",
+            "name": "replace Kar98K with Flamethrower",
+            "platoon": true,
+            "max": 1
+          },
+          "add": {
+            "infantry": {
+              "weapons": [
+                {
+                  "name": "Flamethrower",
+                  "qty": 1,
+                  "group": 1
+                }
+              ]
+            }
+          },
+          "remove": {
+            "infantry": {
+              "weapons": [
+                {
+                  "name": "Kar98K",
+                  "qty": 1,
+                  "group": 1
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "replace Kar98K with StG44",
+          "max": 5,
+          "points": 20,
+          "add": {
+            "infantry": {
+              "weapons": [
+                {
+                  "name": "StG44",
+                  "qty": 1,
+                  "group": 1
+                }
+              ]
+            }
+          },
+          "remove": {
+            "infantry": {
+              "weapons": [
+                {
+                  "name": "Kar98K",
+                  "qty": 1,
+                  "group": 1
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "replace Kar98K with MP40",
+          "max": 5,
+          "points": 0,
+          "add": {
+            "infantry": {
+              "weapons": [
+                {
+                  "name": "StG44",
+                  "qty": 1,
+                  "group": 1
+                }
+              ]
+            }
+          },
+          "remove": {
+            "infantry": {
+              "weapons": [
+                {
+                  "name": "Kar98K",
+                  "qty": 1,
+                  "group": 1
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Panzerfaust",
+          "points": 30,
+          "max": 2,
+          "add": {
+            "infantry": {
+              "weapons": [
+                {
+                  "name": "Panzerfaust",
+                  "qty": 1,
+                  "group": 1
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "(2 max per platoon) Opel Blitz truck",
+          "points": 30,
+          "require": {
+            "type": "squad",
+            "name": "Opel Blitz",
+            "max": 2,
+            "platoon": true
+          },
+          "add": {
+            "squad": {
+              "Opel Blitz": 1
+            }
+          }
+        },
+        {
+          "name": "form a Panzershreck Squad",
+          "points": 60,
+          "require": {
+            "type": "squad",
+            "name": "Panzerschreck Squad",
+            "max": 1,
+            "platoon": true
+          },
+          "add": {
+            "squad": {
+              "Panzerschreck Squad": 1
+            }
+          },
+          "remove": {
+            "infantry": {
+              "models": {
+                "group": 1,
+                "qty": 2
+              },
+              "weapons": [
+                {
+                  "name": "Kar98K",
+                  "qty": 2,
+                  "group": 1
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "+1 $hit-armor$ for anti-tank weapons",
+          "points": 30,
+          "modifiers": {
+            "StG39 Grenades:hitVehicle": 1,
+            "Satchel Charges:hitVehicle": 1,
+            "Handgranate:hitVehicle": 1,
+            "Panzerfaust:hitVehicle": 1
+          }
+        },
+        {
+          "name": "Satchel Charges",
+          "points": 50,
+          "max": 2,
+          "add": {
+            "infantry": {
+              "weapons": [
+                {
+                  "name": "Satchel Charges",
+                  "qty": 1,
+                  "group": 1
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Handgranate43",
+          "points": 50,
+          "max": 2,
+          "add": {
+            "infantry": {
+              "weapons": [
+                {
+                  "name": "Handgranate43",
+                  "qty": 1,
+                  "group": 1
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "+1 $hit-armor$ +1 $damage$ with grenades",
+          "points": 20,
+          "modifiers": {
+            "StG39 Grenades:hitVehicle": 1,
+            "Handgranate43:hitVehicle": 1
+          }
+        },
+        {
+          "name": "+1 $hit-infantry$ when stationary",
+          "points": 0,
+          "add": {
+            "abilities": [
+              "+1 $hit-infantry$ when stationary"
+            ]
+          },
+          "remove": {
+            "infantry": {
+              "models": {
+                "group": 1,
+                "qty": 2
+              },
+              "weapons": [
+                {
+                  "name": "Kar98K",
+                  "qty": 2,
+                  "group": 1
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "Jager Section": {
+      "img": "../../assets/germans/jager-section.jpg",
+      "points": 100,
+      "options": 1,
+      "max": 1,
+      "min": 0,
+      "type": "infantry",
+      "move": 20,
+      "morale": 7,
+      "moraleFrequency": 1,
+      "armor": 7,
+      "hp": 3,
+      "shout": 5,
+      "closeCombat": 2,
+      "characteristics": [
+        "Airborne"
+      ],
+      "infantry": [
+        {
+          "name": "Infantry",
+          "models": 2,
+          "weapons": [
+            {
+              "name": "MP40",
+              "qty": 1
+            },
+            {
+              "name": "Panzerschreck",
+              "qty": 1,
+              "hitVehicle": 10
+            },
+            {
+              "name": "StG39 Grenades",
+              "qty": 1,
+              "hitVehicle": 7
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

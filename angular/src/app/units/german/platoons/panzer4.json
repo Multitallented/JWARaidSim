@@ -1,6 +1,7 @@
 {
   "name": "Panzer 4 Platoon",
   "options": 0,
+  "max": 1,
   "squads": {
     "Panzer4 Command": {
       "img": "../../assets/germans/panzer4.jpg",
