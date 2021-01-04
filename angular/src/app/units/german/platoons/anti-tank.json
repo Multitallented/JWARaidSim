@@ -3,7 +3,7 @@
   "options": 2,
   "squads": {
     "Anti-Tank Gun": {
-      "img": "",
+      "img": "../../assets/germans/pak40.jpg",
       "points": 340,
       "max": 3,
       "min": 1,

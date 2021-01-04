@@ -43,7 +43,7 @@
       ],
       "img": "../../assets/germans/luftwaffe.jpg",
       "specials": [
-        "Only one player can use an Airborne army. If multiple players want to use Airborne, then the player with fewer points spent on Paratroopers can’t deploy by air. Only onen player can control the skies during the battle."
+        "Only one player can use an Airborne army. If multiple players want to use Airborne, then the player with fewer points spent on Airborne units can’t deploy by air. Only one player can control the skies during the battle."
       ],
       "lore": "Göring became personally committed to the creation of  Germany's airborne arm in the 1930s. Volunteers would form a core Fallschirmschützen Bataillon (\"parachute soldiers battalion\"). Germany's parachute arm was  officially inaugurated on 29 January 1936. NCOs, officers, and other ranks of the Luftwaffe were required to successfully complete six jumps in order to receive the Luftwaffe Parachutist's Badge."
     },
@@ -67,7 +67,7 @@
         "+1 $hit-infantry$ when cautious",
         "+1 on all initiative tests",
         "Each unit may retry one failed $morale$ morale test per round",
-        "Only one player can use an Airborne army. If multiple players want to use Airborne, then the player with fewer points spent on Paratroopers can’t deploy by air. Only onen player can control the skies during the battle."
+        "Only one player can use an Airborne army. If multiple players want to use Airborne, then the player with fewer points spent on Airborne units can’t deploy by air. Only one player can control the skies during the battle."
       ],
       "modifiers": {
         "closeCombat": 1
