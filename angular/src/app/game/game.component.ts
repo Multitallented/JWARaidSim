@@ -161,6 +161,7 @@ export class GameComponent implements OnInit {
     let totalPoints = 0;
     for (let armyList of this.lists) {
       totalPoints += armyList.getPoints();
+      totalPoints += armyList.getFactionPoints();
     }
     return totalPoints;
   }
