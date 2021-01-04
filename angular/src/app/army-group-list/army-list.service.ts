@@ -8,6 +8,7 @@ import * as germanPanzer4 from '../units/german/platoons/panzer4.json';
 import * as germanPanther from '../units/german/platoons/panther.json';
 import * as germanVariants from '../units/german/platoons/variants.json';
 import * as germanMortar from '../units/german/platoons/mortar.json';
+import * as germanMachineGun from '../units/german/platoons/machine-gun.json';
 import * as germanPanzergrenadiers from '../units/german/platoons/panzergrenadiers.json';
 import * as germanFallschirmjager from '../units/german/platoons/fallschirmjager.json';
 import * as germanHitlerYouth from '../units/german/platoons/hitler-youth.json';
@@ -100,6 +101,7 @@ export class ArmyListService {
     platoonDataArray.push(germanleFH18Artillery);
     platoonDataArray.push(germanHitlerYouth);
     platoonDataArray.push(germanVolksturm);
+    platoonDataArray.push(germanMachineGun);
     platoonDataArray.push(germanMortar);
     return platoonDataArray;
   }

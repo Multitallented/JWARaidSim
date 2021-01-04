@@ -130,7 +130,7 @@
                   <span *ngIf="activeSquad.data.options" class="options">{{activeSquad.data.options}}opts</span>
                 </div>
                 <div class="lore-container">
-                  <div *ngIf="!activeSquad.data.variants">
+                  <div *ngIf="!activeSquad.data.variants || getVariants(activeSquad).length < 1">
                     No variants available
                   </div>
                   <div *ngIf="activeSquad.data.variants">
