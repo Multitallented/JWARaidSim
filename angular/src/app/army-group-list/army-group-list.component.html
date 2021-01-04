@@ -200,7 +200,7 @@
                           <span class="turret" *ngIf="(weapon.hasOwnProperty('turret') || weaponMap[weapon.name].hasOwnProperty('turret')) && !weapon.hasOwnProperty('angle') && !weaponMap[weapon.name].hasOwnProperty('angle')">
                             <img src="../../assets/common/turret.png" alt="Turret" />
                             <span *ngIf="weapon.hasOwnProperty('turret')">{{getValue(weapon.name + ":turret", weapon.turret)}}</span>
-                            <span *ngIf="weaponMap[weapon.name].hasOwnProperty('angle') && !weapon.hasOwnProperty('turret')">{{getValue(weapon.name + ":turret", weaponMap[weapon.name].turret)}}</span>
+                            <span *ngIf="weaponMap[weapon.name].hasOwnProperty('turret') && !weapon.hasOwnProperty('turret')">{{getValue(weapon.name + ":turret", weaponMap[weapon.name].turret)}}</span>
                           </span>
                           <span class="angle" *ngIf="(weapon.hasOwnProperty('angle') || weaponMap[weapon.name].hasOwnProperty('angle')) && !weapon.hasOwnProperty('turret') && !weaponMap[weapon.name].hasOwnProperty('turret')">
                             <img src="../../assets/common/angle.png" alt="Angle" />

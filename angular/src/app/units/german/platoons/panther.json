@@ -1,22 +1,22 @@
 {
-  "name": "Panzer 4 Platoon",
-  "options": 0,
+  "name": "Panther Platoon",
   "max": 1,
+  "options": 0,
   "group": "Medium Tank",
   "squads": {
-    "Panzer4 Command": {
-      "img": "../../assets/germans/panzer4.jpg",
-      "points": 840,
+    "Panther Command": {
+      "img": "../../assets/germans/panther.jpg",
+      "points": 1170,
+      "hq": true,
+      "options": -2,
       "max": 1,
       "min": 0,
       "type": "tank",
-      "move": 30,
+      "move": 42,
       "morale": 7,
-      "hq": true,
-      "options": -2,
       "moraleFrequency": 1,
-      "armor": 14,
-      "hp": 1,
+      "armor": 16,
+      "hp": 2,
       "radio": 5,
       "closeCombat": 0,
       "characteristics": [
@@ -28,21 +28,17 @@
           "weapons": [
             {
               "name": "75mm AP",
-              "qty": 1,
               "altAmmo": true
             },
             {
               "name": "75mm HE",
-              "qty": 1,
               "altAmmo": true
             },
             {
-              "name": "75mm Smoke",
-              "qty": 1
+              "name": "75mm Smoke"
             },
             {
               "name": "MG34",
-              "qty": 1,
               "shots": 7,
               "special": []
             }
@@ -53,9 +49,8 @@
           "weapons": [
             {
               "name": "MG34",
-              "qty": 1,
-              "angle": 45,
               "shots": 10,
+              "angle": 45,
               "special": []
             }
           ]
@@ -64,9 +59,9 @@
       "crew": [
         "Commander",
         "Radio/MG",
+        "Driver",
         "Gunner",
-        "Assistant",
-        "Driver"
+        "Assistant"
       ],
       "crewWeapon": [
         {
@@ -75,14 +70,6 @@
         }
       ],
       "variants": [
-        {
-          "name": "Long-range radio",
-          "points": 30,
-          "comms": {
-            "type": "radio",
-            "value": 5
-          }
-        },
         {
           "name": "Ambush Camo",
           "points": 30,
@@ -114,20 +101,6 @@
             "abilities": [
               "+3 $hp$ against 0 $hit-armor$ weapons"
             ]
-          }
-        },
-        {
-          "name": "+1 $hp$ hardened armor",
-          "points": 30,
-          "modifiers": {
-            "hp": 1
-          }
-        },
-        {
-          "name": "+1 $vehicle-defense$ medium armor",
-          "points": 100,
-          "modifiers": {
-            "defense": 1
           }
         },
         {
@@ -165,20 +138,22 @@
             ]
           }
         }
-      ]
+      ],
+      "lore": "We are facing very difficult days, perhaps the most difficult that a man can undergo.",
+      "quote": "Erwin Rommel"
     },
-    "Panzer4 Sdkfz 161": {
-      "img": "../../assets/germans/panzer4.jpg",
-      "points": 810,
+    "Panther Sdkfz 171": {
+      "img": "../../assets/germans/panther.jpg",
+      "points": 1140,
+      "options": -2,
       "max": 4,
       "min": 1,
-      "options": -2,
       "type": "tank",
-      "move": 30,
+      "move": 42,
       "morale": 7,
       "moraleFrequency": 1,
-      "armor": 14,
-      "hp": 1,
+      "armor": 16,
+      "hp": 2,
       "radio": 4,
       "closeCombat": 0,
       "characteristics": [
@@ -190,21 +165,17 @@
           "weapons": [
             {
               "name": "75mm AP",
-              "qty": 1,
               "altAmmo": true
             },
             {
               "name": "75mm HE",
-              "qty": 1,
               "altAmmo": true
             },
             {
-              "name": "75mm Smoke",
-              "qty": 1
+              "name": "75mm Smoke"
             },
             {
               "name": "MG34",
-              "qty": 1,
               "shots": 7,
               "special": []
             }
@@ -215,9 +186,8 @@
           "weapons": [
             {
               "name": "MG34",
-              "qty": 1,
-              "angle": 45,
               "shots": 10,
+              "angle": 45,
               "special": []
             }
           ]
@@ -226,9 +196,9 @@
       "crew": [
         "Commander",
         "Radio/MG",
+        "Driver",
         "Gunner",
-        "Assistant",
-        "Driver"
+        "Assistant"
       ],
       "crewWeapon": [
         {
@@ -237,14 +207,6 @@
         }
       ],
       "variants": [
-        {
-          "name": "Long-range radio",
-          "points": 30,
-          "comms": {
-            "type": "radio",
-            "value": 5
-          }
-        },
         {
           "name": "Ambush Camo",
           "points": 30,
@@ -276,20 +238,6 @@
             "abilities": [
               "+3 $hp$ against 0 $hit-armor$ weapons"
             ]
-          }
-        },
-        {
-          "name": "+1 $hp$ hardened armor",
-          "points": 30,
-          "modifiers": {
-            "hp": 1
-          }
-        },
-        {
-          "name": "+1 $vehicle-defense$ medium armor",
-          "points": 100,
-          "modifiers": {
-            "defense": 1
           }
         },
         {
@@ -327,7 +275,9 @@
             ]
           }
         }
-      ]
+      ],
+      "lore": "We are facing very difficult days, perhaps the most difficult that a man can undergo.",
+      "quote": "Erwin Rommel"
     }
   }
 }

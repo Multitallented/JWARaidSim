@@ -250,6 +250,10 @@ export class ArmyGroupListComponent implements OnInit {
   }
 
   addSquad(platoon, squad) {
+    if (squad.data.options && this.getOptions() + squad.data.options < 0) {
+      return;
+    }
+
     squad.included = true;
     if (squad.data.alsoAdd) {
       for (let squadName of squad.data.alsoAdd) {
