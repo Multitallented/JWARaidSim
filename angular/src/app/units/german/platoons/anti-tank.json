@@ -70,7 +70,7 @@
           "factions": [
             "Panzergrenadiers"
           ],
-          "require": true,
+          "required": true,
           "points": 70,
           "modifiers": {
             "morale": 1

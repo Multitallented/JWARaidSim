@@ -114,9 +114,11 @@ export class ArmyGroupListComponent implements OnInit {
   addPlatoon(platoon: Platoon) {
     let newPlatoon = _.cloneDeep(platoon);
     newPlatoon.squads.forEach(squad => {
-      for (let variant of this.getVariants(squad)) {
-        if (variant.required) {
-          this.unlockVariant(variant, squad, newPlatoon);
+      if (squad.data.variants && squad.included) {
+        for (let variant of squad.data.variants) {
+          if (variant.required && (!variant.factions || variant.factions.indexOf(this.faction.name) !== -1)) {
+            this.unlockVariant(variant, squad, newPlatoon);
+          }
         }
       }
     })
@@ -259,6 +261,13 @@ export class ArmyGroupListComponent implements OnInit {
         platoon.squads.push(newSquad);
       }
     }
+    if (squad.data.variants && this.faction) {
+      for (let variant of squad.data.variants) {
+        if (variant.required && (!variant.factions || variant.factions.indexOf(this.faction.name) !== -1)) {
+          this.unlockVariant(variant, squad, platoon);
+        }
+      }
+    }
   }
 
   removeSquad(platoon, squad) {
@@ -279,6 +288,13 @@ export class ArmyGroupListComponent implements OnInit {
         }
         if (squadFound) {
           platoon.squads.splice(i, 1);
+        }
+      }
+    }
+    if (squad.data.variants && this.faction) {
+      for (let variant of squad.data.variants) {
+        if (variant.required && (!variant.factions || variant.factions.indexOf(this.faction.name) !== -1)) {
+          this.lockVariant(variant, squad, platoon);
         }
       }
     }
@@ -544,7 +560,7 @@ export class ArmyGroupListComponent implements OnInit {
     squad.points += variant.points;
     if (variant.modifiers) {
       for (let key of Object.keys(variant.modifiers)) {
-        if (this.activeSquad.modifiers[key]) {
+        if (squad.modifiers[key]) {
           squad.modifiers[key] += variant.modifiers[key];
         } else {
           squad.modifiers[key] = variant.modifiers[key];
@@ -637,7 +653,7 @@ export class ArmyGroupListComponent implements OnInit {
       return returnVariants;
     }
     for (let variant of squad.data.variants) {
-      if (!variant.factions || variant.factions.indexOf(this.faction.name) !== -1) {
+      if (!variant.required && (!variant.factions || variant.factions.indexOf(this.faction.name) !== -1)) {
         returnVariants.push(variant);
       }
     }
