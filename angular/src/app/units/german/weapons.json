@@ -98,6 +98,29 @@
     "blast": 8,
     "damage": 0
   },
+  "88mm AP": {
+    "range": 500,
+    "shots": 1,
+    "hitVehicle": 8,
+    "damage": 6
+  },
+  "50mm AP": {
+    "range": 150,
+    "shots": 1,
+    "hitVehicle": 5,
+    "damage": 5
+  },
+  "37mm AP": {
+    "range": 100,
+    "shots": 1,
+    "hitVehicle": 4,
+    "damage": 3
+  },
+  "37mm HE": {
+    "range": 150,
+    "shots": 1,
+    "blast": 3
+  },
   "Smoke Launchers": {
     "range": 0,
     "shots": 1,
@@ -155,17 +178,6 @@
       "Can't fire while moving",
       "Indirect fire"
     ]
-  },
-  "37mm AP": {
-    "range": 100,
-    "shots": 1,
-    "hitVehicle": 4,
-    "damage": 3
-  },
-  "37mm HE": {
-    "range": 150,
-    "shots": 1,
-    "blast": 3
   },
   "Fg42": {
     "range": 50,

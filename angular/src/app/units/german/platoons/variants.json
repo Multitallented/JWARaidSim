@@ -281,6 +281,28 @@
           ]
         }
       ]
+    },
+    "Half-track Sdkfz 7": {
+      "points": 0,
+      "img": "",
+      "max": 0,
+      "min": 0,
+      "type": "tank",
+      "move": 38,
+      "morale": 6,
+      "moraleFrequency": 1,
+      "armor": 13,
+      "hp": 0,
+      "shout": 5,
+      "closeCombat": 0,
+      "characteristics": [
+        "Roofless",
+        "Transport 12"
+      ],
+      "crew": [
+        "Driver"
+      ],
+      "infantry": []
     }
   }
 }

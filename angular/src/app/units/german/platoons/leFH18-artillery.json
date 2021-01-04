@@ -63,7 +63,7 @@
       "max": 6,
       "min": 1,
       "type": "infantry",
-      "move": 20,
+      "move": 10,
       "morale": 6,
       "moraleFrequency": 3,
       "armor": 7,
@@ -108,6 +108,15 @@
             "type": "variant",
             "name": "Radio",
             "max": 1
+          }
+        },
+        {
+          "name": "Half-track Sdkfz 7",
+          "points": 50,
+          "add": {
+            "squad": {
+              "Half-track Sdkfz 7": 1
+            }
           }
         }
       ]

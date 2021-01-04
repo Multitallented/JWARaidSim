@@ -174,7 +174,7 @@
                   <div class="model-checkboxes">
                     <ng-container *ngIf="infantrySection.models">
                       <ng-container *ngFor="let i of [].constructor(infantrySection.models); let index = index">
-                        <div class="clearfix" *ngIf="(infantrySection.models > 9 || (infantrySection.models > 7 && infantrySection.closeCombat > 1)) && index % (infantrySection.models / 2) < 1 && index !== 0"></div>
+                        <div class="clearfix" *ngIf="(infantrySection.models > 9 || (infantrySection.models > 7 && infantrySection.closeCombat > 1) || (infantrySection.models > 5 && infantrySection.closeCombat > 3)) && index % (infantrySection.models / 2) < 1 && index !== 0"></div>
                         <img class="checkbox right" (contextmenu)="activeSquad.pinCheckbox(infantrySection.name + ':' + index); $event.preventDefault()" (click)="activeSquad.cycleCheckbox(infantrySection.name + ':' + index)" src="{{activeSquad.getCheckboxSrc(infantrySection.name + ':' + index)}}" alt="Checkbox" />
                       </ng-container>
                     </ng-container>
