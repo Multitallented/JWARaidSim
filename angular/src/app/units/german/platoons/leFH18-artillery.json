@@ -14,6 +14,49 @@
     }
   },
   "squads": {
+    "Half-track Sdkfz 250/5 Obs": {
+      "img": "",
+      "points": 220,
+      "hq": true,
+      "max": 1,
+      "min": 0,
+      "type": "tank",
+      "move": 40,
+      "morale": 6,
+      "moraleFrequency": 1,
+      "armor": 13,
+      "hp": 0,
+      "radio": 5,
+      "closeCombat": 0,
+      "characteristics": [
+        "Roofless"
+      ],
+      "crew": [
+        "Commander/MG",
+        "Driver",
+        "Radio",
+        "Crew"
+      ],
+      "crewWeapon": [
+        {
+          "name": "MP40",
+          "qty": 4
+        }
+      ],
+      "infantry": [
+        {
+          "name": "Chassis",
+          "weapons": [
+            {
+              "name": "MG34",
+              "qty": 1,
+              "shots": 10,
+              "angle": 135
+            }
+          ]
+        }
+      ]
+    },
     "leFH18 Howitzer": {
       "img": "",
       "points": 340,
