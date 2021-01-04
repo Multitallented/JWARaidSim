@@ -1,9 +1,9 @@
 {
   "name": "Panzergrenadier Platoon",
-  "options": 1,
+  "options": 0,
   "factions": [
     "Panzergrenadiers",
-    "Schutzstaffel"
+    "Waffen Korps"
   ],
   "standard": true,
   "squads": {

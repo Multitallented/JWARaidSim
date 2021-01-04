@@ -1,6 +1,6 @@
 {
   "name": "Infantry Platoon",
-  "options": 1,
+  "options": 0,
   "standard": true,
   "squads": {
     "Infantry Squad": {

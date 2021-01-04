@@ -104,6 +104,13 @@
     "hitVehicle": 8,
     "damage": 6
   },
+  "88mm HE": {
+    "range": 600,
+    "shots": 1,
+    "blast": 8,
+    "hitVehicle": 5,
+    "damage": 6
+  },
   "50mm AP": {
     "range": 150,
     "shots": 1,
@@ -118,6 +125,17 @@
   },
   "37mm HE": {
     "range": 150,
+    "shots": 1,
+    "blast": 3
+  },
+  "20mm AP": {
+    "range": 60,
+    "shots": 1,
+    "hitVehicle": 3,
+    "damage": 3
+  },
+  "20mm HE": {
+    "range": 250,
     "shots": 1,
     "blast": 3
   },

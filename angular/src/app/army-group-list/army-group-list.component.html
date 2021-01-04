@@ -216,7 +216,7 @@
                               <span *ngIf="!weapon.hasOwnProperty('minRange') && weaponMap[weapon.name].hasOwnProperty('minRange')">- {{weaponMap[weapon.name].minRange}}</span>
                             </span>
                           </span>
-                          <span *ngIf="!weaponMap[weapon.name].blast" class="shots">
+                          <span *ngIf="!weaponMap[weapon.name].blast || weapon.hasOwnProperty('shots')" class="shots">
                             <img src="../../assets/common/shots.png" alt="Shots" />
                             <span *ngIf="weapon.hasOwnProperty('shots')">{{getValue(weapon.name + ":shots", weapon.shots)}}</span>
                             <span *ngIf="!weapon.hasOwnProperty('shots')">{{getValue(weapon.name + ":shots", weaponMap[weapon.name].shots)}}</span>
@@ -250,7 +250,7 @@
                         {{weapon.name}}
                       </div>
                       <div class="clearfix"></div>
-                      <div *ngIf="!weapon.altAmmo && weaponMap[weapon.name].altAmmo && weapon.hasOwnProperty('special')">
+                      <div *ngIf="!weapon.altAmmo && !weaponMap[weapon.name].altAmmo && weapon.hasOwnProperty('special')">
                         <div *ngFor="let special of getSpecials(weapon.name + ':special', weapon.special)" class="weapon-special" [innerHTML]="replaceIcons(special)"></div>
                       </div>
                       <div *ngIf="!weapon.altAmmo && !weaponMap[weapon.name].altAmmo && !weapon.hasOwnProperty('special') && weaponMap[weapon.name].hasOwnProperty('special')">

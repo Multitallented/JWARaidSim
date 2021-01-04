@@ -7,7 +7,7 @@
   ],
   "squads": {
     "Volksturm Squad": {
-      "img": "",
+      "img": "../../assets/germans/volksturm.jpg",
       "points": 60,
       "max": 3,
       "min": 2,

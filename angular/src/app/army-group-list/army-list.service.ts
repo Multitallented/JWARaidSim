@@ -12,6 +12,8 @@ import * as germanPanzergrenadiers from '../units/german/platoons/panzergrenadie
 import * as germanFallschirmjager from '../units/german/platoons/fallschirmjager.json';
 import * as germanHitlerYouth from '../units/german/platoons/hitler-youth.json';
 import * as germanVolksturm from '../units/german/platoons/volksturm.json';
+import * as germanFlak36AntiAircraft from '../units/german/platoons/flak36-anti-air.json';
+import * as germanFlak38AntiAircraft from '../units/german/platoons/flak38-anti-air.json';
 import * as germanIG18Artillery from '../units/german/platoons/ig-18-artillery-battery.json';
 import * as germanleFH18Artillery from '../units/german/platoons/leFH18-artillery.json';
 import * as germanAntiTank from '../units/german/platoons/anti-tank.json';
@@ -91,6 +93,8 @@ export class ArmyListService {
     platoonDataArray.push(germanVolksgrenadiers);
     platoonDataArray.push(germanPanzer4);
     platoonDataArray.push(germanPanther);
+    platoonDataArray.push(germanFlak36AntiAircraft);
+    platoonDataArray.push(germanFlak38AntiAircraft);
     platoonDataArray.push(germanAntiTank);
     platoonDataArray.push(germanIG18Artillery);
     platoonDataArray.push(germanleFH18Artillery);

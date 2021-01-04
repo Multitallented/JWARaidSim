@@ -11,7 +11,7 @@
       "crew": [
         "Driver"
       ],
-      "move": "89",
+      "move": 61,
       "morale": 6,
       "moraleFrequency": 1,
       "armor": 7,
@@ -23,8 +23,7 @@
         "Roofless"
       ],
       "infantry": [],
-      "lore": "In the build up to Kursk, two battalions equipped with the new Panther tanks, which were plagued by technical problems, suffered from engine fires and mechanical breakdowns before reaching the battlefield. By 7 July, the division had only 80 of its 300 tanks still fit for combat. After the Kursk offensive was cancelled, the division was transferred back to Army Group Center, and resumed its role as a mobile reserve.",
-      "variants": []
+      "lore": "In the build up to Kursk, two battalions equipped with the new Panther tanks, which were plagued by technical problems, suffered from engine fires and mechanical breakdowns before reaching the battlefield. By 7 July, the division had only 80 of its 300 tanks still fit for combat. After the Kursk offensive was cancelled, the division was transferred back to Army Group Center, and resumed its role as a mobile reserve."
     },
     "Panzerschreck Squad": {
       "img": "../../assets/germans/panzershreck.jpg",
@@ -150,7 +149,7 @@
       "max": 0,
       "min": 0,
       "type": "car",
-      "move": 90,
+      "move": 61,
       "morale": 6,
       "moraleFrequency": 1,
       "armor": 11,
@@ -284,7 +283,7 @@
     },
     "Half-track Sdkfz 7": {
       "points": 0,
-      "img": "",
+      "img": "../../assets/germans/half-track-7.jpg",
       "max": 0,
       "min": 0,
       "type": "tank",

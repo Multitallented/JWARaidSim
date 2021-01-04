@@ -1,10 +1,10 @@
 {
   "name": "Grenadier Platoon",
-  "options": 1,
+  "options": 0,
   "standard": true,
   "factions": [
     "Heer Regular Army",
-    "Schutzstaffel"
+    "Waffen Korps"
   ],
   "squads": {
     "Grenadier Command": {

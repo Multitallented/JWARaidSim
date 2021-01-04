@@ -5,7 +5,7 @@
   "group": "Artillery Battery",
   "factions": [
     "Heer Regular Army",
-    "Schutzstaffel"
+    "Waffen Korps"
   ],
   "squadLinks": {
     "Kubelwagen Scout": {
@@ -15,7 +15,7 @@
   },
   "squads": {
     "Half-track Sdkfz 250/5 Obs": {
-      "img": "",
+      "img": "../../assets/germans/half-track-250-5.jpg",
       "points": 220,
       "hq": true,
       "max": 1,
@@ -51,14 +51,15 @@
               "name": "MG34",
               "qty": 1,
               "shots": 10,
-              "angle": 135
+              "angle": 135,
+              "special": []
             }
           ]
         }
       ]
     },
     "leFH18 Howitzer": {
-      "img": "",
+      "img": "../../assets/germans/leFH18.jpg",
       "points": 340,
       "max": 6,
       "min": 1,

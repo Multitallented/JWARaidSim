@@ -1,10 +1,10 @@
 {
   "name": "Fallschirmjager Platoon",
-  "options": 1,
+  "options": 0,
   "standard": true,
   "factions": [
     "Luftwaffe",
-    "Schutzstaffel"
+    "Waffen Korps"
   ],
   "squads": {
     "Fallschirmjager Command": {

@@ -1,0 +1,109 @@
+{
+  "name": "Flak38 Anti-Aircraft Section",
+  "max": 1,
+  "options": 1,
+  "group": "Anti-Aircraft",
+  "factions": [
+    "Heer Regular Army",
+    "Luftwaffe",
+    "Waffen Korps"
+  ],
+  "squads": {
+    "Flak38 Anti-Aircraft": {
+      "img": "../../assets/germans/flak38-aa.jpg",
+      "points": 170,
+      "max": 3,
+      "min": 1,
+      "type": "infantry",
+      "move": 10,
+      "morale": 6,
+      "moraleFrequency": 1,
+      "armor": 7,
+      "hp": 6,
+      "shout": 5,
+      "closeCombat": 0,
+      "characteristics": [],
+      "infantry": [
+        {
+          "name": "Leader",
+          "models": 1,
+          "closeCombat": 1,
+          "weapons": [
+            {
+              "name": "MP40"
+            }
+          ]
+        },
+        {
+          "name": "Infantry",
+          "models": 3,
+          "closeCombat": 3,
+          "weapons": [
+            {
+              "name": "20mm AP",
+              "shots": 2,
+              "altAmmo": true,
+              "qty": 1
+            },
+            {
+              "name": "20mm HE",
+              "shots": 2,
+              "qty": 1,
+              "special": [
+                "Can't move while shooting"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "All Infantry",
+          "weapons": [
+            {
+              "name": "StG39 Grenades"
+            }
+          ]
+        }
+      ],
+      "variants": [
+        {
+          "name": "Quad-barrelled",
+          "points": 600,
+          "add": {
+            "infantry": {
+              "weapons": [
+                {
+                  "name": "20mm AP",
+                  "qty": 3,
+                  "group": 1
+                },
+                {
+                  "name": "20mm HE",
+                  "qty": 3,
+                  "group": 1
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Half-track Sdkfz 7",
+          "points": 50,
+          "add": {
+            "squad": {
+              "Half-track Sdkfz 7": 1
+            }
+          }
+        },
+        {
+          "name": "Opel Blitz",
+          "points": 30,
+          "add": {
+            "squad": {
+              "Opel Blitz": 1
+            }
+          }
+        }
+      ]
+    }
+  }
+}

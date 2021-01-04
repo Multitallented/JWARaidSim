@@ -1,63 +1,59 @@
 {
-  "name": "IG18 Artillery Battery",
+  "name": "Flak36 Anti-Aircraft Section",
   "max": 1,
-  "options": 2,
-  "group": "Artillery Battery",
+  "options": 1,
+  "group": "Anti-Aircraft",
   "factions": [
     "Heer Regular Army",
+    "Luftwaffe",
     "Waffen Korps"
   ],
-  "squadLinks": {
-    "Observation Post": {
-      "min": 0,
-      "max": 1
-    },
-    "Kubelwagen Scout": {
-      "min": 0,
-      "max": 1
-    }
-  },
   "squads": {
-    "Howitzer IG 18": {
-      "img": "../../assets/germans/ig18-howitzer.jpg",
-      "points": 140,
-      "max": 6,
+    "Flak36 Anti-Aircraft": {
+      "img": "../../assets/germans/flak36-aa.jpg",
+      "points": 510,
+      "max": 3,
       "min": 1,
       "type": "infantry",
       "move": 10,
       "morale": 6,
-      "moraleFrequency": 2,
+      "moraleFrequency": 1,
       "armor": 7,
       "hp": 6,
       "shout": 5,
       "closeCombat": 0,
-      "characteristics": [
-        "Off-Table"
-      ],
+      "characteristics": [],
       "infantry": [
         {
           "name": "Leader",
-          "closeCombat": 1,
           "models": 1,
+          "closeCombat": 1,
           "weapons": [
             {
-              "name": "MP40",
-              "qty": 1
+              "name": "MP40"
             }
           ]
         },
         {
           "name": "Infantry",
-          "closeCombat": 2,
-          "models": 5,
+          "models": 7,
+          "closeCombat": 4,
           "weapons": [
             {
               "name": "Kar98K",
-              "qty": 2
+              "qty": 3
             },
             {
-              "name": "IG18 75mm",
+              "name": "88mm AP",
+              "altAmmo": true,
               "qty": 1
+            },
+            {
+              "name": "88mm HE",
+              "qty": 1,
+              "special": [
+                "Can't move while shooting"
+              ]
             }
           ]
         },
@@ -71,19 +67,6 @@
         }
       ],
       "variants": [
-        {
-          "name": "Radio",
-          "points": 10,
-          "comms": {
-            "type": "radio",
-            "value": 4
-          },
-          "require": {
-            "type": "variant",
-            "name": "Radio",
-            "max": 1
-          }
-        },
         {
           "name": "Half-track Sdkfz 7",
           "points": 50,
