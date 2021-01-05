@@ -4,6 +4,7 @@ import * as germanWeapons from '../units/german/weapons.json';
 import * as germanFactions from '../units/german/factions.json';
 import * as germanGrenadiers from '../units/german/platoons/grenadier.json';
 import * as germanVolksgrenadiers from '../units/german/platoons/volksgrenadier.json';
+import * as germanPanzer3 from '../units/german/platoons/panzer3.json';
 import * as germanPanzer4 from '../units/german/platoons/panzer4.json';
 import * as germanPanther from '../units/german/platoons/panther.json';
 import * as germanVariants from '../units/german/platoons/variants.json';
@@ -92,8 +93,9 @@ export class ArmyListService {
     platoonDataArray.push(germanPanzergrenadiers);
     platoonDataArray.push(germanFallschirmjager);
     platoonDataArray.push(germanVolksgrenadiers);
-    platoonDataArray.push(germanPanzer4);
     platoonDataArray.push(germanPanther);
+    platoonDataArray.push(germanPanzer4);
+    platoonDataArray.push(germanPanzer3);
     platoonDataArray.push(germanFlak36AntiAircraft);
     platoonDataArray.push(germanFlak38AntiAircraft);
     platoonDataArray.push(germanAntiTank);
