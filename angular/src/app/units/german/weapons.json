@@ -25,6 +25,12 @@
       "+4 $shots$ when adjacent to a stationary assistant"
     ]
   },
+  "MG42 AA": {
+    "range": 350,
+    "shots": 8,
+    "damage": 1,
+    "turret": 360
+  },
   "Kar98K": {
     "range": 120,
     "shots": 1

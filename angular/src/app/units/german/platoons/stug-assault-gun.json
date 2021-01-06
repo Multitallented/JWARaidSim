@@ -1,0 +1,363 @@
+{
+  "name": "Stug Assault Gun Platoon",
+  "options": 2,
+  "group": "Assault Gun",
+  "max": 1,
+  "squads": {
+    "StugIII Command": {
+      "img": "../../assets/germans/stug3.jpg",
+      "points": 770,
+      "max": 1,
+      "min": 0,
+      "hq": true,
+      "type": "tank",
+      "move": 31,
+      "morale": 7,
+      "moraleFrequency": 1,
+      "armor": 14,
+      "hp": 2,
+      "radio": 5,
+      "closeCombat": 0,
+      "characteristics": [
+        "Transport 12",
+        "Assault"
+      ],
+      "infantry": [
+        {
+          "name": "Chassis",
+          "weapons": [
+            {
+              "name": "75mm AP",
+              "qty": 1,
+              "angle": 45,
+              "altAmmo": true
+            },
+            {
+              "name": "75mm HE",
+              "qty": 1,
+              "angle": 45,
+              "altAmmo": true
+            },
+            {
+              "name": "75mm Smoke",
+              "angle": 45,
+              "qty": 1
+            },
+            {
+              "name": "MG34 AA",
+              "qty": 1,
+              "angle": 45,
+              "special": []
+            }
+          ]
+        }
+      ],
+      "crew": [
+        "Commander/MG",
+        "Gunner",
+        "Assistant",
+        "Driver/Radio"
+      ],
+      "crewWeapon": [
+        {
+          "name": "MP40",
+          "qty": 4
+        }
+      ],
+      "variants": [
+        {
+          "name": "Ambush Camo",
+          "points": 30,
+          "modifiers": {
+            "characteristics": [
+              "Ambush Camo"
+            ]
+          }
+        },
+        {
+          "name": "Shurzen +3 $hp$ against 0 $hit-armor$ weapons",
+          "points": 30,
+          "add": {
+            "abilities": [
+              "+3 $hp$ against 0 $hit-armor$ weapons"
+            ]
+          }
+        },
+        {
+          "name": "+1 $vehicle-defense$ medium armor",
+          "points": 100,
+          "modifiers": {
+            "defense": 1
+          }
+        },
+        {
+          "name": "+1 $hit-armor$ improved 75mm shells",
+          "points": 150,
+          "modifiers": {
+            "75mm AP:hitVehicle": 1
+          }
+        },
+        {
+          "name": "replace MG34 AA with MG42 AA",
+          "points": 10,
+          "add": {
+            "infantry": {
+              "weapons": [
+                {
+                  "name": "MG42 AA",
+                  "qty": 1,
+                  "angle": 45,
+                  "shots": 11,
+                  "group": 0
+                }
+              ]
+            }
+          },
+          "remove": {
+            "infantry": {
+              "weapons": [
+                {
+                  "name": "MG34 AA",
+                  "qty": 1,
+                  "shots": 10,
+                  "angle": 45,
+                  "group": 0
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "StugIII Sdkfz 142/1 Auf G": {
+      "img": "../../assets/germans/stug3.jpg",
+      "points": 740,
+      "max": 3,
+      "min": 1,
+      "type": "tank",
+      "move": 31,
+      "morale": 7,
+      "moraleFrequency": 1,
+      "armor": 14,
+      "hp": 2,
+      "radio": 4,
+      "closeCombat": 0,
+      "characteristics": [
+        "Transport 12",
+        "Assault"
+      ],
+      "infantry": [
+        {
+          "name": "Chassis",
+          "weapons": [
+            {
+              "name": "75mm AP",
+              "qty": 1,
+              "angle": 45,
+              "altAmmo": true
+            },
+            {
+              "name": "75mm HE",
+              "qty": 1,
+              "angle": 45,
+              "altAmmo": true
+            },
+            {
+              "name": "75mm Smoke",
+              "angle": 45,
+              "qty": 1
+            },
+            {
+              "name": "MG34 AA",
+              "qty": 1,
+              "angle": 45,
+              "special": []
+            }
+          ]
+        }
+      ],
+      "crew": [
+        "Commander/MG",
+        "Gunner",
+        "Assistant",
+        "Driver/Radio"
+      ],
+      "crewWeapon": [
+        {
+          "name": "MP40",
+          "qty": 4
+        }
+      ],
+      "variants": [
+        {
+          "name": "Ambush Camo",
+          "points": 30,
+          "modifiers": {
+            "characteristics": [
+              "Ambush Camo"
+            ]
+          }
+        },
+        {
+          "name": "Shurzen +3 $hp$ against 0 $hit-armor$ weapons",
+          "points": 30,
+          "add": {
+            "abilities": [
+              "+3 $hp$ against 0 $hit-armor$ weapons"
+            ]
+          }
+        },
+        {
+          "name": "+1 $vehicle-defense$ medium armor",
+          "points": 100,
+          "modifiers": {
+            "defense": 1
+          }
+        },
+        {
+          "name": "+1 $hit-armor$ improved 75mm shells",
+          "points": 150,
+          "modifiers": {
+            "75mm AP:hitVehicle": 1
+          }
+        },
+        {
+          "name": "replace MG34 AA with MG42 AA",
+          "points": 10,
+          "add": {
+            "infantry": {
+              "weapons": [
+                {
+                  "name": "MG42 AA",
+                  "qty": 1,
+                  "angle": 45,
+                  "shots": 11,
+                  "group": 0
+                }
+              ]
+            }
+          },
+          "remove": {
+            "infantry": {
+              "weapons": [
+                {
+                  "name": "MG34 AA",
+                  "qty": 1,
+                  "shots": 10,
+                  "angle": 45,
+                  "group": 0
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "StuH42 Sdfkz 142/2": {
+      "img": "../../assets/germans/stuh42.jpg",
+      "points": 660,
+      "max": 1,
+      "min": 0,
+      "type": "tank",
+      "move": 31,
+      "morale": 7,
+      "moraleFrequency": 1,
+      "armor": 14,
+      "hp": 2,
+      "radio": 4,
+      "closeCombat": 0,
+      "characteristics": [
+        "Transport 12",
+        "Assault",
+        "Off-Table"
+      ],
+      "infantry": [
+        {
+          "name": "Chassis",
+          "weapons": [
+            {
+              "name": "105mm HE",
+              "qty": 1,
+              "angle": 45
+            },
+            {
+              "name": "MG34 AA",
+              "qty": 1,
+              "angle": 45,
+              "special": []
+            }
+          ]
+        }
+      ],
+      "crew": [
+        "Commander/MG",
+        "Gunner",
+        "Assistant",
+        "Driver/Radio"
+      ],
+      "crewWeapon": [
+        {
+          "name": "MP40",
+          "qty": 4
+        }
+      ],
+      "variants": [
+        {
+          "name": "Ambush Camo",
+          "points": 30,
+          "modifiers": {
+            "characteristics": [
+              "Ambush Camo"
+            ]
+          }
+        },
+        {
+          "name": "Shurzen +3 $hp$ against 0 $hit-armor$ weapons",
+          "points": 30,
+          "add": {
+            "abilities": [
+              "+3 $hp$ against 0 $hit-armor$ weapons"
+            ]
+          }
+        },
+        {
+          "name": "+1 $vehicle-defense$ medium armor",
+          "points": 100,
+          "modifiers": {
+            "defense": 1
+          }
+        },
+        {
+          "name": "replace MG34 AA with MG42 AA",
+          "points": 10,
+          "add": {
+            "infantry": {
+              "weapons": [
+                {
+                  "name": "MG42 AA",
+                  "qty": 1,
+                  "angle": 45,
+                  "shots": 11,
+                  "group": 0
+                }
+              ]
+            }
+          },
+          "remove": {
+            "infantry": {
+              "weapons": [
+                {
+                  "name": "MG34 AA",
+                  "qty": 1,
+                  "shots": 10,
+                  "angle": 45,
+                  "group": 0
+                }
+              ]
+            }
+          }
+        }
+      ]
+    }
+  }
+}
