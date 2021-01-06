@@ -13,6 +13,8 @@ export class Faction {
   lore: string;
   allies: Array<string> = [];
   nations: Array<string> = [];
+  startDate: number;
+  endDate: number;
 
   constructor(name: string, standardPlatoons: Array<string>, img: string,
               lore: string) {

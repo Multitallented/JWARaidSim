@@ -28,6 +28,7 @@
     "Panzerschreck Squad": {
       "img": "../../assets/germans/panzershreck.jpg",
       "points": 0,
+      "startDate": 1944,
       "max": 0,
       "min": 0,
       "type": "infantry",
@@ -122,6 +123,7 @@
     "Kettenkrad Sdkfz 2": {
       "img": "../../assets/germans/kettenkrad.jpg",
       "points": 0,
+      "startDate": 1939,
       "max": 0,
       "min": 0,
       "type": "tank",
@@ -146,6 +148,7 @@
     "Kubelwagen": {
       "img": "../../assets/germans/kubelwagen.jpg",
       "points": 0,
+      "startDate": 1940,
       "max": 0,
       "min": 0,
       "type": "car",
@@ -171,6 +174,7 @@
     "Half-track Sdkfz 251/1": {
       "img": "../../assets/germans/half-track-sdkfz-251-1.jpg",
       "points": 0,
+      "startDate": 1939,
       "max": 0,
       "min": 0,
       "type": "tank",
@@ -285,6 +289,7 @@
       "points": 0,
       "img": "../../assets/germans/half-track-7.jpg",
       "max": 0,
+      "startDate": 1938,
       "min": 0,
       "type": "tank",
       "move": 38,

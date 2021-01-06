@@ -59,6 +59,7 @@
         {
           "name": "replace Kar98K with Panzerfaust",
           "points": 30,
+          "startDate": 1943,
           "add": {
             "infantry": {
               "weapons": [
@@ -85,6 +86,7 @@
         {
           "name": "replace Kar98K with G43",
           "max": 2,
+          "startDate": 1943,
           "points": 10,
           "add": {
             "infantry": {
@@ -112,6 +114,7 @@
         {
           "name": "replace Kar98K with StG44",
           "max": 2,
+          "startDate": 1943,
           "points": 20,
           "add": {
             "infantry": {
@@ -238,6 +241,7 @@
         {
           "name": "replace Kar98K with G43",
           "points": 10,
+          "startDate": 1943,
           "max": 2,
           "add": {
             "infantry": {
@@ -265,6 +269,7 @@
         {
           "name": "replace Kar98K with StG44",
           "points": 20,
+          "startDate": 1943,
           "max": 2,
           "add": {
             "infantry": {
@@ -313,6 +318,7 @@
         {
           "name": "replace GrW36 50mm with GrW34 81mm",
           "points": 50,
+          "startDate": 1937,
           "wholePlatoon": true,
           "add": {
             "infantry": {
@@ -353,6 +359,7 @@
         {
           "name": "replace GrW36 50mm with GrW42 120mm and gain Off-Table",
           "points": 180,
+          "startDate": 1943,
           "wholePlatoon": true,
           "add": {
             "infantry": {

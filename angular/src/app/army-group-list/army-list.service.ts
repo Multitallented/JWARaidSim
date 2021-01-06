@@ -19,6 +19,7 @@ import * as germanFlak38AntiAircraft from '../units/german/platoons/flak38-anti-
 import * as germanIG18Artillery from '../units/german/platoons/ig-18-artillery-battery.json';
 import * as germanleFH18Artillery from '../units/german/platoons/leFH18-artillery.json';
 import * as germanAntiTank from '../units/german/platoons/anti-tank.json';
+import * as germanHeavyArmoredRecon from '../units/german/platoons/heavy-armored-recon.json';
 
 import * as frenchFactions from '../units/french/factions.json';
 import * as frenchWeapons from '../units/french/weapons.json';
@@ -101,6 +102,7 @@ export class ArmyListService {
     platoonDataArray.push(germanAntiTank);
     platoonDataArray.push(germanIG18Artillery);
     platoonDataArray.push(germanleFH18Artillery);
+    platoonDataArray.push(germanHeavyArmoredRecon);
     platoonDataArray.push(germanHitlerYouth);
     platoonDataArray.push(germanVolksturm);
     platoonDataArray.push(germanMachineGun);
@@ -134,6 +136,12 @@ export class ArmyListService {
     for (let factionData of factionsData.default.factions) {
       let faction = new Faction(factionData.name, factionData.standardPlatoons, factionData.img,
           factionData.lore);
+      if (factionData.startDate) {
+        faction.startDate = factionData.startDate;
+      }
+      if (factionData.endDate) {
+        faction.endDate = factionData.endDate;
+      }
       if (factionData.specials) {
         faction.specials = factionData.specials;
       }

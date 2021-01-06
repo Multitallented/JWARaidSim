@@ -2,6 +2,7 @@
   "name": "Panzer 4 Platoon",
   "options": 0,
   "max": 1,
+  "startDate": 1939,
   "group": "Medium Tank",
   "squads": {
     "Panzer4 Command": {
@@ -110,6 +111,7 @@
         {
           "name": "Shurzen +3 $hp$ against 0 $hit-armor$ weapons",
           "points": 30,
+          "startDate": 1943,
           "add": {
             "abilities": [
               "+3 $hp$ against 0 $hit-armor$ weapons"
@@ -119,6 +121,7 @@
         {
           "name": "+1 $hp$ hardened armor",
           "points": 30,
+          "startDate": 1941,
           "modifiers": {
             "hp": 1
           }
@@ -126,6 +129,7 @@
         {
           "name": "+1 $vehicle-defense$ medium armor",
           "points": 100,
+          "startDate": 1941,
           "modifiers": {
             "defense": 1
           }
@@ -133,6 +137,7 @@
         {
           "name": "+1 $hit-armor$ improved 75mm shells",
           "points": 150,
+          "startDate": 1942,
           "modifiers": {
             "75mm AP:hitVehicle": 1
           }
@@ -140,6 +145,7 @@
         {
           "name": "Smoke Launchers",
           "points": 80,
+          "startDate": 1942,
           "add": {
             "infantry": {
               "weapons": [
@@ -155,6 +161,7 @@
         {
           "name": "(Shurzen only) +2 to kill infantry in close combat",
           "points": 100,
+          "startDate": 1944,
           "require": {
             "type": "variant",
             "name": "Shurzen +3 $hp$ against 0 $hit-armor$ weapons"
@@ -272,6 +279,7 @@
         {
           "name": "Shurzen +3 $hp$ against 0 $hit-armor$ weapons",
           "points": 30,
+          "startDate": 1943,
           "add": {
             "abilities": [
               "+3 $hp$ against 0 $hit-armor$ weapons"
@@ -281,6 +289,7 @@
         {
           "name": "+1 $hp$ hardened armor",
           "points": 30,
+          "startDate": 1941,
           "modifiers": {
             "hp": 1
           }
@@ -288,6 +297,7 @@
         {
           "name": "+1 $vehicle-defense$ medium armor",
           "points": 100,
+          "startDate": 1941,
           "modifiers": {
             "defense": 1
           }
@@ -295,6 +305,7 @@
         {
           "name": "+1 $hit-armor$ improved 75mm shells",
           "points": 150,
+          "startDate": 1942,
           "modifiers": {
             "75mm AP:hitVehicle": 1
           }
@@ -302,6 +313,7 @@
         {
           "name": "Smoke Launchers",
           "points": 80,
+          "startDate": 1942,
           "add": {
             "infantry": {
               "weapons": [
@@ -317,6 +329,7 @@
         {
           "name": "(Shurzen only) +2 to kill infantry in close combat",
           "points": 100,
+          "startDate": 1944,
           "require": {
             "type": "variant",
             "name": "Shurzen +3 $hp$ against 0 $hit-armor$ weapons"

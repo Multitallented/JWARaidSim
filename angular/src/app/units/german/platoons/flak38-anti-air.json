@@ -67,6 +67,7 @@
       "variants": [
         {
           "name": "Quad-barrelled",
+          "startDate": 1940,
           "points": 600,
           "add": {
             "infantry": {

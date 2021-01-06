@@ -222,6 +222,61 @@ export class GameComponent implements OnInit {
     }
   }
 
+  getDates(): string {
+    let startDate = 1936;
+    let endDate = 1945;
+
+    for (let list of this.lists) {
+      if (list.faction) {
+        if (list.faction.startDate) {
+          startDate = Math.max(startDate, list.faction.startDate);
+        }
+        if (list.faction.endDate) {
+          endDate = Math.min(endDate, list.faction.endDate);
+        }
+      }
+      for (let platoon of list.armyList) {
+        if (platoon.data.startDate) {
+          startDate = Math.max(startDate, platoon.data.startDate);
+        }
+        if (platoon.data.endDate) {
+          endDate = Math.min(endDate, platoon.data.endDate);
+        }
+        for (let squad of platoon.squads) {
+          if (!squad.included) {
+            continue;
+          }
+          let squadStartDate = squad.data.startDate ? squad.data.startDate : 1936;
+          let squadEndDate = squad.data.endDate ? squad.data.endDate : 1945;
+          if (squad.data.variants) {
+            let variantStartDate = -1;
+            let variantEndDate = 9999;
+            for (let variant of squad.data.variants) {
+              if (!variant.unlocks) {
+                continue;
+              }
+              variantStartDate = variant.startDate ? Math.max(variant.startDate, variantStartDate) : variantStartDate;
+              variantEndDate = variant.endDate ? Math.min(variant.endDate, variantEndDate) : variantEndDate;
+            }
+            if (variantStartDate !== -1) {
+              squadStartDate = variantStartDate;
+            }
+            if (variantEndDate !== 9999) {
+              squadEndDate = variantEndDate;
+            }
+          }
+          startDate = Math.max(squadStartDate, startDate);
+          endDate = Math.min(squadEndDate, endDate);
+        }
+      }
+    }
+    if (startDate > endDate) {
+      return "Historical Fiction";
+    }
+
+    return startDate + " - " + endDate;
+  }
+
   removeSquad(platoon, squad) {
     squad.included = false;
     if (squad.data.alsoAdd) {

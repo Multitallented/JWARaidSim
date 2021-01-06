@@ -1,6 +1,7 @@
 {
   "name": "Hitler Youth Volksturm Column",
   "options": 1,
+  "startDate": 1944,
   "factions": [
     "Waffen Korps"
   ],

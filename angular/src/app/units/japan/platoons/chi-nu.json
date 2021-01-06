@@ -1,6 +1,7 @@
 {
   "name": "Chi-Nu Platoon",
   "options": 0,
+  "startDate": 1946,
   "squads": {
     "Chi-Nu Type 95": {
       "img": "../../assets/japan/chi-nu.jpg",

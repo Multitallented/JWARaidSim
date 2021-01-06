@@ -1,6 +1,7 @@
 {
   "name": "Volsturm Column",
   "options": 1,
+  "startDate": 1944,
   "factions": [
     "Heer Regular Army",
     "Panzergrenadiers"

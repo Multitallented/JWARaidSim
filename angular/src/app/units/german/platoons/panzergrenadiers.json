@@ -9,7 +9,7 @@
   "squads": {
     "Panzergrenadier Command": {
       "img": "../../assets/germans/panzergrenadier-command.jpg",
-      "points": 300,
+      "points": 250,
       "options": 1,
       "max": 1,
       "min": 0,
@@ -54,7 +54,7 @@
           "closeCombat": 1,
           "weapons": [
             {
-              "name": "Panzerschreck",
+              "name": "Kar98K",
               "qty": 1
             }
           ]
@@ -128,12 +128,41 @@
               ]
             }
           }
+        },
+        {
+          "name": "replace Kar98K with Panzerschreck",
+          "points": 50,
+          "startDate": 1944,
+          "max": 2,
+          "add": {
+            "infantry": {
+              "weapons": [
+                {
+                  "name": "Panzerschreck",
+                  "qty": 1,
+                  "group": 2
+                }
+              ]
+            }
+          },
+          "remove": {
+            "infantry": {
+              "weapons": [
+                {
+                  "name": "Kar98K",
+                  "group": 2,
+                  "qty": 1
+                }
+              ]
+            }
+          }
         }
       ]
     },
     "Half-track Sdkfz 251/10": {
       "img": "../../assets/germans/sdkfz-250-10.jpg",
       "points": 330,
+      "startDate": 1939,
       "options": 1,
       "max": 1,
       "min": 0,
@@ -184,7 +213,7 @@
     },
     "Panzergrenadier Squad": {
       "img": "../../assets/germans/panzergrenadier-squad.jpg",
-      "points": 430,
+      "points": 400,
       "options": 1,
       "max": 3,
       "min": 2,
@@ -224,10 +253,6 @@
             {
               "name": "MG34",
               "qty": 2
-            },
-            {
-              "name": "Panzerfaust",
-              "qty": 1
             }
           ]
         },
@@ -268,6 +293,8 @@
         {
           "name": "Panzerfaust",
           "points": 30,
+          "startDate": 1943,
+          "max": 2,
           "add": {
             "infantry": {
               "weapons": [
@@ -283,6 +310,7 @@
         {
           "name": "replace Kar98K with G43",
           "max": 5,
+          "startDate": 1943,
           "points": 10,
           "add": {
             "infantry": {
@@ -310,6 +338,7 @@
         {
           "name": "replace Kar98K with StG44",
           "max": 5,
+          "startDate": 1943,
           "points": 20,
           "add": {
             "infantry": {
@@ -337,6 +366,7 @@
         {
           "name": "replace MG34 with MG42",
           "points": 5,
+          "startDate": 1942,
           "wholePlatoon": true,
           "remove": {
             "infantry": {
@@ -457,6 +487,7 @@
     "Half-track Sdkfz 251/9": {
       "img": "../../assets/germans/half-track-251-9.jpg",
       "points": 370,
+      "startDate": 1939,
       "options": 1,
       "min": 0,
       "max": 1,

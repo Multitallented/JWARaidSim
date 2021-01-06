@@ -49,6 +49,7 @@
     },
     {
       "name": "Waffen Korps",
+      "startDate": 1942,
       "standardPlatoons": [
         "Grenadiers",
         "Panzergrenadiers",

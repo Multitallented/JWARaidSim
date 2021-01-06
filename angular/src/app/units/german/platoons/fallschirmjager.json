@@ -10,7 +10,7 @@
     "Fallschirmjager Command": {
       "img": "../../assets/germans/fallschirmjager-command.jpg",
       "options": 1,
-      "points": 150,
+      "points": 120,
       "max": 1,
       "min": 0,
       "hq": true,
@@ -54,10 +54,6 @@
             {
               "name": "Kar98K",
               "qty": 3
-            },
-            {
-              "name": "Panzerfaust",
-              "qty": 1
             }
           ]
         },
@@ -74,6 +70,22 @@
         {
           "name": "+1 $hit-armor$ for all anti-tank weapons",
           "points": 30
+        },
+        {
+          "name": "Panzerfaust",
+          "points": 30,
+          "startDate": 1943,
+          "add": {
+            "infantry": {
+              "weapons": [
+                {
+                  "name": "Panzerfaust",
+                  "qty": 1,
+                  "group": 1
+                }
+              ]
+            }
+          }
         },
         {
           "name": "radio operator",
@@ -160,6 +172,7 @@
         {
           "name": "replace Kar98K with Fg42",
           "max": 6,
+          "startDate": 1943,
           "points": 20,
           "add": {
             "infantry": {
@@ -187,6 +200,7 @@
         {
           "name": "replace Kar98K with G43",
           "max": 5,
+          "startDate": 1943,
           "points": 10,
           "add": {
             "infantry": {
@@ -241,6 +255,7 @@
           "name": "replace MG34 with MG42",
           "max": 2,
           "points": 10,
+          "startDate": 1942,
           "add": {
             "infantry": {
               "weapons": [
@@ -267,6 +282,7 @@
         {
           "name": "replace Kar98K with Flamethrower",
           "points": 50,
+          "endDate": 1944,
           "require": {
             "type": "variant",
             "name": "replace Kar98K with Flamethrower",
@@ -299,6 +315,7 @@
         {
           "name": "replace Kar98K with StG44",
           "max": 5,
+          "startDate": 1943,
           "points": 20,
           "add": {
             "infantry": {
@@ -354,6 +371,7 @@
           "name": "Panzerfaust",
           "points": 30,
           "max": 2,
+          "startDate": 1943,
           "add": {
             "infantry": {
               "weapons": [
@@ -441,6 +459,7 @@
           "name": "Handgranate43",
           "points": 50,
           "max": 2,
+          "startDate": 1943,
           "add": {
             "infantry": {
               "weapons": [
@@ -491,6 +510,7 @@
       "img": "../../assets/germans/jager-section.jpg",
       "points": 100,
       "options": 1,
+      "startDate": 1944,
       "max": 1,
       "min": 0,
       "type": "infantry",

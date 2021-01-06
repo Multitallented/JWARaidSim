@@ -1,0 +1,246 @@
+{
+  "name": "Heavy Armored Recon",
+  "options": 1,
+  "max": 2,
+  "startDate": 1944,
+  "factions": [
+    "Heer Regular Army",
+    "Panzergrenadiers",
+    "Waffen Korps"
+  ],
+  "squads": {
+    "Armored Recon Command Sdkfz 234/1": {
+      "img": "",
+      "points": 510,
+      "max": 1,
+      "min": 0,
+      "hq": true,
+      "bulletproof": true,
+      "type": "car",
+      "move": 69,
+      "morale": 7,
+      "moraleFrequency": 2,
+      "armor": 15,
+      "hp": 1,
+      "radio": 4,
+      "closeCombat": 0,
+      "abilities": [
+        "This vehicle can reverse at top speed"
+      ],
+      "characteristics": [
+        "Roofless"
+      ],
+      "infantry": [
+        {
+          "name": "Turret",
+          "weapons": [
+            {
+              "name": "20mm AP",
+              "shots": 2,
+              "qty": 1,
+              "altAmmo": true
+            },
+            {
+              "name": "20mm HE",
+              "shots": 2,
+              "qty": 1
+            },
+            {
+              "name": "MG34",
+              "shots": 7,
+              "qty": 1,
+              "special": []
+            }
+          ]
+        }
+      ],
+      "crew": [
+        "Commander",
+        "Gunner",
+        "Assistant",
+        "Driver/Radio"
+      ],
+      "crewWeapon": [
+        {
+          "name": "MP40",
+          "qty": 4
+        }
+      ],
+      "variants": [
+        {
+          "name": "Ambush Camo",
+          "points": 30,
+          "modifiers": {
+            "characteristics": [
+              "Ambush Camo"
+            ]
+          }
+        },
+        {
+          "name": "grenades can't be thrown into the vehicle",
+          "points": 50,
+          "add": {
+            "abilities": [
+              "Grenades can't be thrown into the vehicle"
+            ]
+          }
+        }
+      ]
+    },
+    "Armored Car Sdkfz 234/1": {
+      "img": "",
+      "points": 490,
+      "max": 5,
+      "min": 1,
+      "bulletproof": true,
+      "type": "car",
+      "move": 69,
+      "morale": 6,
+      "moraleFrequency": 2,
+      "armor": 15,
+      "hp": 1,
+      "radio": 4,
+      "closeCombat": 0,
+      "abilities": [
+        "This vehicle can reverse at top speed"
+      ],
+      "characteristics": [
+        "Roofless"
+      ],
+      "infantry": [
+        {
+          "name": "Turret",
+          "weapons": [
+            {
+              "name": "20mm AP",
+              "shots": 2,
+              "qty": 1,
+              "altAmmo": true
+            },
+            {
+              "name": "20mm HE",
+              "shots": 2,
+              "qty": 1
+            },
+            {
+              "name": "MG34",
+              "shots": 7,
+              "qty": 1,
+              "special": []
+            }
+          ]
+        }
+      ],
+      "crew": [
+        "Commander",
+        "Gunner",
+        "Assistant",
+        "Driver/Radio"
+      ],
+      "crewWeapon": [
+        {
+          "name": "MP40",
+          "qty": 4
+        }
+      ],
+      "variants": [
+        {
+          "name": "Ambush Camo",
+          "points": 30,
+          "modifiers": {
+            "characteristics": [
+              "Ambush Camo"
+            ]
+          }
+        },
+        {
+          "name": "grenades can't be thrown into the vehicle",
+          "points": 50,
+          "add": {
+            "abilities": [
+              "Grenades can't be thrown into the vehicle"
+            ]
+          }
+        }
+      ]
+    },
+    "Armored Car Sdkfz 234/3": {
+      "img": "",
+      "points": 470,
+      "max": 5,
+      "min": 0,
+      "hq": true,
+      "bulletproof": true,
+      "type": "car",
+      "move": 69,
+      "morale": 6,
+      "moraleFrequency": 2,
+      "armor": 15,
+      "hp": 1,
+      "radio": 4,
+      "closeCombat": 0,
+      "abilities": [
+        "This vehicle can reverse at top speed"
+      ],
+      "characteristics": [
+        "Roofless"
+      ],
+      "infantry": [
+        {
+          "name": "Chassis",
+          "weapons": [
+            {
+              "name": "75mm AP",
+              "hitVehicle": 5,
+              "qty": 1,
+              "angle": 45,
+              "altAmmo": true
+            },
+            {
+              "name": "75mm HE",
+              "angle": 45,
+              "qty": 1
+            },
+            {
+              "name": "MG34",
+              "shots": 7,
+              "angle": 360,
+              "qty": 1,
+              "special": []
+            }
+          ]
+        }
+      ],
+      "crew": [
+        "Commander",
+        "Gunner",
+        "Assistant",
+        "Driver/Radio"
+      ],
+      "crewWeapon": [
+        {
+          "name": "MP40",
+          "qty": 4
+        }
+      ],
+      "variants": [
+        {
+          "name": "Ambush Camo",
+          "points": 30,
+          "modifiers": {
+            "characteristics": [
+              "Ambush Camo"
+            ]
+          }
+        },
+        {
+          "name": "long barrel +2 $hit-armor$",
+          "points": 100,
+          "modifiers": {
+            "75mm AP:hitVehicle": 2
+          }
+        }
+      ]
+    }
+  }
+}

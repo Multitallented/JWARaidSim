@@ -1,6 +1,7 @@
 {
   "name": "Volksgrenadier Platoon",
   "options": 0,
+  "startDate": 1944,
   "standard": true,
   "factions": [
     "Heer Regular Army"

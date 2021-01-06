@@ -5,6 +5,7 @@
     "Anti-Tank Gun": {
       "img": "../../assets/germans/pak40.jpg",
       "points": 340,
+      "startDate": 1942,
       "max": 3,
       "min": 1,
       "type": "infantry",
@@ -109,6 +110,7 @@
         {
           "name": "replace 75mm with 88mm",
           "points": 270,
+          "startDate": 1943,
           "wholePlatoon": true,
           "modifiers": {
             "Infantry:closeCombat": 2
@@ -144,6 +146,7 @@
         {
           "name": "replace 75mm with 50mm",
           "points": -100,
+          "startDate": 1938,
           "wholePlatoon": true,
           "add": {
             "infantry": {
@@ -172,6 +175,7 @@
           "name": "replace 75mm with 37mm",
           "points": -150,
           "wholePlatoon": true,
+          "startDate": 1936,
           "add": {
             "infantry": {
               "weapons": [

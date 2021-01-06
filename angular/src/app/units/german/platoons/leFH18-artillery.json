@@ -8,6 +8,10 @@
     "Waffen Korps"
   ],
   "squadLinks": {
+    "Observation Post": {
+      "min": 0,
+      "max": 1
+    },
     "Kubelwagen Scout": {
       "min": 0,
       "max": 1
@@ -17,6 +21,7 @@
     "Half-track Sdkfz 250/5 Obs": {
       "img": "../../assets/germans/half-track-250-5.jpg",
       "points": 220,
+      "startDate": 1941,
       "hq": true,
       "max": 1,
       "min": 0,

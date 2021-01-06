@@ -1,6 +1,7 @@
 {
   "name": "Panther Platoon",
   "max": 1,
+  "startDate": 1943,
   "options": 0,
   "group": "Medium Tank",
   "squads": {
@@ -128,6 +129,7 @@
         {
           "name": "(Shurzen only) +2 to kill infantry in close combat",
           "points": 100,
+          "startDate": 1944,
           "require": {
             "type": "variant",
             "name": "Shurzen +3 $hp$ against 0 $hit-armor$ weapons"
@@ -265,6 +267,7 @@
         {
           "name": "(Shurzen only) +2 to kill infantry in close combat",
           "points": 100,
+          "startDate": 1944,
           "require": {
             "type": "variant",
             "name": "Shurzen +3 $hp$ against 0 $hit-armor$ weapons"
