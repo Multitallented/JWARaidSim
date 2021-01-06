@@ -2,6 +2,7 @@
   "factions": [
     {
       "name": "French Army",
+      "endDate": 1940,
       "standardPlatoons": [
         "Infantry Platoon"
       ],
