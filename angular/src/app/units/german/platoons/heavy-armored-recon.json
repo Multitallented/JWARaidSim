@@ -10,7 +10,7 @@
   ],
   "squads": {
     "Armored Recon Command Sdkfz 234/1": {
-      "img": "",
+      "img": "../../assets/germans/sdkfz-234-1.jpg",
       "points": 510,
       "max": 1,
       "min": 0,
@@ -88,7 +88,7 @@
       ]
     },
     "Armored Car Sdkfz 234/1": {
-      "img": "",
+      "img": "../../assets/germans/sdkfz-234-1.jpg",
       "points": 490,
       "max": 5,
       "min": 1,
@@ -165,7 +165,7 @@
       ]
     },
     "Armored Car Sdkfz 234/3": {
-      "img": "",
+      "img": "../../assets/germans/sdkfz-234-3.jpg",
       "points": 470,
       "max": 5,
       "min": 0,
@@ -234,7 +234,7 @@
           }
         },
         {
-          "name": "long barrel +2 $hit-armor$",
+          "name": "long barrel +2 $hit-armor$ Sdkfz 234/4",
           "points": 100,
           "modifiers": {
             "75mm AP:hitVehicle": 2
