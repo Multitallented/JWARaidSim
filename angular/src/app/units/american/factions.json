@@ -2,7 +2,7 @@
   "factions": [
     {
       "name": "United States Army",
-      "startDate": 1944,
+      "startDate": 1941,
       "standardPlatoons": [
         "Infantry Platoon"
       ],
@@ -19,7 +19,7 @@
     },
     {
       "name": "United States Motorized Divisions",
-      "startDate": 1944,
+      "startDate": 1941,
       "standardPlatoons": [
         "Motorized Infantry Platoon"
       ],
@@ -36,7 +36,7 @@
     },
     {
       "name": "United States Airborne",
-      "startDate": 1944,
+      "startDate": 1941,
       "standardPlatoons": [
         "Paratrooper Platoon"
       ],
@@ -53,7 +53,7 @@
     },
     {
       "name": "United States Rangers",
-      "startDate": 1944,
+      "startDate": 1941,
       "standardPlatoons": [
         "Ranger Platoon"
       ],
