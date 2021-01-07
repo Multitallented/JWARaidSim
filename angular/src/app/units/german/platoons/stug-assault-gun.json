@@ -1,12 +1,14 @@
 {
   "name": "Stug Assault Gun Platoon",
-  "options": 2,
+  "options": 0,
+  "startDate": 1940,
   "group": "Assault Gun",
   "max": 1,
   "squads": {
     "StugIII Command": {
       "img": "../../assets/germans/stug3.jpg",
       "points": 770,
+      "options": -2,
       "max": 1,
       "min": 0,
       "hq": true,
@@ -77,6 +79,7 @@
         {
           "name": "Shurzen +3 $hp$ against 0 $hit-armor$ weapons",
           "points": 30,
+          "startDate": 1943,
           "add": {
             "abilities": [
               "+3 $hp$ against 0 $hit-armor$ weapons"
@@ -86,6 +89,7 @@
         {
           "name": "+1 $vehicle-defense$ medium armor",
           "points": 100,
+          "startDate": 1941,
           "modifiers": {
             "defense": 1
           }
@@ -93,6 +97,7 @@
         {
           "name": "+1 $hit-armor$ improved 75mm shells",
           "points": 150,
+          "startDate": 1942,
           "modifiers": {
             "75mm AP:hitVehicle": 1
           }
@@ -100,6 +105,7 @@
         {
           "name": "replace MG34 AA with MG42 AA",
           "points": 10,
+          "startDate": 1942,
           "add": {
             "infantry": {
               "weapons": [
@@ -132,6 +138,7 @@
     "StugIII Sdkfz 142/1 Auf G": {
       "img": "../../assets/germans/stug3.jpg",
       "points": 740,
+      "options": -2,
       "max": 3,
       "min": 1,
       "type": "tank",
@@ -200,6 +207,7 @@
         },
         {
           "name": "Shurzen +3 $hp$ against 0 $hit-armor$ weapons",
+          "startDate": 1943,
           "points": 30,
           "add": {
             "abilities": [
@@ -210,12 +218,14 @@
         {
           "name": "+1 $vehicle-defense$ medium armor",
           "points": 100,
+          "startDate": 1941,
           "modifiers": {
             "defense": 1
           }
         },
         {
           "name": "+1 $hit-armor$ improved 75mm shells",
+          "startDate": 1942,
           "points": 150,
           "modifiers": {
             "75mm AP:hitVehicle": 1
@@ -224,6 +234,7 @@
         {
           "name": "replace MG34 AA with MG42 AA",
           "points": 10,
+          "startDate": 1942,
           "add": {
             "infantry": {
               "weapons": [
@@ -256,6 +267,7 @@
     "StuH42 Sdfkz 142/2": {
       "img": "../../assets/germans/stuh42.jpg",
       "points": 660,
+      "options": -1,
       "max": 1,
       "min": 0,
       "type": "tank",
@@ -313,6 +325,7 @@
         },
         {
           "name": "Shurzen +3 $hp$ against 0 $hit-armor$ weapons",
+          "startDate": 1943,
           "points": 30,
           "add": {
             "abilities": [
@@ -322,6 +335,7 @@
         },
         {
           "name": "+1 $vehicle-defense$ medium armor",
+          "startDate": 1941,
           "points": 100,
           "modifiers": {
             "defense": 1
@@ -329,6 +343,7 @@
         },
         {
           "name": "replace MG34 AA with MG42 AA",
+          "startDate": 1942,
           "points": 10,
           "add": {
             "infantry": {
