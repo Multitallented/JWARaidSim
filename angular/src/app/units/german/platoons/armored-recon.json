@@ -1,6 +1,6 @@
 {
   "name": "Armored Recon",
-  "options": 1,
+  "options": 0,
   "max": 2,
   "startDate": 1943,
   "factions": [
@@ -12,6 +12,7 @@
     "Puma Command Sdkfz 234/2": {
       "img": "",
       "points": 610,
+      "options": -0.5,
       "max": 1,
       "min": 0,
       "hq": true,
@@ -94,6 +95,7 @@
     "Puma Sdkfz 234/2": {
       "img": "",
       "points": 590,
+      "options": -0.5,
       "max": 5,
       "min": 1,
       "bulletproof": true,

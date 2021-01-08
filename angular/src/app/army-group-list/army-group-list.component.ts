@@ -76,7 +76,7 @@ export class ArmyGroupListComponent implements OnInit {
   getPlatoonOptions(): Array<Platoon> {
     let returnPlatoons = new Array<Platoon>();
     for (let platoon of this.platoonOptions) {
-      if (platoon.data.options > -1 && (this.armyList.length > 0 || platoon.data.standard) &&
+      if (this.isReqMet(platoon) && platoon.data.options > -1 && (this.armyList.length > 0 || platoon.data.standard) &&
         !this.isAtMax(platoon) && (this.armyList.length < 1 || this.getOptions() >= this.getMinOptions(platoon))) {
         if (!platoon.data.factions || platoon.data.factions.indexOf(this.faction.name) !== -1) {
           returnPlatoons.push(platoon);
@@ -84,6 +84,24 @@ export class ArmyGroupListComponent implements OnInit {
       }
     }
     return returnPlatoons;
+  }
+
+  isReqMet(platoon: Platoon): boolean {
+    if (!platoon.data.require) {
+      return true;
+    }
+    for (let platoonName of Object.keys(platoon.data.require)) {
+      let requiredAmount = platoon.data.require[platoonName];
+      for (let cPlatoon of this.armyList) {
+        if (cPlatoon && cPlatoon.name === platoonName) {
+          requiredAmount--;
+        }
+      }
+      if (requiredAmount > 0) {
+        return false;
+      }
+    }
+    return true;
   }
 
   getMinOptions(platoon: Platoon): number {

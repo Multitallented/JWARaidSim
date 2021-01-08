@@ -1,6 +1,6 @@
 {
   "name": "Hitler Youth Volksturm Column",
-  "options": 1,
+  "options": 0,
   "startDate": 1944,
   "factions": [
     "Waffen Korps"
@@ -9,6 +9,7 @@
     "Volksturm Hitler Youth Squad": {
       "img": "../../assets/germans/hy-volksturm.jpg",
       "points": 200,
+      "options": -0.25,
       "max": 9,
       "min": 2,
       "type": "infantry",

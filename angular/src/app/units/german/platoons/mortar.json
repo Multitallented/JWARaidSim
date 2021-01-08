@@ -1,6 +1,6 @@
 {
   "name": "Mortar Platoon",
-  "options": 2,
+  "options": 0,
   "max": 1,
   "factions": [
     "Heer Regular Army",
@@ -177,6 +177,7 @@
     "Mortar Squad": {
       "img": "../../assets/germans/mortar.jpg",
       "points": 100,
+      "options": -1,
       "max": 6,
       "min": 1,
       "type": "infantry",
@@ -361,6 +362,7 @@
           "points": 180,
           "startDate": 1943,
           "wholePlatoon": true,
+          "options": -0.5,
           "add": {
             "infantry": {
               "weapons": [

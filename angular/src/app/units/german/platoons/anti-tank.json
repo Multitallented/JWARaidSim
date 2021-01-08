@@ -1,11 +1,12 @@
 {
   "name": "Anti-Tank Platoon",
-  "options": 2,
+  "options": 0,
   "squads": {
     "Anti-Tank Gun": {
       "img": "../../assets/germans/pak40.jpg",
       "points": 340,
       "startDate": 1942,
+      "options": -1,
       "max": 3,
       "min": 1,
       "type": "infantry",

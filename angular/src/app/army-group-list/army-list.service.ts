@@ -2,7 +2,9 @@ import {Injectable} from '@angular/core';
 
 import * as germanWeapons from '../units/german/weapons.json';
 import * as germanFactions from '../units/german/factions.json';
+import * as germanGrenadierCompany from '../units/german/platoons/grenadier-company-command.json';
 import * as germanGrenadiers from '../units/german/platoons/grenadier.json';
+import * as germanGrenadiersMG from '../units/german/platoons/grenadier-mg.json';
 import * as germanVolksgrenadiers from '../units/german/platoons/volksgrenadier.json';
 import * as germanPanzer3 from '../units/german/platoons/panzer3.json';
 import * as germanPanzer4 from '../units/german/platoons/panzer4.json';
@@ -92,7 +94,9 @@ export class ArmyListService {
   private getGermanPlatoons(): Array<any> {
     let platoonDataArray = [];
     platoonDataArray.push(germanVariants);
+    platoonDataArray.push(germanGrenadierCompany);
     platoonDataArray.push(germanGrenadiers);
+    platoonDataArray.push(germanGrenadiersMG);
     platoonDataArray.push(germanPanzergrenadiers);
     platoonDataArray.push(germanFallschirmjager);
     platoonDataArray.push(germanVolksgrenadiers);

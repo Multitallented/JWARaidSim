@@ -1,7 +1,7 @@
 {
   "name": "Flak38 Anti-Aircraft Section",
   "max": 1,
-  "options": 1,
+  "options": 0,
   "group": "Anti-Aircraft",
   "factions": [
     "Heer Regular Army",
@@ -12,6 +12,7 @@
     "Flak38 Anti-Aircraft": {
       "img": "../../assets/germans/flak38-aa.jpg",
       "points": 170,
+      "options": -0.5,
       "max": 3,
       "min": 1,
       "type": "infantry",

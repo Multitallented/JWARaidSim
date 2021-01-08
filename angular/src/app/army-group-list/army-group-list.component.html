@@ -258,6 +258,11 @@
                       </div>
                     </div>
                   </div>
+                  <div *ngIf="infantrySection.abilities">
+                    <div class="weapon">
+                      <div *ngFor="let squadAbility of infantrySection.abilities" class="weapon-special" [innerHTML]="replaceIcons(squadAbility)"></div>
+                    </div>
+                  </div>
                 </div>
                 <div *ngIf="activeSquad.data.type === 'car' || activeSquad.data.type === 'tank'" class="infantry-group">
                   <h3 *ngIf="!activeSquad.hasChassis()">Chassis</h3>

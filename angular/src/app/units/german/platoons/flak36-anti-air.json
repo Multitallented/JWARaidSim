@@ -1,7 +1,7 @@
 {
   "name": "Flak36 Anti-Aircraft Section",
   "max": 1,
-  "options": 1,
+  "options": 0,
   "group": "Anti-Aircraft",
   "factions": [
     "Heer Regular Army",
@@ -12,6 +12,7 @@
     "Flak36 Anti-Aircraft": {
       "img": "../../assets/germans/flak36-aa.jpg",
       "points": 510,
+      "options": -0.5,
       "max": 3,
       "min": 1,
       "type": "infantry",

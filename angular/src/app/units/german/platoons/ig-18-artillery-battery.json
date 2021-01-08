@@ -1,7 +1,7 @@
 {
   "name": "IG18 Artillery Battery",
   "max": 1,
-  "options": 2,
+  "options": 0,
   "group": "Artillery Battery",
   "factions": [
     "Heer Regular Army",
@@ -21,6 +21,7 @@
     "Howitzer IG 18": {
       "img": "../../assets/germans/ig18-howitzer.jpg",
       "points": 140,
+      "options": -1,
       "max": 6,
       "min": 1,
       "type": "infantry",
