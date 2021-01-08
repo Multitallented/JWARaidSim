@@ -171,6 +171,31 @@
         "Radio"
       ]
     },
+    "Staff Car": {
+      "img": "../../assets/germans/staff-car.jpg",
+      "points": 0,
+      "max": 0,
+      "min": 0,
+      "type": "car",
+      "move": 61,
+      "morale": 6,
+      "moraleFrequency": 1,
+      "armor": 11,
+      "hp": -1,
+      "shout": 5,
+      "closeCombat": 0,
+      "abilities": [
+        "-1 to spot this vehicle"
+      ],
+      "characteristics": [
+        "Transport 2",
+        "Roofless"
+      ],
+      "crew": [
+        "Driver",
+        "Radio"
+      ]
+    },
     "Half-track Sdkfz 251/1": {
       "img": "../../assets/germans/half-track-sdkfz-251-1.jpg",
       "points": 0,

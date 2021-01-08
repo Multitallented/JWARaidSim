@@ -23,6 +23,9 @@
       "characteristics": [
         "Militia"
       ],
+      "abilities": [
+        "Compact Unit: All squads in this platoon"
+      ],
       "infantry": [
         {
           "name": "Leader",

@@ -11,23 +11,23 @@
   },
   "squads": {
     "Grenadier Company Commander": {
-      "img": "",
+      "img": "../../assets/germans/grenadier-company-command.jpg",
       "points": 30,
       "options": 1,
       "max": 1,
       "min": 1,
       "hq": true,
       "type": "infantry",
-      "move": 48,
+      "move": 20,
       "morale": 7,
       "moraleFrequency": 1,
       "armor": 7,
-      "hp": 4,
-      "shout": 5,
+      "hp": 3,
+      "shout": 6,
       "closeCombat": 1,
       "characteristics": [],
       "abilities": [
-        "This unit is mounted on horses"
+        "Compact Unit: Any Grenadiers"
       ],
       "infantry": [
         {
@@ -44,11 +44,40 @@
             }
           ]
         }
+      ],
+      "variants": [
+        {
+          "name": "Horse $move$ 48 and +1 $hp$",
+          "points": 20,
+          "modifiers": {
+            "move": 28,
+            "hp": 1
+          },
+          "require": {
+            "type": "variant",
+            "name": "Staff Car",
+            "max": 1
+          }
+        },
+        {
+          "name": "Staff Car",
+          "points": 30,
+          "add": {
+            "squad": {
+              "Staff Car": 1
+            }
+          },
+          "require": {
+            "type": "variant",
+            "name": "Horse $move$ 48 and +1 $hp$",
+            "max": 1
+          }
+        }
       ]
     },
     "Grenadier Company Troop": {
-      "img": "",
-      "points": 170,
+      "img": "../../assets/germans/grenadier-company-troop.jpg",
+      "points": 120,
       "options": 1,
       "max": 1,
       "min": 1,
@@ -108,6 +137,90 @@
               "name": "StG39 Grenades"
             }
           ]
+        }
+      ],
+      "variants": [
+        {
+          "name": "Opel Blitz truck",
+          "points": 30,
+          "add": {
+            "squad": {
+              "Opel Blitz": 1
+            }
+          }
+        },
+        {
+          "name": "replace Kar98K with G43",
+          "max": 5,
+          "points": 10,
+          "startDate": 1943,
+          "add": {
+            "infantry": {
+              "weapons": [
+                {
+                  "name": "G43",
+                  "qty": 1,
+                  "group": 2
+                }
+              ]
+            }
+          },
+          "remove": {
+            "infantry": {
+              "weapons": [
+                {
+                  "name": "Kar98K",
+                  "qty": 1,
+                  "group": 2
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "replace Kar98K with StG44",
+          "max": 5,
+          "startDate": 1943,
+          "points": 20,
+          "add": {
+            "infantry": {
+              "weapons": [
+                {
+                  "name": "StG44",
+                  "qty": 1,
+                  "group": 2
+                }
+              ]
+            }
+          },
+          "remove": {
+            "infantry": {
+              "weapons": [
+                {
+                  "name": "Kar98K",
+                  "qty": 1,
+                  "group": 2
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Panzerfaust",
+          "points": 30,
+          "startDate": 1943,
+          "max": 2,
+          "add": {
+            "infantry": {
+              "weapons": [
+                {
+                  "name": "Panzerfaust",
+                  "qty": 1,
+                  "group": 2
+                }
+              ]
+            }
+          }
         }
       ]
     }

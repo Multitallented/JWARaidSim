@@ -93,11 +93,11 @@ export class ArmyGroupListComponent implements OnInit {
     for (let platoonName of Object.keys(platoon.data.require)) {
       let requiredAmount = platoon.data.require[platoonName];
       for (let cPlatoon of this.armyList) {
-        if (cPlatoon && cPlatoon.name === platoonName) {
+        if (cPlatoon && cPlatoon.name === platoonName && requiredAmount != 0) {
           requiredAmount--;
         }
       }
-      if (requiredAmount > 0) {
+      if (requiredAmount > 0 || requiredAmount < -1) {
         return false;
       }
     }

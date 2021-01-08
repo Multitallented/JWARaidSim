@@ -1,14 +1,78 @@
 {
-  "name": "Mortar Platoon",
-  "options": 0,
+  "name": "Heavy Mortar Platoon",
   "max": 1,
+  "options": 0,
   "factions": [
     "Heer Regular Army",
     "Luftwaffe",
     "Waffen Korps"
   ],
   "squads": {
-    "Mortar Command": {
+    "Heavy Mortar Platoon Command": {
+      "img": "../../assets/germans/grenadier-company-command.jpg",
+      "points": 10,
+      "max": 1,
+      "min": 0,
+      "hq": true,
+      "type": "infantry",
+      "move": 20,
+      "morale": 7,
+      "moraleFrequency": 1,
+      "armor": 7,
+      "hp": 3,
+      "shout": 6,
+      "closeCombat": 1,
+      "characteristics": [],
+      "abilities": [
+        "Compact Unit: All squads in this platoon"
+      ],
+      "infantry": [
+        {
+          "name": "Leader",
+          "models": 1,
+          "closeCombat": 2,
+          "weapons": [
+            {
+              "name": "MP40",
+              "qty": 1
+            },
+            {
+              "name": "StG39 Grenades"
+            }
+          ]
+        }
+      ],
+      "variants": [
+        {
+          "name": "Horse $move$ 48 and +1 $hp$",
+          "points": 20,
+          "modifiers": {
+            "move": 28,
+            "hp": 1
+          },
+          "require": {
+            "type": "variant",
+            "name": "Staff Car",
+            "max": 1
+          }
+        },
+        {
+          "name": "Staff Car",
+          "points": 30,
+          "add": {
+            "squad": {
+              "Staff Car": 1
+            }
+          },
+          "require": {
+            "type": "variant",
+            "name": "Horse $move$ 48 and +1 $hp$",
+            "max": 1
+          }
+        }
+      ]
+    },
+    "Heavy Mortar Command": {
       "img": "../../assets/germans/mortar-command.jpg",
       "points": 70,
       "max": 1,
@@ -22,6 +86,9 @@
       "hp": 3,
       "radio": 5,
       "closeCombat": 0,
+      "abilities": [
+        "Compact Unit: All squads in this platoon"
+      ],
       "characteristics": [],
       "infantry": [
         {
@@ -64,132 +131,15 @@
             }
           ]
         }
-      ],
-      "variants": [
-        {
-          "name": "replace Kar98K with Panzerfaust",
-          "points": 30,
-          "startDate": 1943,
-          "add": {
-            "infantry": {
-              "weapons": [
-                {
-                  "name": "Panzerfaust",
-                  "qty": 1,
-                  "group": 1
-                }
-              ]
-            }
-          },
-          "remove": {
-            "infantry": {
-              "weapons": [
-                {
-                  "name": "Kar98K",
-                  "qty": 1,
-                  "group": 1
-                }
-              ]
-            }
-          }
-        },
-        {
-          "name": "replace Kar98K with G43",
-          "max": 2,
-          "startDate": 1943,
-          "points": 10,
-          "add": {
-            "infantry": {
-              "weapons": [
-                {
-                  "name": "G43",
-                  "qty": 1,
-                  "group": 1
-                }
-              ]
-            }
-          },
-          "remove": {
-            "infantry": {
-              "weapons": [
-                {
-                  "name": "Kar98K",
-                  "qty": 1,
-                  "group": 1
-                }
-              ]
-            }
-          }
-        },
-        {
-          "name": "replace Kar98K with StG44",
-          "max": 2,
-          "startDate": 1943,
-          "points": 20,
-          "add": {
-            "infantry": {
-              "weapons": [
-                {
-                  "name": "StG44",
-                  "qty": 1,
-                  "group": 1
-                }
-              ]
-            }
-          },
-          "remove": {
-            "infantry": {
-              "weapons": [
-                {
-                  "name": "Kar98K",
-                  "qty": 1,
-                  "group": 1
-                }
-              ]
-            }
-          }
-        },
-        {
-          "name": "+1 $morale$ +1 $close-combat$",
-          "points": 30,
-          "factions": [
-            "Luftwaffe"
-          ],
-          "required": true,
-          "modifiers": {
-            "morale": 1,
-            "closeCombat": 1
-          }
-        },
-        {
-          "name": "Kettenkrad Sdkfz 2",
-          "points": 20,
-          "factions": [
-            "Luftwaffe"
-          ],
-          "add": {
-            "squad": {
-              "Kettenkrad Sdkfz 2": 1
-            }
-          }
-        },
-        {
-          "name": "Kubelwagon",
-          "points": 40,
-          "add": {
-            "squad": {
-              "Kubelwagon": 1
-            }
-          }
-        }
       ]
     },
-    "Mortar Squad": {
-      "img": "../../assets/germans/mortar.jpg",
-      "points": 100,
-      "options": -1,
-      "max": 6,
+    "Heavy Mortar Team": {
+      "img": "../../assets/germans/grw42.jpg",
+      "max": 4,
       "min": 1,
+      "points": 280,
+      "startDate": 1943,
+      "options": -1.5,
       "type": "infantry",
       "move": 20,
       "morale": 6,
@@ -198,12 +148,17 @@
       "hp": 3,
       "shout": 5,
       "closeCombat": 0,
-      "characteristics": [],
+      "abilities": [
+        "Compact Unit: All squads in this platoon"
+      ],
+      "characteristics": [
+        "Off-Table"
+      ],
       "infantry": [
         {
           "name": "Leader",
-          "closeCombat": 1,
           "models": 1,
+          "closeCombat": 1,
           "weapons": [
             {
               "name": "MP40",
@@ -213,21 +168,23 @@
         },
         {
           "name": "Infantry",
-          "closeCombat": 2,
-          "models": 4,
+          "models": 5,
           "weapons": [
             {
-              "name": "Kar98K",
-              "qty": 2
-            },
-            {
-              "name": "GrW36 50mm",
+              "name": "GrW42 120mm",
               "qty": 1,
+              "group": 1,
               "altAmmo": true
             },
             {
               "name": "Smoke Mortar",
-              "qty": 1
+              "qty": 1,
+              "group": 1,
+              "range": 800
+            },
+            {
+              "name": "Kar98K",
+              "qty": 5
             }
           ]
         },
@@ -240,20 +197,13 @@
           ]
         }
       ],
+      "lore": "The Soviet PM 38 120mm mortar, was captured in large quantities during the Eastern war and pressed into service by the Germans and other Axis nations before the production of similar 12 cm mortar designs.",
       "variants": [
-        {
-          "name": "Radio",
-          "points": 10,
-          "comms": {
-            "type": "radio",
-            "value": 4
-          }
-        },
         {
           "name": "replace Kar98K with G43",
           "points": 10,
           "startDate": 1943,
-          "max": 2,
+          "max": 5,
           "add": {
             "infantry": {
               "weapons": [
@@ -281,7 +231,7 @@
           "name": "replace Kar98K with StG44",
           "points": 20,
           "startDate": 1943,
-          "max": 2,
+          "max": 5,
           "add": {
             "infantry": {
               "weapons": [
@@ -327,24 +277,15 @@
           }
         },
         {
-          "name": "replace GrW36 50mm with GrW34 81mm",
-          "points": 50,
-          "startDate": 1937,
-          "wholePlatoon": true,
+          "name": "replace 5x Kar98K with MG34",
+          "points": 10,
           "add": {
             "infantry": {
               "weapons": [
                 {
-                  "name": "GrW34 81mm",
+                  "name": "MG34",
                   "qty": 1,
-                  "group": 1,
-                  "altAmmo": true
-                },
-                {
-                  "name": "Smoke Mortar",
-                  "qty": 1,
-                  "group": 1,
-                  "range": 200
+                  "group": 1
                 }
               ]
             }
@@ -353,13 +294,33 @@
             "infantry": {
               "weapons": [
                 {
-                  "name": "GrW36 50mm",
-                  "qty": 1,
-                  "group": 1,
-                  "altAmmo": true
-                },
+                  "name": "Kar98K",
+                  "qty": 5,
+                  "group": 1
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "replace MG34 with MG42",
+          "points": 10,
+          "add": {
+            "infantry": {
+              "weapons": [
                 {
-                  "name": "Smoke Mortar",
+                  "name": "MG42",
+                  "qty": 1,
+                  "group": 1
+                }
+              ]
+            }
+          },
+          "remove": {
+            "infantry": {
+              "weapons": [
+                {
+                  "name": "MG34",
                   "qty": 1,
                   "group": 1
                 }

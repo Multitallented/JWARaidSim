@@ -7,6 +7,9 @@
     "Heer Regular Army",
     "Waffen Korps"
   ],
+  "require": {
+    "Volksgrenadier Platoon": -1
+  },
   "squads": {
     "Grenadier Command": {
       "img": "../../assets/germans/grenadier-command.jpg",
