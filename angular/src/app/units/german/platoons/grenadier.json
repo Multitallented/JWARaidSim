@@ -143,7 +143,7 @@
         {
           "name": "Infantry",
           "closeCombat": 1,
-          "models": 6,
+          "models": 7,
           "weapons": [
             {
               "name": "MG34",
@@ -151,7 +151,7 @@
             },
             {
               "name": "Kar98K",
-              "qty": 5
+              "qty": 6
             }
           ]
         },

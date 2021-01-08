@@ -169,6 +169,7 @@
     "Puma Sdkfz 234/3": {
       "img": "../../assets/germans/sdkfz-234-3.jpg",
       "points": 470,
+      "options": -0.5,
       "max": 5,
       "min": 0,
       "hq": true,
