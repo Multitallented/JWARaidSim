@@ -373,7 +373,7 @@ export class ArmyGroupListComponent implements OnInit {
           }
           for (let cVariant of cSquad.data.variants) {
             if (cVariant.name === variant.name) {
-              if (this.validateVariant(cVariant, cSquad, platoon)) {
+              if (this.validateVariant(cVariant, cSquad, platoon, true)) {
                 this.unlockVariant(cVariant, cSquad, platoon);
                 if (!variant.unlocks) {
                   cVariant.unlocks = 1;
@@ -385,7 +385,7 @@ export class ArmyGroupListComponent implements OnInit {
           }
         }
       } else {
-        if (this.validateVariant(variant, squad, platoon)) {
+        if (this.validateVariant(variant, squad, platoon, true)) {
           this.unlockVariant(variant, squad, platoon);
           if (!variant.unlocks) {
             variant.unlocks = 1;
@@ -403,23 +403,39 @@ export class ArmyGroupListComponent implements OnInit {
           }
           for (let cVariant of cSquad.data.variants) {
             if (cVariant.name === variant.name) {
-              this.lockVariant(cVariant, cSquad, platoon);
-              if (cVariant.unlocks) {
-                cVariant.unlocks--;
-              } else {
-                cVariant.unlocks = 0;
+              if (this.validateVariant(cVariant, cSquad, platoon, false)) {
+                this.lockVariant(cVariant, cSquad, platoon);
+                if (cVariant.unlocks) {
+                  cVariant.unlocks--;
+                } else {
+                  cVariant.unlocks = 0;
+                }
               }
             }
           }
         }
       } else {
-        this.lockVariant(variant, squad, platoon);
-        variant.unlocks--;
+        if (this.validateVariant(variant, squad, platoon, false)) {
+          this.lockVariant(variant, squad, platoon);
+          variant.unlocks--;
+        }
       }
     }
   }
 
-  private validateVariant(variant, squad, platoon): boolean {
+  private validateVariant(variant, squad, platoon, unlocking:boolean): boolean {
+    if (!unlocking) {
+      if (variant.add) {
+        if (variant.add.infantry) {
+          if (variant.add.infantry.weapons) {
+            if (!this.hasWeapons(variant.add.infantry.weapons, squad, platoon)) {
+              return false;
+            }
+          }
+        }
+      }
+      return true;
+    }
     if (variant.remove) {
       if (variant.remove.infantry) {
         if (variant.remove.infantry.weapons) {

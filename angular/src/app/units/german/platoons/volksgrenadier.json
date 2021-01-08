@@ -3,6 +3,7 @@
   "options": 0,
   "startDate": 1944,
   "standard": true,
+  "max": 3,
   "factions": [
     "Heer Regular Army"
   ],

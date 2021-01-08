@@ -1,6 +1,7 @@
 {
   "name": "Grenadier Platoon",
   "options": 0,
+  "max": 3,
   "standard": true,
   "factions": [
     "Heer Regular Army",

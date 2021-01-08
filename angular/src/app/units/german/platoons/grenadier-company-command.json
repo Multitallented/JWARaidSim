@@ -1,6 +1,7 @@
 {
   "name": "Grenadier Company Command",
   "options": 0,
+  "max": 1,
   "factions": [
     "Heer Regular Army",
     "Waffen Korps"
@@ -17,7 +18,7 @@
       "min": 1,
       "hq": true,
       "type": "infantry",
-      "move": 65,
+      "move": 48,
       "morale": 7,
       "moraleFrequency": 1,
       "armor": 7,
@@ -37,6 +38,9 @@
             {
               "name": "MP40",
               "qty": 1
+            },
+            {
+              "name": "StG39 Grenades"
             }
           ]
         }
@@ -55,6 +59,7 @@
       "moraleFrequency": 3,
       "armor": 7,
       "hp": 3,
+      "radio": 4,
       "closeCombat": 0,
       "characteristics": [],
       "infantry": [

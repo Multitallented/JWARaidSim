@@ -25,5 +25,17 @@
       "Only hits vehicles in close combat",
       "Indirect Fire"
     ]
+  },
+  "M1 Rifle Grenade": {
+    "range": 60,
+    "minRange": 20,
+    "shots": 1,
+    "blast": 5,
+    "special": [
+      "Can't fire while inside buildings or woods",
+      "Can't fire while moving",
+      "Fires once per game",
+      "Indirect Fire"
+    ]
   }
 }

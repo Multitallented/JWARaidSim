@@ -8,7 +8,7 @@
   "squads": {
     "Infantry Command": {
       "img": "../../assets/american/infantry-command.jpg",
-      "points": 120,
+      "points": 230,
       "options": 1,
       "max": 1,
       "min": 0,
@@ -25,12 +25,16 @@
       "infantry": [
         {
           "name": "Leader",
-          "closeCombat": 4,
+          "closeCombat": 3,
           "models": 3,
           "weapons": [
             {
+              "name": "M1 Garand",
+              "qty": 2
+            },
+            {
               "name": "M1 Carbine",
-              "qty": 3
+              "qty": 1
             }
           ]
         },
@@ -41,6 +45,16 @@
             {
               "name": "M1 Garand",
               "qty": 2
+            }
+          ]
+        },
+        {
+          "name": "Infantry",
+          "models": 5,
+          "weapons": [
+            {
+              "name": "M1 Garand",
+              "qty": 5
             }
           ]
         },
@@ -65,8 +79,35 @@
           }
         },
         {
+          "name": "replace M1 Garand with M1 Carbine",
+          "points": -10,
+          "max": 2,
+          "add": {
+            "infantry": {
+              "weapons": [
+                {
+                  "name": "M1 Carbine",
+                  "qty": 1,
+                  "group": 0
+                }
+              ]
+            }
+          },
+          "remove": {
+            "infantry": {
+              "weapons": [
+                {
+                  "name": "M1 Garand",
+                  "qty": 1,
+                  "group": 0
+                }
+              ]
+            }
+          }
+        },
+        {
           "name": "replace M1 Carbine with Thompson",
-          "points": 0,
+          "points": 10,
           "max": 3,
           "add": {
             "infantry": {
@@ -94,6 +135,7 @@
         {
           "name": "replace M1 Carbine with M3A1 Grease Gun",
           "points": -10,
+          "startDate": 1943,
           "max": 3,
           "add": {
             "infantry": {
@@ -129,7 +171,7 @@
     },
     "Infantry Squad": {
       "img": "../../assets/american/infantry-squad.jpg",
-      "points": 260,
+      "points": 280,
       "max": 3,
       "options": 1,
       "min": 2,
@@ -149,7 +191,7 @@
           "closeCombat": 2,
           "weapons": [
             {
-              "name": "M1 Carbine",
+              "name": "M1 Garand",
               "qty": 2
             }
           ]
@@ -230,7 +272,34 @@
           }
         },
         {
-          "name": "replace M1 Carbine with Thompson",
+          "name": "replace M1 Garand with M1 Carbine",
+          "points": -10,
+          "max": 2,
+          "add": {
+            "infantry": {
+              "weapons": [
+                {
+                  "name": "M1 Carbine",
+                  "qty": 1,
+                  "group": 0
+                }
+              ]
+            }
+          },
+          "remove": {
+            "infantry": {
+              "weapons": [
+                {
+                  "name": "M1 Garand",
+                  "qty": 1,
+                  "group": 0
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "replace M1 Garand with Thompson",
           "points": 0,
           "max": 2,
           "add": {
@@ -248,7 +317,7 @@
             "infantry": {
               "weapons": [
                 {
-                  "name": "M1 Carbine",
+                  "name": "M1 Garand",
                   "qty": 1,
                   "group": 0
                 }
@@ -257,8 +326,9 @@
           }
         },
         {
-          "name": "replace M1 Carbine with M3A1 Grease Gun",
-          "points": -10,
+          "name": "replace M1 Garand with M3A1 Grease Gun",
+          "points": -20,
+          "startDate": 1943,
           "max": 2,
           "add": {
             "infantry": {
@@ -275,9 +345,24 @@
             "infantry": {
               "weapons": [
                 {
-                  "name": "M1 Carbine",
+                  "name": "M1 Garand",
                   "qty": 1,
                   "group": 0
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "M1 Rifle Grenade",
+          "points": 20,
+          "add": {
+            "infantry": {
+              "weapons": [
+                {
+                  "name": "M1 Rifle Grenade",
+                  "qty": 1,
+                  "group": 1
                 }
               ]
             }

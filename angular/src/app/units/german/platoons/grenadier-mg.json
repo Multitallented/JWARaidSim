@@ -1,6 +1,7 @@
 {
   "name": "Grenadier MG Platoon",
   "options": 0,
+  "max": 1,
   "factions": [
     "Heer Regular Army",
     "Waffen Korps"
@@ -78,7 +79,7 @@
       "moraleFrequency": 2,
       "armor": 7,
       "hp": 3,
-      "shout": 1,
+      "shout": 5,
       "closeCombat": 0,
       "characteristics": [],
       "infantry": [
@@ -107,6 +108,7 @@
               "qty": 1,
               "shots": 6,
               "special": [
+                "+4 $shots$ when adjacent to a stationary assistant",
                 "Can't move while shooting"
               ]
             }
