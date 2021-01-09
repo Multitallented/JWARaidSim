@@ -137,6 +137,35 @@
             }
           ]
         }
+      ],
+      "variants": [
+        {
+          "name": "Opel Blitz truck",
+          "points": 40,
+          "add": {
+            "squad": {
+              "Opel Blitz": 1
+            },
+            "infantry": {
+              "models": {
+                "qty": 2,
+                "group": 1
+              },
+              "weapons": [
+                {
+                  "name": "MP40",
+                  "qty": 1,
+                  "group": 1
+                },
+                {
+                  "name": "Kar98K",
+                  "qty": 1,
+                  "group": 1
+                }
+              ]
+            }
+          }
+        }
       ]
     },
     "Heavy Mortar Team": {
@@ -263,10 +292,23 @@
         },
         {
           "name": "Opel Blitz truck",
-          "points": 30,
+          "points": 40,
           "add": {
             "squad": {
               "Opel Blitz": 1
+            },
+            "infantry": {
+              "models": {
+                "qty": 1,
+                "group": 1
+              },
+              "weapons": [
+                {
+                  "name": "Kar98K",
+                  "qty": 1,
+                  "group": 1
+                }
+              ]
             }
           }
         },
