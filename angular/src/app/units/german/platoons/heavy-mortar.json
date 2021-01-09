@@ -7,6 +7,12 @@
     "Luftwaffe",
     "Waffen Korps"
   ],
+  "squadLinks": {
+    "Field Cable Troop": {
+      "max": 1,
+      "min": 0
+    }
+  },
   "squads": {
     "Heavy Mortar Platoon Command": {
       "img": "../../assets/germans/grenadier-company-command.jpg",

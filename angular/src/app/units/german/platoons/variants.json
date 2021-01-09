@@ -196,6 +196,143 @@
         "Radio"
       ]
     },
+    "Field Cable Troop": {
+      "img": "../../assets/germans/mortar-command.jpg",
+      "points": 30,
+      "hq": true,
+      "type": "infantry",
+      "move": 20,
+      "morale": 6,
+      "moraleFrequency": 2,
+      "armor": 7,
+      "hp": 3,
+      "radio": 5,
+      "closeCombat": 0,
+      "characteristics": [],
+      "infantry": [
+        {
+          "name": "Leader",
+          "closeCombat": 1,
+          "models": 1,
+          "weapons": [
+            {
+              "name": "MP40",
+              "qty": 1
+            }
+          ]
+        },
+        {
+          "name": "Infantry",
+          "models": 3,
+          "closeCombat": 1,
+          "weapons": [
+            {
+              "name": "Kar98K",
+              "qty": 3
+            }
+          ]
+        },
+        {
+          "name": "All Infantry",
+          "weapons": [
+            {
+              "name": "StG39 Grenades"
+            }
+          ]
+        }
+      ],
+      "variants": [
+        {
+          "name": "replace Kar98K with G43",
+          "max": 2,
+          "startDate": 1943,
+          "points": 10,
+          "add": {
+            "infantry": {
+              "weapons": [
+                {
+                  "name": "G43",
+                  "qty": 1,
+                  "group": 1
+                }
+              ]
+            }
+          },
+          "remove": {
+            "infantry": {
+              "weapons": [
+                {
+                  "name": "Kar98K",
+                  "qty": 1,
+                  "group": 1
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "replace Kar98K with StG44",
+          "max": 2,
+          "startDate": 1943,
+          "points": 20,
+          "add": {
+            "infantry": {
+              "weapons": [
+                {
+                  "name": "StG44",
+                  "qty": 1,
+                  "group": 1
+                }
+              ]
+            }
+          },
+          "remove": {
+            "infantry": {
+              "weapons": [
+                {
+                  "name": "Kar98K",
+                  "qty": 1,
+                  "group": 1
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "+1 $morale$ +1 $close-combat$",
+          "points": 30,
+          "factions": [
+            "Luftwaffe"
+          ],
+          "required": true,
+          "modifiers": {
+            "morale": 1,
+            "closeCombat": 1
+          }
+        },
+        {
+          "name": "Kettenkrad Sdkfz 2",
+          "points": 20,
+          "factions": [
+            "Luftwaffe"
+          ],
+          "add": {
+            "squad": {
+              "Kettenkrad Sdkfz 2": 1
+            }
+          }
+        },
+        {
+          "name": "Kubelwagon",
+          "points": 40,
+          "add": {
+            "squad": {
+              "Kubelwagon": 1
+            }
+          }
+        }
+      ]
+    },
     "Half-track Sdkfz 251/1": {
       "img": "../../assets/germans/half-track-sdkfz-251-1.jpg",
       "points": 0,
