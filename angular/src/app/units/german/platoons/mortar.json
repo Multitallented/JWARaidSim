@@ -201,12 +201,12 @@
         },
         {
           "name": "Infantry",
-          "closeCombat": 7,
-          "models": 16,
+          "closeCombat": 5,
+          "models": 12,
           "weapons": [
             {
               "name": "Kar98K",
-              "qty": 9
+              "qty": 5
             },
             {
               "name": "GrW36 50mm",
@@ -265,6 +265,10 @@
           "wholePlatoon": true,
           "add": {
             "infantry": {
+              "models": {
+                "qty": 4,
+                "group": 1
+              },
               "weapons": [
                 {
                   "name": "GrW34 81mm",
@@ -277,6 +281,11 @@
                   "qty": 2,
                   "group": 1,
                   "range": 200
+                },
+                {
+                  "name": "Kar98K",
+                  "qty": 4,
+                  "group": 1
                 }
               ]
             }
