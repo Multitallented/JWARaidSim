@@ -469,6 +469,65 @@
         "Driver"
       ],
       "infantry": []
+    },
+    "Commander": {
+      "img": "../../assets/germans/grenadier-company-command.jpg",
+      "points": 10,
+      "hq": true,
+      "type": "infantry",
+      "move": 20,
+      "morale": 7,
+      "moraleFrequency": 1,
+      "armor": 7,
+      "hp": 3,
+      "shout": 6,
+      "closeCombat": 1,
+      "characteristics": [],
+      "infantry": [
+        {
+          "name": "Leader",
+          "models": 1,
+          "closeCombat": 2,
+          "weapons": [
+            {
+              "name": "MP40",
+              "qty": 1
+            },
+            {
+              "name": "StG39 Grenades"
+            }
+          ]
+        }
+      ],
+      "variants": [
+        {
+          "name": "Horse $move$ 48 and +1 $hp$",
+          "points": 20,
+          "modifiers": {
+            "move": 28,
+            "hp": 1
+          },
+          "require": {
+            "type": "variant",
+            "name": "Staff Car",
+            "max": 1
+          }
+        },
+        {
+          "name": "Staff Car",
+          "points": 30,
+          "add": {
+            "squad": {
+              "Staff Car": 1
+            }
+          },
+          "require": {
+            "type": "variant",
+            "name": "Horse $move$ 48 and +1 $hp$",
+            "max": 1
+          }
+        }
+      ]
     }
   }
 }
