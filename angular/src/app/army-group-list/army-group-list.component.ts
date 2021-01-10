@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {ChangeDetectorRef, Component, Input, OnInit, Output} from '@angular/core';
 import _ from 'lodash';
 import {ArmyListService} from "./army-list.service";
 import {Platoon} from "../game/models/platoon";
@@ -15,11 +15,12 @@ export class ArmyGroupListComponent implements OnInit {
 
   private armyListService: ArmyListService;
 
-  constructor(armyListService: ArmyListService) {
+  constructor(armyListService: ArmyListService, private changeDetectorRef: ChangeDetectorRef) {
     this.armyListService = armyListService;
   }
 
-  @Input("nation") public nation: string;
+  public nation: string;
+  public totalOptions = 0;
 
   platoonOptions: Array<Platoon> = [];
   activeSquad: Squad;
@@ -37,6 +38,11 @@ export class ArmyGroupListComponent implements OnInit {
     if (this.nation) {
       this.selectNation(this.nation);
     }
+  }
+
+  setOptions(newOptions: number) {
+    this.totalOptions = newOptions;
+    this.changeDetectorRef.detectChanges();
   }
 
   selectNation(nation:string) {
@@ -77,7 +83,7 @@ export class ArmyGroupListComponent implements OnInit {
     let returnPlatoons = new Array<Platoon>();
     for (let platoon of this.platoonOptions) {
       if (this.isReqMet(platoon) && platoon.data.options > -1 && (this.armyList.length > 0 || platoon.data.standard) &&
-        !this.isAtMax(platoon) && (this.armyList.length < 1 || this.getOptions() >= this.getMinOptions(platoon))) {
+        !this.isAtMax(platoon) && (this.armyList.length < 1 || this.totalOptions >= this.getMinOptions(platoon))) {
         if (!platoon.data.factions || platoon.data.factions.indexOf(this.faction.name) !== -1) {
           returnPlatoons.push(platoon);
         }
@@ -236,7 +242,7 @@ export class ArmyGroupListComponent implements OnInit {
     return totalPoints;
   }
 
-  getOptions(): number {
+  getOptionsPlatoons(): number {
     let totalOptions = 0;
     let subFirstStandard = false;
     for (let platoon of this.armyList) {
@@ -289,7 +295,7 @@ export class ArmyGroupListComponent implements OnInit {
   }
 
   addSquad(platoon, squad) {
-    if (squad.data.options && this.getOptions() + squad.data.options < 0) {
+    if (squad.data.options && this.totalOptions + squad.data.options < 0) {
       return;
     }
 

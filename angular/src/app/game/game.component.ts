@@ -168,13 +168,16 @@ export class GameComponent implements OnInit {
 
   getOptions(): number {
     let totalOptions = 0;
-    let subFirstStandard = false;
-    for (let platoon of this.armyList) {
-      if (!subFirstStandard && platoon.standard) {
-        totalOptions += platoon.data.options;
-        subFirstStandard = true;
+    if (!this.lists || this.lists.length < 1) {
+      return 0;
+    }
+    for (let armyList of this.lists) {
+      totalOptions += armyList.getOptionsPlatoons();
+    }
+    for (let armyList of this.lists) {
+      if (armyList.totalOptions !== totalOptions) {
+        armyList.setOptions(totalOptions);
       }
-      totalOptions += platoon.getOptions();
     }
     return totalOptions;
   }
@@ -298,13 +301,5 @@ export class GameComponent implements OnInit {
         }
       }
     }
-  }
-
-  getFactionPoints(): number {
-    let points = this.getPoints();
-    if (this.faction == null) {
-      return points;
-    }
-    return Math.round(points - (points / this.faction.pointModifier));
   }
 }
