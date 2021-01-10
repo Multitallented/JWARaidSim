@@ -302,7 +302,7 @@
           "name": "+1 $morale$ +1 $close-combat$",
           "points": 30,
           "factions": [
-            "Luftwaffe"
+            "Parachute Division"
           ],
           "required": true,
           "modifiers": {
@@ -314,7 +314,7 @@
           "name": "Kettenkrad Sdkfz 2",
           "points": 20,
           "factions": [
-            "Luftwaffe"
+            "Parachute Division"
           ],
           "add": {
             "squad": {

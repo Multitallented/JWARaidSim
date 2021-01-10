@@ -103,9 +103,9 @@ export class ArmyListService {
     platoonDataArray.push(germanPanzergrenadiers);
     platoonDataArray.push(germanFallschirmjager);
     platoonDataArray.push(germanVolksgrenadiers);
-    platoonDataArray.push(germanPanther);
-    platoonDataArray.push(germanPanzer4);
     platoonDataArray.push(germanPanzer3);
+    platoonDataArray.push(germanPanzer4);
+    platoonDataArray.push(germanPanther);
     platoonDataArray.push(germanFlak36AntiAircraft);
     platoonDataArray.push(germanFlak38AntiAircraft);
     platoonDataArray.push(germanAntiTank);

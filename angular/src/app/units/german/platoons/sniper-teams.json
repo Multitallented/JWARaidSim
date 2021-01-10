@@ -3,6 +3,12 @@
   "options": 0,
   "max": 1,
   "group": "Snipers",
+  "factions": [
+    "Infantry Division",
+    "Panzergrenadier Division",
+    "Parachute Division",
+    "Waffen Korps"
+  ],
   "squads": {
     "Snipers": {
       "img": "../../assets/germans/sniper.jpg",

@@ -4,8 +4,8 @@
   "max": 2,
   "startDate": 1944,
   "factions": [
-    "Heer Regular Army",
-    "Panzergrenadiers",
+    "Infantry Division",
+    "Panzergrenadier Division",
     "Waffen Korps"
   ],
   "squads": {

@@ -83,7 +83,7 @@ export class ArmyGroupListComponent implements OnInit {
     let returnPlatoons = new Array<Platoon>();
     for (let platoon of this.platoonOptions) {
       if (this.isReqMet(platoon) && platoon.data.options > -1 && (this.armyList.length > 0 || platoon.data.standard) &&
-        !this.isAtMax(platoon) && (this.armyList.length < 1 || this.totalOptions >= this.getMinOptions(platoon))) {
+        !this.isAtMax(platoon) && this.totalOptions >= this.getMinOptions(platoon)) {
         if (!platoon.data.factions || platoon.data.factions.indexOf(this.faction.name) !== -1) {
           returnPlatoons.push(platoon);
         }
@@ -242,7 +242,7 @@ export class ArmyGroupListComponent implements OnInit {
     return totalPoints;
   }
 
-  getOptionsPlatoons(): number {
+  getOptionsFromPlatoons(): number {
     let totalOptions = 0;
     let subFirstStandard = false;
     for (let platoon of this.armyList) {

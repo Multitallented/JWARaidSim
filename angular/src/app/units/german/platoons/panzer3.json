@@ -2,6 +2,10 @@
   "name": "Panzer 3 Platoon",
   "options": 0,
   "max": 1,
+  "standard": true,
+  "factions": [
+    "Panzer Division"
+  ],
   "startDate": 1939,
   "squads": {
     "Panzer3 Command": {

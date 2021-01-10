@@ -3,8 +3,8 @@
   "max": 1,
   "options": 0,
   "factions": [
-    "Heer Regular Army",
-    "Luftwaffe",
+    "Infantry Division",
+    "Parachute Division",
     "Waffen Korps"
   ],
   "squadLinks": {
@@ -77,7 +77,7 @@
           "points": 30,
           "required": true,
           "factions": [
-            "Luftwaffe"
+            "Parachute Division"
           ],
           "modifiers": {
             "morale": 1,
@@ -90,7 +90,7 @@
           "startDate": 1943,
           "max": 2,
           "factions": [
-            "Luftwaffe"
+            "Parachute Division"
           ],
           "add": {
             "infantry": {
@@ -240,7 +240,7 @@
           "points": 30,
           "required": true,
           "factions": [
-            "Luftwaffe"
+            "Parachute Division"
           ],
           "modifiers": {
             "morale": 1,
@@ -253,7 +253,7 @@
           "startDate": 1943,
           "max": 3,
           "factions": [
-            "Luftwaffe"
+            "Parachute Division"
           ],
           "add": {
             "infantry": {

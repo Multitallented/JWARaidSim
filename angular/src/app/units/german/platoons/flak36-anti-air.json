@@ -4,8 +4,8 @@
   "options": 0,
   "group": "Anti-Aircraft",
   "factions": [
-    "Heer Regular Army",
-    "Luftwaffe",
+    "Infantry Division",
+    "Parachute Division",
     "Waffen Korps"
   ],
   "squads": {

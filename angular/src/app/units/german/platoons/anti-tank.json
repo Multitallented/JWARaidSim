@@ -1,6 +1,12 @@
 {
   "name": "Anti-Tank Platoon",
   "options": 0,
+  "factions": [
+    "Infantry Division",
+    "Panzergrenadier Division",
+    "Parachute Division",
+    "Waffen Korps"
+  ],
   "squads": {
     "Anti-Tank Gun": {
       "img": "../../assets/germans/pak40.jpg",
@@ -56,8 +62,8 @@
         {
           "name": "Half-track Sdkfz 7",
           "factions": [
-            "Heer Regular Army",
-            "Luftwaffe",
+            "Infantry Division",
+            "Parachute Division",
             "Waffen Korps"
           ],
           "points": 50,
@@ -70,7 +76,7 @@
         {
           "name": "Half-track Sdkfz 7",
           "factions": [
-            "Panzergrenadiers"
+            "Panzergrenadier Division"
           ],
           "required": true,
           "points": 70,
@@ -87,7 +93,7 @@
           "name": "+1 $close-combat$ +1 $morale$",
           "points": 30,
           "factions": [
-            "Luftwaffe"
+            "Parachute Division"
           ],
           "required": true,
           "modifiers": {

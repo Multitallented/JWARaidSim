@@ -4,6 +4,9 @@
   "startDate": 1940,
   "group": "Assault Gun",
   "max": 1,
+  "factions": [
+    "Panzer Division"
+  ],
   "squads": {
     "StugIII Command": {
       "img": "../../assets/germans/stug3.jpg",

@@ -2,7 +2,7 @@
   "name": "Panzergrenadier Platoon",
   "options": 0,
   "factions": [
-    "Panzergrenadiers",
+    "Panzergrenadier Division",
     "Waffen Korps"
   ],
   "standard": true,

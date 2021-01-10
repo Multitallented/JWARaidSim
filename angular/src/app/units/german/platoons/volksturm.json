@@ -3,8 +3,8 @@
   "options": 1,
   "startDate": 1944,
   "factions": [
-    "Heer Regular Army",
-    "Panzergrenadiers"
+    "Infantry Division",
+    "Panzergrenadier Division"
   ],
   "squads": {
     "Volksturm Squad": {

@@ -4,7 +4,7 @@
   "max": 3,
   "standard": true,
   "factions": [
-    "Heer Regular Army",
+    "Infantry Division",
     "Waffen Korps"
   ],
   "require": {

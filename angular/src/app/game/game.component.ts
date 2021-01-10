@@ -172,7 +172,7 @@ export class GameComponent implements OnInit {
       return 0;
     }
     for (let armyList of this.lists) {
-      totalOptions += armyList.getOptionsPlatoons();
+      totalOptions += armyList.getOptionsFromPlatoons();
     }
     for (let armyList of this.lists) {
       if (armyList.totalOptions !== totalOptions) {
