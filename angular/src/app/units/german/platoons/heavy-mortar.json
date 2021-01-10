@@ -16,7 +16,7 @@
       "max": 1,
       "min": 0,
       "abilities": [
-        "Compact Unit: All squads in this platoon"
+        "Compact Unit: Field Cable Troop"
       ]
     }
   },
@@ -38,7 +38,9 @@
       "abilities": [
         "Compact Unit: All squads in this platoon"
       ],
-      "characteristics": [],
+      "characteristics": [
+        "Off-Table"
+      ],
       "infantry": [
         {
           "name": "Leader",

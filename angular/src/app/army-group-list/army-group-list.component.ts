@@ -162,7 +162,29 @@ export class ArmyGroupListComponent implements OnInit {
       }
       let squadData = platoonData.squadLinks[key];
       let squad = _.cloneDeep(this.squadMap[key]);
-      squad = _.merge(squadData, squad);
+      if (squadData.max) {
+        squad.max = squadData.max;
+      }
+      if (squadData.min) {
+        squad.min = squadData.min;
+      }
+      if (squadData.options) {
+        squad.options = squadData.options;
+      }
+      if (squadData.abilities) {
+        if (!squad.data.abilities) {
+          squad.data.abilities = [];
+        }
+        for (let ability of squadData.abilities) {
+          let index = squad.data.abilities.indexOf(ability);
+          console.log(ability + "::" + index);
+          if (index === -1) {
+            squad.data.abilities.push(ability);
+          } else {
+            squad.data.abilities.splice(index, 1);
+          }
+        }
+      }
 
       for (let i = 0; i < squadData.max; i++) {
         let newSquad = _.cloneDeep(squad);
