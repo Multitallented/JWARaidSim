@@ -1,16 +1,22 @@
 {
   "name": "Machine Gun Platoon",
   "max": 1,
-  "options": 2,
+  "options": 0,
   "factions": [
     "Heer Regular Army",
     "Luftwaffe",
     "Waffen Korps"
   ],
+  "squadLinks": {
+    "Commander": {
+      "min": 0,
+      "max": 1
+    }
+  },
   "squads": {
     "Machine Gun Command": {
       "img": "../../assets/germans/machine-gun-command.jpg",
-      "points": 50,
+      "points": 100,
       "min": 0,
       "max": 1,
       "hq": true,
@@ -26,18 +32,29 @@
       "infantry": [
         {
           "name": "Leader",
-          "models": 1,
-          "closeCombat": 1,
+          "models": 2,
+          "closeCombat": 2,
           "weapons": [
             {
-              "name": "MP40",
-              "qty": 1
+              "name": "Kar98K",
+              "qty": 2
             }
           ]
         },
         {
           "name": "Runner",
-          "models": 2,
+          "models": 3,
+          "weapons": [
+            {
+              "name": "Kar98K",
+              "qty": 3
+            }
+          ]
+        },
+        {
+          "name": "Infantry",
+          "models": 4,
+          "closeCombat": 2,
           "weapons": [
             {
               "name": "Kar98K",
@@ -81,7 +98,7 @@
                 {
                   "name": "Fg42",
                   "qty": 1,
-                  "group": 1
+                  "group": 0
                 }
               ]
             }
@@ -92,7 +109,7 @@
                 {
                   "name": "Kar98K",
                   "qty": 1,
-                  "group": 1
+                  "group": 0
                 }
               ]
             }
@@ -102,8 +119,9 @@
     },
     "Machine Gun Section": {
       "img": "../../assets/germans/machine-gun.jpg",
-      "points": 140,
-      "max": 4,
+      "points": 170,
+      "max": 6,
+      "options": -0.25,
       "min": 1,
       "type": "infantry",
       "move": 20,
@@ -128,12 +146,12 @@
         },
         {
           "name": "Infantry",
-          "models": 3,
-          "closeCombat": 1,
+          "models": 6,
+          "closeCombat": 2,
           "weapons": [
             {
               "name": "Kar98K",
-              "qty": 2
+              "qty": 4
             },
             {
               "name": "MG34",
@@ -156,6 +174,30 @@
         }
       ],
       "variants": [
+        {
+          "name": "add platoon leader",
+          "points": 10,
+          "require": {
+            "type": "variant",
+            "name": "add platoon leader",
+            "max": 3
+          },
+          "add": {
+            "infantry": {
+              "models": {
+                "qty": 1,
+                "group": 0
+              },
+              "weapons": [
+                {
+                  "name": "MP40",
+                  "qty": 1,
+                  "group": 0
+                }
+              ]
+            }
+          }
+        },
         {
           "name": "replace MG34 with MG42",
           "points": 10,
@@ -209,7 +251,7 @@
           "name": "replace Kar98K with Fg42",
           "points": 20,
           "startDate": 1943,
-          "max": 2,
+          "max": 3,
           "factions": [
             "Luftwaffe"
           ],
