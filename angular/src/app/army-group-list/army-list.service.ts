@@ -11,6 +11,7 @@ import * as germanPanzer4 from '../units/german/platoons/panzer4.json';
 import * as germanPanther from '../units/german/platoons/panther.json';
 import * as germanVariants from '../units/german/platoons/variants.json';
 import * as germanMortar from '../units/german/platoons/mortar.json';
+import * as germanHeavyCompanyCommand from '../units/german/platoons/heavy-company-command.json';
 import * as germanHeavyMortar from '../units/german/platoons/heavy-mortar.json';
 import * as germanMachineGun from '../units/german/platoons/machine-gun.json';
 import * as germanPanzergrenadiers from '../units/german/platoons/panzergrenadiers.json';
@@ -114,6 +115,7 @@ export class ArmyListService {
     platoonDataArray.push(germanStugAssaultGun);
     platoonDataArray.push(germanHitlerYouth);
     platoonDataArray.push(germanVolksturm);
+    platoonDataArray.push(germanHeavyCompanyCommand);
     platoonDataArray.push(germanMachineGun);
     platoonDataArray.push(germanMortar);
     platoonDataArray.push(germanHeavyMortar);
