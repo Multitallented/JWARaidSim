@@ -26,6 +26,7 @@ import * as germanAntiTank from '../units/german/platoons/anti-tank.json';
 import * as germanHeavyArmoredRecon from '../units/german/platoons/heavy-armored-recon.json';
 import * as germanArmoredRecon from '../units/german/platoons/armored-recon.json';
 import * as germanStugAssaultGun from '../units/german/platoons/stug-assault-gun.json';
+import * as germanSnipers from '../units/german/platoons/sniper-teams.json';
 
 import * as frenchFactions from '../units/french/factions.json';
 import * as frenchWeapons from '../units/french/weapons.json';
@@ -119,6 +120,7 @@ export class ArmyListService {
     platoonDataArray.push(germanMachineGun);
     platoonDataArray.push(germanMortar);
     platoonDataArray.push(germanHeavyMortar);
+    platoonDataArray.push(germanSnipers);
     return platoonDataArray;
   }
 

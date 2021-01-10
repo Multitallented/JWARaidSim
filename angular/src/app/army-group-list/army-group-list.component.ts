@@ -177,7 +177,6 @@ export class ArmyGroupListComponent implements OnInit {
         }
         for (let ability of squadData.abilities) {
           let index = squad.data.abilities.indexOf(ability);
-          console.log(ability + "::" + index);
           if (index === -1) {
             squad.data.abilities.push(ability);
           } else {
