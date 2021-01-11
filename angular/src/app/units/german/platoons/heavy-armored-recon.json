@@ -196,7 +196,7 @@
           "weapons": [
             {
               "name": "75mm AP",
-              "hitVehicle": 5,
+              "hitVehicle": 6,
               "qty": 1,
               "angle": 45,
               "altAmmo": true

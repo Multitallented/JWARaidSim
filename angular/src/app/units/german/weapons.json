@@ -88,7 +88,7 @@
   "75mm AP": {
     "range": 500,
     "shots": 1,
-    "hitVehicle": 7,
+    "hitVehicle": 8,
     "damage": 5
   },
   "75mm HE": {
@@ -107,7 +107,7 @@
   "88mm AP": {
     "range": 500,
     "shots": 1,
-    "hitVehicle": 8,
+    "hitVehicle": 9,
     "damage": 6
   },
   "88mm HE": {
@@ -126,14 +126,14 @@
   "50mm AP": {
     "range": 150,
     "shots": 1,
-    "hitVehicle": 5,
+    "hitVehicle": 6,
     "damage": 5
   },
   "50mm HE": {
     "range": 350,
     "shots": 1,
     "blast": 5,
-    "hitVehicle": 1,
+    "hitVehicle": 2,
     "damage": 3
   },
   "50mm Smoke": {
@@ -145,7 +145,7 @@
   "37mm AP": {
     "range": 100,
     "shots": 1,
-    "hitVehicle": 4,
+    "hitVehicle": 5,
     "damage": 3
   },
   "37mm HE": {
@@ -156,7 +156,7 @@
   "20mm AP": {
     "range": 60,
     "shots": 1,
-    "hitVehicle": 3,
+    "hitVehicle": 4,
     "damage": 3
   },
   "20mm HE": {

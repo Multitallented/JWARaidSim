@@ -35,7 +35,7 @@
             {
               "name": "88mm AP",
               "qty": 1,
-              "hitVehicle": 9,
+              "hitVehicle": 10,
               "angle": 45,
               "altAmmo": true
             },
@@ -139,7 +139,7 @@
             {
               "name": "88mm AP",
               "qty": 1,
-              "hitVehicle": 9,
+              "hitVehicle": 10,
               "angle": 45,
               "altAmmo": true
             },

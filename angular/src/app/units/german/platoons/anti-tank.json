@@ -131,7 +131,7 @@
               "weapons": [
                 {
                   "name": "88mm AP",
-                  "hitVehicle": 9,
+                  "hitVehicle": 10,
                   "qty": 1,
                   "group": 1
                 }

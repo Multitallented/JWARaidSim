@@ -1,25 +1,25 @@
 {
-  "name": "Tiger Platoon",
+  "name": "King Tiger Platoon",
   "max": 1,
-  "startDate": 1942,
+  "startDate": 1944,
   "options": 0,
   "standard": true,
   "factions": [
     "Panzer Division"
   ],
   "squads": {
-    "Tiger Command": {
-      "img": "../../assets/germans/tiger.jpg",
-      "points": 1510,
+    "King Tiger Command": {
+      "img": "../../assets/germans/king-tiger.jpg",
+      "points": 1810,
       "hq": true,
       "options": -2,
       "max": 1,
       "min": 0,
       "type": "tank",
-      "move": 35,
+      "move": 32,
       "morale": 8,
       "moraleFrequency": 1,
-      "armor": 16,
+      "armor": 17,
       "hp": 3,
       "radio": 5,
       "closeCombat": 0,
@@ -35,6 +35,7 @@
           "weapons": [
             {
               "name": "88mm AP",
+              "hitVehicle": 10,
               "altAmmo": true,
               "qty": 1
             },
@@ -139,17 +140,17 @@
         }
       ]
     },
-    "Tiger Sdkfz 181": {
-      "img": "../../assets/germans/tiger.jpg",
-      "points": 1480,
+    "King Tiger Sdkfz 182": {
+      "img": "../../assets/germans/king-tiger.jpg",
+      "points": 1780,
       "options": -2,
       "max": 4,
       "min": 1,
       "type": "tank",
-      "move": 35,
+      "move": 32,
       "morale": 8,
       "moraleFrequency": 1,
-      "armor": 16,
+      "armor": 17,
       "hp": 3,
       "radio": 4,
       "closeCombat": 0,
@@ -165,6 +166,7 @@
           "weapons": [
             {
               "name": "88mm AP",
+              "hitVehicle": 10,
               "altAmmo": true,
               "qty": 1
             },
