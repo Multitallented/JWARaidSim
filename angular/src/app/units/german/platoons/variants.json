@@ -135,7 +135,7 @@
       "shout": 5,
       "closeCombat": 0,
       "abilities": [
-        "-1 to spot this vehicle"
+        "-1 Spotting against this vehicle"
       ],
       "characteristics": [
         "Transport 3",
@@ -160,7 +160,7 @@
       "radio": 5,
       "closeCombat": 0,
       "abilities": [
-        "-1 to spot this vehicle"
+        "-1 Spotting against this vehicle"
       ],
       "characteristics": [
         "Transport 2",
@@ -185,7 +185,7 @@
       "shout": 5,
       "closeCombat": 0,
       "abilities": [
-        "-1 to spot this vehicle"
+        "-1 Spotting against this vehicle"
       ],
       "characteristics": [
         "Transport 2",
@@ -198,7 +198,7 @@
     },
     "Field Cable Troop": {
       "img": "../../assets/germans/mortar-command.jpg",
-      "points": 30,
+      "points": 60,
       "hq": true,
       "type": "infantry",
       "move": 20,
@@ -222,7 +222,7 @@
           ]
         },
         {
-          "name": "Infantry",
+          "name": "Runner",
           "models": 3,
           "closeCombat": 1,
           "weapons": [
@@ -312,7 +312,7 @@
         },
         {
           "name": "Kettenkrad Sdkfz 2",
-          "points": 20,
+          "points": 30,
           "factions": [
             "Parachute Division"
           ],
@@ -323,11 +323,11 @@
           }
         },
         {
-          "name": "Kubelwagon",
-          "points": 40,
+          "name": "Kubelwagen",
+          "points": 50,
           "add": {
             "squad": {
-              "Kubelwagon": 1
+              "Kubelwagen": 1
             }
           }
         }
@@ -368,36 +368,6 @@
         }
       ],
       "lore": "Sd.Kfz. 251s were the most widely produced German half-tracks of the war, with at least 15,252 vehicles and variants produced by seven manufacturers."
-    },
-    "Observation Post": {
-      "img": "../../assets/germans/ig18-obs.jpg",
-      "points": 60,
-      "hq": true,
-      "type": "infantry",
-      "move": 20,
-      "morale": 6,
-      "moraleFrequency": 1,
-      "armor": 7,
-      "hp": 3,
-      "radio": 5,
-      "closeCombat": 1,
-      "characteristics": [],
-      "infantry": [
-        {
-          "name": "Leader",
-          "models": 2,
-          "closeCombat": 2,
-          "weapons": [
-            {
-              "name": "MP40",
-              "qty": 2
-            },
-            {
-              "name": "StG39 Grenades"
-            }
-          ]
-        }
-      ]
     },
     "Kubelwagen Scout": {
       "img": "../../assets/germans/kubelwagen.jpg",

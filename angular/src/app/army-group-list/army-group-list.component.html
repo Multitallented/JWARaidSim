@@ -197,6 +197,13 @@
                   <div *ngFor="let weapon of infantrySection.weapons">
                     <div *ngIf="weaponMap[weapon.name]" class="weapon" [ngClass]="{'alt-ammo': weapon.altAmmo}">
                       <div class="weapon-bar">
+                        <div class="weapon-name">
+                          <span *ngIf="activeSquad.data.type !== 'infantry'" class="center-vertical weapon-checkbox">
+                            <img class="checkbox" (click)="activeSquad.cycleCheckboxBinary(infantrySection.name + ':' + weapon.name)" src="{{activeSquad.getCheckboxSrc(infantrySection.name + ':' + weapon.name)}}" alt="Checkbox" />
+                          </span>
+                          <span *ngIf="weapon.qty > 1">{{weapon.qty}}x </span>
+                          {{weapon.name}}
+                        </div>
                         <div class="right">
                           <span class="turret" *ngIf="(weapon.hasOwnProperty('turret') || weaponMap[weapon.name].hasOwnProperty('turret')) && !weapon.hasOwnProperty('angle') && !weaponMap[weapon.name].hasOwnProperty('angle')">
                             <img src="../../assets/common/turret.png" alt="Turret" />
@@ -217,7 +224,7 @@
                               <span *ngIf="!weapon.hasOwnProperty('minRange') && weaponMap[weapon.name].hasOwnProperty('minRange')">- {{weaponMap[weapon.name].minRange}}</span>
                             </span>
                           </span>
-                          <span *ngIf="!weaponMap[weapon.name].blast || weapon.hasOwnProperty('shots')" class="shots">
+                          <span *ngIf="!weaponMap[weapon.name].blast || weapon.hasOwnProperty('shots') || weaponMap[weapon.name].shots > 1" class="shots">
                             <img src="../../assets/common/shots.png" alt="Shots" />
                             <span *ngIf="weapon.hasOwnProperty('shots')">{{getValue(weapon.name + ":shots", weapon.shots)}}</span>
                             <span *ngIf="!weapon.hasOwnProperty('shots')">{{getValue(weapon.name + ":shots", weaponMap[weapon.name].shots)}}</span>
@@ -244,11 +251,7 @@
                           </span>
 
                         </div>
-                        <span *ngIf="activeSquad.data.type !== 'infantry'" class="center-vertical weapon-checkbox">
-                          <img class="checkbox" (click)="activeSquad.cycleCheckboxBinary(infantrySection.name + ':' + weapon.name)" src="{{activeSquad.getCheckboxSrc(infantrySection.name + ':' + weapon.name)}}" alt="Checkbox" />
-                        </span>
-                        <span *ngIf="weapon.qty > 1">{{weapon.qty}}x </span>
-                        {{weapon.name}}
+                        <div class="clearfix"></div>
                       </div>
                       <div class="clearfix"></div>
                       <div *ngIf="!weapon.altAmmo && !weaponMap[weapon.name].altAmmo && weapon.hasOwnProperty('special')">
@@ -280,6 +283,7 @@
                         </span>
                       </div>
                       {{activeSquad.data.type === 'car' ? 'Wheels' : 'Tracks'}}
+                      <div class="clearfix"></div>
                     </div>
                   </div>
                   <h3>
@@ -336,6 +340,7 @@
                       </div>
                       <span *ngIf="weapon.qty > 1">{{weapon.qty}}x </span>
                       {{weapon.name}}
+                      <div class="clearfix"></div>
                     </div>
                   </div>
                 </div>

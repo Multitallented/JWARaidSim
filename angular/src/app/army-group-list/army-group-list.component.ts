@@ -520,7 +520,10 @@ export class ArmyGroupListComponent implements OnInit {
               }
             }
           }
-          if (numberOfVariants >= variant.require.max) {
+          if (numberOfVariants >= variant.require.max && variant.require.max !== -1) {
+            return false;
+          }
+          if (numberOfVariants > 0 && variant.require.max === -1) {
             return false;
           }
         } else {

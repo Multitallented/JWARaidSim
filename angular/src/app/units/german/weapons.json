@@ -263,5 +263,49 @@
     "special": [
       "Indirect Fire"
     ]
+  },
+  "Nebelwerfer 42": {
+    "range": 1000,
+    "minRange": 200,
+    "shots": 3,
+    "blast": 10,
+    "hitVehicle": 8,
+    "hitInfantry": 2,
+    "damage": 7,
+    "special": [
+      "Fires every other turn unless adjacent to an assistant",
+      "Can't fire while inside buildings or woods",
+      "Can't fire while moving",
+      "Fires once per game",
+      "Indirect fire"
+    ]
+  },
+  "Nebelwerfer Gas": {
+    "range": 1000,
+    "minRange": 200,
+    "shots": 3,
+    "blast": 10,
+    "damage": 7,
+    "special": [
+      "Fires every other turn unless adjacent to an assistant",
+      "Can't fire while inside buildings or woods",
+      "Can't fire while moving",
+      "Fires once per game",
+      "Indirect fire"
+    ]
+  },
+  "Nebelwerfer Smoke": {
+    "range": 1000,
+    "minRange": 200,
+    "shots": 3,
+    "blast": 10,
+    "damage": 0,
+    "special": [
+      "Fires every other turn unless adjacent to an assistant",
+      "Can't fire while inside buildings or woods",
+      "Can't fire while moving",
+      "Fires once per game",
+      "Indirect fire"
+    ]
   }
 }

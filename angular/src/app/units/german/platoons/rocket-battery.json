@@ -1,0 +1,165 @@
+{
+  "name": "Nebelwerfer Rocket Battery",
+  "max": 1,
+  "options": 0,
+  "group": "Rocket Battery",
+  "startDate": 1944,
+  "factions": [
+    "Infantry Division",
+    "Panzergrenadier Division",
+    "Waffen Korps"
+  ],
+  "squadLinks": {
+    "Field Cable Troop": {
+      "min": 0,
+      "max": 1
+    },
+    "Kubelwagen Scout": {
+      "min": 0,
+      "max": 1
+    }
+  },
+  "squads": {
+    "Nebelwerfer 42": {
+      "img": "../../assets/germans/nebelwerfer.jpg",
+      "points": 360,
+      "options": -0.5,
+      "max": 4,
+      "min": 1,
+      "type": "infantry",
+      "move": 10,
+      "morale": 6,
+      "moraleFrequency": 2,
+      "armor": 7,
+      "hp": 3,
+      "shout": 5,
+      "closeCombat": 0,
+      "abilities": [
+        "Compact Unit: All squads in this platoon"
+      ],
+      "characteristics": [
+        "Off-Table"
+      ],
+      "infantry": [
+        {
+          "name": "Leader",
+          "models": 1,
+          "closeCombat": 1,
+          "weapons": [
+            {
+              "name": "MP40",
+              "qty": 1
+            }
+          ]
+        },
+        {
+          "name": "Infantry",
+          "models": 5,
+          "closeCombat": 3,
+          "weapons": [
+            {
+              "name": "Kar98K",
+              "qty": 2
+            },
+            {
+              "name": "Nebelwerfer 42",
+              "qty": 1
+            }
+          ]
+        }
+      ],
+      "variants": [
+        {
+          "name": "Half-track Sdkfz 7",
+          "points": 50,
+          "add": {
+            "squad": {
+              "Half-track Sdkfz 7": 1
+            }
+          }
+        },
+        {
+          "name": "Opel Blitz",
+          "points": 30,
+          "add": {
+            "squad": {
+              "Opel Blitz": 1
+            }
+          }
+        },
+        {
+          "name": "Radio",
+          "points": 10,
+          "comms": {
+            "type": "radio",
+            "value": 4
+          }
+        },
+        {
+          "name": "replace Nebelwerfer 42 with Nebelwerfer Gas",
+          "points": 0,
+          "wholePlatoon": true,
+          "require": {
+            "type": "variant",
+            "name": "Nebelwerfer Smoke",
+            "max": -1
+          },
+          "add": {
+            "infantry": {
+              "weapons": [
+                {
+                  "name": "Nebelwerfer Gas",
+                  "qty": 1,
+                  "group": 1
+                }
+              ]
+            }
+          },
+          "remove": {
+            "infantry": {
+              "weapons": [
+                {
+                  "name": "Nebelwerfer 42",
+                  "qty": 1,
+                  "group": 1
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Nebelwerfer Smoke",
+          "points": 50,
+          "add": {
+            "infantry": {
+              "weapons": [
+                {
+                  "name": "Nebelwerfer 42",
+                  "qty": 1,
+                  "group": 1,
+                  "altAmmo": true
+                },
+                {
+                  "name": "Nebelwerfer Smoke",
+                  "qty": 1,
+                  "group": 1
+                }
+              ]
+            }
+          },
+          "remove": {
+            "infantry": {
+              "weapons": [
+                {
+                  "name": "Nebelwerfer 42",
+                  "qty": 1,
+                  "group": 1
+                }
+              ]
+            }
+          }
+        }
+      ]
+    }
+  }
+}
