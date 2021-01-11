@@ -83,8 +83,12 @@
     {
       "name": "Panzer Division",
       "standardPlatoons": [
-        "Grenadiers",
-        "Volksgrenadiers"
+        "Panzer 2 Platoon",
+        "Panzer 3 Platoon",
+        "Panzer 4 Platoon",
+        "Panther Platoon",
+        "Tiger Platoon",
+        "King Tiger Platoon"
       ],
       "nations": [
         "German"
@@ -92,8 +96,8 @@
       "allies": [
         "Italian"
       ],
-      "img": "",
-      "lore": ""
+      "img": "../../assets/germans/panzer-division.jpg",
+      "lore": "A panzer division was a combined arms formation, having both tanks mechanized and motorized infantry, along with artillery, anti-aircraft and other integrated support elements. At the start of the war, panzer divisions were more effective than the equivalent Allied armored divisions due to their combined arms doctrine, even though they had fewer and generally less technically-advanced tanks."
     }
   ]
 }

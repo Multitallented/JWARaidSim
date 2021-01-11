@@ -4,10 +4,11 @@
   "max": 2,
   "startDate": 1944,
   "factions": [
-    "Infantry Division",
-    "Panzergrenadier Division",
-    "Waffen Korps"
+    "Panzer Division"
   ],
+  "require": {
+    "Armored Recon": -1
+  },
   "squads": {
     "Puma Command Sdkfz 234/1": {
       "img": "../../assets/germans/sdkfz-234-1.jpg",

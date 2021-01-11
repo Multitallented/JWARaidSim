@@ -4,13 +4,14 @@
   "max": 2,
   "startDate": 1943,
   "factions": [
-    "Infantry Division",
-    "Panzergrenadier Division",
-    "Waffen Korps"
+    "Panzer Division"
   ],
+  "require": {
+    "Heavy Armored Recon": -1
+  },
   "squads": {
     "Puma Command Sdkfz 234/2": {
-      "img": "",
+      "img": "../../assets/germans/sdkfz-234-2.jpg",
       "points": 610,
       "options": -0.5,
       "max": 1,
@@ -93,7 +94,7 @@
       ]
     },
     "Puma Sdkfz 234/2": {
-      "img": "",
+      "img": "../../assets/germans/sdkfz-234-2.jpg",
       "points": 590,
       "options": -0.5,
       "max": 5,
