@@ -7,7 +7,8 @@
     "Panzer Division"
   ],
   "require": {
-    "Armored Recon": -1
+    "Armored Recon": -1,
+    "Assault Armored Recon": -1
   },
   "squads": {
     "Puma Command Sdkfz 234/1": {
@@ -21,7 +22,7 @@
       "type": "car",
       "move": 69,
       "morale": 7,
-      "moraleFrequency": 2,
+      "moraleFrequency": 1,
       "armor": 15,
       "hp": 1,
       "radio": 4,
@@ -98,8 +99,8 @@
       "bulletproof": true,
       "type": "car",
       "move": 69,
-      "morale": 6,
-      "moraleFrequency": 2,
+      "morale": 7,
+      "moraleFrequency": 1,
       "armor": 15,
       "hp": 1,
       "radio": 4,
@@ -177,8 +178,8 @@
       "bulletproof": true,
       "type": "car",
       "move": 69,
-      "morale": 6,
-      "moraleFrequency": 2,
+      "morale": 7,
+      "moraleFrequency": 1,
       "armor": 15,
       "hp": 1,
       "radio": 4,

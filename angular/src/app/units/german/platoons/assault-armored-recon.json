@@ -1,29 +1,29 @@
 {
-  "name": "Armored Recon",
+  "name": "Assault Armored Recon",
   "options": 0,
   "max": 2,
   "startDate": 1943,
+  "endDate": 1944,
   "factions": [
     "Panzer Division"
   ],
   "require": {
     "Heavy Armored Recon": -1,
-    "Assault Armored Recon": -1
+    "Armored Recon": -1
   },
   "squads": {
-    "Puma Command Sdkfz 234/2": {
-      "img": "../../assets/germans/sdkfz-234-2.jpg",
-      "points": 610,
+    "Puma Command Sdkfz 233": {
+      "img": "../../assets/germans/sdkfz-233.jpg",
+      "points": 430,
       "options": -0.5,
       "max": 1,
       "min": 0,
       "hq": true,
-      "bulletproof": true,
       "type": "car",
-      "move": 69,
+      "move": 65,
       "morale": 7,
       "moraleFrequency": 1,
-      "armor": 15,
+      "armor": 14,
       "hp": 1,
       "radio": 4,
       "closeCombat": 0,
@@ -35,20 +35,21 @@
       ],
       "infantry": [
         {
-          "name": "Turret",
+          "name": "Chassis",
           "weapons": [
             {
-              "name": "50mm AP",
+              "name": "75mm AP",
+              "hitVehicle": 5,
               "qty": 1,
               "altAmmo": true
             },
             {
-              "name": "50mm HE",
+              "name": "75mm HE",
               "qty": 1
             },
             {
-              "name": "MG34",
-              "shots": 7,
+              "name": "MG42",
+              "shots": 11,
               "qty": 1,
               "special": []
             }
@@ -56,15 +57,14 @@
         }
       ],
       "crew": [
-        "Commander",
+        "Command/Assist",
         "Gunner",
-        "Assistant",
         "Driver/Radio"
       ],
       "crewWeapon": [
         {
           "name": "MP40",
-          "qty": 4
+          "qty": 3
         }
       ],
       "variants": [
@@ -75,37 +75,21 @@
             "characteristics": [
               "Ambush Camo"
             ]
-          }
-        },
-        {
-          "name": "Smoke Launchers",
-          "points": 80,
-          "add": {
-            "infantry": {
-              "weapons": [
-                {
-                  "name": "Smoke Launchers",
-                  "qty": 1,
-                  "group": 0
-                }
-              ]
-            }
           }
         }
       ]
     },
-    "Puma Sdkfz 234/2": {
-      "img": "../../assets/germans/sdkfz-234-2.jpg",
-      "points": 590,
+    "Puma Sdkfz 233": {
+      "img": "../../assets/germans/sdkfz-233.jpg",
+      "points": 410,
       "options": -0.5,
       "max": 5,
       "min": 1,
-      "bulletproof": true,
       "type": "car",
-      "move": 69,
+      "move": 65,
       "morale": 7,
       "moraleFrequency": 1,
-      "armor": 15,
+      "armor": 14,
       "hp": 1,
       "radio": 4,
       "closeCombat": 0,
@@ -117,20 +101,21 @@
       ],
       "infantry": [
         {
-          "name": "Turret",
+          "name": "Chassis",
           "weapons": [
             {
-              "name": "50mm AP",
+              "name": "75mm AP",
+              "hitVehicle": 5,
               "qty": 1,
               "altAmmo": true
             },
             {
-              "name": "50mm HE",
+              "name": "75mm HE",
               "qty": 1
             },
             {
-              "name": "MG34",
-              "shots": 7,
+              "name": "MG42",
+              "shots": 11,
               "qty": 1,
               "special": []
             }
@@ -138,15 +123,14 @@
         }
       ],
       "crew": [
-        "Commander",
+        "Command/Assist",
         "Gunner",
-        "Assistant",
         "Driver/Radio"
       ],
       "crewWeapon": [
         {
           "name": "MP40",
-          "qty": 4
+          "qty": 3
         }
       ],
       "variants": [
@@ -157,21 +141,6 @@
             "characteristics": [
               "Ambush Camo"
             ]
-          }
-        },
-        {
-          "name": "Smoke Launchers",
-          "points": 80,
-          "add": {
-            "infantry": {
-              "weapons": [
-                {
-                  "name": "Smoke Launchers",
-                  "qty": 1,
-                  "group": 0
-                }
-              ]
-            }
           }
         }
       ]
