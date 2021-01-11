@@ -27,6 +27,7 @@ import * as germanHeavyArmoredRecon from '../units/german/platoons/heavy-armored
 import * as germanArmoredRecon from '../units/german/platoons/armored-recon.json';
 import * as germanAssaultArmoredRecon from '../units/german/platoons/assault-armored-recon.json';
 import * as germanStugAssaultGun from '../units/german/platoons/stug-assault-gun.json';
+import * as germanElefantAssaultGun from '../units/german/platoons/elefant.json';
 import * as germanNashornAssaultGun from '../units/german/platoons/nashorn-assault-gun.json';
 import * as germanMarderAssaultGun from '../units/german/platoons/marder-iii.json';
 import * as germanNebelwerfer from '../units/german/platoons/rocket-battery.json';
@@ -119,6 +120,7 @@ export class ArmyListService {
     platoonDataArray.push(germanArmoredRecon);
     platoonDataArray.push(germanAssaultArmoredRecon);
     platoonDataArray.push(germanStugAssaultGun);
+    platoonDataArray.push(germanElefantAssaultGun);
     platoonDataArray.push(germanNashornAssaultGun);
     platoonDataArray.push(germanMarderAssaultGun);
     platoonDataArray.push(germanHitlerYouth);

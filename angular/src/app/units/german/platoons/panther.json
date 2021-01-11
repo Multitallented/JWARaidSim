@@ -7,7 +7,6 @@
   "factions": [
     "Panzer Division"
   ],
-  "group": "Medium Tank",
   "squads": {
     "Panther Command": {
       "img": "../../assets/germans/panther.jpg",

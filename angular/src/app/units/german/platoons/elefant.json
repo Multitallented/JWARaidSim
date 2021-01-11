@@ -1,0 +1,202 @@
+{
+  "name": "Elefant Assault Gun Platoon",
+  "options": 0,
+  "startDate": 1943,
+  "endDate": 1944,
+  "group": "Assault Gun",
+  "max": 1,
+  "factions": [
+    "Panzer Division"
+  ],
+  "squads": {
+    "Elefant Command": {
+      "img": "../../assets/germans/elefant.jpg",
+      "points": 1720,
+      "options": -2,
+      "max": 1,
+      "min": 0,
+      "hq": true,
+      "type": "tank",
+      "move": 23,
+      "morale": 7,
+      "moraleFrequency": 1,
+      "armor": 17,
+      "hp": 3,
+      "radio": 5,
+      "closeCombat": 0,
+      "abilities": [
+        "Any move requires a Driving test"
+      ],
+      "characteristics": [
+        "Assault"
+      ],
+      "infantry": [
+        {
+          "name": "Chassis",
+          "weapons": [
+            {
+              "name": "88mm AP",
+              "qty": 1,
+              "hitVehicle": 9,
+              "angle": 45,
+              "altAmmo": true
+            },
+            {
+              "name": "88mm HE",
+              "qty": 1,
+              "angle": 45,
+              "altAmmo": true
+            },
+            {
+              "name": "88mm Smoke",
+              "angle": 45,
+              "qty": 1
+            },
+            {
+              "name": "MG34",
+              "qty": 1,
+              "shots": 10,
+              "angle": 45,
+              "special": []
+            }
+          ]
+        }
+      ],
+      "crew": [
+        "Commander",
+        "Gunner",
+        "Assistant",
+        "Assistant",
+        "Radio/MG",
+        "Driver"
+      ],
+      "crewWeapon": [
+        {
+          "name": "MP40",
+          "qty": 6
+        }
+      ],
+      "variants": [
+        {
+          "name": "Ambush Camo",
+          "points": 30,
+          "modifiers": {
+            "characteristics": [
+              "Ambush Camo"
+            ]
+          }
+        },
+        {
+          "name": "remove MG34",
+          "points": -70,
+          "remove": {
+            "infantry": {
+              "weapons": [
+                {
+                  "name": "MG34",
+                  "qty": 1,
+                  "angle": 45,
+                  "group": 0
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "Elefant Sdkfz 184": {
+      "img": "../../assets/germans/elefant.jpg",
+      "points": 1690,
+      "options": -2,
+      "max": 3,
+      "min": 1,
+      "type": "tank",
+      "move": 23,
+      "morale": 7,
+      "moraleFrequency": 1,
+      "armor": 17,
+      "hp": 3,
+      "radio": 4,
+      "closeCombat": 0,
+      "abilities": [
+        "Any move requires a Driving test"
+      ],
+      "characteristics": [
+        "Assault"
+      ],
+      "infantry": [
+        {
+          "name": "Chassis",
+          "weapons": [
+            {
+              "name": "88mm AP",
+              "qty": 1,
+              "hitVehicle": 9,
+              "angle": 45,
+              "altAmmo": true
+            },
+            {
+              "name": "88mm HE",
+              "qty": 1,
+              "angle": 45,
+              "altAmmo": true
+            },
+            {
+              "name": "88mm Smoke",
+              "angle": 45,
+              "qty": 1
+            },
+            {
+              "name": "MG34",
+              "qty": 1,
+              "shots": 10,
+              "angle": 45,
+              "special": []
+            }
+          ]
+        }
+      ],
+      "crew": [
+        "Commander",
+        "Gunner",
+        "Assistant",
+        "Assistant",
+        "Radio/MG",
+        "Driver"
+      ],
+      "crewWeapon": [
+        {
+          "name": "MP40",
+          "qty": 6
+        }
+      ],
+      "variants": [
+        {
+          "name": "Ambush Camo",
+          "points": 30,
+          "modifiers": {
+            "characteristics": [
+              "Ambush Camo"
+            ]
+          }
+        },
+        {
+          "name": "remove MG34",
+          "points": -70,
+          "remove": {
+            "infantry": {
+              "weapons": [
+                {
+                  "name": "MG34",
+                  "qty": 1,
+                  "angle": 45,
+                  "group": 0
+                }
+              ]
+            }
+          }
+        }
+      ]
+    }
+  }
+}
