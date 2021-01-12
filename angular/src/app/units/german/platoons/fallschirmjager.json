@@ -89,7 +89,7 @@
         },
         {
           "name": "radio operator",
-          "points": 3,
+          "points": 10,
           "add": {
             "infantry": {
               "models": {
@@ -99,11 +99,13 @@
               "weapons": [
                 {
                   "name": "Kar98K",
-                  "qty": 1
+                  "qty": 1,
+                  "group": 2
                 },
                 {
                   "name": "MP40",
-                  "qty": 1
+                  "qty": 1,
+                  "group": 2
                 }
               ]
             }
