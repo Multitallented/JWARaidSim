@@ -26,6 +26,14 @@ export class BattleCounterComponent implements OnInit {
     }
   }
 
+  putRandomCounterBack() {
+    if (this.counters.length > 0) {
+      const randIndex = Math.floor(Math.random() * this.counters.length);
+      const drawnCounter = this.counters.splice(randIndex, 1);
+      this.undrawnCounters.push(drawnCounter);
+    }
+  }
+
   putCounterBack() {
     if (this.counters.length > 0) {
       const lastCounter = this.counters.pop();

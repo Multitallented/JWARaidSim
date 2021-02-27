@@ -3,9 +3,12 @@
   <div class="row">
     <div class="col wdth-50">
       <h3>Draw Counters</h3>
-      <p>To draw counters, click the draw button. You can put counters back with the back button.</p>
+      <p>To draw counters, click the draw button.</p>
+      <p>You can undo counters with the undo button.</p>
+      <p>You can return a random counter to the supply with the Recover button.</p>
       <a class="bttn bttn-primary" (click)="drawCounter()">Draw</a>
-      <a class="bttn bttn-secondary" (click)="putCounterBack()">Back</a>
+      <a class="bttn bttn-secondary" (click)="putCounterBack()">Undo</a>
+      <a class="bttn bttn-secondary" (click)="putRandomCounterBack()">Recover</a>
     </div>
     <div class="col wdth-50">
       <h3>Your Counters</h3>
