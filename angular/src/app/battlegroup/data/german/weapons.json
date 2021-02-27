@@ -1,0 +1,13 @@
+{
+  "Rifle": {
+    "range": 30,
+    "shots": 1
+  },
+  "SMG": {
+    "range": 10,
+    "shots": 1,
+    "special": [
+      "+1 $shots$ in Close Assault"
+    ]
+  }
+}

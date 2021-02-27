@@ -9,6 +9,7 @@ import { GameModule } from "./game/game.module";
 import { StoreModule } from "./store/store.module";
 import { FooterComponent } from './common/common.module';
 import { BattleCounterComponent } from './battle-counter/battle-counter.component';
+import { BattlegroupComponent } from './battlegroup/battlegroup.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { BattleCounterComponent } from './battle-counter/battle-counter.componen
     AccountComponent,
     FooterComponent,
     BattleCounterComponent,
+    BattlegroupComponent,
   ],
   imports: [
     BrowserModule,

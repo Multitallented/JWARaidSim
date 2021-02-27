@@ -1,0 +1,12 @@
+{
+  "factions": [
+    {
+      "name": "Kursk - Infantry Division",
+      "standardPlatoons": [
+        "Grenadier Platoon"
+      ],
+      "img": "../../assets/germans/german-army.jpg",
+      "lore": "The German Army used concepts pioneered during World War I like combining ground and air assets into combined arms forces. Coupled with operational and tactical methods such as encirclements and \"battle of annihilation\", the German military managed quick victories in the two initial years of World War II, a new style of warfare described as Blitzkrieg (lightning war) for its speed and destructive power."
+    }
+  ]
+}
