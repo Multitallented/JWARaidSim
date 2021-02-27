@@ -8,12 +8,14 @@ import { AboutModule } from "./about/about.module";
 import { GameModule } from "./game/game.module";
 import { StoreModule } from "./store/store.module";
 import { FooterComponent } from './common/common.module';
+import { BattleCounterComponent } from './battle-counter/battle-counter.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AccountComponent,
     FooterComponent,
+    BattleCounterComponent,
   ],
   imports: [
     BrowserModule,
@@ -23,6 +25,9 @@ import { FooterComponent } from './common/common.module';
     StoreModule
   ],
   providers: [],
+  exports: [
+    BattleCounterComponent
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -19,6 +19,7 @@
 </div>
 
 <div id="main">
+  <app-battle-counter *ngIf="isHome"></app-battle-counter>
   <app-home *ngIf="isHome"></app-home>
 
   <app-game *ngIf="isGame"></app-game>

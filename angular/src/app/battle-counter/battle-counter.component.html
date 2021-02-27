@@ -1,0 +1,18 @@
+<div class="container">
+  <h1>Battle Counter</h1>
+  <div class="row">
+    <div class="col wdth-50">
+      <h3>Draw Counters</h3>
+      <p>To draw counters, click the draw button. You can put counters back with the back button.</p>
+      <a class="bttn bttn-primary" (click)="drawCounter()">Draw</a>
+      <a class="bttn bttn-secondary" (click)="putCounterBack()">Back</a>
+    </div>
+    <div class="col wdth-50">
+      <h3>Your Counters</h3>
+      <h4>Total: {{getTotal()}}</h4>
+      <ul>
+        <li *ngFor="let counter of this.counters">{{counter}}</li>
+      </ul>
+    </div>
+  </div>
+</div>
