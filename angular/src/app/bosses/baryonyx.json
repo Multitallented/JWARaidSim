@@ -1,0 +1,14 @@
+{
+  "name": "Baryonyx",
+  "img": "baryonyx.webp",
+  "hp": 6077,
+  "dmg": 2069,
+  "speed": 134,
+  "armor": 0,
+  "crit": 30,
+  "moveset": [[
+    "defense-shattering-strike",
+    "group-takedown",
+    "defense-shattering-rampage"
+  ]]
+}

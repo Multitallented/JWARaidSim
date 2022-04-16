@@ -1,24 +1,11 @@
 @import "common/includes"
 
 #header
-  background-color: $background-color
+  background-color: $black
   position: fixed
   overflow: auto
   width: 100%
   z-index: 2
-
-  .container .clearfix
-    background: url("/assets/banner.png") no-repeat
-    background-position-x: 190px
-
-#logo
-  float: left
-
-  img
-    float: left
-  h1
-    float: left
-    margin: 32px 0 0 30px
 
 
 #main
@@ -29,19 +16,3 @@
   box-sizing: border-box
   z-index: 1
 
-.menu
-  background-color: $black
-  margin: 0 -15px
-  padding: 0 15px
-  border-top: 1px $black solid
-  border-bottom: 1px $black solid
-
-  a
-    display: inline-block
-    padding: 10px 20px
-    text-decoration: none
-    transition: all .5s
-
-    &:hover
-      text-decoration: none
-      background-color: $background-color

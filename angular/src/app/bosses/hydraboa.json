@@ -1,0 +1,38 @@
+{
+  "name": "Hydraboa",
+  "img": "hydraboa.webp",
+  "minions": [
+    "baryonyx",
+    "majungasaurus1"
+  ],
+  "hp": 21271,
+  "dmg": 2506,
+  "speed": 128,
+  "armor": 10,
+  "crit": 25,
+  "resistances": {
+    "crit": 75,
+    "dot": 80,
+    "dmg": 80,
+    "rend": 85,
+    "speed": 75,
+    "stun": 95,
+    "vuln": 35
+  },
+  "counter": "alert-coil",
+  "moveset": [[
+      "group-cunning-impact",
+      "squeeze-and-strike",
+      "cold-blooded-rampage"
+    ],[
+      "alert-slither",
+      "squeeze-and-strike",
+      "swallow"
+    ],[
+      "alert-slither",
+      "squeeze-and-strike",
+      "venomous-bite",
+      "total-cleanse-and-strike"
+    ]
+  ]
+}

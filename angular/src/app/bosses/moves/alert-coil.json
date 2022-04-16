@@ -1,0 +1,23 @@
+{
+  "name": "Alert Coil",
+  "img": "attack_buff_counter.png",
+  "buffs": [
+    {
+      "type": "dmg",
+      "amount": 5,
+      "turns": 3,
+      "attacks": 3
+    }
+  ],
+  "threatened": 50,
+  "threatenedMove": {
+    "buffs": [
+      {
+        "type": "dmg",
+        "amount": 10,
+        "turns": 3,
+        "attacks": 3
+      }
+    ]
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "name": "Majungasaurus",
+  "img": "majungasaurus.webp",
+  "hp": 5491,
+  "dmg": 1843,
+  "speed": 115,
+  "armor": 0,
+  "crit": 5,
+  "counter": "armor-piercing-counter",
+  "moveset": [[
+    "resilient-strike",
+    "group-mock-block-and-sock"
+  ]]
+}

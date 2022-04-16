@@ -1,32 +1,21 @@
 <div id="header">
   <div class="container">
-    <div class="clearfix">
-      <a id="logo" alt="Iron Front Down" (click)="setView('home')">
-        <img class="logo" src="assets/logo.png" />
-<!--        <h1>Iron Front Down</h1>-->
-      </a>
-      <div class="right">
-        <app-account></app-account>
-      </div>
-    </div>
-    <div class="menu">
-      <a href="#/game" (click)="setView('game')">Game</a>
-      <a href="#/store" (click)="setView('store')">Store</a>
-      <a href="#/rules" (click)="setView('rules')">Rules</a>
-      <a href="#/about" (click)="setView('about')">About</a>
-    </div>
+    <h1>JWARaidSim</h1>
   </div>
 </div>
 
 <div id="main">
-  <app-battle-counter *ngIf="isHome"></app-battle-counter>
-  <app-home *ngIf="isHome"></app-home>
+  <div class="container">
+    <div class="clearfix">
+      <div class="left">
+        <img [src]="bossImg" [alt]="bossName" />
+        <h3>{{bossName}}</h3>
+      </div>
+      <div class="left">
 
-  <app-game *ngIf="isGame"></app-game>
-
-  <app-store *ngIf="isStore"></app-store>
-
-  <app-about *ngIf="isAbout"></app-about>
+      </div>
+    </div>
+  </div>
 </div>
 
 
