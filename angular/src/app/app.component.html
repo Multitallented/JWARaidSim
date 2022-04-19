@@ -7,11 +7,12 @@
 <div id="main">
   <div class="container">
     <div class="clearfix">
-      <div class="left">
-        <img [src]="bossImg" [alt]="bossName" />
-        <h3>{{bossName}}</h3>
-      </div>
-      <div class="left">
+      <div *ngFor="let boss of bossesService.bosses" class="clearfix flex">
+        <img [src]="boss.img" [alt]="boss.name" />
+        <h3 class="bossname">{{boss.name}}</h3>
+        <div *ngFor="let moveset of boss.moveset" class="divider">
+          <app-move *ngFor="let move of moveset" [move]="move" [isboss]="true"></app-move>
+        </div>
 
       </div>
     </div>

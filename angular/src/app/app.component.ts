@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 
 import {BossesService} from './bosses.service';
+import {BossesMovesService} from './bosses-moves.service';
 
 @Component({
   selector: 'app-root',
@@ -10,8 +11,6 @@ import {BossesService} from './bosses.service';
 export class AppComponent implements OnInit {
 
   bossesService = new BossesService();
-  bossImg:string;
-  bossName:string;
 
   ngOnInit() {
     // let hash = window.location.hash;
@@ -20,7 +19,5 @@ export class AppComponent implements OnInit {
     //   return;
     // }
     // let navVars = hash.split('/');
-    this.bossImg = this.bossesService.bosses[0].img;
-    this.bossName = this.bossesService.bosses[0].name;
   }
 }

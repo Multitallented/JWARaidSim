@@ -1,0 +1,19 @@
+{
+  "key": "resilient-strike",
+  "name": "Resilient Strike",
+  "img": "resilient_strike.png",
+  "dmg": 1,
+  "remove": [
+    "dodge",
+    "cloak",
+    "speed"
+  ],
+  "debuffs": [
+    {
+      "type": "vuln",
+      "amount": 50,
+      "turns": 2,
+      "attacks": 1
+    }
+  ]
+}

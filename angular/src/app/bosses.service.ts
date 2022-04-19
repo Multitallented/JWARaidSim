@@ -1,9 +1,11 @@
 import {Injectable} from '@angular/core';
 
 import {Boss} from './models/boss';
+import {Resistances} from "./models/resistances";
 
 import * as hydraboa from "./bosses/hydraboa.json";
-import {Resistances} from "./models/resistances";
+import * as majung1 from "./bosses/majungasaurus1.json";
+import * as baryonyx from "./bosses/baryonyx.json";
 
 @Injectable({
   providedIn: 'root'
@@ -14,6 +16,8 @@ export class BossesService {
 
   constructor() {
     this.bosses.push(BossesService.assembleBoss(hydraboa['default']));
+    this.bosses.push(BossesService.assembleBoss(majung1['default']));
+    this.bosses.push(BossesService.assembleBoss(baryonyx['default']));
   }
 
   private static assembleBoss(importBoss: any):Boss {

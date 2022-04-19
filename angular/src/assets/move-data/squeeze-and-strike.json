@@ -1,0 +1,10 @@
+{
+  "key": "squeeze-and-strike",
+  "name": "Squeeze and Strike",
+  "img": "nullify.png",
+  "dmg": 1,
+  "remove": [
+    "all"
+  ],
+  "target": "all"
+}

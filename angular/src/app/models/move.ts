@@ -1,6 +1,8 @@
 import {Effect} from "./effect";
 
 export class Move {
+  key: string;
+  target: string;
   name: string;
   img: string;
   dmg: number;
